@@ -1478,23 +1478,23 @@ button {
    ========================================================================== */
 .theme-switcher-widget {
   position: fixed;
-  bottom: 24px;
-  left: 24px;
-  z-index: 9990;
+  top: 16px;
+  left: 20px;
+  z-index: 9999;
   font-family: var(--font-main);
 }
 
 .theme-switcher-trigger {
   background: #121212;
   color: #ffffff;
-  padding: 12px 20px;
+  padding: 10px 18px;
   border-radius: 30px;
   font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.5px;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
   cursor: pointer;
   border: 1.5px solid var(--color-gold);
@@ -1509,7 +1509,8 @@ button {
 
 .theme-switcher-panel {
   position: absolute;
-  bottom: 60px;
+  top: calc(100% + 10px);
+  bottom: auto;
   left: 0;
   width: 340px;
   max-width: 90vw;
@@ -1520,7 +1521,7 @@ button {
   padding: 20px;
   opacity: 0;
   visibility: hidden;
-  transform: translateY(15px);
+  transform: translateY(-10px);
   transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
@@ -1653,15 +1654,23 @@ button {
 
 @media (max-width: 768px) {
   .theme-switcher-widget {
-    bottom: 16px;
-    left: 16px;
+    top: 10px;
+    left: 12px;
+    bottom: auto;
   }
   .theme-switcher-trigger {
-    padding: 10px 16px;
-    font-size: 12px;
+    padding: 8px 14px;
+    font-size: 11px;
+    gap: 6px;
   }
   .theme-switcher-panel {
-    bottom: 50px;
-    width: 300px;
+    top: calc(100% + 8px);
+    bottom: auto;
+    width: 290px;
+    max-width: 88vw;
+    padding: 14px;
+  }
+  .theme-options-list {
+    max-height: 280px;
   }
 }
