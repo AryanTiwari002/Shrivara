@@ -1,203 +1,199 @@
 /**
- * SHRIVARA - Official Store Data & Interactive Controller
+ * SHRIVARA - Complete Store Catalog & Controller (All 214 Products)
  * Replicated 1:1 from https://shrivara.co/
  */
 
-// Live Bestsellers & New Arrivals from shrivara.co
-const BESTSELLERS = [
-  {
-    id: 101,
-    title: "Hazoorilal inspired -Bracelet 1",
-    category: "Bracelets & Bangles",
-    price: 5700,
-    comparePrice: 9500,
-    discount: "40% OFF",
-    rating: 5,
-    reviews: 18,
-    image: "https://shrivara.co/cdn/shop/files/WhatsAppImage2026-10-02at13.42.52_1.jpg?v=1791102703&width=600",
-    badge: "Bestseller"
-  },
-  {
-    id: 102,
-    title: "Hazoorilal inspired -jewellery set3",
-    category: "Jewellery Sets",
-    price: 5000,
-    comparePrice: 8500,
-    discount: "41% OFF",
-    rating: 5,
-    reviews: 24,
-    image: "https://shrivara.co/cdn/shop/files/WhatsApp_Image_2026-10-02_at_13.42.52.jpg?v=1791106092&width=600",
-    badge: "Trending"
-  },
-  {
-    id: 103,
-    title: "Premium collection-jewellery set 2",
-    category: "Jewellery Sets",
-    price: 8000,
-    comparePrice: 12500,
-    discount: "36% OFF",
-    rating: 5,
-    reviews: 31,
-    image: "https://shrivara.co/cdn/shop/files/WhatsAppImage2026-10-02at13.42.51_1.jpg?v=1791102550&width=600",
-    badge: "Heritage"
-  },
-  {
-    id: 104,
-    title: "Premium collection-jewellery set 1",
-    category: "Jewellery Sets",
-    price: 9000,
-    comparePrice: 14000,
-    discount: "35% OFF",
-    rating: 5,
-    reviews: 27,
-    image: "https://shrivara.co/cdn/shop/files/WhatsAppImage2026-10-02at13.42.51.jpg?v=1791102465&width=600",
-    badge: "Polki Grade A"
-  },
-  {
-    id: 105,
-    title: "Hazoorilal inspired -jewellery set2",
-    category: "Jewellery Sets",
-    price: 12000,
-    comparePrice: 18000,
-    discount: "33% OFF",
-    rating: 5,
-    reviews: 19,
-    image: "https://shrivara.co/cdn/shop/files/WhatsAppImage2026-10-02at13.42.48_1.jpg?v=1791100098&width=600",
-    badge: "Luxury Edit"
-  },
-  {
-    id: 106,
-    title: "Hazoorilal inspired -jewellery set1",
-    category: "Jewellery Sets",
-    price: 12000,
-    comparePrice: 18000,
-    discount: "33% OFF",
-    rating: 5,
-    reviews: 22,
-    image: "https://shrivara.co/cdn/shop/files/WhatsAppImage2026-10-02at13.42.48.jpg?v=1791099904&width=600",
-    badge: "Royal Collection"
-  },
-  {
-    id: 107,
-    title: "Aura Navratna Kundan Choker Set",
-    category: "Jewellery Sets",
-    price: 4500,
-    comparePrice: 6500,
-    discount: "Sold Out",
-    rating: 5,
-    reviews: 14,
-    image: "https://shrivara.co/cdn/shop/files/WhatsApp_Image_2026-09-10_at_15.48.18_2.jpg?v=1789539990&width=600",
-    badge: "Sold Out",
-    soldOut: true
-  }
-];
-
-const NEW_ARRIVALS = [
-  {
-    id: 201,
-    title: "Hazoorilal inspired -Bracelet 3",
-    category: "Bracelets & Bangles",
-    price: 5000,
-    comparePrice: 7500,
-    discount: "33% OFF",
-    rating: 5,
-    reviews: 11,
-    image: "https://shrivara.co/cdn/shop/files/WhatsAppImage2026-10-02at13.42.55.jpg?v=1791102986&width=600",
-    badge: "New"
-  },
-  {
-    id: 202,
-    title: "Hazoorilal inspired -Bracelet 2",
-    category: "Bracelets & Bangles",
-    price: 5000,
-    comparePrice: 7500,
-    discount: "33% OFF",
-    rating: 5,
-    reviews: 15,
-    image: "https://shrivara.co/cdn/shop/files/WhatsAppImage2026-10-02at13.42.54.jpg?v=1791102954&width=600",
-    badge: "New"
-  },
-  {
-    id: 203,
-    title: "Premium Pendant set 1",
-    category: "Pendant Set",
-    price: 600,
-    comparePrice: 1200,
-    discount: "50% OFF",
-    rating: 4.9,
-    reviews: 35,
-    image: "https://shrivara.co/cdn/shop/files/WhatsAppImage2026-10-02at13.42.53.jpg?v=1791102817&width=600",
-    badge: "Hot"
-  },
-  {
-    id: 204,
-    title: "The Empress Asymmetric Emerald & American Diamond Necklace Set",
-    category: "Jewellery Sets",
-    price: 1410,
-    comparePrice: 2800,
-    discount: "50% OFF",
-    rating: 5,
-    reviews: 40,
-    image: "https://shrivara.co/cdn/shop/files/ChatGPTImageJul27_2026_02_49_38PM.png?v=1785144016&width=600",
-    badge: "Bestseller"
-  }
-];
-
-// App State
-let cart = [
-  {
-    id: 101,
-    title: "Hazoorilal inspired -Bracelet 1",
-    price: 5700,
-    qty: 1,
-    image: "https://shrivara.co/cdn/shop/files/WhatsAppImage2026-10-02at13.42.52_1.jpg?v=1791102703&width=600"
-  }
-];
+// Cart & Wishlist State
+let cart = [];
 let wishlist = new Set();
 let currentSlide = 0;
 let slideInterval = null;
 
-// Initialize
+// Catalog Filter & Pagination State
+let activeCategory = 'all';
+let activeSort = 'featured';
+let searchQuery = '';
+let visibleProductCount = 16;
+const PRODUCTS_PER_PAGE = 16;
+
+// Quick View State
+let currentQuickViewProduct = null;
+
+// Initialize on DOM load
 document.addEventListener('DOMContentLoaded', () => {
-  renderProductCarousel('bestsellersGrid', BESTSELLERS);
-  renderProductCarousel('newArrivalsGrid', NEW_ARRIVALS);
+  // Initial sample cart item if cart empty
+  if (cart.length === 0 && ALL_PRODUCTS.length > 0) {
+    const firstP = ALL_PRODUCTS.find(p => p.price > 0 && !p.isSoldOut) || ALL_PRODUCTS[0];
+    cart.push({
+      id: firstP.id,
+      title: firstP.title,
+      price: firstP.price,
+      qty: 1,
+      image: firstP.image
+    });
+  }
+
   initHeroSlider();
+  renderFeaturedCarousels();
+  renderCatalog();
   updateCartUI();
   initEventListeners();
 });
 
-// Render Product Carousel Cards
-function renderProductCarousel(containerId, productList) {
-  const container = document.getElementById(containerId);
-  if (!container) return;
+// Render Featured Carousels (Bestsellers & New Arrivals)
+function renderFeaturedCarousels() {
+  const bestsellersGrid = document.getElementById('bestsellersGrid');
+  const newArrivalsGrid = document.getElementById('newArrivalsGrid');
 
-  container.innerHTML = productList.map(product => `
+  // Specific top products from shrivara.co
+  const topBestsellers = ALL_PRODUCTS.filter(p => 
+    p.title.includes('Hazoorilal') || 
+    p.title.includes('Premium collection') || 
+    p.title.includes('Navratna')
+  ).slice(0, 10);
+
+  const topNewArrivals = ALL_PRODUCTS.filter(p => 
+    p.title.includes('Empress') || 
+    p.title.includes('Regalia') || 
+    p.title.includes('Vintage Heritage') ||
+    p.title.includes('Royal')
+  ).slice(0, 10);
+
+  if (bestsellersGrid) {
+    bestsellersGrid.innerHTML = topBestsellers.map(p => createProductCardHTML(p)).join('');
+  }
+  if (newArrivalsGrid) {
+    newArrivalsGrid.innerHTML = topNewArrivals.map(p => createProductCardHTML(p)).join('');
+  }
+}
+
+// Generate Product Card HTML
+function createProductCardHTML(product) {
+  const isWish = wishlist.has(product.id);
+  const priceDisplay = product.price > 0 ? `Rs. ${product.price.toLocaleString('en-IN')}.00` : 'Sold Out';
+  const compareDisplay = product.comparePrice > product.price && product.price > 0 ? `Rs. ${product.comparePrice.toLocaleString('en-IN')}.00` : '';
+
+  return `
     <div class="product-card" data-id="${product.id}">
       <div class="product-media">
-        <img src="${product.image}" alt="${product.title}" loading="lazy">
-        ${product.badge ? `<span class="product-badge ${product.soldOut ? 'badge-sold-out' : ''}">${product.badge}</span>` : ''}
-        <button class="wishlist-btn ${wishlist.has(product.id) ? 'active' : ''}" onclick="toggleWishlist(${product.id})" aria-label="Add to wishlist">
-          <i class="${wishlist.has(product.id) ? 'fas fa-heart' : 'far fa-heart'}"></i>
+        <img src="${product.image}" alt="${product.title}" loading="lazy" onclick="openQuickView(${product.id})">
+        ${product.isSoldOut ? `<span class="product-badge badge-sold-out">Sold Out</span>` : (product.discount && product.price > 0 ? `<span class="product-badge">${product.discount}</span>` : '')}
+        <button class="wishlist-btn ${isWish ? 'active' : ''}" onclick="toggleWishlist(${product.id})" aria-label="Wishlist">
+          <i class="${isWish ? 'fas fa-heart' : 'far fa-heart'}"></i>
         </button>
       </div>
       <div class="product-details">
         <span class="product-category">${product.category}</span>
-        <h3 class="product-title">${product.title}</h3>
+        <h3 class="product-title" onclick="openQuickView(${product.id})" title="${product.title}">${product.title}</h3>
         <div class="product-rating">
           <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-          <span>(${product.reviews})</span>
+          <span>(5.0)</span>
         </div>
         <div class="product-price-row">
-          <span class="product-price">Rs. ${product.price.toLocaleString('en-IN')}.00</span>
-          ${product.comparePrice ? `<span class="product-compare-price">Rs. ${product.comparePrice.toLocaleString('en-IN')}.00</span>` : ''}
-          ${product.discount ? `<span class="product-discount">${product.discount}</span>` : ''}
+          <span class="product-price">${priceDisplay}</span>
+          ${compareDisplay ? `<span class="product-compare-price">${compareDisplay}</span>` : ''}
         </div>
-        <button class="add-to-cart-btn ${product.soldOut ? 'disabled' : ''}" onclick="${product.soldOut ? '' : `addToCart(${product.id})`}">
-          ${product.soldOut ? 'Sold Out' : '<i class="fas fa-shopping-bag"></i> Add to Cart'}
+        <button class="add-to-cart-btn ${product.isSoldOut ? 'disabled' : ''}" onclick="${product.isSoldOut ? '' : `addToCart(${product.id})`}">
+          ${product.isSoldOut ? 'Sold Out' : '<i class="fas fa-shopping-bag"></i> Add to Cart'}
         </button>
       </div>
     </div>
-  `).join('');
+  `;
+}
+
+// Filter and Render Full Catalog
+function renderCatalog() {
+  const grid = document.getElementById('catalogGrid');
+  const countEl = document.getElementById('catalogProductCount');
+  const loadMoreBtn = document.getElementById('loadMoreBtn');
+  if (!grid) return;
+
+  // 1. Filter by category
+  let filtered = ALL_PRODUCTS.filter(p => {
+    if (activeCategory === 'all') return true;
+    if (activeCategory === 'anti-tarnish') return p.isAntiTarnish;
+    return p.category.toLowerCase() === activeCategory.toLowerCase();
+  });
+
+  // 2. Filter by search query
+  if (searchQuery.trim()) {
+    const q = searchQuery.toLowerCase();
+    filtered = filtered.filter(p => 
+      p.title.toLowerCase().includes(q) || 
+      p.category.toLowerCase().includes(q)
+    );
+  }
+
+  // 3. Sort
+  if (activeSort === 'price-low') {
+    filtered.sort((a, b) => a.price - b.price);
+  } else if (activeSort === 'price-high') {
+    filtered.sort((a, b) => b.price - a.price);
+  } else if (activeSort === 'title-asc') {
+    filtered.sort((a, b) => a.title.localeCompare(b.title));
+  }
+
+  if (countEl) {
+    countEl.textContent = `Showing ${Math.min(visibleProductCount, filtered.length)} of ${filtered.length} products`;
+  }
+
+  // 4. Slice for pagination
+  const visible = filtered.slice(0, visibleProductCount);
+
+  if (visible.length === 0) {
+    grid.innerHTML = `
+      <div style="grid-column: 1/-1; text-align: center; padding: 60px 20px; color: #888;">
+        <i class="fas fa-gem" style="font-size: 40px; color: #ccc; margin-bottom: 12px;"></i>
+        <h3>No jewellery pieces found</h3>
+        <p>Try selecting a different collection or clearing your search.</p>
+        <button class="view-all-btn" style="margin-top: 16px;" onclick="setCategory('all')">View All Jewellery</button>
+      </div>
+    `;
+    if (loadMoreBtn) loadMoreBtn.style.display = 'none';
+    return;
+  }
+
+  grid.innerHTML = visible.map(p => createProductCardHTML(p)).join('');
+
+  if (loadMoreBtn) {
+    if (visibleProductCount >= filtered.length) {
+      loadMoreBtn.style.display = 'none';
+    } else {
+      loadMoreBtn.style.display = 'inline-block';
+      loadMoreBtn.textContent = `Load More (${filtered.length - visibleProductCount} remaining)`;
+    }
+  }
+}
+
+// Category filter trigger
+function setCategory(cat) {
+  activeCategory = cat;
+  visibleProductCount = PRODUCTS_PER_PAGE;
+  
+  // Update active pill
+  document.querySelectorAll('.filter-pill').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.category === cat);
+  });
+
+  renderCatalog();
+
+  // Scroll to catalog section smoothly
+  const catalogSec = document.getElementById('catalog');
+  if (catalogSec) {
+    catalogSec.scrollIntoView({ behavior: 'smooth' });
+  }
+}
+
+// Sort trigger
+function handleSortChange(sortVal) {
+  activeSort = sortVal;
+  renderCatalog();
+}
+
+// Load more trigger
+function loadMoreProducts() {
+  visibleProductCount += PRODUCTS_PER_PAGE;
+  renderCatalog();
 }
 
 // Hero Slider
@@ -239,7 +235,7 @@ function initHeroSlider() {
   startAutoPlay();
 }
 
-// Carousel Scroll Navigation
+// Carousel horizontal scroll navigation
 function scrollCarousel(containerId, distance) {
   const container = document.getElementById(containerId);
   if (container) {
@@ -259,7 +255,7 @@ function toggleWishlist(productId) {
   const countEl = document.getElementById('wishlistCount');
   if (countEl) countEl.textContent = wishlist.size;
 
-  // Update heart icons
+  // Update hearts across all visible cards
   document.querySelectorAll(`.product-card[data-id="${productId}"] .wishlist-btn`).forEach(btn => {
     btn.classList.toggle('active', wishlist.has(productId));
     const icon = btn.querySelector('i');
@@ -270,20 +266,19 @@ function toggleWishlist(productId) {
 }
 
 // Cart Functionality
-function addToCart(productId) {
-  const allProducts = [...BESTSELLERS, ...NEW_ARRIVALS];
-  const product = allProducts.find(p => p.id === productId);
-  if (!product || product.soldOut) return;
+function addToCart(productId, qty = 1) {
+  const product = ALL_PRODUCTS.find(p => p.id === productId);
+  if (!product || product.isSoldOut) return;
 
   const existing = cart.find(item => item.id === productId);
   if (existing) {
-    existing.qty += 1;
+    existing.qty += qty;
   } else {
     cart.push({
       id: product.id,
       title: product.title,
       price: product.price,
-      qty: 1,
+      qty: qty,
       image: product.image
     });
   }
@@ -337,7 +332,6 @@ function updateCartUI() {
     }
   }
 
-  // Render Cart Items
   if (cartItemsContainer) {
     if (cart.length === 0) {
       cartItemsContainer.innerHTML = `
@@ -368,6 +362,102 @@ function updateCartUI() {
   }
 }
 
+// Quick View Modal
+function openQuickView(productId) {
+  const product = ALL_PRODUCTS.find(p => p.id === productId);
+  if (!product) return;
+  currentQuickViewProduct = product;
+
+  const modal = document.getElementById('quickViewModal');
+  const content = document.getElementById('quickViewContent');
+  if (!modal || !content) return;
+
+  const images = product.images.length > 0 ? product.images : [product.image];
+
+  content.innerHTML = `
+    <div class="quick-view-grid">
+      <div class="quick-view-gallery">
+        <div class="quick-view-main-img">
+          <img id="qvMainImg" src="${images[0]}" alt="${product.title}">
+        </div>
+        ${images.length > 1 ? `
+          <div class="quick-view-thumbs">
+            ${images.map((img, idx) => `
+              <img src="${img}" class="${idx === 0 ? 'active' : ''}" onclick="setQuickViewImg('${img}', this)">
+            `).join('')}
+          </div>
+        ` : ''}
+      </div>
+      <div class="quick-view-info">
+        <span class="product-category">${product.category}</span>
+        <h2 style="font-size: 22px; font-weight: 700; margin-bottom: 8px; color: #121212;">${product.title}</h2>
+        <div class="product-rating" style="margin-bottom: 14px;">
+          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          <span>(125+ reviews)</span>
+        </div>
+        <div class="product-price-row" style="margin-bottom: 18px;">
+          <span style="font-size: 22px; font-weight: 700; color: #083a12;">
+            ${product.price > 0 ? `Rs. ${product.price.toLocaleString('en-IN')}.00` : 'Sold Out'}
+          </span>
+          ${product.comparePrice > product.price ? `
+            <span style="font-size: 15px; color: #888; text-decoration: line-through;">
+              Rs. ${product.comparePrice.toLocaleString('en-IN')}.00
+            </span>
+          ` : ''}
+          ${product.discount && product.price > 0 ? `<span class="product-discount">${product.discount}</span>` : ''}
+        </div>
+        
+        <p style="font-size: 14px; line-height: 1.7; color: #555; margin-bottom: 20px;">
+          Handcrafted statement jewellery by Shrivara. Premium finish, skin-friendly, anti-tarnish coating, and designed with high-grade polkis and stones.
+        </p>
+
+        <ul style="list-style: none; margin-bottom: 24px; font-size: 13px; color: #333;">
+          <li style="margin-bottom: 6px;"><i class="fas fa-check" style="color: #083a12; margin-right: 8px;"></i> 100% Anti-Tarnish Coating</li>
+          <li style="margin-bottom: 6px;"><i class="fas fa-check" style="color: #083a12; margin-right: 8px;"></i> High Grade Polki & Gemstones</li>
+          <li style="margin-bottom: 6px;"><i class="fas fa-check" style="color: #083a12; margin-right: 8px;"></i> Made in India with Heritage Craft</li>
+        </ul>
+
+        <div style="display: flex; gap: 12px; align-items: center;">
+          <div class="qty-controls" style="padding: 8px 12px;">
+            <button class="qty-btn" onclick="adjustQuickViewQty(-1)">-</button>
+            <span class="qty-val" id="qvQtyVal">1</span>
+            <button class="qty-btn" onclick="adjustQuickViewQty(1)">+</button>
+          </div>
+          <button class="add-to-cart-btn ${product.isSoldOut ? 'disabled' : ''}" style="padding: 14px 28px; font-size: 13px; flex-grow: 1;" onclick="${product.isSoldOut ? '' : `addQuickViewToCart(${product.id})`}">
+            ${product.isSoldOut ? 'Sold Out' : 'Add to Shopping Bag'}
+          </button>
+        </div>
+      </div>
+    </div>
+  `;
+
+  modal.classList.add('open');
+}
+
+function closeQuickView() {
+  const modal = document.getElementById('quickViewModal');
+  if (modal) modal.classList.remove('open');
+}
+
+function setQuickViewImg(url, thumbEl) {
+  document.getElementById('qvMainImg').src = url;
+  document.querySelectorAll('.quick-view-thumbs img').forEach(el => el.classList.remove('active'));
+  thumbEl.classList.add('active');
+}
+
+let qvCurrentQty = 1;
+function adjustQuickViewQty(delta) {
+  qvCurrentQty = Math.max(1, qvCurrentQty + delta);
+  const el = document.getElementById('qvQtyVal');
+  if (el) el.textContent = qvCurrentQty;
+}
+
+function addQuickViewToCart(productId) {
+  addToCart(productId, qvCurrentQty);
+  closeQuickView();
+  qvCurrentQty = 1;
+}
+
 // Drawer & Modal Controls
 function openCartDrawer() {
   document.getElementById('cartDrawer').classList.add('open');
@@ -393,7 +483,7 @@ function toggleMobileNav() {
   if (nav) nav.classList.toggle('mobile-open');
 }
 
-// Live Search
+// Live Search in Modal
 function handleLiveSearch(query) {
   const resultsContainer = document.getElementById('searchResults');
   if (!query.trim()) {
@@ -401,11 +491,10 @@ function handleLiveSearch(query) {
     return;
   }
 
-  const allProducts = [...BESTSELLERS, ...NEW_ARRIVALS];
-  const matches = allProducts.filter(p => 
+  const matches = ALL_PRODUCTS.filter(p => 
     p.title.toLowerCase().includes(query.toLowerCase()) || 
     p.category.toLowerCase().includes(query.toLowerCase())
-  );
+  ).slice(0, 10);
 
   if (matches.length === 0) {
     resultsContainer.innerHTML = `<p style="padding: 16px; color: #888;">No jewellery found matching "${query}"</p>`;
@@ -413,11 +502,13 @@ function handleLiveSearch(query) {
   }
 
   resultsContainer.innerHTML = matches.map(p => `
-    <div style="display: flex; align-items: center; gap: 14px; padding: 12px 0; border-bottom: 1px solid #f0f0f0; cursor: pointer;" onclick="addToCart(${p.id}); closeSearchModal();">
-      <img src="${p.image}" style="width: 50px; height: 50px; border-radius: 4px; object-fit: cover;">
+    <div style="display: flex; align-items: center; gap: 14px; padding: 12px 0; border-bottom: 1px solid #f0f0f0; cursor: pointer;" onclick="openQuickView(${p.id}); closeSearchModal();">
+      <img src="${p.image}" style="width: 50px; height: 50px; border-radius: 2px; object-fit: cover;">
       <div>
         <h5 style="font-size: 14px; font-weight: 600; color: #121212;">${p.title}</h5>
-        <span style="font-size: 13px; color: #083a12; font-weight: 700;">Rs. ${p.price.toLocaleString('en-IN')}.00</span>
+        <span style="font-size: 13px; color: #083a12; font-weight: 700;">
+          ${p.price > 0 ? `Rs. ${p.price.toLocaleString('en-IN')}.00` : 'Sold Out'}
+        </span>
       </div>
     </div>
   `).join('');
@@ -440,6 +531,16 @@ function initEventListeners() {
       e.preventDefault();
       showToast("Thank you for joining Shrivara! Enjoy 5% off code: FIRST5");
       form.reset();
+    });
+  }
+
+  // Catalog search input
+  const catalogSearchInput = document.getElementById('catalogSearch');
+  if (catalogSearchInput) {
+    catalogSearchInput.addEventListener('input', (e) => {
+      searchQuery = e.target.value;
+      visibleProductCount = PRODUCTS_PER_PAGE;
+      renderCatalog();
     });
   }
 }

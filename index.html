@@ -59,18 +59,18 @@
     <nav class="nav-bar">
       <div class="container">
         <ul class="nav-links">
-          <li><a href="#" class="active">SHOP</a></li>
+          <li><a href="#catalog" onclick="setCategory('all')">SHOP ALL</a></li>
           <li><a href="#collections">COLLECTIONS</a></li>
           <li><a href="#bestsellers">BESTSELLERS</a></li>
           <li><a href="#new-arrivals">NEW ARRIVALS</a></li>
-          <li><a href="#collections">EARRINGS</a></li>
-          <li><a href="#collections">JEWELLERY SETS</a></li>
-          <li><a href="#collections">BRACELETS & BANGLES</a></li>
-          <li><a href="#collections">ANTI-TARNISH PENDANT</a></li>
-          <li><a href="#collections">ANTI-TARNISH EARRING</a></li>
-          <li><a href="#collections">ANTI-TARNISH JEWELLERY SET</a></li>
-          <li><a href="#collections">PENDANT SET</a></li>
-          <li><a href="#collections">RINGS</a></li>
+          <li><a href="#catalog" onclick="setCategory('Earrings')">EARRINGS</a></li>
+          <li><a href="#catalog" onclick="setCategory('Jewellery Sets')">JEWELLERY SETS</a></li>
+          <li><a href="#catalog" onclick="setCategory('Bracelets & Bangles')">BRACELETS & BANGLES</a></li>
+          <li><a href="#catalog" onclick="setCategory('anti-tarnish')">ANTI-TARNISH</a></li>
+          <li><a href="#catalog" onclick="setCategory('Pendant Set')">PENDANT SET</a></li>
+          <li><a href="#catalog" onclick="setCategory('Rings')">RINGS</a></li>
+          <li><a href="#story">OUR STORY</a></li>
+          <li><a href="#reviews">REVIEWS</a></li>
         </ul>
       </div>
     </nav>
@@ -108,16 +108,14 @@
     <div class="container">
       <div class="carousel-header">
         <h2 class="carousel-title">Bestsellers</h2>
-        <a href="#bestsellers" class="view-all-btn">View all</a>
+        <a href="#catalog" onclick="setCategory('all')" class="view-all-btn">View all</a>
       </div>
 
       <div class="carousel-wrapper">
         <button class="carousel-nav-btn carousel-prev" onclick="scrollCarousel('bestsellersGrid', -260)" aria-label="Scroll left">
           <i class="fas fa-chevron-left"></i>
         </button>
-        <div class="products-carousel" id="bestsellersGrid">
-          <!-- Injected by app.js -->
-        </div>
+        <div class="products-carousel" id="bestsellersGrid"></div>
         <button class="carousel-nav-btn carousel-next" onclick="scrollCarousel('bestsellersGrid', 260)" aria-label="Scroll right">
           <i class="fas fa-chevron-right"></i>
         </button>
@@ -132,71 +130,120 @@
 
       <div class="collections-grid-6">
         <!-- 1. Pendant Set -->
-        <a href="#bestsellers" class="collection-item-card">
+        <div class="collection-item-card" onclick="setCategory('Pendant Set')">
           <div class="collection-item-media">
             <img src="https://shrivara.co/cdn/shop/collections/WhatsApp_Image_2026-07-26_at_18.14.32.jpg?v=1785069982&width=1500" alt="Pendant Set">
           </div>
           <h3 class="collection-item-name">Pendant Set</h3>
-        </a>
+        </div>
 
         <!-- 2. Earrings -->
-        <a href="#bestsellers" class="collection-item-card">
+        <div class="collection-item-card" onclick="setCategory('Earrings')">
           <div class="collection-item-media">
             <img src="https://shrivara.co/cdn/shop/collections/WhatsApp_Image_2026-07-26_at_18.41.22.jpg?v=1785071683&width=1500" alt="Earrings">
           </div>
           <h3 class="collection-item-name">Earrings</h3>
-        </a>
+        </div>
 
         <!-- 3. Bracelets & Bangles -->
-        <a href="#bestsellers" class="collection-item-card">
+        <div class="collection-item-card" onclick="setCategory('Bracelets & Bangles')">
           <div class="collection-item-media">
             <img src="https://shrivara.co/cdn/shop/collections/WhatsApp_Image_2026-07-26_at_19.05.32.jpg?v=1785073014&width=1500" alt="Bracelets & Bangles">
           </div>
           <h3 class="collection-item-name">Bracelets & Bangles</h3>
-        </a>
+        </div>
 
         <!-- 4. Jewellery Sets -->
-        <a href="#bestsellers" class="collection-item-card">
+        <div class="collection-item-card" onclick="setCategory('Jewellery Sets')">
           <div class="collection-item-media">
             <img src="https://shrivara.co/cdn/shop/collections/WhatsApp_Image_2026-07-26_at_20.51.35.jpg?v=1785079938&width=1500" alt="Jewellery Sets">
           </div>
           <h3 class="collection-item-name">Jewellery Sets</h3>
-        </a>
+        </div>
 
         <!-- 5. Rings -->
-        <a href="#bestsellers" class="collection-item-card">
+        <div class="collection-item-card" onclick="setCategory('Rings')">
           <div class="collection-item-media">
             <img src="https://shrivara.co/cdn/shop/collections/ChatGPT_Image_Aug_18_2026_11_50_43_PM.png?v=1787077388&width=1500" alt="Rings">
           </div>
           <h3 class="collection-item-name">Rings</h3>
-        </a>
+        </div>
 
         <!-- 6. Anti-Tarnish -->
-        <a href="#bestsellers" class="collection-item-card">
+        <div class="collection-item-card" onclick="setCategory('anti-tarnish')">
           <div class="collection-item-media">
             <img src="https://shrivara.co/cdn/shop/collections/Gemini_Generated_Image_3gqx753gqx753gqx.png?v=1789385692&width=1500" alt="Anti-Tarnish">
           </div>
           <h3 class="collection-item-name">Anti-Tarnish</h3>
-        </a>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- 6. New Arrivals Carousel -->
+  <!-- 6. Complete Catalog (All 214 Products with Filters & Search) -->
+  <section class="catalog-section" id="catalog">
+    <div class="container">
+      <h2 class="section-main-title">EXPLORE OUR JEWELLERY (214 PIECES)</h2>
+
+      <!-- Catalog Toolbar -->
+      <div class="catalog-toolbar">
+        <!-- Filter Pills -->
+        <div class="filter-pills">
+          <button class="filter-pill active" data-category="all" onclick="setCategory('all')">All (214)</button>
+          <button class="filter-pill" data-category="Jewellery Sets" onclick="setCategory('Jewellery Sets')">Jewellery Sets</button>
+          <button class="filter-pill" data-category="Earrings" onclick="setCategory('Earrings')">Earrings</button>
+          <button class="filter-pill" data-category="Bracelets & Bangles" onclick="setCategory('Bracelets & Bangles')">Bracelets & Bangles</button>
+          <button class="filter-pill" data-category="Necklaces & Pendants" onclick="setCategory('Necklaces & Pendants')">Necklaces</button>
+          <button class="filter-pill" data-category="Pendant Set" onclick="setCategory('Pendant Set')">Pendant Sets</button>
+          <button class="filter-pill" data-category="Rings" onclick="setCategory('Rings')">Rings</button>
+          <button class="filter-pill" data-category="anti-tarnish" onclick="setCategory('anti-tarnish')">Anti-Tarnish</button>
+        </div>
+
+        <!-- Actions: Search & Sort -->
+        <div class="catalog-actions">
+          <div class="catalog-search-box">
+            <i class="fas fa-search catalog-search-icon"></i>
+            <input type="text" id="catalogSearch" class="catalog-search-input" placeholder="Filter 214 items...">
+          </div>
+
+          <select class="sort-select" onchange="handleSortChange(this.value)">
+            <option value="featured">Sort by: Featured</option>
+            <option value="price-low">Price: Low to High</option>
+            <option value="price-high">Price: High to Low</option>
+            <option value="title-asc">Alphabetical: A-Z</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Count Row -->
+      <div class="catalog-count-row">
+        <span id="catalogProductCount">Loading products...</span>
+        <span>Instant Free Delivery on orders over Rs. 1,999</span>
+      </div>
+
+      <!-- Catalog Grid -->
+      <div class="catalog-grid" id="catalogGrid"></div>
+
+      <!-- Load More Button -->
+      <div class="load-more-wrapper">
+        <button id="loadMoreBtn" class="load-more-btn" onclick="loadMoreProducts()">Load More Pieces</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. New Arrivals Carousel -->
   <section class="carousel-section" id="new-arrivals">
     <div class="container">
       <div class="carousel-header">
         <h2 class="carousel-title">New Arrivals</h2>
-        <a href="#new-arrivals" class="view-all-btn">View all</a>
+        <a href="#catalog" onclick="setCategory('all')" class="view-all-btn">View all</a>
       </div>
 
       <div class="carousel-wrapper">
         <button class="carousel-nav-btn carousel-prev" onclick="scrollCarousel('newArrivalsGrid', -260)" aria-label="Scroll left">
           <i class="fas fa-chevron-left"></i>
         </button>
-        <div class="products-carousel" id="newArrivalsGrid">
-          <!-- Injected by app.js -->
-        </div>
+        <div class="products-carousel" id="newArrivalsGrid"></div>
         <button class="carousel-nav-btn carousel-next" onclick="scrollCarousel('newArrivalsGrid', 260)" aria-label="Scroll right">
           <i class="fas fa-chevron-right"></i>
         </button>
@@ -204,14 +251,14 @@
     </div>
   </section>
 
-  <!-- 7. Full-Width Image Banner -->
+  <!-- 8. Full-Width Image Banner -->
   <section class="full-image-banner" style="background-image: url('https://shrivara.co/cdn/shop/files/WhatsApp_Image_2026-08-30_at_17.52.12.jpg?v=1788096106&width=3840');">
     <div class="banner-action-box">
-      <a href="#collections" class="banner-cta-btn">EXPLORE NOW</a>
+      <a href="#catalog" onclick="setCategory('all')" class="banner-cta-btn">EXPLORE NOW</a>
     </div>
   </section>
 
-  <!-- 8. Our Story Section -->
+  <!-- 9. Our Story Section -->
   <section class="story-section" id="story">
     <div class="container">
       <div class="story-grid">
@@ -229,13 +276,13 @@
           <p>
             At Shrivara, we believe jewellery is more than an accessory; it's an expression of confidence, individuality, and celebration. Whether it's everyday elegance or life's special moments, our collections are designed to make every occasion shine
           </p>
-          <a href="#story" class="story-btn">About Us</a>
+          <a href="#catalog" onclick="setCategory('all')" class="story-btn">Shop Our Heritage</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 9. Marquee Ticker Banner -->
+  <!-- 10. Marquee Ticker Banner -->
   <div class="marquee-bar">
     <div class="marquee-inner">
       <span class="marquee-text">ANTI - TARNISH | GOLD PLATED | HIGH CRAFTSMANSHIP | PREMIUM GRADE POLKIS & GEMSTONES | MADE IN INDIA</span>
@@ -246,13 +293,12 @@
     </div>
   </div>
 
-  <!-- 10. Customer Reviews -->
+  <!-- 11. Customer Reviews -->
   <section class="reviews-section" id="reviews">
     <div class="container">
       <h2 class="section-main-title">CUSTOMER REVIEWS</h2>
 
       <div class="reviews-grid">
-        <!-- Review 1 -->
         <div class="review-card">
           <div class="review-stars">
             <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
@@ -265,7 +311,6 @@
           </div>
         </div>
 
-        <!-- Review 2 -->
         <div class="review-card">
           <div class="review-stars">
             <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
@@ -278,7 +323,6 @@
           </div>
         </div>
 
-        <!-- Review 3 -->
         <div class="review-card">
           <div class="review-stars">
             <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
@@ -291,7 +335,6 @@
           </div>
         </div>
 
-        <!-- Review 4 -->
         <div class="review-card">
           <div class="review-stars">
             <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
@@ -304,7 +347,6 @@
           </div>
         </div>
 
-        <!-- Review 5 -->
         <div class="review-card">
           <div class="review-stars">
             <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
@@ -317,7 +359,6 @@
           </div>
         </div>
 
-        <!-- Review 6 -->
         <div class="review-card">
           <div class="review-stars">
             <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
@@ -333,7 +374,7 @@
     </div>
   </section>
 
-  <!-- 11. Trust & Value Badges -->
+  <!-- 12. Trust & Value Badges -->
   <section class="badges-section">
     <div class="container">
       <div class="badges-grid">
@@ -364,7 +405,7 @@
     </div>
   </section>
 
-  <!-- 12. Footer -->
+  <!-- 13. Footer -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-top">
@@ -384,12 +425,13 @@
         <div class="footer-col">
           <h4>SHOP</h4>
           <ul class="footer-links">
-            <li><a href="#collections">All Collections</a></li>
-            <li><a href="#bestsellers">Bestsellers</a></li>
-            <li><a href="#new-arrivals">New Arrivals</a></li>
-            <li><a href="#collections">Earrings</a></li>
-            <li><a href="#collections">Jewellery Sets</a></li>
-            <li><a href="#collections">Bracelets & Bangles</a></li>
+            <li><a href="#catalog" onclick="setCategory('all')">All Collections (214 Pieces)</a></li>
+            <li><a href="#catalog" onclick="setCategory('Jewellery Sets')">Jewellery Sets</a></li>
+            <li><a href="#catalog" onclick="setCategory('Earrings')">Earrings</a></li>
+            <li><a href="#catalog" onclick="setCategory('Bracelets & Bangles')">Bracelets & Bangles</a></li>
+            <li><a href="#catalog" onclick="setCategory('Necklaces & Pendants')">Necklaces</a></li>
+            <li><a href="#catalog" onclick="setCategory('Rings')">Rings</a></li>
+            <li><a href="#catalog" onclick="setCategory('anti-tarnish')">Anti-Tarnish Jewellery</a></li>
           </ul>
         </div>
 
@@ -462,15 +504,25 @@
       <button class="close-search-btn" onclick="closeSearchModal()">&times;</button>
       <div class="search-input-box">
         <i class="fas fa-search" style="color: var(--color-primary); font-size: 18px;"></i>
-        <input type="text" class="search-input" id="searchInput" placeholder="Search necklaces, earrings, bangles..." oninput="handleLiveSearch(this.value)">
+        <input type="text" class="search-input" id="searchInput" placeholder="Search 214 jewellery pieces..." oninput="handleLiveSearch(this.value)">
       </div>
       <div class="search-results-list" id="searchResults"></div>
+    </div>
+  </div>
+
+  <!-- Quick View Modal -->
+  <div class="quick-view-modal" id="quickViewModal" onclick="if(event.target===this) closeQuickView()">
+    <div class="quick-view-card">
+      <button class="close-quick-view-btn" onclick="closeQuickView()">&times;</button>
+      <div id="quickViewContent"></div>
     </div>
   </div>
 
   <!-- Toast -->
   <div class="toast-notice" id="toastNotice"></div>
 
+  <!-- Scripts -->
+  <script src="products.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
