@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
   renderCatalog();
   updateCartUI();
   initEventListeners();
-  initThemeSwitcher();
+  initColorMode();
 });
 
 // Render Featured Carousels (Bestsellers & New Arrivals)
@@ -545,251 +545,47 @@ function initEventListeners() {
     });
   }
 
-  // Close theme switcher panel when clicking outside
-  document.addEventListener('click', (e) => {
-    const widget = document.getElementById('themeSwitcherWidget');
-    if (widget && !widget.contains(e.target)) {
-      const panel = document.getElementById('themeSwitcherPanel');
-      if (panel) panel.classList.remove('open');
-    }
-  });
 }
 
 // ==========================================================================
-// Luxury Theme Studio - Live Color Palette Switcher
+// Dark / Light Mode Controller (Royal Sapphire & Warm Honey)
 // ==========================================================================
-// ==========================================================================
-// Luxury Theme Studio - Color Palettes & Background Canvas Tones
-// ==========================================================================
+let currentColorMode = 'light';
 
-const CANVAS_MODES = {
-  'white': {
-    name: 'Pure White',
-    subtitle: 'Crisp & Modern',
-    bodyBg: '#ffffff',
-    surfaceBg: '#ffffff',
-    secondaryBg: '#f7f7f7',
-    cardBg: '#ffffff',
-    border: '#e0e0e0',
-    textDark: '#121212',
-    textMuted: '#555555',
-    swatch: '#ffffff'
-  },
-  'ivory': {
-    name: 'Silk Ivory',
-    subtitle: 'Heritage Bridal Cream',
-    bodyBg: '#FAF7F2',
-    surfaceBg: '#FFFFFF',
-    secondaryBg: '#F3ECE0',
-    cardBg: '#FFFFFF',
-    border: '#E8E0D1',
-    textDark: '#1A1816',
-    textMuted: '#615C54',
-    swatch: '#FAF7F2'
-  },
-  'linen': {
-    name: 'Warm Linen',
-    subtitle: 'Antique Champagne',
-    bodyBg: '#F4EFE6',
-    surfaceBg: '#FCFAF6',
-    secondaryBg: '#E9E1D2',
-    cardBg: '#FCFAF6',
-    border: '#DED5C1',
-    textDark: '#1C1814',
-    textMuted: '#665E54',
-    swatch: '#F4EFE6'
-  },
-  'blush': {
-    name: 'Cashmere Rose',
-    subtitle: 'Soft Romantic Tint',
-    bodyBg: '#FAF4F4',
-    surfaceBg: '#FFFFFF',
-    secondaryBg: '#F2E7E7',
-    cardBg: '#FFFFFF',
-    border: '#E6D7D9',
-    textDark: '#1F1316',
-    textMuted: '#6D575E',
-    swatch: '#FAF4F4'
-  },
-  'noir': {
-    name: 'Midnight Noir',
-    subtitle: 'Luxury Dark Mode',
-    bodyBg: '#0D0D0D',
-    surfaceBg: '#161616',
-    secondaryBg: '#1E1E1E',
-    cardBg: '#171717',
-    border: '#2C2C2C',
-    textDark: '#F5F5F5',
-    textMuted: '#AAAAAA',
-    swatch: '#121212'
-  }
-};
-
-const LUXURY_THEMES = {
-  'classic-shrivara': {
-    name: 'Classic Shrivara',
-    vibe: 'Original live store forest green & dark slate',
-    primary: '#083a12',
-    primaryHover: '#297341',
-    gold: '#c59b27',
-    announcementBg: '#121212',
-    footerBg: '#121212',
-    recommendedCanvas: 'white',
-    swatches: ['#083a12', '#c59b27', '#121212']
-  },
-  'emerald-gold': {
-    name: 'Royal Emerald & Gold',
-    vibe: 'Imperial heritage, deep emerald & warm bullion gold',
-    primary: '#0B2F1C',
-    primaryHover: '#1B4D2E',
-    gold: '#C5A059',
-    announcementBg: '#061D11',
-    footerBg: '#061D11',
-    recommendedCanvas: 'ivory',
-    swatches: ['#0B2F1C', '#C5A059', '#FAF7F2']
-  },
-  'midnight-onyx': {
-    name: 'Midnight Onyx & Champagne',
-    vibe: 'Sleek black, diamond brilliance & champagne gold',
-    primary: '#111111',
-    primaryHover: '#2A2A2A',
-    gold: '#D4AF37',
-    announcementBg: '#000000',
-    footerBg: '#000000',
-    recommendedCanvas: 'noir',
-    swatches: ['#111111', '#D4AF37', '#0D0D0D']
-  },
-  'rose-wine': {
-    name: 'Mulberry Wine & Rose Gold',
-    vibe: 'Regal bridal velvet, plum wine & soft rose gold',
-    primary: '#5C2434',
-    primaryHover: '#7A3246',
-    gold: '#D49B8E',
-    announcementBg: '#3E1621',
-    footerBg: '#3E1621',
-    recommendedCanvas: 'blush',
-    swatches: ['#5C2434', '#D49B8E', '#FAF4F4']
-  },
-  'royal-sapphire': {
-    name: 'Royal Sapphire & Warm Honey',
-    vibe: 'Persian blue, royal sapphire & antique honey gold',
-    primary: '#0C1E36',
-    primaryHover: '#16325C',
-    gold: '#C89D56',
-    announcementBg: '#071221',
-    footerBg: '#071221',
-    recommendedCanvas: 'ivory',
-    swatches: ['#0C1E36', '#C89D56', '#FAF7F2']
-  },
-  'terracotta-bronze': {
-    name: 'Burnt Terracotta & Brass',
-    vibe: 'Earthy Rajasthani clay, rust red & antique brass',
-    primary: '#6E2E1F',
-    primaryHover: '#8C3C2A',
-    gold: '#D99E32',
-    announcementBg: '#4A1D13',
-    footerBg: '#4A1D13',
-    recommendedCanvas: 'linen',
-    swatches: ['#6E2E1F', '#D99E32', '#F4EFE6']
-  }
-};
-
-function toggleThemePanel() {
-  const panel = document.getElementById('themeSwitcherPanel');
-  if (panel) {
-    panel.classList.toggle('open');
-  }
+function initColorMode() {
+  const savedMode = localStorage.getItem('shrivara_color_mode') || 'light';
+  applyColorMode(savedMode, false);
 }
 
-function applyCanvas(key, notify = true) {
-  const canvas = CANVAS_MODES[key];
-  if (!canvas) return;
+function toggleColorMode() {
+  const newMode = currentColorMode === 'dark' ? 'light' : 'dark';
+  applyColorMode(newMode, true);
+}
 
-  const root = document.documentElement;
-  root.style.setProperty('--color-bg-body', canvas.bodyBg);
-  root.style.setProperty('--color-bg-surface', canvas.surfaceBg);
-  root.style.setProperty('--color-bg-secondary', canvas.secondaryBg);
-  root.style.setProperty('--color-card-bg', canvas.cardBg);
-  root.style.setProperty('--color-border', canvas.border);
-  root.style.setProperty('--color-text-dark', canvas.textDark);
-  root.style.setProperty('--color-text-muted', canvas.textMuted);
+function applyColorMode(mode, notify = true) {
+  currentColorMode = mode;
+  const isDark = mode === 'dark';
+
+  document.body.classList.toggle('dark-mode', isDark);
 
   try {
-    localStorage.setItem('shrivara_active_canvas', key);
+    localStorage.setItem('shrivara_color_mode', mode);
   } catch (e) {}
 
-  document.querySelectorAll('.canvas-option-pill').forEach(btn => {
-    btn.classList.toggle('active', btn.dataset.canvasKey === key);
-  });
+  const iconEl = document.getElementById('modeIcon');
+  const textEl = document.getElementById('modeText');
 
-  if (notify) {
-    showToast(`Background canvas: ${canvas.name}`);
+  if (iconEl) {
+    iconEl.className = isDark ? 'fas fa-sun' : 'fas fa-moon';
   }
-}
-
-function applyTheme(key, notify = true, applyCanvasRecommendation = true) {
-  const theme = LUXURY_THEMES[key];
-  if (!theme) return;
-
-  const root = document.documentElement;
-  root.style.setProperty('--color-primary', theme.primary);
-  root.style.setProperty('--color-primary-hover', theme.primaryHover);
-  root.style.setProperty('--color-gold', theme.gold);
-  root.style.setProperty('--color-announcement-bg', theme.announcementBg);
-  root.style.setProperty('--color-footer-bg', theme.footerBg);
-
-  try {
-    localStorage.setItem('shrivara_active_theme', key);
-  } catch (e) {}
-
-  document.querySelectorAll('.theme-option-btn').forEach(btn => {
-    btn.classList.toggle('active', btn.dataset.themeKey === key);
-  });
-
-  if (applyCanvasRecommendation && theme.recommendedCanvas) {
-    applyCanvas(theme.recommendedCanvas, false);
+  if (textEl) {
+    textEl.textContent = isDark ? 'Light Mode' : 'Dark Mode';
   }
 
   if (notify) {
-    showToast(`Palette: ${theme.name}`);
+    showToast(isDark ? '🌙 Switched to Dark Mode' : '☀️ Switched to Light Mode');
   }
 }
 
-function initThemeSwitcher() {
-  const listEl = document.getElementById('themeOptionsList');
-  const canvasGridEl = document.getElementById('canvasOptionsGrid');
-  if (!listEl) return;
-
-  const savedTheme = localStorage.getItem('shrivara_active_theme') || 'classic-shrivara';
-  const savedCanvas = localStorage.getItem('shrivara_active_canvas') || (LUXURY_THEMES[savedTheme]?.recommendedCanvas || 'white');
-
-  listEl.innerHTML = Object.entries(LUXURY_THEMES).map(([key, t]) => `
-    <button class="theme-option-btn ${key === savedTheme ? 'active' : ''}" data-theme-key="${key}" onclick="applyTheme('${key}', true, false)">
-      <div class="theme-swatches">
-        ${t.swatches.map(c => `<span class="swatch-circle" style="background-color: ${c};"></span>`).join('')}
-      </div>
-      <div class="theme-btn-info">
-        <span class="theme-btn-title">${t.name}</span>
-        <span class="theme-btn-vibe">${t.vibe}</span>
-      </div>
-      <i class="fas fa-check theme-check-icon"></i>
-    </button>
-  `).join('');
-
-  if (canvasGridEl) {
-    canvasGridEl.innerHTML = Object.entries(CANVAS_MODES).map(([key, c]) => `
-      <button class="canvas-option-pill ${key === savedCanvas ? 'active' : ''}" data-canvas-key="${key}" onclick="applyCanvas('${key}')">
-        <span class="canvas-swatch-dot" style="background-color: ${c.swatch};"></span>
-        <div>
-          <span class="canvas-pill-label">${c.name}</span>
-          <span class="canvas-pill-sub">${c.subtitle}</span>
-        </div>
-      </button>
-    `).join('');
-  }
-
-  applyTheme(savedTheme, false, false);
-  applyCanvas(savedCanvas, false);
-}
 
 
