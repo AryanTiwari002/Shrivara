@@ -38,6 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
   renderCatalog();
   updateCartUI();
   initEventListeners();
+  initThemeSwitcher();
 });
 
 // Render Featured Carousels (Bestsellers & New Arrivals)
@@ -396,7 +397,7 @@ function openQuickView(productId) {
           <span>(125+ reviews)</span>
         </div>
         <div class="product-price-row" style="margin-bottom: 18px;">
-          <span style="font-size: 22px; font-weight: 700; color: #083a12;">
+          <span style="font-size: 22px; font-weight: 700; color: var(--color-primary);">
             ${product.price > 0 ? `Rs. ${product.price.toLocaleString('en-IN')}.00` : 'Sold Out'}
           </span>
           ${product.comparePrice > product.price ? `
@@ -412,9 +413,9 @@ function openQuickView(productId) {
         </p>
 
         <ul style="list-style: none; margin-bottom: 24px; font-size: 13px; color: #333;">
-          <li style="margin-bottom: 6px;"><i class="fas fa-check" style="color: #083a12; margin-right: 8px;"></i> 100% Anti-Tarnish Coating</li>
-          <li style="margin-bottom: 6px;"><i class="fas fa-check" style="color: #083a12; margin-right: 8px;"></i> High Grade Polki & Gemstones</li>
-          <li style="margin-bottom: 6px;"><i class="fas fa-check" style="color: #083a12; margin-right: 8px;"></i> Made in India with Heritage Craft</li>
+          <li style="margin-bottom: 6px;"><i class="fas fa-check" style="color: var(--color-primary); margin-right: 8px;"></i> 100% Anti-Tarnish Coating</li>
+          <li style="margin-bottom: 6px;"><i class="fas fa-check" style="color: var(--color-primary); margin-right: 8px;"></i> High Grade Polki & Gemstones</li>
+          <li style="margin-bottom: 6px;"><i class="fas fa-check" style="color: var(--color-primary); margin-right: 8px;"></i> Made in India with Heritage Craft</li>
         </ul>
 
         <div style="display: flex; gap: 12px; align-items: center;">
@@ -506,7 +507,7 @@ function handleLiveSearch(query) {
       <img src="${p.image}" style="width: 50px; height: 50px; border-radius: 2px; object-fit: cover;">
       <div>
         <h5 style="font-size: 14px; font-weight: 600; color: #121212;">${p.title}</h5>
-        <span style="font-size: 13px; color: #083a12; font-weight: 700;">
+        <span style="font-size: 13px; color: var(--color-primary); font-weight: 700;">
           ${p.price > 0 ? `Rs. ${p.price.toLocaleString('en-IN')}.00` : 'Sold Out'}
         </span>
       </div>
@@ -543,4 +544,140 @@ function initEventListeners() {
       renderCatalog();
     });
   }
+
+  // Close theme switcher panel when clicking outside
+  document.addEventListener('click', (e) => {
+    const widget = document.getElementById('themeSwitcherWidget');
+    if (widget && !widget.contains(e.target)) {
+      const panel = document.getElementById('themeSwitcherPanel');
+      if (panel) panel.classList.remove('open');
+    }
+  });
 }
+
+// ==========================================================================
+// Luxury Theme Studio - Live Color Palette Switcher
+// ==========================================================================
+const LUXURY_THEMES = {
+  'classic-shrivara': {
+    name: 'Classic Shrivara',
+    vibe: 'Original live store forest green & dark slate',
+    primary: '#083a12',
+    primaryHover: '#297341',
+    gold: '#c59b27',
+    bgLight: '#f3f3f3',
+    announcementBg: '#121212',
+    footerBg: '#121212',
+    swatches: ['#083a12', '#c59b27', '#121212']
+  },
+  'emerald-gold': {
+    name: 'Royal Emerald & Gold',
+    vibe: 'Imperial heritage, deep emerald & warm bullion gold',
+    primary: '#0B2F1C',
+    primaryHover: '#1B4D2E',
+    gold: '#C5A059',
+    bgLight: '#F7F5F0',
+    announcementBg: '#061D11',
+    footerBg: '#061D11',
+    swatches: ['#0B2F1C', '#C5A059', '#F7F5F0']
+  },
+  'midnight-onyx': {
+    name: 'Midnight Onyx & Champagne',
+    vibe: 'Sleek black, diamond brilliance & champagne gold',
+    primary: '#111111',
+    primaryHover: '#2A2A2A',
+    gold: '#D4AF37',
+    bgLight: '#F8F8F8',
+    announcementBg: '#000000',
+    footerBg: '#000000',
+    swatches: ['#111111', '#D4AF37', '#F8F8F8']
+  },
+  'rose-wine': {
+    name: 'Mulberry Wine & Rose Gold',
+    vibe: 'Regal bridal velvet, plum wine & soft rose gold',
+    primary: '#5C2434',
+    primaryHover: '#7A3246',
+    gold: '#D49B8E',
+    bgLight: '#FDF8F7',
+    announcementBg: '#3E1621',
+    footerBg: '#3E1621',
+    swatches: ['#5C2434', '#D49B8E', '#FDF8F7']
+  },
+  'royal-sapphire': {
+    name: 'Royal Sapphire & Warm Honey',
+    vibe: 'Persian blue, royal sapphire & antique honey gold',
+    primary: '#0C1E36',
+    primaryHover: '#16325C',
+    gold: '#C89D56',
+    bgLight: '#F4F7FB',
+    announcementBg: '#071221',
+    footerBg: '#071221',
+    swatches: ['#0C1E36', '#C89D56', '#F4F7FB']
+  },
+  'terracotta-bronze': {
+    name: 'Burnt Terracotta & Brass',
+    vibe: 'Earthy Rajasthani clay, rust red & antique brass',
+    primary: '#6E2E1F',
+    primaryHover: '#8C3C2A',
+    gold: '#D99E32',
+    bgLight: '#FAF6F0',
+    announcementBg: '#4A1D13',
+    footerBg: '#4A1D13',
+    swatches: ['#6E2E1F', '#D99E32', '#FAF6F0']
+  }
+};
+
+function toggleThemePanel() {
+  const panel = document.getElementById('themeSwitcherPanel');
+  if (panel) {
+    panel.classList.toggle('open');
+  }
+}
+
+function applyTheme(key, notify = true) {
+  const theme = LUXURY_THEMES[key];
+  if (!theme) return;
+
+  const root = document.documentElement;
+  root.style.setProperty('--color-primary', theme.primary);
+  root.style.setProperty('--color-primary-hover', theme.primaryHover);
+  root.style.setProperty('--color-gold', theme.gold);
+  root.style.setProperty('--color-bg-light', theme.bgLight);
+  root.style.setProperty('--color-announcement-bg', theme.announcementBg);
+  root.style.setProperty('--color-footer-bg', theme.footerBg);
+
+  try {
+    localStorage.setItem('shrivara_active_theme', key);
+  } catch (e) {}
+
+  document.querySelectorAll('.theme-option-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.themeKey === key);
+  });
+
+  if (notify) {
+    showToast(`Palette applied: ${theme.name}`);
+  }
+}
+
+function initThemeSwitcher() {
+  const listEl = document.getElementById('themeOptionsList');
+  if (!listEl) return;
+
+  const savedTheme = localStorage.getItem('shrivara_active_theme') || 'classic-shrivara';
+
+  listEl.innerHTML = Object.entries(LUXURY_THEMES).map(([key, t]) => `
+    <button class="theme-option-btn ${key === savedTheme ? 'active' : ''}" data-theme-key="${key}" onclick="applyTheme('${key}')">
+      <div class="theme-swatches">
+        ${t.swatches.map(c => `<span class="swatch-circle" style="background-color: ${c};"></span>`).join('')}
+      </div>
+      <div class="theme-btn-info">
+        <span class="theme-btn-title">${t.name}</span>
+        <span class="theme-btn-vibe">${t.vibe}</span>
+      </div>
+      <i class="fas fa-check theme-check-icon"></i>
+    </button>
+  `).join('');
+
+  applyTheme(savedTheme, false);
+}
+

@@ -6,11 +6,14 @@
 :root {
   --color-primary: #083a12;
   --color-primary-hover: #297341;
+  --color-gold: #c59b27;
   --color-text-dark: #121212;
   --color-text-muted: #555555;
   --color-bg-white: #ffffff;
   --color-bg-light: #f3f3f3;
   --color-border: #e0e0e0;
+  --color-announcement-bg: #121212;
+  --color-footer-bg: #121212;
   
   --font-main: 'Assistant', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --page-width: 1200px;
@@ -70,7 +73,7 @@ button {
    Announcement Bar
    ========================================================================== */
 .announcement-bar {
-  background-color: #121212;
+  background-color: var(--color-announcement-bg, #121212);
   color: #ffffff;
   padding: 10px 16px;
   font-size: 13px;
@@ -828,7 +831,7 @@ button {
    Footer
    ========================================================================== */
 .site-footer {
-  background: #121212;
+  background: var(--color-footer-bg, #121212);
   color: #ffffff;
   padding: 60px 0 24px;
 }
@@ -1467,5 +1470,198 @@ button {
   }
   .catalog-search-input {
     width: 100%;
+  }
+}
+
+/* ==========================================================================
+   Live Theme Switcher Studio Widget
+   ========================================================================== */
+.theme-switcher-widget {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  z-index: 9990;
+  font-family: var(--font-main);
+}
+
+.theme-switcher-trigger {
+  background: #121212;
+  color: #ffffff;
+  padding: 12px 20px;
+  border-radius: 30px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  border: 1.5px solid var(--color-gold);
+  transition: var(--transition);
+}
+
+.theme-switcher-trigger:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+  background: var(--color-primary);
+}
+
+.theme-switcher-panel {
+  position: absolute;
+  bottom: 60px;
+  left: 0;
+  width: 340px;
+  max-width: 90vw;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25);
+  border: 1px solid var(--color-border);
+  padding: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(15px);
+  transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.theme-switcher-panel.open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.theme-panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.theme-panel-header h4 {
+  font-size: 15px;
+  font-weight: 700;
+  color: #121212;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.theme-panel-close {
+  font-size: 20px;
+  color: #888888;
+  cursor: pointer;
+}
+
+.theme-panel-intro {
+  font-size: 12px;
+  color: var(--color-text-muted);
+  margin-bottom: 14px;
+  line-height: 1.4;
+}
+
+.theme-options-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 360px;
+  overflow-y: auto;
+}
+
+.theme-option-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border: 1.5px solid var(--color-border);
+  border-radius: 6px;
+  background: #fbfbfb;
+  text-align: left;
+  cursor: pointer;
+  transition: var(--transition);
+  position: relative;
+}
+
+.theme-option-btn:hover {
+  background: #ffffff;
+  border-color: #999999;
+  transform: translateX(3px);
+}
+
+.theme-option-btn.active {
+  border-color: var(--color-primary);
+  background: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.theme-swatches {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.swatch-circle {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.theme-btn-info {
+  flex-grow: 1;
+}
+
+.theme-btn-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #121212;
+  display: block;
+}
+
+.theme-btn-vibe {
+  font-size: 11px;
+  color: #777777;
+  display: block;
+  line-height: 1.2;
+  margin-top: 2px;
+}
+
+.theme-check-icon {
+  font-size: 14px;
+  color: var(--color-primary);
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.theme-option-btn.active .theme-check-icon {
+  opacity: 1;
+}
+
+.theme-panel-footer {
+  margin-top: 14px;
+  padding-top: 10px;
+  border-top: 1px solid var(--color-border);
+  text-align: center;
+}
+
+.theme-panel-tip {
+  font-size: 11px;
+  color: #888888;
+}
+
+@media (max-width: 768px) {
+  .theme-switcher-widget {
+    bottom: 16px;
+    left: 16px;
+  }
+  .theme-switcher-trigger {
+    padding: 10px 16px;
+    font-size: 12px;
+  }
+  .theme-switcher-panel {
+    bottom: 50px;
+    width: 300px;
   }
 }
