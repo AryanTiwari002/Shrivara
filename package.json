@@ -1,0 +1,13 @@
+{
+  "name": "shrivara-web",
+  "version": "1.0.0",
+  "description": "Shrivara - Premium Fashion Jewellery standalone website",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": ["jewellery", "ecommerce", "shrivara"],
+  "author": "Shrivara",
+  "license": "ISC"
+}
