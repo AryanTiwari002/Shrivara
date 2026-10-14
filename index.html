@@ -528,12 +528,20 @@
         <h4><i class="fas fa-palette"></i> Luxury Theme Studio</h4>
         <span class="theme-panel-close" onclick="toggleThemePanel()">&times;</span>
       </div>
-      <p class="theme-panel-intro">Choose a color palette below to instantly preview Shrivara's entire look & feel:</p>
+      <p class="theme-panel-intro">Customize your brand colors & canvas background tones:</p>
+      
+      <div class="theme-section-title">1. Color Palette</div>
       <div class="theme-options-list" id="themeOptionsList">
         <!-- Rendered dynamically by app.js -->
       </div>
+
+      <div class="theme-section-title" style="margin-top: 14px;">2. Background Canvas ("White Parts")</div>
+      <div class="canvas-options-grid" id="canvasOptionsGrid">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+
       <div class="theme-panel-footer">
-        <span class="theme-panel-tip"><i class="fas fa-magic"></i> Auto-saved & active across your session</span>
+        <span class="theme-panel-tip"><i class="fas fa-magic"></i> Auto-saved & active across all pages</span>
       </div>
     </div>
     <button class="theme-switcher-trigger" onclick="toggleThemePanel()" title="Change Theme Palette">

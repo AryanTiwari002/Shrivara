@@ -391,7 +391,7 @@ function openQuickView(productId) {
       </div>
       <div class="quick-view-info">
         <span class="product-category">${product.category}</span>
-        <h2 style="font-size: 22px; font-weight: 700; margin-bottom: 8px; color: #121212;">${product.title}</h2>
+        <h2 style="font-size: 22px; font-weight: 700; margin-bottom: 8px; color: var(--color-text-dark);">${product.title}</h2>
         <div class="product-rating" style="margin-bottom: 14px;">
           <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
           <span>(125+ reviews)</span>
@@ -408,11 +408,11 @@ function openQuickView(productId) {
           ${product.discount && product.price > 0 ? `<span class="product-discount">${product.discount}</span>` : ''}
         </div>
         
-        <p style="font-size: 14px; line-height: 1.7; color: #555; margin-bottom: 20px;">
+        <p style="font-size: 14px; line-height: 1.7; color: var(--color-text-muted); margin-bottom: 20px;">
           Handcrafted statement jewellery by Shrivara. Premium finish, skin-friendly, anti-tarnish coating, and designed with high-grade polkis and stones.
         </p>
 
-        <ul style="list-style: none; margin-bottom: 24px; font-size: 13px; color: #333;">
+        <ul style="list-style: none; margin-bottom: 24px; font-size: 13px; color: var(--color-text-dark);">
           <li style="margin-bottom: 6px;"><i class="fas fa-check" style="color: var(--color-primary); margin-right: 8px;"></i> 100% Anti-Tarnish Coating</li>
           <li style="margin-bottom: 6px;"><i class="fas fa-check" style="color: var(--color-primary); margin-right: 8px;"></i> High Grade Polki & Gemstones</li>
           <li style="margin-bottom: 6px;"><i class="fas fa-check" style="color: var(--color-primary); margin-right: 8px;"></i> Made in India with Heritage Craft</li>
@@ -503,10 +503,10 @@ function handleLiveSearch(query) {
   }
 
   resultsContainer.innerHTML = matches.map(p => `
-    <div style="display: flex; align-items: center; gap: 14px; padding: 12px 0; border-bottom: 1px solid #f0f0f0; cursor: pointer;" onclick="openQuickView(${p.id}); closeSearchModal();">
+    <div style="display: flex; align-items: center; gap: 14px; padding: 12px 0; border-bottom: 1px solid var(--color-border); cursor: pointer;" onclick="openQuickView(${p.id}); closeSearchModal();">
       <img src="${p.image}" style="width: 50px; height: 50px; border-radius: 2px; object-fit: cover;">
       <div>
-        <h5 style="font-size: 14px; font-weight: 600; color: #121212;">${p.title}</h5>
+        <h5 style="font-size: 14px; font-weight: 600; color: var(--color-text-dark);">${p.title}</h5>
         <span style="font-size: 13px; color: var(--color-primary); font-weight: 700;">
           ${p.price > 0 ? `Rs. ${p.price.toLocaleString('en-IN')}.00` : 'Sold Out'}
         </span>
@@ -558,6 +558,73 @@ function initEventListeners() {
 // ==========================================================================
 // Luxury Theme Studio - Live Color Palette Switcher
 // ==========================================================================
+// ==========================================================================
+// Luxury Theme Studio - Color Palettes & Background Canvas Tones
+// ==========================================================================
+
+const CANVAS_MODES = {
+  'white': {
+    name: 'Pure White',
+    subtitle: 'Crisp & Modern',
+    bodyBg: '#ffffff',
+    surfaceBg: '#ffffff',
+    secondaryBg: '#f7f7f7',
+    cardBg: '#ffffff',
+    border: '#e0e0e0',
+    textDark: '#121212',
+    textMuted: '#555555',
+    swatch: '#ffffff'
+  },
+  'ivory': {
+    name: 'Silk Ivory',
+    subtitle: 'Heritage Bridal Cream',
+    bodyBg: '#FAF7F2',
+    surfaceBg: '#FFFFFF',
+    secondaryBg: '#F3ECE0',
+    cardBg: '#FFFFFF',
+    border: '#E8E0D1',
+    textDark: '#1A1816',
+    textMuted: '#615C54',
+    swatch: '#FAF7F2'
+  },
+  'linen': {
+    name: 'Warm Linen',
+    subtitle: 'Antique Champagne',
+    bodyBg: '#F4EFE6',
+    surfaceBg: '#FCFAF6',
+    secondaryBg: '#E9E1D2',
+    cardBg: '#FCFAF6',
+    border: '#DED5C1',
+    textDark: '#1C1814',
+    textMuted: '#665E54',
+    swatch: '#F4EFE6'
+  },
+  'blush': {
+    name: 'Cashmere Rose',
+    subtitle: 'Soft Romantic Tint',
+    bodyBg: '#FAF4F4',
+    surfaceBg: '#FFFFFF',
+    secondaryBg: '#F2E7E7',
+    cardBg: '#FFFFFF',
+    border: '#E6D7D9',
+    textDark: '#1F1316',
+    textMuted: '#6D575E',
+    swatch: '#FAF4F4'
+  },
+  'noir': {
+    name: 'Midnight Noir',
+    subtitle: 'Luxury Dark Mode',
+    bodyBg: '#0D0D0D',
+    surfaceBg: '#161616',
+    secondaryBg: '#1E1E1E',
+    cardBg: '#171717',
+    border: '#2C2C2C',
+    textDark: '#F5F5F5',
+    textMuted: '#AAAAAA',
+    swatch: '#121212'
+  }
+};
+
 const LUXURY_THEMES = {
   'classic-shrivara': {
     name: 'Classic Shrivara',
@@ -565,9 +632,9 @@ const LUXURY_THEMES = {
     primary: '#083a12',
     primaryHover: '#297341',
     gold: '#c59b27',
-    bgLight: '#f3f3f3',
     announcementBg: '#121212',
     footerBg: '#121212',
+    recommendedCanvas: 'white',
     swatches: ['#083a12', '#c59b27', '#121212']
   },
   'emerald-gold': {
@@ -576,10 +643,10 @@ const LUXURY_THEMES = {
     primary: '#0B2F1C',
     primaryHover: '#1B4D2E',
     gold: '#C5A059',
-    bgLight: '#F7F5F0',
     announcementBg: '#061D11',
     footerBg: '#061D11',
-    swatches: ['#0B2F1C', '#C5A059', '#F7F5F0']
+    recommendedCanvas: 'ivory',
+    swatches: ['#0B2F1C', '#C5A059', '#FAF7F2']
   },
   'midnight-onyx': {
     name: 'Midnight Onyx & Champagne',
@@ -587,10 +654,10 @@ const LUXURY_THEMES = {
     primary: '#111111',
     primaryHover: '#2A2A2A',
     gold: '#D4AF37',
-    bgLight: '#F8F8F8',
     announcementBg: '#000000',
     footerBg: '#000000',
-    swatches: ['#111111', '#D4AF37', '#F8F8F8']
+    recommendedCanvas: 'noir',
+    swatches: ['#111111', '#D4AF37', '#0D0D0D']
   },
   'rose-wine': {
     name: 'Mulberry Wine & Rose Gold',
@@ -598,10 +665,10 @@ const LUXURY_THEMES = {
     primary: '#5C2434',
     primaryHover: '#7A3246',
     gold: '#D49B8E',
-    bgLight: '#FDF8F7',
     announcementBg: '#3E1621',
     footerBg: '#3E1621',
-    swatches: ['#5C2434', '#D49B8E', '#FDF8F7']
+    recommendedCanvas: 'blush',
+    swatches: ['#5C2434', '#D49B8E', '#FAF4F4']
   },
   'royal-sapphire': {
     name: 'Royal Sapphire & Warm Honey',
@@ -609,10 +676,10 @@ const LUXURY_THEMES = {
     primary: '#0C1E36',
     primaryHover: '#16325C',
     gold: '#C89D56',
-    bgLight: '#F4F7FB',
     announcementBg: '#071221',
     footerBg: '#071221',
-    swatches: ['#0C1E36', '#C89D56', '#F4F7FB']
+    recommendedCanvas: 'ivory',
+    swatches: ['#0C1E36', '#C89D56', '#FAF7F2']
   },
   'terracotta-bronze': {
     name: 'Burnt Terracotta & Brass',
@@ -620,10 +687,10 @@ const LUXURY_THEMES = {
     primary: '#6E2E1F',
     primaryHover: '#8C3C2A',
     gold: '#D99E32',
-    bgLight: '#FAF6F0',
     announcementBg: '#4A1D13',
     footerBg: '#4A1D13',
-    swatches: ['#6E2E1F', '#D99E32', '#FAF6F0']
+    recommendedCanvas: 'linen',
+    swatches: ['#6E2E1F', '#D99E32', '#F4EFE6']
   }
 };
 
@@ -634,7 +701,33 @@ function toggleThemePanel() {
   }
 }
 
-function applyTheme(key, notify = true) {
+function applyCanvas(key, notify = true) {
+  const canvas = CANVAS_MODES[key];
+  if (!canvas) return;
+
+  const root = document.documentElement;
+  root.style.setProperty('--color-bg-body', canvas.bodyBg);
+  root.style.setProperty('--color-bg-surface', canvas.surfaceBg);
+  root.style.setProperty('--color-bg-secondary', canvas.secondaryBg);
+  root.style.setProperty('--color-card-bg', canvas.cardBg);
+  root.style.setProperty('--color-border', canvas.border);
+  root.style.setProperty('--color-text-dark', canvas.textDark);
+  root.style.setProperty('--color-text-muted', canvas.textMuted);
+
+  try {
+    localStorage.setItem('shrivara_active_canvas', key);
+  } catch (e) {}
+
+  document.querySelectorAll('.canvas-option-pill').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.canvasKey === key);
+  });
+
+  if (notify) {
+    showToast(`Background canvas: ${canvas.name}`);
+  }
+}
+
+function applyTheme(key, notify = true, applyCanvasRecommendation = true) {
   const theme = LUXURY_THEMES[key];
   if (!theme) return;
 
@@ -642,7 +735,6 @@ function applyTheme(key, notify = true) {
   root.style.setProperty('--color-primary', theme.primary);
   root.style.setProperty('--color-primary-hover', theme.primaryHover);
   root.style.setProperty('--color-gold', theme.gold);
-  root.style.setProperty('--color-bg-light', theme.bgLight);
   root.style.setProperty('--color-announcement-bg', theme.announcementBg);
   root.style.setProperty('--color-footer-bg', theme.footerBg);
 
@@ -654,19 +746,25 @@ function applyTheme(key, notify = true) {
     btn.classList.toggle('active', btn.dataset.themeKey === key);
   });
 
+  if (applyCanvasRecommendation && theme.recommendedCanvas) {
+    applyCanvas(theme.recommendedCanvas, false);
+  }
+
   if (notify) {
-    showToast(`Palette applied: ${theme.name}`);
+    showToast(`Palette: ${theme.name}`);
   }
 }
 
 function initThemeSwitcher() {
   const listEl = document.getElementById('themeOptionsList');
+  const canvasGridEl = document.getElementById('canvasOptionsGrid');
   if (!listEl) return;
 
   const savedTheme = localStorage.getItem('shrivara_active_theme') || 'classic-shrivara';
+  const savedCanvas = localStorage.getItem('shrivara_active_canvas') || (LUXURY_THEMES[savedTheme]?.recommendedCanvas || 'white');
 
   listEl.innerHTML = Object.entries(LUXURY_THEMES).map(([key, t]) => `
-    <button class="theme-option-btn ${key === savedTheme ? 'active' : ''}" data-theme-key="${key}" onclick="applyTheme('${key}')">
+    <button class="theme-option-btn ${key === savedTheme ? 'active' : ''}" data-theme-key="${key}" onclick="applyTheme('${key}', true, false)">
       <div class="theme-swatches">
         ${t.swatches.map(c => `<span class="swatch-circle" style="background-color: ${c};"></span>`).join('')}
       </div>
@@ -678,6 +776,20 @@ function initThemeSwitcher() {
     </button>
   `).join('');
 
-  applyTheme(savedTheme, false);
+  if (canvasGridEl) {
+    canvasGridEl.innerHTML = Object.entries(CANVAS_MODES).map(([key, c]) => `
+      <button class="canvas-option-pill ${key === savedCanvas ? 'active' : ''}" data-canvas-key="${key}" onclick="applyCanvas('${key}')">
+        <span class="canvas-swatch-dot" style="background-color: ${c.swatch};"></span>
+        <div>
+          <span class="canvas-pill-label">${c.name}</span>
+          <span class="canvas-pill-sub">${c.subtitle}</span>
+        </div>
+      </button>
+    `).join('');
+  }
+
+  applyTheme(savedTheme, false, false);
+  applyCanvas(savedCanvas, false);
 }
+
 
