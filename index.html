@@ -3,55 +3,51 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shrivara - Premium Fashion Jewellery</title>
+  <title>shrivara.co – Shrivara</title>
   
-  <!-- Fonts -->
+  <meta name="description" content="Shop SHRIVARA for stylish imitation and anti-tarnish jewellery. Discover elegant earrings, necklaces, bracelets and more, made to elevate every look.">
+  <link rel="icon" type="image/png" href="https://shrivara.co/cdn/shop/files/Shrivara_logo_page-0001.jpg?crop=center&height=32&v=1791877013&width=32">
+  
+  <!-- Font: Assistant (Shopify Dawn default) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   
   <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   
-  <!-- Stylesheet -->
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <!-- 1. Announcement Bar -->
-  <aside class="announcement-bar">
-    <div class="announcement-content">
-      <span>✨ UPTO 50% OFF | GET 5% OFF ON FIRST ORDER WITH CODE: <strong class="announcement-highlight">FIRST5</strong></span>
-    </div>
-  </aside>
+  <!-- 1. Top Announcement Bar -->
+  <div class="announcement-bar">
+    <span>Upto 50% Off | Get 5% Off on First Order</span>
+  </div>
 
-  <!-- 2. Site Header -->
+  <!-- 2. Header -->
   <header class="site-header">
     <div class="container">
-      <div class="header-inner">
-        <!-- Left: Search & Mobile Menu -->
+      <div class="header-top">
         <div class="header-left">
           <button class="mobile-menu-toggle" onclick="toggleMobileNav()" aria-label="Toggle navigation">
             <i class="fas fa-bars"></i>
           </button>
-          <button class="icon-btn" onclick="openSearchModal()" title="Search jewellery">
+          <button class="icon-btn" onclick="openSearchModal()" title="Search">
             <i class="fas fa-search"></i>
           </button>
         </div>
 
-        <!-- Center: Brand Logo -->
-        <div class="logo-container">
-          <a href="#" class="brand-logo">SHRIVARA</a>
-          <span class="brand-tagline">Fine Fashion Jewellery</span>
+        <div class="brand-logo-wrap">
+          <a href="#" class="brand-logo">Shrivara</a>
         </div>
 
-        <!-- Right: Wishlist & Cart -->
         <div class="header-right">
-          <button class="icon-btn" onclick="showToast('Your Wishlist contains ' + wishlist.size + ' items')">
+          <button class="icon-btn" onclick="showToast('Wishlist: ' + wishlist.size + ' items')">
             <i class="far fa-heart"></i>
             <span class="badge-count" id="wishlistCount">0</span>
           </button>
-          <button class="icon-btn" onclick="openCartDrawer()" title="Shopping Bag">
+          <button class="icon-btn" onclick="openCartDrawer()" title="Cart">
             <i class="fas fa-shopping-bag"></i>
             <span class="badge-count" id="cartCount">1</span>
           </button>
@@ -63,14 +59,18 @@
     <nav class="nav-bar">
       <div class="container">
         <ul class="nav-links">
-          <li><a href="#" class="active">Home</a></li>
-          <li><a href="#collections">Necklaces & Pendants</a></li>
-          <li><a href="#collections">Earrings</a></li>
-          <li><a href="#collections">Bracelets & Bangles</a></li>
-          <li><a href="#collections">Jewellery Sets</a></li>
-          <li><a href="#collections">Rings</a></li>
-          <li><a href="#story">Our Story</a></li>
-          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#" class="active">SHOP</a></li>
+          <li><a href="#collections">COLLECTIONS</a></li>
+          <li><a href="#bestsellers">BESTSELLERS</a></li>
+          <li><a href="#new-arrivals">NEW ARRIVALS</a></li>
+          <li><a href="#collections">EARRINGS</a></li>
+          <li><a href="#collections">JEWELLERY SETS</a></li>
+          <li><a href="#collections">BRACELETS & BANGLES</a></li>
+          <li><a href="#collections">ANTI-TARNISH PENDANT</a></li>
+          <li><a href="#collections">ANTI-TARNISH EARRING</a></li>
+          <li><a href="#collections">ANTI-TARNISH JEWELLERY SET</a></li>
+          <li><a href="#collections">PENDANT SET</a></li>
+          <li><a href="#collections">RINGS</a></li>
         </ul>
       </div>
     </nav>
@@ -80,354 +80,350 @@
   <section class="hero-slider-section">
     <div class="slider-container">
       <!-- Slide 1 -->
-      <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=1920&q=85');">
+      <div class="slide active" style="background-image: url('https://shrivara.co/cdn/shop/files/WhatsApp_Image_2026-07-26_at_17.57.31.jpg?v=1785068879&width=2000');">
         <div class="slide-overlay"></div>
-        <div class="container">
-          <div class="slide-content">
-            <span class="slide-subtitle">Royal Festive Edition</span>
-            <h1 class="slide-title">Handcrafted Heritage Luxury</h1>
-            <p class="slide-desc">Discover our statement polki, gold plated & fine gemstone collections designed for the modern connoisseur.</p>
-            <div>
-              <a href="#products" class="btn-primary">Explore Now</a>
-              <a href="#story" class="btn-outline">Our Story</a>
-            </div>
-          </div>
-        </div>
       </div>
 
       <!-- Slide 2 -->
-      <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1920&q=85');">
+      <div class="slide" style="background-image: url('https://shrivara.co/cdn/shop/files/ChatGPT_Image_Aug_4_2026_06_10_12_PM.png?v=1785847264&width=2000');">
         <div class="slide-overlay"></div>
-        <div class="container">
-          <div class="slide-content">
-            <span class="slide-subtitle">Anti-Tarnish • 22K Gold Finish</span>
-            <h1 class="slide-title">Timeless Grace & Modern Elegance</h1>
-            <p class="slide-desc">High craftsmanship jewellery inspired by Indian royalty, crafted for everyday glamour and celebratory milestones.</p>
-            <div>
-              <a href="#products" class="btn-primary">View Bestsellers</a>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
 
-    <!-- Slider Arrows -->
-    <button class="slider-arrow slider-prev" onclick="prevSlide()" aria-label="Previous Slide">
+    <!-- Controls -->
+    <button class="slider-arrow slider-prev" onclick="prevSlide()" aria-label="Previous">
       <i class="fas fa-chevron-left"></i>
     </button>
-    <button class="slider-arrow slider-next" onclick="nextSlide()" aria-label="Next Slide">
+    <button class="slider-arrow slider-next" onclick="nextSlide()" aria-label="Next">
       <i class="fas fa-chevron-right"></i>
     </button>
-
-    <!-- Slider Dots -->
     <div class="slider-dots">
       <div class="slider-dot active" onclick="goToSlide(0)"></div>
       <div class="slider-dot" onclick="goToSlide(1)"></div>
     </div>
   </section>
 
-  <!-- 4. Marquee Ticker Banner -->
-  <div class="marquee-wrapper">
-    <div class="marquee-track">
-      <div class="marquee-item"><span>✦</span> ANTI - TARNISH</div>
-      <div class="marquee-item"><span>✦</span> GOLD PLATED</div>
-      <div class="marquee-item"><span>✦</span> HIGH CRAFTSMANSHIP</div>
-      <div class="marquee-item"><span>✦</span> PREMIUM GRADE POLKIS & GEMSTONES</div>
-      <div class="marquee-item"><span>✦</span> MADE IN INDIA</div>
-      <div class="marquee-item"><span>✦</span> ANTI - TARNISH</div>
-      <div class="marquee-item"><span>✦</span> GOLD PLATED</div>
-      <div class="marquee-item"><span>✦</span> HIGH CRAFTSMANSHIP</div>
-      <div class="marquee-item"><span>✦</span> PREMIUM GRADE POLKIS & GEMSTONES</div>
-      <div class="marquee-item"><span>✦</span> MADE IN INDIA</div>
-    </div>
-  </div>
-
-  <!-- 5. Featured Collections -->
-  <section class="collections-section" id="collections">
+  <!-- 4. Bestsellers Carousel -->
+  <section class="carousel-section" id="bestsellers">
     <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Curated Categories</span>
-        <h2 class="section-title">Featured Collections</h2>
-        <p class="section-desc">Explore handpicked designs crafted with passion, authenticity, and precision.</p>
+      <div class="carousel-header">
+        <h2 class="carousel-title">Bestsellers</h2>
+        <a href="#bestsellers" class="view-all-btn">View all</a>
       </div>
 
-      <div class="collections-grid">
-        <div class="collection-card" onclick="renderProducts('all')">
-          <div class="collection-img-box">
-            <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=400&q=80" alt="Necklaces & Pendants">
-          </div>
-          <h3 class="collection-name">Necklaces</h3>
+      <div class="carousel-wrapper">
+        <button class="carousel-nav-btn carousel-prev" onclick="scrollCarousel('bestsellersGrid', -260)" aria-label="Scroll left">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <div class="products-carousel" id="bestsellersGrid">
+          <!-- Injected by app.js -->
         </div>
-
-        <div class="collection-card" onclick="renderProducts('all')">
-          <div class="collection-img-box">
-            <img src="https://images.unsplash.com/photo-1630019852942-f89202989a59?auto=format&fit=crop&w=400&q=80" alt="Earrings">
-          </div>
-          <h3 class="collection-name">Earrings</h3>
-        </div>
-
-        <div class="collection-card" onclick="renderProducts('all')">
-          <div class="collection-img-box">
-            <img src="https://images.unsplash.com/photo-1611591475836-8488e00ceba3?auto=format&fit=crop&w=400&q=80" alt="Bracelets & Bangles">
-          </div>
-          <h3 class="collection-name">Bracelets</h3>
-        </div>
-
-        <div class="collection-card" onclick="renderProducts('all')">
-          <div class="collection-img-box">
-            <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=400&q=80" alt="Jewellery Sets">
-          </div>
-          <h3 class="collection-name">Jewellery Sets</h3>
-        </div>
-
-        <div class="collection-card" onclick="renderProducts('all')">
-          <div class="collection-img-box">
-            <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=400&q=80" alt="Rings">
-          </div>
-          <h3 class="collection-name">Rings</h3>
-        </div>
-
-        <div class="collection-card" onclick="renderProducts('all')">
-          <div class="collection-img-box">
-            <img src="https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?auto=format&fit=crop&w=400&q=80" alt="Pendants">
-          </div>
-          <h3 class="collection-name">Pendants</h3>
-        </div>
+        <button class="carousel-nav-btn carousel-next" onclick="scrollCarousel('bestsellersGrid', 260)" aria-label="Scroll right">
+          <i class="fas fa-chevron-right"></i>
+        </button>
       </div>
     </div>
   </section>
 
-  <!-- 6. Featured Products Grid -->
-  <section class="products-section" id="products">
+  <!-- 5. FEATURED COLLECTION Section -->
+  <section class="featured-collection-section" id="collections">
     <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Handcrafted Pieces</span>
-        <h2 class="section-title">Our Signature Creations</h2>
-        <p class="section-desc">Experience royal adornments made accessible for your precious everyday & occasion wear.</p>
-      </div>
+      <h2 class="section-main-title">FEATURED COLLECTION</h2>
 
-      <!-- Category Filter Tabs -->
-      <div class="product-tabs">
-        <button class="tab-btn active" data-filter="all">All Pieces</button>
-        <button class="tab-btn" data-filter="bestsellers">Bestsellers</button>
-        <button class="tab-btn" data-filter="new">New Arrivals</button>
-      </div>
+      <div class="collections-grid-6">
+        <!-- 1. Pendant Set -->
+        <a href="#bestsellers" class="collection-item-card">
+          <div class="collection-item-media">
+            <img src="https://shrivara.co/cdn/shop/collections/WhatsApp_Image_2026-07-26_at_18.14.32.jpg?v=1785069982&width=1500" alt="Pendant Set">
+          </div>
+          <h3 class="collection-item-name">Pendant Set</h3>
+        </a>
 
-      <!-- Dynamic Grid -->
-      <div class="product-grid" id="productGrid">
-        <!-- Rendered dynamically by app.js -->
+        <!-- 2. Earrings -->
+        <a href="#bestsellers" class="collection-item-card">
+          <div class="collection-item-media">
+            <img src="https://shrivara.co/cdn/shop/collections/WhatsApp_Image_2026-07-26_at_18.41.22.jpg?v=1785071683&width=1500" alt="Earrings">
+          </div>
+          <h3 class="collection-item-name">Earrings</h3>
+        </a>
+
+        <!-- 3. Bracelets & Bangles -->
+        <a href="#bestsellers" class="collection-item-card">
+          <div class="collection-item-media">
+            <img src="https://shrivara.co/cdn/shop/collections/WhatsApp_Image_2026-07-26_at_19.05.32.jpg?v=1785073014&width=1500" alt="Bracelets & Bangles">
+          </div>
+          <h3 class="collection-item-name">Bracelets & Bangles</h3>
+        </a>
+
+        <!-- 4. Jewellery Sets -->
+        <a href="#bestsellers" class="collection-item-card">
+          <div class="collection-item-media">
+            <img src="https://shrivara.co/cdn/shop/collections/WhatsApp_Image_2026-07-26_at_20.51.35.jpg?v=1785079938&width=1500" alt="Jewellery Sets">
+          </div>
+          <h3 class="collection-item-name">Jewellery Sets</h3>
+        </a>
+
+        <!-- 5. Rings -->
+        <a href="#bestsellers" class="collection-item-card">
+          <div class="collection-item-media">
+            <img src="https://shrivara.co/cdn/shop/collections/ChatGPT_Image_Aug_18_2026_11_50_43_PM.png?v=1787077388&width=1500" alt="Rings">
+          </div>
+          <h3 class="collection-item-name">Rings</h3>
+        </a>
+
+        <!-- 6. Anti-Tarnish -->
+        <a href="#bestsellers" class="collection-item-card">
+          <div class="collection-item-media">
+            <img src="https://shrivara.co/cdn/shop/collections/Gemini_Generated_Image_3gqx753gqx753gqx.png?v=1789385692&width=1500" alt="Anti-Tarnish">
+          </div>
+          <h3 class="collection-item-name">Anti-Tarnish</h3>
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- 7. Our Story Editorial Section -->
+  <!-- 6. New Arrivals Carousel -->
+  <section class="carousel-section" id="new-arrivals">
+    <div class="container">
+      <div class="carousel-header">
+        <h2 class="carousel-title">New Arrivals</h2>
+        <a href="#new-arrivals" class="view-all-btn">View all</a>
+      </div>
+
+      <div class="carousel-wrapper">
+        <button class="carousel-nav-btn carousel-prev" onclick="scrollCarousel('newArrivalsGrid', -260)" aria-label="Scroll left">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <div class="products-carousel" id="newArrivalsGrid">
+          <!-- Injected by app.js -->
+        </div>
+        <button class="carousel-nav-btn carousel-next" onclick="scrollCarousel('newArrivalsGrid', 260)" aria-label="Scroll right">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. Full-Width Image Banner -->
+  <section class="full-image-banner" style="background-image: url('https://shrivara.co/cdn/shop/files/WhatsApp_Image_2026-08-30_at_17.52.12.jpg?v=1788096106&width=3840');">
+    <div class="banner-action-box">
+      <a href="#collections" class="banner-cta-btn">EXPLORE NOW</a>
+    </div>
+  </section>
+
+  <!-- 8. Our Story Section -->
   <section class="story-section" id="story">
     <div class="container">
       <div class="story-grid">
-        <div class="story-image-wrap">
-          <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=800&q=85" alt="Shrivara Craftsmanship">
-          <div class="story-badge">
-            <h4>Shrivara Heritage</h4>
-            <p>Crafted in India</p>
-          </div>
+        <div class="story-media">
+          <img src="https://shrivara.co/cdn/shop/files/IMG_2288_copy.jpg?v=1788101059&width=1500" alt="Shrivara Jewellery Heritage">
         </div>
-
         <div class="story-content">
-          <span class="section-tag">About The Brand</span>
-          <h2 class="story-lead">Jewellery as an Expression of Confidence & Celebration</h2>
-          <p class="story-text">
-            <strong>Shrivara</strong> is a premium fashion jewellery brand creating statement pieces that blend timeless elegance with contemporary design.
+          <h2>OUR STORY</h2>
+          <p>
+            Shrivara is a premium fashion jewellery brand creating statement pieces that blend timeless elegance with contemporary design.
           </p>
-          <p class="story-text">
-            Inspired by Indian heritage and modern luxury, every piece is thoughtfully crafted with exceptional attention to detail, premium finishes, and refined aesthetics — bringing the look and feel of fine jewellery at an accessible price.
+          <p>
+            Inspired by Indian heritage and modern luxury, every piece is thoughtfully crafted with exceptional attention to detail, premium finishes, and refined aesthetics -bringing the look and feel of fine jewellery at an accessible price.
           </p>
-          <p class="story-text">
-            Whether it's everyday elegance or life's special moments, our collections are designed to make every occasion shine.
+          <p>
+            At Shrivara, we believe jewellery is more than an accessory; it's an expression of confidence, individuality, and celebration. Whether it's everyday elegance or life's special moments, our collections are designed to make every occasion shine
           </p>
-          <a href="#collections" class="btn-primary" style="margin-top: 14px;">Explore Collections</a>
+          <a href="#story" class="story-btn">About Us</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 8. Customer Reviews Section -->
+  <!-- 9. Marquee Ticker Banner -->
+  <div class="marquee-bar">
+    <div class="marquee-inner">
+      <span class="marquee-text">ANTI - TARNISH | GOLD PLATED | HIGH CRAFTSMANSHIP | PREMIUM GRADE POLKIS & GEMSTONES | MADE IN INDIA</span>
+      <span class="marquee-text">•</span>
+      <span class="marquee-text">ANTI - TARNISH | GOLD PLATED | HIGH CRAFTSMANSHIP | PREMIUM GRADE POLKIS & GEMSTONES | MADE IN INDIA</span>
+      <span class="marquee-text">•</span>
+      <span class="marquee-text">ANTI - TARNISH | GOLD PLATED | HIGH CRAFTSMANSHIP | PREMIUM GRADE POLKIS & GEMSTONES | MADE IN INDIA</span>
+    </div>
+  </div>
+
+  <!-- 10. Customer Reviews -->
   <section class="reviews-section" id="reviews">
     <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Loved By Customers</span>
-        <h2 class="section-title">Customer Reviews</h2>
-        <div class="reviews-summary">
-          <div class="stars">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-          </div>
-          <span><strong>4.9 / 5.0</strong> based on 125+ verified buyers</span>
-        </div>
-      </div>
+      <h2 class="section-main-title">CUSTOMER REVIEWS</h2>
 
       <div class="reviews-grid">
         <!-- Review 1 -->
         <div class="review-card">
-          <div class="review-header">
-            <div class="review-stars">
-              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-            </div>
-            <span class="review-date">June 15, 2026</span>
+          <div class="review-stars">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
           </div>
           <h4 class="review-title">Absolutely love it!</h4>
-          <p class="review-body">This product exceeded my expectations. The quality is outstanding and it arrived quickly. Highly recommend!</p>
-          <div class="review-author">
-            <div class="author-avatar">D</div>
-            <div class="author-info">
-              <h5>Diya Chatterjee</h5>
-              <span class="verified-tag"><i class="fas fa-check-circle"></i> Verified Buyer</span>
-            </div>
+          <p class="review-text">This product exceeded my expectations. The quality is outstanding and it arrived quickly. Highly recommend!</p>
+          <div class="review-footer">
+            <span class="review-author">Diya Chatterjee</span>
+            <span class="review-verified"><i class="fas fa-check-circle"></i> Verified</span>
           </div>
         </div>
 
         <!-- Review 2 -->
         <div class="review-card">
-          <div class="review-header">
-            <div class="review-stars">
-              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-            </div>
-            <span class="review-date">August 8, 2026</span>
+          <div class="review-stars">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
           </div>
-          <h4 class="review-title">Perfect for Special Occasions</h4>
-          <p class="review-body">I wore this for a family function and received so many compliments. The design is gorgeous and the quality looks amazing. Will definitely shop from Shrivara again!</p>
-          <div class="review-author">
-            <div class="author-avatar">M</div>
-            <div class="author-info">
-              <h5>Mitali Sen</h5>
-              <span class="verified-tag"><i class="fas fa-check-circle"></i> Verified Buyer</span>
-            </div>
+          <h4 class="review-title">Great value</h4>
+          <p class="review-text">Perfect for what I needed. The price point is excellent for the quality you get.</p>
+          <div class="review-footer">
+            <span class="review-author">Riya Banerjee</span>
+            <span class="review-verified"><i class="fas fa-check-circle"></i> Verified</span>
           </div>
         </div>
 
         <!-- Review 3 -->
         <div class="review-card">
-          <div class="review-header">
-            <div class="review-stars">
-              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-            </div>
-            <span class="review-date">August 15, 2026</span>
+          <div class="review-stars">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+          </div>
+          <h4 class="review-title">Very satisfied</h4>
+          <p class="review-text">Really happy with this purchase. Does exactly what it promises. Would buy again.</p>
+          <div class="review-footer">
+            <span class="review-author">Tania Bose</span>
+            <span class="review-verified"><i class="fas fa-check-circle"></i> Verified</span>
+          </div>
+        </div>
+
+        <!-- Review 4 -->
+        <div class="review-card">
+          <div class="review-stars">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <h4 class="review-title">Perfect for Special Occasions</h4>
+          <p class="review-text">I wore this for a family function and received so many compliments. The design is gorgeous and the quality looks amazing. Will definitely shop from Shrivara again!</p>
+          <div class="review-footer">
+            <span class="review-author">Mitali Sen</span>
+            <span class="review-verified"><i class="fas fa-check-circle"></i> Verified</span>
+          </div>
+        </div>
+
+        <!-- Review 5 -->
+        <div class="review-card">
+          <div class="review-stars">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
           </div>
           <h4 class="review-title">Absolutely Beautiful !!</h4>
-          <p class="review-body">The jewellery is even more beautiful in person! The detailing and finish look so elegant and premium. Perfect for both festive occasions and everyday styling.</p>
-          <div class="review-author">
-            <div class="author-avatar">A</div>
-            <div class="author-info">
-              <h5>Ananya Sharma</h5>
-              <span class="verified-tag"><i class="fas fa-check-circle"></i> Verified Buyer</span>
-            </div>
+          <p class="review-text">The jewellery is even more beautiful in person! The detailing and finish look so elegant and premium. Perfect for both festive occasions and everyday styling.</p>
+          <div class="review-footer">
+            <span class="review-author">Ananya Sharma</span>
+            <span class="review-verified"><i class="fas fa-check-circle"></i> Verified</span>
+          </div>
+        </div>
+
+        <!-- Review 6 -->
+        <div class="review-card">
+          <div class="review-stars">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <h4 class="review-title">Elegant & Stylish</h4>
+          <p class="review-text">Loved my Shrivara jewellery! It looks classy, feels lightweight, and adds such a beautiful touch to my outfit. The packaging was also lovely.</p>
+          <div class="review-footer">
+            <span class="review-author">Ishita Sen</span>
+            <span class="review-verified"><i class="fas fa-check-circle"></i> Verified</span>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 9. Value & Trust Badges -->
+  <!-- 11. Trust & Value Badges -->
   <section class="badges-section">
     <div class="container">
       <div class="badges-grid">
-        <div class="badge-item">
-          <div class="badge-icon"><i class="fas fa-shield-alt"></i></div>
-          <div class="badge-text">
-            <h4>Safe Checkout</h4>
-            <p>Secure & hassle-free payment guaranteed.</p>
-          </div>
+        <div class="badge-box">
+          <div class="badge-icon"><i class="fas fa-check-circle"></i></div>
+          <h4 class="badge-title">Safe Checkout</h4>
+          <p class="badge-desc">Secure & hassle-free checkout guaranteed.</p>
         </div>
 
-        <div class="badge-item">
-          <div class="badge-icon"><i class="fas fa-headset"></i></div>
-          <div class="badge-text">
-            <h4>Here To Help</h4>
-            <p>Friendly assistance, just a message away.</p>
-          </div>
+        <div class="badge-box">
+          <div class="badge-icon"><i class="fas fa-sync-alt"></i></div>
+          <h4 class="badge-title">Here To Help</h4>
+          <p class="badge-desc">Friendly assistance, just a call away.</p>
         </div>
 
-        <div class="badge-item">
-          <div class="badge-icon"><i class="fas fa-tags"></i></div>
-          <div class="badge-text">
-            <h4>Deals You'll Love</h4>
-            <p>Enjoy exclusive offers & festive savings.</p>
-          </div>
+        <div class="badge-box">
+          <div class="badge-icon"><i class="fas fa-award"></i></div>
+          <h4 class="badge-title">Deals You’ll Love</h4>
+          <p class="badge-desc">Enjoy exclusive offers and savings.</p>
         </div>
 
-        <div class="badge-item">
-          <div class="badge-icon"><i class="fas fa-gem"></i></div>
-          <div class="badge-text">
-            <h4>Exclusive. Distinct. You.</h4>
-            <p>Jewellery that defines your individuality.</p>
-          </div>
+        <div class="badge-box">
+          <div class="badge-icon"><i class="fas fa-heart"></i></div>
+          <h4 class="badge-title">Exclusive. Distinct. You.</h4>
+          <p class="badge-desc">Jewellery that defines your individuality.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 10. Site Footer -->
+  <!-- 12. Footer -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-top">
-        <!-- Col 1: Brand & Address -->
-        <div class="footer-col footer-about">
+        <div class="footer-col">
           <h4>SHRIVARA</h4>
-          <p>Handcrafted statement fashion jewellery combining Indian heritage and contemporary luxury.</p>
           <p>
-            <strong>Store Address:</strong><br>
-            21/1 Dobson Road, Gulmohar Railway Quarters<br>
-            Mali Panchghara - Flat 4B, Howrah, West Bengal - 711101, India
+            Shrivara is a premium fashion jewellery brand offering imitation, anti-tarnish, polki, kundan, and contemporary gold plated designs.
           </p>
-          <div class="social-links">
-            <a href="https://www.instagram.com/shri.vara" target="_blank" rel="noopener" class="social-link" title="Instagram">
+          <div class="social-icons">
+            <a href="https://www.instagram.com/shri.vara?utm_source=ig_web_button_share_sheet&igsi=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener" class="social-icon-btn" title="Instagram">
               <i class="fab fa-instagram"></i>
             </a>
-            <a href="#" class="social-link" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" class="social-link" title="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+            <a href="#" class="social-icon-btn" title="Facebook"><i class="fab fa-facebook-f"></i></a>
           </div>
         </div>
 
-        <!-- Col 2: Shop Links -->
         <div class="footer-col">
-          <h4>Shop</h4>
+          <h4>SHOP</h4>
           <ul class="footer-links">
-            <li><a href="#collections">Necklaces & Chokers</a></li>
-            <li><a href="#collections">Earrings & Jhumkas</a></li>
-            <li><a href="#collections">Bracelets & Kadas</a></li>
+            <li><a href="#collections">All Collections</a></li>
+            <li><a href="#bestsellers">Bestsellers</a></li>
+            <li><a href="#new-arrivals">New Arrivals</a></li>
+            <li><a href="#collections">Earrings</a></li>
             <li><a href="#collections">Jewellery Sets</a></li>
-            <li><a href="#collections">Rings & Pendants</a></li>
+            <li><a href="#collections">Bracelets & Bangles</a></li>
           </ul>
         </div>
 
-        <!-- Col 3: Quick Links -->
         <div class="footer-col">
-          <h4>Quick Links</h4>
+          <h4>QUICK LINKS</h4>
           <ul class="footer-links">
             <li><a href="#story">About Us</a></li>
             <li><a href="#reviews">Customer Reviews</a></li>
             <li><a href="#">Shipping Policy</a></li>
-            <li><a href="#">Terms & Conditions</a></li>
             <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
           </ul>
         </div>
 
-        <!-- Col 4: Newsletter -->
         <div class="footer-col">
-          <h4>Stay Connected</h4>
-          <p>Join our VIP club for exclusive launches, secret flash sales, and styling tips.</p>
+          <h4>Store Address</h4>
+          <p>
+            21/1 Dobson Road<br>
+            Gulmohar Railway Quarters<br>
+            Mali Panchghara-Flat 4B<br>
+            Howrah, West Bengal - 711101<br>
+            India
+          </p>
+          <h4 style="margin-top: 18px;">Stay Connected! Join our email list now!</h4>
           <form class="newsletter-form" id="newsletterForm">
             <input type="email" class="newsletter-input" placeholder="Enter your email" required>
-            <button type="submit" class="newsletter-btn">Join</button>
+            <button type="submit" class="newsletter-btn">Subscribe</button>
           </form>
         </div>
       </div>
 
       <div class="footer-bottom">
-        <p>© 2026 Shrivara. All Rights Reserved. Crafted with elegance.</p>
-        <p>100% Anti-Tarnish • Gold Plated • Authentic Heritage</p>
+        <span>© 2026 Shrivara. All rights reserved.</span>
+        <span>Country/region: India (INR ₹)</span>
       </div>
     </div>
   </footer>
@@ -447,17 +443,15 @@
       </div>
     </div>
 
-    <div class="drawer-body" id="cartItems">
-      <!-- Injected by app.js -->
-    </div>
+    <div class="drawer-body" id="cartItems"></div>
 
     <div class="drawer-footer">
       <div class="subtotal-row">
         <span>Subtotal</span>
-        <span id="cartSubtotal">₹0</span>
+        <span id="cartSubtotal">Rs. 0.00</span>
       </div>
       <button class="checkout-btn" onclick="showToast('Proceeding to Checkout...')">
-        Checkout Now
+        Check out
       </button>
     </div>
   </div>
@@ -467,17 +461,16 @@
     <div class="search-container">
       <button class="close-search-btn" onclick="closeSearchModal()">&times;</button>
       <div class="search-input-box">
-        <i class="fas fa-search" style="color: var(--color-primary); font-size: 20px;"></i>
-        <input type="text" class="search-input" id="searchInput" placeholder="Search necklaces, earrings, rings..." oninput="handleLiveSearch(this.value)">
+        <i class="fas fa-search" style="color: var(--color-primary); font-size: 18px;"></i>
+        <input type="text" class="search-input" id="searchInput" placeholder="Search necklaces, earrings, bangles..." oninput="handleLiveSearch(this.value)">
       </div>
       <div class="search-results-list" id="searchResults"></div>
     </div>
   </div>
 
-  <!-- Toast Notification -->
+  <!-- Toast -->
   <div class="toast-notice" id="toastNotice"></div>
 
-  <!-- Script -->
   <script src="app.js"></script>
 </body>
 </html>
