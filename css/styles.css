@@ -97,7 +97,7 @@
   --muted-light: #73695F;
   --gold: #D4A359;
   --gold-hover: #E5B771;
-  --gold-soft: #382A17;
+  --gold-soft: #F5E6CA;
   --gold-subtle: rgba(212, 163, 89, 0.18);
   --accent: #1B6550;
   --accent-hover: #227D63;
@@ -420,8 +420,10 @@ h1, h2, h3, h4, h5, h6 {
   transition: color var(--transition);
 }
 
-[data-theme="dark"] .brand-wordmark {
-  color: var(--gold-soft);
+[data-theme="dark"] .brand-wordmark,
+.theme-dark .brand-wordmark {
+  color: #F7EAD0;
+  text-shadow: 0 1px 12px rgba(212, 163, 89, 0.25);
 }
 
 .brand-submark {
@@ -2801,8 +2803,10 @@ h1, h2, h3, h4, h5, h6 {
   transition: color var(--transition);
 }
 
-[data-theme="dark"] .brand-wordmark {
-  color: var(--gold-soft);
+[data-theme="dark"] .brand-wordmark,
+.theme-dark .brand-wordmark {
+  color: #F7EAD0;
+  text-shadow: 0 1px 12px rgba(212, 163, 89, 0.25);
 }
 
 .brand-submark {
