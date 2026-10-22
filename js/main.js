@@ -419,22 +419,49 @@ function initHeroSlider() {
     goToSlide((current + 1) % slides.length);
   }
 
+  function prevSlide() {
+    goToSlide((current - 1 + slides.length) % slides.length);
+  }
+
   function startAutoplay() {
     if (prefersReduced) return;
+    if (timer) clearInterval(timer);
     timer = setInterval(nextSlide, 6500);
   }
 
   function stopAutoplay() {
-    clearInterval(timer);
+    if (timer) clearInterval(timer);
   }
 
   dots.forEach(dot => {
-    dot.addEventListener("click", () => {
+    dot.addEventListener("click", (e) => {
+      e.stopPropagation();
       goToSlide(Number(dot.dataset.index));
       stopAutoplay();
       startAutoplay();
     });
   });
+
+  const prevBtn = document.getElementById("heroPrev");
+  const nextBtn = document.getElementById("heroNext");
+  if (prevBtn) {
+    prevBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      prevSlide();
+      stopAutoplay();
+      startAutoplay();
+    });
+  }
+  if (nextBtn) {
+    nextBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      nextSlide();
+      stopAutoplay();
+      startAutoplay();
+    });
+  }
 
   const hero = document.getElementById("heroSection");
   if (hero) {
@@ -442,6 +469,46 @@ function initHeroSlider() {
     hero.addEventListener("mouseleave", startAutoplay);
     hero.addEventListener("focusin", stopAutoplay);
     hero.addEventListener("focusout", startAutoplay);
+
+    // Mobile swipe support
+    let touchStartX = 0;
+    let touchStartY = 0;
+    hero.addEventListener("touchstart", (e) => {
+      if (e.touches.length === 1) {
+        touchStartX = e.touches[0].clientX;
+        touchStartY = e.touches[0].clientY;
+      }
+    }, { passive: true });
+
+    hero.addEventListener("touchend", (e) => {
+      if (e.changedTouches.length === 1) {
+        const diffX = touchStartX - e.changedTouches[0].clientX;
+        const diffY = touchStartY - e.changedTouches[0].clientY;
+        // Check if predominantly horizontal swipe
+        if (Math.abs(diffX) > 40 && Math.abs(diffX) > Math.abs(diffY)) {
+          if (diffX > 0) {
+            nextSlide();
+          } else {
+            prevSlide();
+          }
+          stopAutoplay();
+          startAutoplay();
+        }
+      }
+    }, { passive: true });
+
+    // Keyboard navigation
+    hero.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowLeft") {
+        prevSlide();
+        stopAutoplay();
+        startAutoplay();
+      } else if (e.key === "ArrowRight") {
+        nextSlide();
+        stopAutoplay();
+        startAutoplay();
+      }
+    });
   }
 
   startAutoplay();

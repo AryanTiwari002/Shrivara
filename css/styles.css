@@ -825,16 +825,21 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* --------------------------------------------------------------------------
-   7. Hero Section
+   7. Hero Section (Clean Cinematic Showcase - 16:9 Banner Aspect Ratio)
    -------------------------------------------------------------------------- */
 .hero-section {
   position: relative;
   width: 100%;
-  min-height: clamp(520px, 80vh, 760px);
-  display: flex;
-  align-items: center;
+  aspect-ratio: 16 / 9;
+  max-height: 640px;
   background-color: var(--ink);
   overflow: hidden;
+}
+
+@media (min-width: 1440px) {
+  .hero-section {
+    max-height: 700px;
+  }
 }
 
 .hero-slider {
@@ -860,17 +865,21 @@ h1, h2, h3, h4, h5, h6 {
   z-index: 1;
 }
 
+.hero-slide-link {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 .hero-slide-bg {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
-  transform: scale(1.02);
-  transition: transform 6s ease-out;
-}
-
-.hero-slide.is-active .hero-slide-bg {
-  transform: scale(1);
+  display: block;
 }
 
 .hero-overlay {
@@ -878,63 +887,92 @@ h1, h2, h3, h4, h5, h6 {
   inset: 0;
   background: linear-gradient(
     to bottom,
-    rgba(15, 20, 18, 0.45) 0%,
-    rgba(15, 20, 18, 0.65) 50%,
-    rgba(15, 20, 18, 0.85) 100%
+    rgba(0, 0, 0, 0.04) 0%,
+    rgba(0, 0, 0, 0) 40%,
+    rgba(0, 0, 0, 0.24) 100%
   );
+  pointer-events: none;
   z-index: 2;
 }
 
-.hero-content {
-  position: relative;
-  z-index: 3;
-  width: 100%;
-  max-width: 720px;
-  margin: 0 auto;
-  text-align: center;
-  color: #FFFFFF;
-  padding: var(--space-6) var(--space-3);
-}
-
-.hero-eyebrow {
-  color: var(--gold-soft);
-  letter-spacing: 0.24em;
-  font-size: 0.8125rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  margin-bottom: var(--space-3);
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-2);
-}
-
-.hero-title {
-  font-family: var(--font-heading);
-  font-size: clamp(2.25rem, 6vw, 4.25rem);
-  font-weight: 500;
-  letter-spacing: 0.02em;
-  line-height: 1.15;
-  color: #FFFFFF;
-  margin-bottom: var(--space-3);
-  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.4);
-}
-
-.hero-subtext {
-  font-size: clamp(1rem, 2vw, 1.1875rem);
-  color: rgba(255, 255, 255, 0.88);
-  line-height: 1.6;
-  margin-bottom: var(--space-5);
-  max-width: 580px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.hero-actions {
+/* Hero Slider Navigation Arrows */
+.hero-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-full);
+  background-color: rgba(255, 255, 255, 0.82);
+  color: var(--ink);
+  border: 1px solid rgba(255, 255, 255, 0.95);
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: var(--space-3);
-  flex-wrap: wrap;
+  z-index: 3;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.16);
+  transition: background-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
+  backdrop-filter: blur(8px);
+}
+
+.hero-arrow:hover {
+  background-color: #FFFFFF;
+  color: var(--gold);
+  transform: translateY(-50%) scale(1.06);
+}
+
+.hero-prev {
+  left: clamp(10px, 2.5vw, 24px);
+}
+
+.hero-next {
+  right: clamp(10px, 2.5vw, 24px);
+}
+
+@media (max-width: 640px) {
+  .hero-arrow {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+[data-theme="dark"] .hero-arrow {
+  background-color: rgba(20, 17, 15, 0.78);
+  color: #F2EBDD;
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+[data-theme="dark"] .hero-arrow:hover {
+  background-color: rgba(31, 26, 23, 0.95);
+  color: var(--gold);
+}
+
+/* Hero Slider Dots */
+.hero-dots {
+  position: absolute;
+  bottom: clamp(10px, 2vw, 18px);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 3;
+}
+
+.hero-dot {
+  width: 24px;
+  height: 4px;
+  background-color: rgba(255, 255, 255, 0.45);
+  border-radius: var(--radius-full);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: background-color var(--transition), width var(--transition);
+}
+
+.hero-dot.is-active {
+  background-color: var(--gold);
+  width: 38px;
 }
 
 /* Primary and Secondary Buttons */
@@ -987,28 +1025,6 @@ h1, h2, h3, h4, h5, h6 {
   transform: translateY(-2px);
 }
 
-/* Hero Slider Dots */
-.hero-dots {
-  position: absolute;
-  bottom: var(--space-4);
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: var(--space-2);
-  z-index: 4;
-}
-
-.hero-dot {
-  width: 32px;
-  height: 4px;
-  background-color: rgba(255, 255, 255, 0.35);
-  border-radius: var(--radius-full);
-  transition: background-color var(--transition), width var(--transition);
-}
-
-.hero-dot.is-active {
-  background-color: var(--gold);
-  width: 44px;
 }
 
 /* --------------------------------------------------------------------------
