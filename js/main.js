@@ -174,8 +174,8 @@ async function loadProductData() {
 // 6. Theme Controller (Light/Dark Mode)
 // --------------------------------------------------------------------------
 function initTheme() {
-  const root = document.documentElement;
   const toggleBtn = document.getElementById("themeToggleBtn");
+  const mobileToggleBtn = document.getElementById("mobileThemeToggleBtn");
 
   // Determine initial mode: stored preference -> system preference -> light default
   let currentTheme = state.theme;
@@ -187,6 +187,13 @@ function initTheme() {
 
   if (toggleBtn) {
     toggleBtn.addEventListener("click", () => {
+      const nextTheme = document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
+      applyTheme(nextTheme, true);
+    });
+  }
+
+  if (mobileToggleBtn) {
+    mobileToggleBtn.addEventListener("click", () => {
       const nextTheme = document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
       applyTheme(nextTheme, true);
     });
@@ -212,6 +219,8 @@ function applyTheme(theme, persist = false) {
   const iconSun = document.getElementById("iconThemeSun");
   const iconMoon = document.getElementById("iconThemeMoon");
   const toggleBtn = document.getElementById("themeToggleBtn");
+  const mobileToggleBtn = document.getElementById("mobileThemeToggleBtn");
+  const mobileToggleText = document.getElementById("mobileThemeToggleText");
 
   if (iconSun && iconMoon) {
     iconSun.style.display = isDark ? "block" : "none";
@@ -221,6 +230,17 @@ function applyTheme(theme, persist = false) {
   if (toggleBtn) {
     toggleBtn.setAttribute("aria-label", isDark ? "Switch to light theme" : "Switch to dark theme");
     toggleBtn.title = isDark ? "Light Mode" : "Dark Mode";
+  }
+
+  if (mobileToggleText) {
+    mobileToggleText.textContent = isDark ? "Light Mode" : "Dark Mode";
+  }
+
+  if (mobileToggleBtn) {
+    const mobileIcon = mobileToggleBtn.querySelector(".icon use");
+    if (mobileIcon) {
+      mobileIcon.setAttribute("href", isDark ? "#icon-sun" : "#icon-moon");
+    }
   }
 
   if (persist) {
