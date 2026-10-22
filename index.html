@@ -559,16 +559,32 @@
                    aria-label="Search jewellery in collection">
           </div>
 
-          <!-- Price Range Filter -->
-          <div>
-            <label for="priceFilterSelect" class="sr-only">Filter by Price</label>
-            <select id="priceFilterSelect" class="filter-select">
-              <option value="all">Price: All Ranges</option>
-              <option value="under-1500">Under ₹1,500</option>
-              <option value="1500-2500">₹1,500 – ₹2,500</option>
-              <option value="2500-4000">₹2,500 – ₹4,000</option>
-              <option value="above-4000">Above ₹4,000</option>
-            </select>
+          <!-- Luxury Dual Price Range Slider -->
+          <div class="price-slider-wrap" id="priceSliderWrap">
+            <div class="price-slider-header">
+              <span class="price-slider-title">Price Range</span>
+              <span class="price-slider-display" id="priceSliderDisplay">₹0 — ₹30,000</span>
+            </div>
+            <div class="dual-range-track-wrap">
+              <div class="dual-range-bar-bg"></div>
+              <div class="dual-range-bar-fill" id="rangeFill" style="left: 0%; width: 100%;"></div>
+              <input type="range" 
+                     id="sliderPriceMin" 
+                     class="dual-range-input" 
+                     min="0" 
+                     max="30000" 
+                     step="250" 
+                     value="0" 
+                     aria-label="Minimum Price">
+              <input type="range" 
+                     id="sliderPriceMax" 
+                     class="dual-range-input" 
+                     min="0" 
+                     max="30000" 
+                     step="250" 
+                     value="30000" 
+                     aria-label="Maximum Price">
+            </div>
           </div>
 
           <!-- Sort Select -->

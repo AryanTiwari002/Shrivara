@@ -72,7 +72,8 @@ export const state = {
   filteredProducts: [],
   visibleCount: CONFIG.pageSize,
   activeCategory: "all",
-  activePrice: "all",
+  priceMin: 0,
+  priceMax: 30000,
   activeSort: "featured",
   searchQuery: "",
   cart: storage.get("shrivara_cart", []),
@@ -523,11 +524,42 @@ function renderCategoryChips() {
   });
 }
 
+function updatePriceSliderUI(minVal = state.priceMin, maxVal = state.priceMax) {
+  const sliderMin = document.getElementById("sliderPriceMin");
+  const sliderMax = document.getElementById("sliderPriceMax");
+  const rangeFill = document.getElementById("rangeFill");
+  const display = document.getElementById("priceSliderDisplay");
+
+  if (sliderMin) sliderMin.value = minVal;
+  if (sliderMax) sliderMax.value = maxVal;
+
+  const minPercent = (minVal / 30000) * 100;
+  const maxPercent = (maxVal / 30000) * 100;
+
+  if (rangeFill) {
+    rangeFill.style.left = `${minPercent}%`;
+    rangeFill.style.width = `${maxPercent - minPercent}%`;
+  }
+
+  if (display) {
+    if (minVal === 0 && maxVal === 30000) {
+      display.textContent = "All Ranges";
+    } else if (minVal === 0) {
+      display.textContent = `Up to ₹${maxVal.toLocaleString('en-IN')}`;
+    } else if (maxVal === 30000) {
+      display.textContent = `Above ₹${minVal.toLocaleString('en-IN')}`;
+    } else {
+      display.textContent = `₹${minVal.toLocaleString('en-IN')} — ₹${maxVal.toLocaleString('en-IN')}`;
+    }
+  }
+}
+
 function initToolbarListeners() {
   const searchInput = document.getElementById("catalogSearch");
-  const priceSelect = document.getElementById("priceFilterSelect");
   const sortSelect = document.getElementById("sortSelect");
   const loadMoreBtn = document.getElementById("loadMoreBtn");
+  const sliderMin = document.getElementById("sliderPriceMin");
+  const sliderMax = document.getElementById("sliderPriceMax");
 
   // Debounced search
   let debounceTimeout = null;
@@ -540,21 +572,58 @@ function initToolbarListeners() {
     }, 180);
   });
 
-  priceSelect?.addEventListener("change", e => {
-    state.activePrice = e.target.value;
-    state.visibleCount = CONFIG.pageSize;
-    applyFiltersAndRender();
+  // Price Range Slider Controls
+  let priceDebounce = null;
+  function handlePriceInput(e) {
+    let minVal = parseInt(sliderMin.value, 10) || 0;
+    let maxVal = parseInt(sliderMax.value, 10) || 30000;
+
+    if (minVal > maxVal - 500) {
+      if (e && e.target === sliderMin) {
+        sliderMin.value = maxVal - 500;
+        minVal = maxVal - 500;
+      } else if (e && e.target === sliderMax) {
+        sliderMax.value = minVal + 500;
+        maxVal = minVal + 500;
+      }
+    }
+
+    state.priceMin = minVal;
+    state.priceMax = maxVal;
+    updatePriceSliderUI(minVal, maxVal);
+
+    clearTimeout(priceDebounce);
+    priceDebounce = setTimeout(() => {
+      state.visibleCount = CONFIG.pageSize;
+      applyFiltersAndRender();
+      updateUrlHash();
+    }, 120);
+  }
+
+  sliderMin?.addEventListener("input", e => {
+    sliderMin.style.zIndex = "3";
+    if (sliderMax) sliderMax.style.zIndex = "2";
+    handlePriceInput(e);
+  });
+
+  sliderMax?.addEventListener("input", e => {
+    sliderMax.style.zIndex = "3";
+    if (sliderMin) sliderMin.style.zIndex = "2";
+    handlePriceInput(e);
   });
 
   sortSelect?.addEventListener("change", e => {
     state.activeSort = e.target.value;
     applyFiltersAndRender();
+    updateUrlHash();
   });
 
   loadMoreBtn?.addEventListener("click", () => {
     state.visibleCount += CONFIG.pageSize;
     applyFiltersAndRender(false);
   });
+
+  updatePriceSliderUI(state.priceMin, state.priceMax);
 }
 
 export function filterByCategory(categoryKey) {
@@ -592,15 +661,12 @@ function applyFiltersAndRender(resetScroll = true) {
     }
   }
 
-  // 2. Price Filter
-  if (state.activePrice === "under-1500") {
-    list = list.filter(p => p.price > 0 && p.price < 1500);
-  } else if (state.activePrice === "1500-2500") {
-    list = list.filter(p => p.price >= 1500 && p.price <= 2500);
-  } else if (state.activePrice === "2500-4000") {
-    list = list.filter(p => p.price > 2500 && p.price <= 4000);
-  } else if (state.activePrice === "above-4000") {
-    list = list.filter(p => p.price > 4000);
+  // 2. Price Filter (Interactive Range Slider)
+  if (state.priceMin > 0 || state.priceMax < 30000) {
+    list = list.filter(p => {
+      if (!p.price || p.price <= 0) return false;
+      return p.price >= state.priceMin && p.price <= state.priceMax;
+    });
   }
 
   // 3. Search Query Filter
@@ -680,7 +746,7 @@ function renderActiveFiltersStrip() {
   if (!container) return;
 
   const hasCategory = state.activeCategory !== "all";
-  const hasPrice = state.activePrice !== "all";
+  const hasPrice = state.priceMin > 0 || state.priceMax < 30000;
   const hasSearch = Boolean(state.searchQuery);
 
   if (!hasCategory && !hasPrice && !hasSearch) {
@@ -703,15 +769,17 @@ function renderActiveFiltersStrip() {
   }
 
   if (hasPrice) {
-    const priceLabels = {
-      "under-1500": "Under ₹1,500",
-      "1500-2500": "₹1,500 – ₹2,500",
-      "2500-4000": "₹2,500 – ₹4,000",
-      "above-4000": "Above ₹4,000"
-    };
+    let priceLabel = "";
+    if (state.priceMin === 0) {
+      priceLabel = `Up to ₹${state.priceMax.toLocaleString('en-IN')}`;
+    } else if (state.priceMax === 30000) {
+      priceLabel = `Above ₹${state.priceMin.toLocaleString('en-IN')}`;
+    } else {
+      priceLabel = `₹${state.priceMin.toLocaleString('en-IN')} — ₹${state.priceMax.toLocaleString('en-IN')}`;
+    }
     html += `
       <span class="active-filter-tag">
-        Price: ${priceLabels[state.activePrice] || state.activePrice}
+        Price: ${priceLabel}
         <button class="active-filter-remove" data-remove="price" aria-label="Remove price filter">&times;</button>
       </span>
     `;
@@ -734,9 +802,9 @@ function renderActiveFiltersStrip() {
       const type = btn.dataset.remove;
       if (type === "category") state.activeCategory = "all";
       if (type === "price") {
-        state.activePrice = "all";
-        const sel = document.getElementById("priceFilterSelect");
-        if (sel) sel.value = "all";
+        state.priceMin = 0;
+        state.priceMax = 30000;
+        updatePriceSliderUI(0, 30000);
       }
       if (type === "search") {
         state.searchQuery = "";
@@ -754,7 +822,8 @@ function renderActiveFiltersStrip() {
 
 export function clearAllFilters() {
   state.activeCategory = "all";
-  state.activePrice = "all";
+  state.priceMin = 0;
+  state.priceMax = 30000;
   state.activeSort = "featured";
   state.searchQuery = "";
   state.visibleCount = CONFIG.pageSize;
@@ -762,8 +831,7 @@ export function clearAllFilters() {
   const searchInput = document.getElementById("catalogSearch");
   if (searchInput) searchInput.value = "";
 
-  const priceSelect = document.getElementById("priceFilterSelect");
-  if (priceSelect) priceSelect.value = "all";
+  updatePriceSliderUI(0, 30000);
 
   const sortSelect = document.getElementById("sortSelect");
   if (sortSelect) sortSelect.value = "featured";
@@ -778,7 +846,8 @@ window.clearAllFilters = clearAllFilters;
 function updateUrlHash() {
   const params = new URLSearchParams();
   if (state.activeCategory !== "all") params.set("cat", state.activeCategory.toLowerCase());
-  if (state.activePrice !== "all") params.set("price", state.activePrice);
+  if (state.priceMin > 0) params.set("min", state.priceMin);
+  if (state.priceMax < 30000) params.set("max", state.priceMax);
   if (state.activeSort !== "featured") params.set("sort", state.activeSort);
   const paramStr = params.toString();
   window.history.replaceState(null, "", paramStr ? `#catalog?${paramStr}` : "#catalog");
@@ -791,14 +860,15 @@ function initHashRouting() {
       const q = hash.split("?")[1];
       const params = new URLSearchParams(q);
       const cat = params.get("cat");
-      const price = params.get("price");
+      const minP = params.get("min");
+      const maxP = params.get("max");
       const sort = params.get("sort");
 
       if (cat) state.activeCategory = cat;
-      if (price) {
-        state.activePrice = price;
-        const sel = document.getElementById("priceFilterSelect");
-        if (sel) sel.value = price;
+      if (minP || maxP) {
+        state.priceMin = minP ? Math.max(0, parseInt(minP, 10)) : 0;
+        state.priceMax = maxP ? Math.min(30000, parseInt(maxP, 10)) : 30000;
+        updatePriceSliderUI(state.priceMin, state.priceMax);
       }
       if (sort) {
         state.activeSort = sort;
