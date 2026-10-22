@@ -1,3 +1,21 @@
+
+/* Official Shrivara Brand Fonts */
+@font-face {
+  font-family: 'Kingred Serif';
+  src: url('data:font/truetype;charset=utf-8;base64,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') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Montserrat Brand';
+  src: url('data:font/truetype;charset=utf-8;base64,AAEAAAAOAIAAAwBgT1MvMlOziJkAAAGQAAAAYGNtYXADqgNpAAAB8AAAAGhjdnQgL1IVSAAAAzAAAADkZnBnbU0kjnwAAA7kAAANbWdhc3AAAAAQAAAA7AAAAAhnbHlmbIWkbQAAB7AAAAOUaGVhZBZGtW4AAAFYAAAANmhoZWEGxgWIAAABNAAAACRobXR4GeQCpgAAC0QAAAOgbG9jYUmZSRMAAAXcAAAB0m1heHACPQ5ZAAAA9AAAACBuYW1lJLQ/EAAABBQAAAHIcG9zdP+4ADIAAAEUAAAAIHByZXDNS6zAAAACWAAAANUAAQAB//8ADwABAAAA6ABMAAcAVQAFAAIANgBIAIsAAACDDW0ABAABAAMAAAAAAAD/tQAyAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAA8j/BQAABlL8yf9IBjIAAQAAAAAAAAAAAAAAAAAAAOgAAQAAAAczM5on+DZfDzz1CAcD6AAAAADWC/5GAAAAANYeQAT8yf76BjIEEwAAAAcAAgAAAAAAAAAEAn8BkAAFAAACigJYAAAASwKKAlgAAAFeADIBOwAAAAAFAAAAAAAAAAAAAAEAAAAAAAAAAAAAAABVTEEgAMAAIABZA8j/BQAABFUBDiAAAZcAAAAAAg0CvAAAACAAAwAAAAIAAAADAAAAFAADAAEAAAAUAAQAVAAAABAAEAADAAAAIABFAEkATABSAFUAWf//AAAAIABFAEkATABRAFQAWP///+P/6wAPACIAWQAAAI4AAQAAAAAAAAAAAAAABgAAAAAAwQDIAEu4AMhSWLEBAY5ZsAG5CAAIAGNwsQAHQkAJAGtbSzsAJwcAKrEAB0JAEHACYAhQCEAINAYsBB4HBwgqsQAHQkAQcgBoBlgGSAY6BDACJQUHCCqxAA5CQQkcQBhAFEAQQA1AC0AHwAAHAAkqsQAVQkEJAEAAQABAAEAAQABAAEAABwAJKrEDAESxJAGIUViwQIhYsQNkRLEmAYhRWLoIgAABBECIY1RYsQMARFlZWVlAEHIAYgZSBkIGNgQuAiAFBwwquAH/hbAEjbECAESzBWQGAEREAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAASABIAD4APgK8AAACDgAA/z4Cwv/6AhL/+/85AEgASAA+AD4CNQAAAjz/+gBIAEgAPgA+AjUCNQAAAAACNQI8//r/+gBIAEgAPgA+ArwAAALmAg4AAP8+AsL/+gLnAhL/+/85AEgASAA+AD4BO/+cAuYCDgAA/z4BP/+YAucCEv/7/z4ASABIAD4APgLmAUcC5gIOAAD/PgLqAUMC5wIS//v/OQAYABgAGAAYAAAABwBaAAMAAQQJAAAAsAC+AAMAAQQJAAEAFACqAAMAAQQJAAIADgCcAAMAAQQJAAMAOgBiAAMAAQQJAAQAJAA+AAMAAQQJAAUAGgAkAAMAAQQJAAYAJAAAAE0AbwBuAHQAcwBlAHIAcgBhAHQALQBSAGUAZwB1AGwAYQByAFYAZQByAHMAaQBvAG4AIAA3AC4AMgAwADAATQBvAG4AdABzAGUAcgByAGEAdAAgAFIAZQBnAHUAbABhAHIANwAuADIAMAAwADsAVQBMAEEAIAA7AE0AbwBuAHQAcwBlAHIAcgBhAHQALQBSAGUAZwB1AGwAYQByAFIAZQBnAHUAbABhAHIATQBvAG4AdABzAGUAcgByAGEAdABDAG8AcAB5AHIAaQBnAGgAdAAgADIAMAAxADEAIABUAGgAZQAgAE0AbwBuAHQAcwBlAHIAcgBhAHQAIABQAHIAbwBqAGUAYwB0ACAAQQB1AHQAaABvAHIAcwAgACgAaAB0AHQAcABzADoALwAvAGcAaQB0AGgAdQBiAC4AYwBvAG0ALwBKAHUAbABpAGUAdABhAFUAbABhAC8ATQBvAG4AdABzAGUAcgByAGEAdAApAAAAKgAqACoAKgAqACoAKgAqACoAKgAqACoAKgAqACoAKgAqACoAKgAqACoAKgAqACoAKgAqACoAKgAqACoAKgAqACoAKgAqACoAKgAqACoAKgAqACoAKgAqACoAKgAqACoAWQBZAFkAWQBZAFkAWQBZAFkAWQBZAFkAWQBZAFkAWQBZAFkAWQBZAFkAWQBZAFkAWQBZAFkAWQBZAFkAWQBZAFkAWQBZAFkAWQBZAFkAWQBvAG8AbwBvAG8AbwBvAG8AbwBvAG8AbwBvAG8AbwBvAG8AbwBvAG8AbwBvAIsAiwCLAIsAiwCLAIsAiwCLAIsAiwCLAIsAiwCLAIsAiwCLAIsAiwCLAIsAiwCLAIsAiwCLAIsAiwCLAIsAiwCLAIsAiwCLAIsAiwCL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') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* ==========================================================================
    SHRIVARA — Luxury Indian Jewellery Design System
    Handcrafted Indian Heritage meets Modern Luxury
@@ -9,22 +27,22 @@
    -------------------------------------------------------------------------- */
 :root {
   /* Colors - Light Theme (Ivory & Warm Honey Gold with Royal Deep Emerald) */
-  --bg: #FAF6EF;
+  --bg: #F8F4ED;
   --surface: #FFFFFF;
   --surface-alt: #F4EFE6;
   --surface-card: #FFFFFF;
-  --ink: #1F1A17;
+  --ink: #292522;
   --ink-secondary: #3D352F;
-  --muted: #6B625A;
+  --muted: #8B8178;
   --muted-light: #948B82;
-  --gold: #B8893B;
+  --gold: #C6A15B;
   --gold-hover: #9E732E;
   --gold-soft: #E8D5A8;
   --gold-subtle: rgba(184, 137, 59, 0.12);
-  --accent: #0F4C3A; /* Deep Emerald: Indian Heritage Luxury */
-  --accent-hover: #093427;
+  --accent: #6B2335; /* Deep Emerald: Indian Heritage Luxury */
+  --accent-hover: #541928;
   --accent-ink: #FFFFFF;
-  --line: rgba(31, 26, 23, 0.12);
+  --line: #E7DED3;
   --line-strong: rgba(31, 26, 23, 0.22);
   --danger: #A62B2B;
   --success: #0F4C3A;
@@ -32,6 +50,8 @@
   /* Typography */
   --font-heading: 'Cormorant Garamond', Georgia, serif;
   --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-brand-title: 'Kingred Serif', 'Cormorant Garamond', Georgia, serif;
+  --font-brand-sub: 'Montserrat Brand', 'Montserrat', 'DM Sans', sans-serif;
 
   /* Spacing Scale (8px baseline) */
   --space-1: 4px;
@@ -2553,4 +2573,759 @@ h1, h2, h3, h4, h5, h6 {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+
+/* ==========================================================================
+   OFFICIAL SHRIVARA BRAND IDENTITY & ENHANCEMENTS
+   ========================================================================== */
+
+/* Brand Logo Lockup */
+.brand-logo-lockup {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  line-height: 1;
+  padding: 4px 6px;
+  cursor: pointer;
+  transition: transform var(--transition-fast);
+}
+
+.brand-logo-lockup:hover {
+  transform: scale(1.02);
+}
+
+.brand-wordmark {
+  font-family: var(--font-brand-title);
+  font-size: clamp(1.65rem, 3.2vw, 2.25rem);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  color: var(--accent);
+  line-height: 1.05;
+  transition: color var(--transition);
+}
+
+[data-theme="dark"] .brand-wordmark {
+  color: var(--gold-soft);
+}
+
+.brand-submark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  margin-top: 3px;
+  line-height: 1;
+}
+
+.brand-subtext {
+  font-family: var(--font-brand-sub);
+  font-size: clamp(0.5rem, 0.95vw, 0.62rem);
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  color: var(--gold);
+  text-transform: uppercase;
+}
+
+.brand-substar {
+  width: 8px;
+  height: 8px;
+  fill: var(--gold);
+  flex-shrink: 0;
+  display: inline-block;
+}
+
+@media (max-width: 480px) {
+  .brand-wordmark {
+    font-size: 1.48rem;
+  }
+  .brand-subtext {
+    font-size: 0.46rem;
+    letter-spacing: 0.2em;
+  }
+  .brand-substar {
+    width: 7px;
+    height: 7px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Shop Category Slider Dropdown Panel
+   -------------------------------------------------------------------------- */
+.nav-shop-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  color: inherit;
+  padding: 0;
+  position: relative;
+}
+
+.nav-shop-btn .icon-caret {
+  transition: transform var(--transition-fast);
+}
+
+.nav-shop-btn[aria-expanded="true"] .icon-caret {
+  transform: rotate(180deg);
+}
+
+.shop-slider-panel {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: var(--surface);
+  border-top: 1px solid var(--line);
+  border-bottom: 2px solid var(--gold);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.16);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(-8px);
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+  z-index: 150;
+}
+
+[data-theme="dark"] .shop-slider-panel {
+  background-color: var(--surface-card);
+}
+
+.shop-slider-panel.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.shop-slider-inner {
+  padding: 24px var(--space-4) 28px;
+}
+
+.shop-slider-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 18px;
+  gap: 16px;
+}
+
+.shop-slider-eyebrow {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.shop-slider-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.4rem, 2.4vw, 1.85rem);
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 1.1;
+  margin: 0;
+}
+
+.shop-slider-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-shrink: 0;
+}
+
+.shop-slider-all-link {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: color var(--transition-fast);
+  white-space: nowrap;
+}
+
+[data-theme="dark"] .shop-slider-all-link {
+  color: var(--gold);
+}
+
+.shop-slider-all-link:hover {
+  color: var(--gold-hover);
+  text-decoration: underline;
+}
+
+.shop-slider-nav-btns {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.slider-arrow-btn {
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--bg);
+  color: var(--ink);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.slider-arrow-btn:hover {
+  background: var(--gold);
+  color: #FFFFFF;
+  border-color: var(--gold);
+}
+
+.shop-slider-close-btn {
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--muted);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.shop-slider-close-btn:hover {
+  background: var(--danger);
+  color: #FFFFFF;
+  border-color: var(--danger);
+}
+
+.shop-slider-viewport {
+  position: relative;
+  overflow: hidden;
+}
+
+.shop-slider-track {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  padding: 6px 2px 14px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--gold) var(--line);
+  -webkit-overflow-scrolling: touch;
+}
+
+.shop-slider-track::-webkit-scrollbar {
+  height: 6px;
+}
+
+.shop-slider-track::-webkit-scrollbar-track {
+  background: var(--line);
+  border-radius: 3px;
+}
+
+.shop-slider-track::-webkit-scrollbar-thumb {
+  background: var(--gold);
+  border-radius: 3px;
+}
+
+.shop-slider-card {
+  flex: 0 0 clamp(190px, 18vw, 240px);
+  scroll-snap-align: start;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
+  display: flex;
+  flex-direction: column;
+}
+
+.shop-slider-card:hover,
+.shop-slider-card:focus-visible {
+  transform: translateY(-4px);
+  border-color: var(--gold);
+  box-shadow: var(--shadow-md);
+  outline: none;
+}
+
+.shop-slider-img-box {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background-color: var(--surface-alt);
+}
+
+.shop-slider-img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.shop-slider-card:hover .shop-slider-img-box img {
+  transform: scale(1.06);
+}
+
+.shop-slider-img-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 40%, rgba(107, 35, 53, 0.85) 100%);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 14px;
+  opacity: 0.9;
+  transition: opacity var(--transition-fast);
+}
+
+.shop-slider-pill {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  background: rgba(198, 161, 91, 0.92);
+  padding: 5px 12px;
+  border-radius: var(--radius-sm);
+  transition: transform var(--transition-fast), background var(--transition-fast);
+}
+
+.shop-slider-card:hover .shop-slider-pill {
+  transform: translateY(-2px);
+  background: var(--gold);
+}
+
+.shop-slider-info {
+  padding: 12px 14px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  text-align: left;
+}
+
+.shop-slider-card-title {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.shop-slider-card-count {
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin: 0;
+}
+
+/* Mobile Category Slider inside Drawer */
+.mobile-slider-wrap {
+  margin-bottom: 24px;
+}
+.mobile-slider-track {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 8px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: var(--gold) var(--line);
+}
+.mobile-slider-track .shop-slider-card {
+  flex: 0 0 160px;
+}
+
+/* --------------------------------------------------------------------------
+   Shop By Occasion Section (Section 5H)
+   -------------------------------------------------------------------------- */
+.section-occasions {
+  padding: var(--space-7) 0;
+  background-color: var(--surface-alt);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+[data-theme="dark"] .section-occasions {
+  background-color: var(--surface);
+}
+
+.occasions-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-3);
+  margin-top: var(--space-5);
+}
+
+@media (min-width: 900px) {
+  .occasions-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-4);
+  }
+}
+
+.occasion-card {
+  position: relative;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.occasion-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.occasion-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.occasion-card:hover .occasion-card-img {
+  transform: scale(1.06);
+}
+
+.occasion-card-content {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 40%, rgba(41, 37, 34, 0.88) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: var(--space-4);
+  color: #FFFFFF;
+}
+
+.occasion-card-tag {
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold-soft);
+  margin-bottom: 4px;
+}
+
+.occasion-card-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.2rem, 2vw, 1.45rem);
+  font-weight: 600;
+  color: #FFFFFF;
+  margin-bottom: 8px;
+  line-height: 1.2;
+}
+
+.occasion-card-link {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #FFFFFF;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  opacity: 0.9;
+  transition: opacity var(--transition-fast), transform var(--transition-fast);
+}
+
+.occasion-card:hover .occasion-card-link {
+  opacity: 1;
+  transform: translateX(4px);
+  color: var(--gold);
+}
+
+/* --------------------------------------------------------------------------
+   Customer Reassurance Section (Section 5I)
+   -------------------------------------------------------------------------- */
+.section-reassurance {
+  padding: var(--space-5) 0;
+  background-color: var(--surface);
+  border-bottom: 1px solid var(--line);
+}
+
+.reassurance-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-4);
+}
+
+@media (min-width: 900px) {
+  .reassurance-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.reassurance-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-2);
+}
+
+.reassurance-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-sm);
+  background-color: var(--gold-subtle);
+  color: var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.reassurance-title {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 2px;
+}
+
+.reassurance-desc {
+  font-size: 0.78rem;
+  color: var(--muted);
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Demo Checkout Modal (Section 9I)
+   -------------------------------------------------------------------------- */
+.checkout-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.72);
+  backdrop-filter: blur(4px);
+  z-index: 360;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--transition), visibility var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-3);
+}
+
+.checkout-modal-backdrop.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.checkout-modal-container {
+  width: min(720px, 96vw);
+  max-height: 90vh;
+  background-color: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+[data-theme="dark"] .checkout-modal-container {
+  background-color: var(--surface-card);
+}
+
+.checkout-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: var(--space-4);
+  border-bottom: 1px solid var(--line);
+}
+
+.checkout-badge {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background-color: rgba(107, 35, 53, 0.1);
+  padding: 3px 8px;
+  border-radius: var(--radius-sm);
+  margin-bottom: 4px;
+}
+
+.checkout-modal-title {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin: 0;
+}
+
+.checkout-modal-body {
+  padding: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.checkout-notice {
+  background: var(--surface-alt);
+  border-left: 3px solid var(--gold);
+  padding: 12px 16px;
+  font-size: 0.8125rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.checkout-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+@media (max-width: 600px) {
+  .checkout-form-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.checkout-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.checkout-form-group.full-width {
+  grid-column: 1 / -1;
+}
+
+.checkout-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.checkout-input {
+  height: 40px;
+  padding: 8px 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background-color: var(--bg);
+  color: var(--ink);
+  font-size: 0.875rem;
+  transition: border-color var(--transition-fast);
+}
+
+.checkout-input:focus {
+  border-color: var(--gold);
+  outline: none;
+}
+
+.checkout-payment-box {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 14px;
+  background-color: var(--bg);
+}
+
+.checkout-payment-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 0;
+  font-size: 0.875rem;
+  color: var(--ink);
+}
+
+.checkout-summary-box {
+  background: var(--surface-alt);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 14px;
+}
+
+.checkout-summary-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: var(--muted);
+  padding: 4px 0;
+}
+
+.checkout-summary-row.total-row {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--ink);
+  border-top: 1px solid var(--line);
+  margin-top: 8px;
+  padding-top: 8px;
+}
+
+.checkout-submit-btn {
+  width: 100%;
+  height: 48px;
+  background-color: var(--accent);
+  color: #FFFFFF;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: background-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.checkout-submit-btn:hover {
+  background-color: var(--accent-hover);
+  transform: translateY(-1px);
+}
+
+.checkout-success-state {
+  text-align: center;
+  padding: var(--space-6) var(--space-4);
+}
+
+.checkout-success-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background-color: rgba(15, 76, 58, 0.15);
+  color: var(--success);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-3);
+}
+
+.checkout-success-title {
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+
+.checkout-success-desc {
+  font-size: 0.875rem;
+  color: var(--muted);
+  max-width: 480px;
+  margin: 0 auto var(--space-4);
+  line-height: 1.6;
 }

@@ -97,6 +97,10 @@
         <polyline points="6 9 12 15 18 9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
       </g>
       <!-- Star -->
+            <!-- 16-point Rosette Star (Official Brand Motif) -->
+      <g id="icon-rosette-star">
+        <path d="M 16 0.69 L 18.97 4.91 L 23.65 2.74 L 24.12 7.88 L 29.26 8.34 L 27.09 13.03 L 31.31 16 L 27.09 18.97 L 29.26 23.65 L 24.12 24.12 L 23.65 29.26 L 18.97 27.09 L 16 31.31 L 13.03 27.09 L 8.35 29.26 L 7.88 24.12 L 2.74 23.65 L 4.91 18.97 L 0.69 16 L 4.91 13.03 L 2.74 8.34 L 7.88 7.88 L 8.35 2.74 L 13.03 4.91 Z" fill="currentColor"/>
+      </g>
       <g id="icon-star">
         <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="currentColor"/>
       </g>
@@ -179,9 +183,16 @@
         </button>
       </div>
 
-      <!-- Center: Brand Logo -->
+            <!-- Center: Brand Logo -->
       <div class="brand-logo-wrap">
-        <a href="#" class="brand-logo">Shrivara</a>
+        <a href="#" class="brand-logo-lockup" aria-label="Shrivara - Quiet Luxury Homepage">
+          <span class="brand-wordmark">Shrivara</span>
+          <span class="brand-submark">
+            <svg class="brand-substar" viewBox="0 0 32 32" aria-hidden="true"><use href="#icon-rosette-star"></use></svg>
+            <span class="brand-subtext">QUIET LUXURY</span>
+            <svg class="brand-substar" viewBox="0 0 32 32" aria-hidden="true"><use href="#icon-rosette-star"></use></svg>
+          </span>
+        </a>
       </div>
 
       <!-- Right: Dark Mode Toggle, Wishlist & Cart -->
@@ -206,38 +217,74 @@
       </div>
     </div>
 
-    <!-- Desktop Navigation Bar -->
+        <!-- Desktop Navigation Bar -->
     <nav class="desktop-nav" aria-label="Primary Navigation">
       <ul class="nav-list">
-        <!-- Shop with Mega Menu -->
+        <!-- Shop with Slider Dropdown -->
         <li class="nav-item nav-item-shop">
-          <a href="#catalog" class="nav-link" aria-haspopup="true" aria-expanded="false">
-            Shop
-            <svg class="icon" width="12" height="12" aria-hidden="true"><use href="#icon-chevron-down"></use></svg>
-          </a>
-
-          <!-- Mega Menu Dropdown -->
-          <div class="mega-menu" role="menu">
-            <div class="mega-menu-grid" id="megaMenuGrid">
-              <!-- Populated dynamically with 7 categories, thumbnails and counts -->
-            </div>
-          </div>
+          <button type="button" class="nav-link nav-shop-btn" id="shopNavBtn" aria-haspopup="true" aria-expanded="false" aria-controls="shopSliderPanel">
+            <span>Shop</span>
+            <svg class="icon icon-caret" width="12" height="12" aria-hidden="true"><use href="#icon-chevron-down"></use></svg>
+          </button>
         </li>
 
         <li class="nav-item"><a href="#collections" class="nav-link">Collections</a></li>
+        <li class="nav-item"><a href="#occasions" class="nav-link">Occasions</a></li>
         <li class="nav-item"><a href="#bestsellers" class="nav-link">Bestsellers</a></li>
         <li class="nav-item"><a href="#new-arrivals" class="nav-link">New Arrivals</a></li>
         <li class="nav-item"><a href="#story" class="nav-link">Our Story</a></li>
         <li class="nav-item"><a href="#reviews" class="nav-link">Reviews</a></li>
       </ul>
     </nav>
+
+    <!-- Shop Category Slider Panel (Slides down smoothly when Shop is clicked) -->
+    <div class="shop-slider-panel" id="shopSliderPanel" role="region" aria-label="Shop Categories Slider" aria-hidden="true">
+      <div class="container shop-slider-inner">
+        <div class="shop-slider-header">
+          <div class="shop-slider-title-wrap">
+            <span class="shop-slider-eyebrow">Handcrafted Indian Jewellery</span>
+            <h3 class="shop-slider-title">Explore by Category</h3>
+          </div>
+          <div class="shop-slider-actions">
+            <a href="#catalog" class="shop-slider-all-link" id="shopSliderAllBtn">
+              <span>View All Pieces (214)</span>
+              <span aria-hidden="true">&rarr;</span>
+            </a>
+            <div class="shop-slider-nav-btns">
+              <button type="button" class="slider-arrow-btn" id="shopSliderPrevBtn" aria-label="Slide categories left" title="Slide Left">
+                <svg class="icon" width="16" height="16" aria-hidden="true"><use href="#icon-chevron-left"></use></svg>
+              </button>
+              <button type="button" class="slider-arrow-btn" id="shopSliderNextBtn" aria-label="Slide categories right" title="Slide Right">
+                <svg class="icon" width="16" height="16" aria-hidden="true"><use href="#icon-chevron-right"></use></svg>
+              </button>
+            </div>
+            <button type="button" class="shop-slider-close-btn" id="shopSliderCloseBtn" aria-label="Close categories slider" title="Close (Esc)">
+              <svg class="icon" width="16" height="16" aria-hidden="true"><use href="#icon-close"></use></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="shop-slider-viewport">
+          <div class="shop-slider-track" id="shopSliderTrack" tabindex="0" role="list" aria-label="Jewellery category cards">
+            <!-- Populated dynamically via JS -->
+          </div>
+        </div>
+      </div>
+    </div>
   </header>
 
   <!-- Mobile Slide-In Navigation Drawer -->
   <div class="mobile-nav-backdrop" id="mobileNavBackdrop" role="dialog" aria-modal="true" aria-label="Mobile Menu">
     <div class="mobile-nav-drawer" id="mobileNavDrawer">
-      <div class="mobile-nav-header">
-        <span class="brand-logo" style="font-size: 1.5rem;">Shrivara</span>
+            <div class="mobile-nav-header">
+        <a href="#" class="brand-logo-lockup" aria-label="Shrivara Homepage">
+          <span class="brand-wordmark" style="font-size: 1.55rem;">Shrivara</span>
+          <span class="brand-submark">
+            <svg class="brand-substar" viewBox="0 0 32 32" aria-hidden="true"><use href="#icon-rosette-star"></use></svg>
+            <span class="brand-subtext" style="font-size: 0.48rem;">QUIET LUXURY</span>
+            <svg class="brand-substar" viewBox="0 0 32 32" aria-hidden="true"><use href="#icon-rosette-star"></use></svg>
+          </span>
+        </a>
         <button class="icon-btn" id="mobileNavClose" aria-label="Close mobile menu">
           <svg class="icon" width="20" height="20" aria-hidden="true"><use href="#icon-close"></use></svg>
         </button>
@@ -253,36 +300,11 @@
           <li><a href="#reviews" class="mobile-nav-link" onclick="document.getElementById('mobileNavClose').click();">Customer Reviews</a></li>
         </ul>
 
-        <div class="mobile-categories-header">Explore by Category</div>
-        <div id="mobileCategoriesList">
-          <a href="#catalog" class="mobile-category-link" onclick="window.filterByCategory('Jewellery Sets'); document.getElementById('mobileNavClose').click();">
-            <img src="https://shrivara.co/cdn/shop/collections/WhatsApp_Image_2026-07-26_at_20.51.35.jpg?v=1785079938&width=200" alt="Jewellery Sets">
-            <span>Jewellery Sets</span>
-          </a>
-          <a href="#catalog" class="mobile-category-link" onclick="window.filterByCategory('Earrings'); document.getElementById('mobileNavClose').click();">
-            <img src="https://shrivara.co/cdn/shop/collections/WhatsApp_Image_2026-07-26_at_18.41.22.jpg?v=1785071683&width=200" alt="Earrings">
-            <span>Earrings & Tops</span>
-          </a>
-          <a href="#catalog" class="mobile-category-link" onclick="window.filterByCategory('Bracelets & Bangles'); document.getElementById('mobileNavClose').click();">
-            <img src="https://shrivara.co/cdn/shop/collections/WhatsApp_Image_2026-07-26_at_19.05.32.jpg?v=1785073014&width=200" alt="Bracelets & Bangles">
-            <span>Bracelets & Bangles</span>
-          </a>
-          <a href="#catalog" class="mobile-category-link" onclick="window.filterByCategory('Necklaces'); document.getElementById('mobileNavClose').click();">
-            <img src="https://cdn.shopify.com/s/files/1/0725/1728/8098/files/WhatsApp_Image_2026-09-10_at_15.48.18.jpg?v=1789539990&width=200" alt="Necklaces">
-            <span>Necklaces & Chokers</span>
-          </a>
-          <a href="#catalog" class="mobile-category-link" onclick="window.filterByCategory('Pendant Sets'); document.getElementById('mobileNavClose').click();">
-            <img src="https://shrivara.co/cdn/shop/collections/WhatsApp_Image_2026-07-26_at_18.14.32.jpg?v=1785069982&width=200" alt="Pendant Sets">
-            <span>Pendant Sets</span>
-          </a>
-          <a href="#catalog" class="mobile-category-link" onclick="window.filterByCategory('Rings'); document.getElementById('mobileNavClose').click();">
-            <img src="https://shrivara.co/cdn/shop/collections/ChatGPT_Image_Aug_18_2026_11_50_43_PM.png?v=1787077388&width=200" alt="Rings">
-            <span>Rings</span>
-          </a>
-          <a href="#catalog" class="mobile-category-link" onclick="window.filterByCategory('Anti-Tarnish'); document.getElementById('mobileNavClose').click();">
-            <img src="https://shrivara.co/cdn/shop/collections/Gemini_Generated_Image_3gqx753gqx753gqx.png?v=1789385692&width=200" alt="Anti-Tarnish">
-            <span>✨ 100% Anti-Tarnish</span>
-          </a>
+        <div class="mobile-categories-header">Explore by Category (Swipe)</div>
+        <div class="mobile-slider-wrap">
+          <div class="mobile-slider-track" id="mobileCategoriesSlider" role="list">
+            <!-- Populated dynamically via JS -->
+          </div>
         </div>
       </div>
 
@@ -358,6 +380,106 @@
 
       <!-- Slider Dots -->
       <div class="hero-dots" id="heroDots" role="tablist" aria-label="Hero slider pagination"></div>
+    </section>
+
+        <!-- ======================================================================
+         3.5 Customer Reassurance Strip (Section 5I)
+         ====================================================================== -->
+    <section class="section-reassurance" id="reassurance" aria-label="Customer Reassurance">
+      <div class="container">
+        <div class="reassurance-grid">
+          <div class="reassurance-item">
+            <div class="reassurance-icon">
+              <svg class="icon" width="22" height="22" aria-hidden="true"><use href="#icon-shield"></use></svg>
+            </div>
+            <div>
+              <div class="reassurance-title">Anti-Tarnish Guarantee</div>
+              <p class="reassurance-desc">Premium micro-plating engineered for everyday waterproof longevity</p>
+            </div>
+          </div>
+
+          <div class="reassurance-item">
+            <div class="reassurance-icon">
+              <svg class="icon" width="22" height="22" aria-hidden="true"><use href="#icon-gem"></use></svg>
+            </div>
+            <div>
+              <div class="reassurance-title">Handcrafted in India</div>
+              <p class="reassurance-desc">Heritage craftsmanship from skilled artisans of Bengal</p>
+            </div>
+          </div>
+
+          <div class="reassurance-item">
+            <div class="reassurance-icon">
+              <svg class="icon" width="22" height="22" aria-hidden="true"><use href="#icon-bag"></use></svg>
+            </div>
+            <div>
+              <div class="reassurance-title">Free Insured Shipping</div>
+              <p class="reassurance-desc">Complimentary doorstep delivery on orders above ₹1,999</p>
+            </div>
+          </div>
+
+          <div class="reassurance-item">
+            <div class="reassurance-icon">
+              <svg class="icon" width="22" height="22" aria-hidden="true"><use href="#icon-whatsapp"></use></svg>
+            </div>
+            <div>
+              <div class="reassurance-title">Dedicated Concierge</div>
+              <p class="reassurance-desc">Direct styling assistance & bridal queries via WhatsApp</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         3.8 Shop By Occasion Section (Section 5H)
+         ====================================================================== -->
+    <section class="section-occasions" id="occasions" aria-labelledby="occasionsHeading">
+      <div class="container">
+        <div class="section-header-center">
+          <span class="eyebrow">Curated Moments</span>
+          <h2 class="section-title" id="occasionsHeading">Shop by Occasion</h2>
+          <p class="section-lead">Find the perfect jewel tailored to every festive celebration, daily moment, and bridal milestone</p>
+        </div>
+
+        <div class="occasions-grid">
+          <a href="#catalog" class="occasion-card" onclick="window.filterByCategory('Anti-Tarnish');">
+            <img src="https://shrivara.co/cdn/shop/collections/Gemini_Generated_Image_3gqx753gqx753gqx.png?v=1789385692&width=500" alt="Everyday Elegance" class="occasion-card-img" loading="lazy">
+            <div class="occasion-card-content">
+              <span class="occasion-card-tag">Daily Wear</span>
+              <h3 class="occasion-card-title">Everyday Elegance</h3>
+              <span class="occasion-card-link">Explore Collection &rarr;</span>
+            </div>
+          </a>
+
+          <a href="#catalog" class="occasion-card" onclick="window.filterByCategory('Earrings');">
+            <img src="https://shrivara.co/cdn/shop/collections/WhatsApp_Image_2026-07-26_at_18.41.22.jpg?v=1785071683&width=500" alt="Festive Moments" class="occasion-card-img" loading="lazy">
+            <div class="occasion-card-content">
+              <span class="occasion-card-tag">Celebrations</span>
+              <h3 class="occasion-card-title">Festive Moments</h3>
+              <span class="occasion-card-link">Explore Collection &rarr;</span>
+            </div>
+          </a>
+
+          <a href="#catalog" class="occasion-card" onclick="window.filterByCategory('Jewellery Sets');">
+            <img src="https://shrivara.co/cdn/shop/collections/WhatsApp_Image_2026-07-26_at_20.51.35.jpg?v=1785079938&width=500" alt="Wedding Celebrations" class="occasion-card-img" loading="lazy">
+            <div class="occasion-card-content">
+              <span class="occasion-card-tag">Bridal & Grand</span>
+              <h3 class="occasion-card-title">Wedding Celebrations</h3>
+              <span class="occasion-card-link">Explore Collection &rarr;</span>
+            </div>
+          </a>
+
+          <a href="#catalog" class="occasion-card" onclick="window.filterByCategory('Pendant Sets');">
+            <img src="https://shrivara.co/cdn/shop/collections/WhatsApp_Image_2026-07-26_at_18.14.32.jpg?v=1785069982&width=500" alt="Thoughtful Gifting" class="occasion-card-img" loading="lazy">
+            <div class="occasion-card-content">
+              <span class="occasion-card-tag">Sentiments</span>
+              <h3 class="occasion-card-title">Thoughtful Gifting</h3>
+              <span class="occasion-card-link">Explore Collection &rarr;</span>
+            </div>
+          </a>
+        </div>
+      </div>
     </section>
 
     <!-- ======================================================================
@@ -739,7 +861,16 @@
       <div class="footer-grid">
         <!-- Col 1: Brand & Craft -->
         <div>
-          <h3 class="brand-logo" style="color: #FFFFFF; font-size: 1.85rem; margin-bottom: 12px;">Shrivara</h3>
+          <div style="margin-bottom: 16px;">
+            <a href="#" class="brand-logo-lockup" aria-label="Shrivara Homepage" style="align-items: flex-start; padding: 0;">
+              <span class="brand-wordmark" style="color: #FFFFFF; font-size: 2.1rem;">Shrivara</span>
+              <span class="brand-submark" style="justify-content: flex-start;">
+                <svg class="brand-substar" viewBox="0 0 32 32" aria-hidden="true"><use href="#icon-rosette-star"></use></svg>
+                <span class="brand-subtext" style="color: var(--gold-soft);">QUIET LUXURY</span>
+                <svg class="brand-substar" viewBox="0 0 32 32" aria-hidden="true"><use href="#icon-rosette-star"></use></svg>
+              </span>
+            </a>
+          </div>
           <p class="footer-text">
             Handcrafted Indian fashion jewellery blending timeless heritage with modern luxury. Anti-tarnish, gold plated, and adorned with high-grade polki and kundan stones. Handcrafted in Howrah, West Bengal.
           </p>
@@ -847,9 +978,7 @@
           <span>Subtotal</span>
           <span id="cartSubtotalAmount">₹0</span>
         </div>
-        <button class="cart-checkout-btn" onclick="showToast('Demo store showcase: Order via WhatsApp or visit shrivara.co');">
-          Proceed to Checkout
-        </button>
+        <button class="cart-checkout-btn" id="cartCheckoutProceedBtn">Proceed to Checkout &rarr;</button>
         <p class="cart-demo-notice">
           ✨ Showcase Store: For commercial transactions, orders are fulfilled directly via WhatsApp concierge or shrivara.co.
         </p>
@@ -920,5 +1049,111 @@
   <!-- Product Database & Main Controller Modules -->
   <script src="products.js"></script>
   <script type="module" src="js/main.js"></script>
+  <!-- ======================================================================
+       15. Demo Checkout Modal (Master Prompt Section 9I)
+       ====================================================================== -->
+  <div class="checkout-modal-backdrop" id="checkoutModalBackdrop" role="dialog" aria-modal="true" aria-labelledby="checkoutModalHeading">
+    <div class="checkout-modal-container">
+      <div class="checkout-modal-header">
+        <div>
+          <span class="checkout-badge">Demonstration Store</span>
+          <h3 class="checkout-modal-title" id="checkoutModalHeading">Simulated Checkout</h3>
+        </div>
+        <button class="icon-btn" id="checkoutModalCloseBtn" aria-label="Close checkout modal">
+          <svg class="icon" width="18" height="18" aria-hidden="true"><use href="#icon-close"></use></svg>
+        </button>
+      </div>
+
+      <div class="checkout-modal-body" id="checkoutModalBody">
+        <div class="checkout-notice">
+          <strong>Notice:</strong> This is a portfolio showcase demo for Shrivara. No real payment will be collected and no physical order will be placed. In the live store, transactions are processed securely via Shopify at <a href="https://shrivara.co" target="_blank" rel="noopener" style="color: var(--gold); text-decoration: underline;">shrivara.co</a>.
+        </div>
+
+        <!-- Order Summary Preview -->
+        <div class="checkout-summary-box">
+          <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--ink); margin-bottom: 8px;">Order Summary</h4>
+          <div id="checkoutOrderItemsList" style="max-height: 140px; overflow-y: auto; margin-bottom: 12px;"></div>
+          <div class="checkout-summary-row">
+            <span>Subtotal</span>
+            <span id="checkoutSubtotalText">₹0</span>
+          </div>
+          <div class="checkout-summary-row">
+            <span>Insured Delivery</span>
+            <span id="checkoutShippingText" style="color: var(--success); font-weight: 600;">FREE</span>
+          </div>
+          <div class="checkout-summary-row total-row">
+            <span>Estimated Total</span>
+            <span id="checkoutTotalText" style="color: var(--accent);">₹0</span>
+          </div>
+        </div>
+
+        <!-- Simulated Delivery Details Form -->
+        <form id="checkoutDemoForm" onsubmit="event.preventDefault(); window.submitDemoOrder();">
+          <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--ink); margin-bottom: 8px;">Shipping Address</h4>
+          <div class="checkout-form-grid">
+            <div class="checkout-form-group">
+              <label for="checkoutName" class="checkout-label">Full Name</label>
+              <input type="text" id="checkoutName" class="checkout-input" placeholder="e.g. Ananya Sharma" required value="Ananya Sharma">
+            </div>
+            <div class="checkout-form-group">
+              <label for="checkoutPhone" class="checkout-label">Phone Number</label>
+              <input type="tel" id="checkoutPhone" class="checkout-input" placeholder="+91 98765 43210" required value="+91 98765 43210">
+            </div>
+            <div class="checkout-form-group full-width">
+              <label for="checkoutAddress" class="checkout-label">Street Address</label>
+              <input type="text" id="checkoutAddress" class="checkout-input" placeholder="House/Flat No, Apartment, Landmark" required value="14A, Heritage Enclave, Civil Lines">
+            </div>
+            <div class="checkout-form-group">
+              <label for="checkoutCity" class="checkout-label">City</label>
+              <input type="text" id="checkoutCity" class="checkout-input" placeholder="City" required value="Jaipur">
+            </div>
+            <div class="checkout-form-group">
+              <label for="checkoutPincode" class="checkout-label">Pincode</label>
+              <input type="text" id="checkoutPincode" class="checkout-input" placeholder="302001" required value="302001">
+            </div>
+          </div>
+
+          <!-- Simulated Payment Selection -->
+          <div style="margin-top: 16px;">
+            <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--ink); margin-bottom: 8px;">Payment Method (Simulated)</h4>
+            <div class="checkout-payment-box">
+              <label class="checkout-payment-option">
+                <input type="radio" name="demoPaymentMethod" value="cod" checked>
+                <span>Cash on Delivery (Demo)</span>
+              </label>
+              <label class="checkout-payment-option">
+                <input type="radio" name="demoPaymentMethod" value="upi">
+                <span>UPI / QR Code / Net Banking (Simulated)</span>
+              </label>
+              <label class="checkout-payment-option">
+                <input type="radio" name="demoPaymentMethod" value="card">
+                <span>Credit / Debit Card (Simulated)</span>
+              </label>
+            </div>
+          </div>
+
+          <button type="submit" class="checkout-submit-btn" style="margin-top: 18px;" id="checkoutSubmitBtn">
+            Place Demo Order &rarr;
+          </button>
+        </form>
+      </div>
+
+      <!-- Success Confirmation State (Hidden initially) -->
+      <div class="checkout-success-state" id="checkoutSuccessState" style="display: none;">
+        <div class="checkout-success-icon">
+          <svg class="icon" width="32" height="32" aria-hidden="true"><use href="#icon-check"></use></svg>
+        </div>
+        <span class="checkout-badge">Order Confirmed (Demo)</span>
+        <h3 class="checkout-success-title" id="checkoutSuccessTitle">Demo Order #SHR-2026-9812 Placed!</h3>
+        <p class="checkout-success-desc">
+          Thank you for exploring the Shrivara showcase! In a live production store, this order would be received and fulfilled via Shopify. No financial charge was made.
+        </p>
+        <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+          <button type="button" class="btn-primary" id="checkoutContinueShoppingBtn">Continue Browsing</button>
+          <a href="https://shrivara.co" target="_blank" rel="noopener" class="btn-secondary">Visit Live Store (shrivara.co)</a>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 </html>

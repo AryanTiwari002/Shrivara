@@ -129,12 +129,14 @@ document.addEventListener("DOMContentLoaded", async () => {
   initTheme();
   await loadProductData();
   initHeader();
+  initShopSlider();
   initPromoBar();
   initHeroSlider();
   initCollectionsTiles();
   initCatalogue();
   initCarousels();
   initCartDrawer();
+  initDemoCheckout();
   initSearchModal();
   initQuickViewModal();
   initPolicyModals();
@@ -1566,4 +1568,257 @@ function initScrollAnimations() {
   }, { threshold: 0.1, rootMargin: "0px 0px -40px 0px" });
 
   document.querySelectorAll(".reveal-on-scroll").forEach(el => observer.observe(el));
+}
+
+
+// ==========================================================================
+// 15. Shop Category Slider Dropdown
+// ==========================================================================
+function initShopSlider() {
+  const shopNavBtn = document.getElementById("shopNavBtn");
+  const shopSliderPanel = document.getElementById("shopSliderPanel");
+  const shopSliderCloseBtn = document.getElementById("shopSliderCloseBtn");
+  const shopSliderPrevBtn = document.getElementById("shopSliderPrevBtn");
+  const shopSliderNextBtn = document.getElementById("shopSliderNextBtn");
+  const shopSliderTrack = document.getElementById("shopSliderTrack");
+  const mobileCategoriesSlider = document.getElementById("mobileCategoriesSlider");
+  const shopSliderAllBtn = document.getElementById("shopSliderAllBtn");
+
+  if (!shopNavBtn || !shopSliderPanel) return;
+
+  function closeShopSlider() {
+    shopSliderPanel.classList.remove("is-open");
+    shopNavBtn.setAttribute("aria-expanded", "false");
+    shopSliderPanel.setAttribute("aria-hidden", "true");
+  }
+
+  function openShopSlider() {
+    shopSliderPanel.classList.add("is-open");
+    shopNavBtn.setAttribute("aria-expanded", "true");
+    shopSliderPanel.setAttribute("aria-hidden", "false");
+  }
+
+  function toggleShopSlider() {
+    if (shopSliderPanel.classList.contains("is-open")) {
+      closeShopSlider();
+    } else {
+      openShopSlider();
+    }
+  }
+
+  shopNavBtn.addEventListener("click", e => {
+    e.preventDefault();
+    e.stopPropagation();
+    toggleShopSlider();
+  });
+
+  shopSliderCloseBtn?.addEventListener("click", closeShopSlider);
+
+  shopSliderAllBtn?.addEventListener("click", () => {
+    closeShopSlider();
+  });
+
+  // Slider controls
+  shopSliderPrevBtn?.addEventListener("click", () => {
+    shopSliderTrack?.scrollBy({ left: -260, behavior: "smooth" });
+  });
+
+  shopSliderNextBtn?.addEventListener("click", () => {
+    shopSliderTrack?.scrollBy({ left: 260, behavior: "smooth" });
+  });
+
+  // Keyboard navigation on track
+  shopSliderTrack?.addEventListener("keydown", e => {
+    if (e.key === "ArrowLeft") {
+      shopSliderTrack.scrollBy({ left: -240, behavior: "smooth" });
+    } else if (e.key === "ArrowRight") {
+      shopSliderTrack.scrollBy({ left: 240, behavior: "smooth" });
+    }
+  });
+
+  // Close when clicking outside
+  document.addEventListener("click", e => {
+    if (shopSliderPanel.classList.contains("is-open") && !shopSliderPanel.contains(e.target) && !shopNavBtn.contains(e.target)) {
+      closeShopSlider();
+    }
+  });
+
+  document.addEventListener("keydown", e => {
+    if (e.key === "Escape" && shopSliderPanel.classList.contains("is-open")) {
+      closeShopSlider();
+      shopNavBtn.focus();
+    }
+  });
+
+  // Populate Desktop Slider Track and Mobile Categories Slider
+  const catItems = CONFIG.categories.filter(c => c.key !== "all").map(cat => {
+    let count = 0;
+    if (cat.key === "Anti-Tarnish") {
+      count = state.products.filter(p => p.isEffectiveAntiTarnish).length;
+    } else {
+      count = state.products.filter(p => p.normalizedCategory === cat.key).length;
+    }
+
+    return `
+      <div class="shop-slider-card" data-category="${cat.key}" role="listitem" tabindex="0">
+        <div class="shop-slider-img-box">
+          <img src="${cat.img}" alt="${cat.label} Collection" loading="lazy" width="220" height="275">
+          <div class="shop-slider-img-overlay">
+            <span class="shop-slider-pill">Explore &rarr;</span>
+          </div>
+        </div>
+        <div class="shop-slider-info">
+          <h4 class="shop-slider-card-title">${cat.label}</h4>
+          <p class="shop-slider-card-count">${count} Handcrafted Designs</p>
+        </div>
+      </div>
+    `;
+  }).join("");
+
+  if (shopSliderTrack) {
+    shopSliderTrack.innerHTML = catItems;
+    shopSliderTrack.querySelectorAll(".shop-slider-card").forEach(card => {
+      const handleSelect = () => {
+        const cat = card.dataset.category;
+        filterByCategory(cat);
+        closeShopSlider();
+        const catalogEl = document.getElementById("catalog");
+        if (catalogEl) catalogEl.scrollIntoView({ behavior: "smooth" });
+      };
+      card.addEventListener("click", handleSelect);
+      card.addEventListener("keydown", e => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          handleSelect();
+        }
+      });
+    });
+  }
+
+  if (mobileCategoriesSlider) {
+    mobileCategoriesSlider.innerHTML = catItems;
+    mobileCategoriesSlider.querySelectorAll(".shop-slider-card").forEach(card => {
+      card.addEventListener("click", () => {
+        const cat = card.dataset.category;
+        filterByCategory(cat);
+        const mobileClose = document.getElementById("mobileNavClose");
+        if (mobileClose) mobileClose.click();
+        const catalogEl = document.getElementById("catalog");
+        if (catalogEl) catalogEl.scrollIntoView({ behavior: "smooth" });
+      });
+    });
+  }
+}
+
+// ==========================================================================
+// 16. Demo Checkout Modal (Master Prompt Section 9I)
+// ==========================================================================
+function initDemoCheckout() {
+  const proceedBtn = document.getElementById("cartCheckoutProceedBtn");
+  const backdrop = document.getElementById("checkoutModalBackdrop");
+  const closeBtn = document.getElementById("checkoutModalCloseBtn");
+  const continueBtn = document.getElementById("checkoutContinueShoppingBtn");
+  const itemsContainer = document.getElementById("checkoutOrderItemsList");
+  const subtotalText = document.getElementById("checkoutSubtotalText");
+  const shippingText = document.getElementById("checkoutShippingText");
+  const totalText = document.getElementById("checkoutTotalText");
+
+  proceedBtn?.addEventListener("click", () => {
+    if (state.cart.length === 0) {
+      showToast("Your bag is currently empty. Add pieces to proceed to checkout!");
+      return;
+    }
+
+    closeCartDrawer();
+
+    // Render items in checkout modal
+    const subtotal = state.cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+    const isFreeShipping = subtotal >= CONFIG.freeShippingThreshold;
+    const shippingFee = isFreeShipping ? 0 : 150;
+    const orderTotal = subtotal + shippingFee;
+
+    if (itemsContainer) {
+      itemsContainer.innerHTML = state.cart.map(item => `
+        <div style="display: flex; align-items: center; justify-content: space-between; padding: 6px 0; border-bottom: 1px dashed var(--line); font-size: 0.8125rem;">
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <img src="${getShopifyImageUrl(item.image, 80)}" alt="${item.title}" style="width: 32px; height: 40px; object-fit: cover; border-radius: var(--radius-sm);">
+            <div>
+              <div style="font-weight: 600; color: var(--ink); max-width: 220px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${item.title}</div>
+              <div style="font-size: 0.72rem; color: var(--muted);">Qty: ${item.quantity} &times; ${formatPrice(item.price)}</div>
+            </div>
+          </div>
+          <div style="font-weight: 700; color: var(--ink);">${formatPrice(item.price * item.quantity)}</div>
+        </div>
+      `).join("");
+    }
+
+    if (subtotalText) subtotalText.textContent = formatPrice(subtotal);
+    if (shippingText) {
+      shippingText.textContent = isFreeShipping ? "FREE" : formatPrice(shippingFee);
+      shippingText.style.color = isFreeShipping ? "var(--success)" : "var(--ink)";
+    }
+    if (totalText) totalText.textContent = formatPrice(orderTotal);
+
+    // Reset view states
+    const successState = document.getElementById("checkoutSuccessState");
+    const modalBody = document.getElementById("checkoutModalBody");
+    if (successState) successState.style.display = "none";
+    if (modalBody) modalBody.style.display = "flex";
+
+    backdrop?.classList.add("is-open");
+    document.body.classList.add("scroll-locked");
+  });
+
+  function closeCheckoutModal() {
+    backdrop?.classList.remove("is-open");
+    document.body.classList.remove("scroll-locked");
+  }
+
+  closeBtn?.addEventListener("click", closeCheckoutModal);
+  backdrop?.addEventListener("click", e => {
+    if (e.target === backdrop) closeCheckoutModal();
+  });
+  document.addEventListener("keydown", e => {
+    if (e.key === "Escape" && backdrop?.classList.contains("is-open")) {
+      closeCheckoutModal();
+    }
+  });
+
+  continueBtn?.addEventListener("click", () => {
+    closeCheckoutModal();
+    const catalogEl = document.getElementById("catalog");
+    if (catalogEl) catalogEl.scrollIntoView({ behavior: "smooth" });
+  });
+
+  window.submitDemoOrder = function() {
+    const submitBtn = document.getElementById("checkoutSubmitBtn");
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Processing Demo Order...";
+    }
+
+    setTimeout(() => {
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Place Demo Order →";
+      }
+
+      // Generate realistic demo order ID
+      const orderId = `SHR-2026-${Math.floor(1000 + Math.random() * 9000)}`;
+      const titleEl = document.getElementById("checkoutSuccessTitle");
+      if (titleEl) titleEl.textContent = `Demo Order #${orderId} Placed!`;
+
+      // Clear the demo cart
+      state.cart = [];
+      saveCart();
+      updateCartUI();
+
+      // Show success confirmation
+      const modalBody = document.getElementById("checkoutModalBody");
+      const successState = document.getElementById("checkoutSuccessState");
+      if (modalBody) modalBody.style.display = "none";
+      if (successState) successState.style.display = "block";
+      showToast(`Demo Order #${orderId} confirmed!`);
+    }, 600);
+  };
 }
