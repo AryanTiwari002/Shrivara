@@ -596,28 +596,43 @@ function updatePriceSliderUI(minVal = state.priceMin, maxVal = state.priceMax) {
   const sliderMax = document.getElementById("sliderPriceMax");
   const rangeFill = document.getElementById("rangeFill");
   const display = document.getElementById("priceSliderDisplay");
+  const inputMin = document.getElementById("priceInputMin");
+  const inputMax = document.getElementById("priceInputMax");
 
-  if (sliderMin) sliderMin.value = minVal;
-  if (sliderMax) sliderMax.value = maxVal;
+  // Synchronize range sliders
+  if (sliderMin && sliderMin.value !== String(minVal)) sliderMin.value = minVal;
+  if (sliderMax && sliderMax.value !== String(maxVal)) sliderMax.value = maxVal;
 
+  // Accessibility ARIA values
+  if (sliderMin) {
+    sliderMin.setAttribute("aria-valuenow", minVal);
+    sliderMin.setAttribute("aria-valuetext", `₹${minVal.toLocaleString('en-IN')}`);
+  }
+  if (sliderMax) {
+    sliderMax.setAttribute("aria-valuenow", maxVal);
+    sliderMax.setAttribute("aria-valuetext", `₹${maxVal.toLocaleString('en-IN')}`);
+  }
+
+  // Synchronize manual numeric inputs (avoid overwriting while user is actively typing)
+  if (inputMin && document.activeElement !== inputMin) {
+    inputMin.value = minVal;
+  }
+  if (inputMax && document.activeElement !== inputMax) {
+    inputMax.value = maxVal;
+  }
+
+  // Track active fill percentage
   const minPercent = (minVal / 30000) * 100;
   const maxPercent = (maxVal / 30000) * 100;
 
   if (rangeFill) {
     rangeFill.style.left = `${minPercent}%`;
-    rangeFill.style.width = `${maxPercent - minPercent}%`;
+    rangeFill.style.width = `${Math.max(0, maxPercent - minPercent)}%`;
   }
 
+  // Live Price Labels in Indian Rupee notation (e.g. ₹0 — ₹30,000)
   if (display) {
-    if (minVal === 0 && maxVal === 30000) {
-      display.textContent = "All Ranges";
-    } else if (minVal === 0) {
-      display.textContent = `Up to ₹${maxVal.toLocaleString('en-IN')}`;
-    } else if (maxVal === 30000) {
-      display.textContent = `Above ₹${minVal.toLocaleString('en-IN')}`;
-    } else {
-      display.textContent = `₹${minVal.toLocaleString('en-IN')} — ₹${maxVal.toLocaleString('en-IN')}`;
-    }
+    display.textContent = `₹${minVal.toLocaleString('en-IN')} — ₹${maxVal.toLocaleString('en-IN')}`;
   }
 }
 
@@ -627,6 +642,9 @@ function initToolbarListeners() {
   const loadMoreBtn = document.getElementById("loadMoreBtn");
   const sliderMin = document.getElementById("sliderPriceMin");
   const sliderMax = document.getElementById("sliderPriceMax");
+  const inputMin = document.getElementById("priceInputMin");
+  const inputMax = document.getElementById("priceInputMax");
+  const resetBtn = document.getElementById("priceSliderReset");
 
   // Debounced search
   let debounceTimeout = null;
@@ -641,17 +659,26 @@ function initToolbarListeners() {
 
   // Price Range Slider Controls
   let priceDebounce = null;
-  function handlePriceInput(e) {
-    let minVal = parseInt(sliderMin.value, 10) || 0;
-    let maxVal = parseInt(sliderMax.value, 10) || 30000;
+  function handleSliderChange(e) {
+    let minVal = parseInt(sliderMin.value, 10);
+    let maxVal = parseInt(sliderMax.value, 10);
+    if (isNaN(minVal)) minVal = 0;
+    if (isNaN(maxVal)) maxVal = 30000;
 
-    if (minVal > maxVal - 500) {
-      if (e && e.target === sliderMin) {
-        sliderMin.value = maxVal - 500;
-        minVal = maxVal - 500;
-      } else if (e && e.target === sliderMax) {
-        sliderMax.value = minVal + 500;
-        maxVal = minVal + 500;
+    // Clamping to [0, 30000]
+    minVal = Math.max(0, Math.min(30000, minVal));
+    maxVal = Math.max(0, Math.min(30000, maxVal));
+
+    // Prevent handles from crossing each other
+    if (e && e.target === sliderMin) {
+      if (minVal > maxVal) {
+        minVal = maxVal;
+        sliderMin.value = minVal;
+      }
+    } else if (e && e.target === sliderMax) {
+      if (maxVal < minVal) {
+        maxVal = minVal;
+        sliderMax.value = maxVal;
       }
     }
 
@@ -664,19 +691,82 @@ function initToolbarListeners() {
       state.visibleCount = CONFIG.pageSize;
       applyFiltersAndRender();
       updateUrlHash();
-    }, 120);
+    }, 100);
   }
 
   sliderMin?.addEventListener("input", e => {
     sliderMin.style.zIndex = "3";
     if (sliderMax) sliderMax.style.zIndex = "2";
-    handlePriceInput(e);
+    handleSliderChange(e);
   });
 
   sliderMax?.addEventListener("input", e => {
     sliderMax.style.zIndex = "3";
     if (sliderMin) sliderMin.style.zIndex = "2";
-    handlePriceInput(e);
+    handleSliderChange(e);
+  });
+
+  // Manual Numeric Input Listeners
+  function handleManualInputChange(e) {
+    let minVal = parseInt(inputMin?.value, 10);
+    let maxVal = parseInt(inputMax?.value, 10);
+
+    if (isNaN(minVal)) minVal = 0;
+    if (isNaN(maxVal)) maxVal = 30000;
+
+    minVal = Math.max(0, Math.min(30000, minVal));
+    maxVal = Math.max(0, Math.min(30000, maxVal));
+
+    if (minVal > maxVal) {
+      if (e && e.target === inputMin) {
+        maxVal = minVal;
+        if (inputMax) inputMax.value = maxVal;
+      } else {
+        minVal = maxVal;
+        if (inputMin) inputMin.value = minVal;
+      }
+    }
+
+    state.priceMin = minVal;
+    state.priceMax = maxVal;
+    updatePriceSliderUI(minVal, maxVal);
+
+    clearTimeout(priceDebounce);
+    priceDebounce = setTimeout(() => {
+      state.visibleCount = CONFIG.pageSize;
+      applyFiltersAndRender();
+      updateUrlHash();
+    }, 150);
+  }
+
+  inputMin?.addEventListener("input", handleManualInputChange);
+  inputMax?.addEventListener("input", handleManualInputChange);
+
+  inputMin?.addEventListener("blur", () => {
+    let val = parseInt(inputMin.value, 10);
+    if (isNaN(val) || val < 0) val = 0;
+    if (val > state.priceMax) val = state.priceMax;
+    inputMin.value = val;
+    state.priceMin = val;
+    updatePriceSliderUI(state.priceMin, state.priceMax);
+    applyFiltersAndRender();
+    updateUrlHash();
+  });
+
+  inputMax?.addEventListener("blur", () => {
+    let val = parseInt(inputMax.value, 10);
+    if (isNaN(val) || val > 30000) val = 30000;
+    if (val < state.priceMin) val = state.priceMin;
+    inputMax.value = val;
+    state.priceMax = val;
+    updatePriceSliderUI(state.priceMin, state.priceMax);
+    applyFiltersAndRender();
+    updateUrlHash();
+  });
+
+  // Reset Price Button
+  resetBtn?.addEventListener("click", () => {
+    resetPriceFilter();
   });
 
   sortSelect?.addEventListener("change", e => {
@@ -692,6 +782,17 @@ function initToolbarListeners() {
 
   updatePriceSliderUI(state.priceMin, state.priceMax);
 }
+
+export function resetPriceFilter() {
+  state.priceMin = 0;
+  state.priceMax = 30000;
+  state.visibleCount = CONFIG.pageSize;
+  updatePriceSliderUI(0, 30000);
+  applyFiltersAndRender();
+  updateUrlHash();
+  showToast("Price range reset to ₹0 — ₹30,000");
+}
+window.resetPriceFilter = resetPriceFilter;
 
 export function filterByCategory(categoryKey) {
   state.activeCategory = categoryKey;
@@ -781,12 +882,20 @@ function applyFiltersAndRender(resetScroll = true) {
   if (!grid) return;
 
   if (total === 0) {
+    const isPriceFiltered = state.priceMin > 0 || state.priceMax < 30000;
     grid.innerHTML = `
       <div class="catalog-empty-state">
         <svg class="icon" width="48" height="48" aria-hidden="true"><use href="#icon-gem"></use></svg>
-        <h3 style="font-size: 1.5rem; margin-bottom: 8px;">No Jewellery Found</h3>
-        <p style="margin-bottom: 16px;">We couldn't find matching designs for your selected criteria.</p>
-        <button class="btn-primary" onclick="window.clearAllFilters()">Clear All Filters</button>
+        <h3 style="font-size: 1.5rem; margin-bottom: 8px;">${isPriceFiltered ? 'No Jewellery in This Price Range' : 'No Jewellery Found'}</h3>
+        <p style="margin-bottom: 16px;">
+          ${isPriceFiltered
+            ? `No pieces found between ₹${state.priceMin.toLocaleString('en-IN')} and ₹${state.priceMax.toLocaleString('en-IN')}.`
+            : "We couldn't find matching designs for your selected criteria."}
+        </p>
+        <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+          ${isPriceFiltered ? `<button class="btn-primary" onclick="window.resetPriceFilter()">Reset Price Range</button>` : ""}
+          <button class="${isPriceFiltered ? 'btn-secondary' : 'btn-primary'}" onclick="window.clearAllFilters()">Clear All Filters</button>
+        </div>
       </div>
     `;
     if (loadMoreBtn) loadMoreBtn.style.display = "none";
@@ -869,9 +978,8 @@ function renderActiveFiltersStrip() {
       const type = btn.dataset.remove;
       if (type === "category") state.activeCategory = "all";
       if (type === "price") {
-        state.priceMin = 0;
-        state.priceMax = 30000;
-        updatePriceSliderUI(0, 30000);
+        resetPriceFilter();
+        return;
       }
       if (type === "search") {
         state.searchQuery = "";

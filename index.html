@@ -560,13 +560,22 @@
                    aria-label="Search jewellery in collection">
           </div>
 
-          <!-- Luxury Dual Price Range Slider -->
+          <!-- Luxury Dual Price Range Slider with Synchronized Manual Inputs -->
           <div class="price-slider-wrap" id="priceSliderWrap">
             <div class="price-slider-header">
               <span class="price-slider-title">Price Range</span>
-              <span class="price-slider-display" id="priceSliderDisplay">₹0 — ₹30,000</span>
+              <div class="price-slider-header-right">
+                <span class="price-slider-display" id="priceSliderDisplay" aria-live="polite">₹0 — ₹30,000</span>
+                <button type="button" 
+                        class="price-slider-reset" 
+                        id="priceSliderReset" 
+                        title="Reset price range to ₹0 – ₹30,000" 
+                        aria-label="Reset price range">Reset</button>
+              </div>
             </div>
-            <div class="dual-range-track-wrap">
+
+            <!-- Dual Range Track and Thumbs -->
+            <div class="dual-range-track-wrap" id="rangeTrackWrap">
               <div class="dual-range-bar-bg"></div>
               <div class="dual-range-bar-fill" id="rangeFill" style="left: 0%; width: 100%;"></div>
               <input type="range" 
@@ -574,17 +583,62 @@
                      class="dual-range-input" 
                      min="0" 
                      max="30000" 
-                     step="250" 
+                     step="500" 
                      value="0" 
-                     aria-label="Minimum Price">
+                     aria-label="Minimum price in Rupees" 
+                     aria-valuemin="0" 
+                     aria-valuemax="30000" 
+                     aria-valuenow="0" 
+                     aria-valuetext="₹0">
               <input type="range" 
                      id="sliderPriceMax" 
                      class="dual-range-input" 
                      min="0" 
                      max="30000" 
-                     step="250" 
+                     step="500" 
                      value="30000" 
-                     aria-label="Maximum Price">
+                     aria-label="Maximum price in Rupees" 
+                     aria-valuemin="0" 
+                     aria-valuemax="30000" 
+                     aria-valuenow="30000" 
+                     aria-valuetext="₹30,000">
+            </div>
+
+            <!-- Synchronized Manual Price Inputs -->
+            <div class="price-inputs-row">
+              <div class="price-input-box">
+                <label for="priceInputMin" class="price-input-label">Min</label>
+                <div class="price-input-field">
+                  <span class="price-currency-symbol" aria-hidden="true">₹</span>
+                  <input type="number" 
+                         id="priceInputMin" 
+                         class="price-number-input" 
+                         min="0" 
+                         max="30000" 
+                         step="500" 
+                         value="0" 
+                         placeholder="0" 
+                         aria-label="Minimum Price amount">
+                </div>
+              </div>
+
+              <span class="price-input-separator" aria-hidden="true">—</span>
+
+              <div class="price-input-box">
+                <label for="priceInputMax" class="price-input-label">Max</label>
+                <div class="price-input-field">
+                  <span class="price-currency-symbol" aria-hidden="true">₹</span>
+                  <input type="number" 
+                         id="priceInputMax" 
+                         class="price-number-input" 
+                         min="0" 
+                         max="30000" 
+                         step="500" 
+                         value="30000" 
+                         placeholder="30000" 
+                         aria-label="Maximum Price amount">
+                </div>
+              </div>
             </div>
           </div>
 
