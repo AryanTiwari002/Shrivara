@@ -55,7 +55,7 @@ export const CONFIG = {
   whatsappMessage: "Hi Shrivara, I am browsing your jewellery showcase and would like styling assistance with an order.",
   pageSize: 16,
   categories: [
-    { key: "all", label: "All Collections" },
+    { key: "all", label: "All" },
     { key: "Jewellery Sets", label: "Jewellery Sets", img: "https://shrivara.co/cdn/shop/collections/WhatsApp_Image_2026-07-26_at_20.51.35.jpg?v=1785079938&width=400" },
     { key: "Earrings", label: "Earrings", img: "https://shrivara.co/cdn/shop/collections/WhatsApp_Image_2026-07-26_at_18.41.22.jpg?v=1785071683&width=400" },
     { key: "Bracelets & Bangles", label: "Bracelets & Bangles", img: "https://shrivara.co/cdn/shop/collections/WhatsApp_Image_2026-07-26_at_19.05.32.jpg?v=1785073014&width=400" },

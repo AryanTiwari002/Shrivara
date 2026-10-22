@@ -1150,15 +1150,17 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: 4px;
 }
 
-/* Category Chips (Mobile Horizontal Scroll-Snap) */
+/* Category Chips (Responsive Desktop Layout & Mobile Scroll-Snap) */
 .category-chips-wrapper {
   position: relative;
   margin-bottom: var(--space-4);
+  width: 100%;
 }
 
 .category-chips {
   display: flex;
   gap: var(--space-2);
+  align-items: center;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
@@ -1173,11 +1175,11 @@ h1, h2, h3, h4, h5, h6 {
 .chip-btn {
   flex-shrink: 0;
   scroll-snap-align: start;
-  min-height: 40px;
-  padding: 8px 18px;
-  font-size: 0.8125rem;
+  min-height: 38px;
+  padding: 8px 13px;
+  font-size: 0.78125rem;
   font-weight: 600;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.045em;
   text-transform: uppercase;
   background-color: var(--surface-alt);
   color: var(--ink-secondary);
@@ -1185,7 +1187,9 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: var(--radius-sm);
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 5px;
+  cursor: pointer;
+  white-space: nowrap;
   transition: all var(--transition-fast);
 }
 
@@ -1202,7 +1206,46 @@ h1, h2, h3, h4, h5, h6 {
 
 .chip-count {
   font-size: 0.6875rem;
-  opacity: 0.8;
+  opacity: 0.85;
+}
+
+/* Tablet & Laptop (768px - 1199px): Wrap into balanced rows with zero cutoffs */
+@media (min-width: 768px) {
+  .category-chips {
+    flex-wrap: wrap;
+    overflow-x: visible;
+    padding-bottom: 0;
+    gap: 8px 6px;
+  }
+}
+
+/* Desktop (1200px+): All 8 categories fit on 1 pristine row */
+@media (min-width: 1200px) {
+  .category-chips {
+    gap: 8px 6px;
+  }
+  .chip-btn {
+    padding: 8px 12px;
+    font-size: 0.775rem;
+    letter-spacing: 0.04em;
+  }
+}
+
+/* Mobile Scroll Fade Indicator */
+@media (max-width: 767px) {
+  .category-chips-wrapper::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 6px;
+    width: 36px;
+    background: linear-gradient(to right, transparent, var(--bg));
+    pointer-events: none;
+  }
+  .category-chips {
+    padding-right: 32px;
+  }
 }
 
 /* Secondary Filter Toolbar: Search, Price, Sort */
