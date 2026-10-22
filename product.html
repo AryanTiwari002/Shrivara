@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Details – Shrivara</title>
+  
+  <meta name="description" content="Shop handcrafted Indian fashion jewellery with anti-tarnish micro-layer plating. High-grade polkis, crystals, and heritage craftsmanship.">
+  <link rel="icon" type="image/png" href="https://shrivara.co/cdn/shop/files/Shrivara_logo_page-0001.jpg?crop=center&height=32&v=1791877013&width=32">
+  
+  <!-- Font: Assistant -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- 1. Top Announcement Bar -->
+  <div class="announcement-bar">
+    <span>✨ Upto 50% Off | Free Insured Shipping Over ₹1,999 | Code: FIRST5</span>
+  </div>
+
+  <!-- 2. Header -->
+  <header class="site-header">
+    <div class="container">
+      <div class="header-top">
+        <div class="header-left">
+          <button class="mobile-menu-toggle" onclick="toggleMobileNav()" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+          </button>
+          <button class="icon-btn" onclick="openSearchModal()" title="Search">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+
+        <div class="brand-logo-wrap">
+          <a href="index.html" class="brand-logo">Shrivara</a>
+        </div>
+
+        <div class="header-right">
+          <button class="icon-btn" onclick="showToast('Wishlist: ' + wishlist.size + ' items')">
+            <i class="far fa-heart"></i>
+            <span class="badge-count" id="wishlistCount">0</span>
+          </button>
+          <button class="icon-btn" onclick="openCartDrawer()" title="Cart">
+            <i class="fas fa-shopping-bag"></i>
+            <span class="badge-count" id="cartCount">0</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="nav-bar">
+      <div class="container">
+        <ul class="nav-links">
+          <li><a href="index.html">HOME</a></li>
+          <li><a href="collection.html?category=all">SHOP ALL</a></li>
+          <li><a href="collection.html?category=Earrings">EARRINGS</a></li>
+          <li><a href="collection.html?category=Jewellery Sets">JEWELLERY SETS</a></li>
+          <li><a href="collection.html?category=Bracelets & Bangles">BANGLES & BRACELETS</a></li>
+          <li><a href="collection.html?category=anti-tarnish">ANTI-TARNISH</a></li>
+          <li><a href="collection.html?category=Pendant Set">PENDANT SETS</a></li>
+          <li><a href="collection.html?category=Rings">RINGS</a></li>
+          <li><a href="about.html">OUR STORY</a></li>
+          <li><a href="contact.html">CONTACT</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- 3. Breadcrumbs -->
+  <div class="container" style="margin-top: 15px;">
+    <div class="breadcrumbs">
+      <a href="index.html"><i class="fas fa-home"></i> Home</a>
+      <span class="sep"><i class="fas fa-chevron-right"></i></span>
+      <a href="collection.html?category=all">Collections</a>
+      <span class="sep"><i class="fas fa-chevron-right"></i></span>
+      <a href="collection.html" id="pdpBreadcrumbCategory">Earrings</a>
+      <span class="sep"><i class="fas fa-chevron-right"></i></span>
+      <span class="current" id="pdpBreadcrumbTitle">Product Name</span>
+    </div>
+  </div>
+
+  <!-- 4. PDP Main Section -->
+  <section class="pdp-section" id="pdpMainSection">
+    <div class="container">
+      <div class="pdp-grid">
+        
+        <!-- Gallery Sticky Column -->
+        <div class="pdp-gallery-sticky">
+          <div class="pdp-main-image-wrap">
+            <img id="pdpMainImg" src="" alt="Shrivara Jewellery" class="pdp-main-image">
+          </div>
+          <div class="pdp-thumb-strip" id="pdpThumbStrip"></div>
+        </div>
+
+        <!-- Sticky Details Column -->
+        <div class="pdp-details-sticky">
+          <span class="pdp-category-tag" id="pdpCategory">Earrings</span>
+          <h1 class="pdp-product-title" id="pdpTitle">Loading Product Details...</h1>
+
+          <div class="pdp-rating-row">
+            <div class="pdp-rating-stars">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <span class="pdp-rating-count">(128 verified customer reviews)</span>
+          </div>
+
+          <div class="pdp-price-box">
+            <span class="pdp-current-price" id="pdpPrice">Rs. 0.00</span>
+            <span class="pdp-compare-price" id="pdpComparePrice"></span>
+            <span class="pdp-save-badge" id="pdpSaveBadge" style="display: none;">33% OFF</span>
+          </div>
+
+          <div class="pdp-stock-banner" id="pdpStockBanner">
+            <span class="pdp-stock-dot"></span>
+            <span>In Stock — Dispatched within 24 hours from Howrah Atelier</span>
+          </div>
+
+          <p class="pdp-desc-text" id="pdpDesc">
+            Handcrafted luxury statement jewellery by Shrivara. Designed with premium anti-tarnish micro-layer plating, skin-friendly hypoallergenic base, and adorned with high-grade polkis and sparkling stones.
+          </p>
+
+          <!-- CTA Group: Stepper + Add to Cart -->
+          <div class="pdp-cta-group">
+            <div class="pdp-qty-stepper">
+              <button class="pdp-qty-btn" onclick="adjustPdpQty(-1)">-</button>
+              <span class="pdp-qty-val" id="pdpQtyVal">1</span>
+              <button class="pdp-qty-btn" onclick="adjustPdpQty(1)">+</button>
+            </div>
+            <button class="pdp-add-cart-btn" id="pdpAddToCartBtn" onclick="handlePdpAddToCart()">
+              <i class="fas fa-shopping-bag" style="margin-right: 8px;"></i> Add to Shopping Bag
+            </button>
+          </div>
+
+          <!-- Direct WhatsApp Order Button -->
+          <a href="#" id="pdpWhatsAppBtn" target="_blank" rel="noopener" class="whatsapp-order-btn">
+            <i class="fab fa-whatsapp" style="font-size: 20px;"></i>
+            <span>Order via WhatsApp (Instant Support)</span>
+          </a>
+
+          <!-- Trust Pillars -->
+          <div class="pdp-trust-pillars">
+            <div class="pdp-pillar-item">
+              <i class="fas fa-shield-alt"></i>
+              <span>Anti-Tarnish Micro Plated</span>
+            </div>
+            <div class="pdp-pillar-item">
+              <i class="fas fa-gem"></i>
+              <span>High-Grade Polki Stones</span>
+            </div>
+            <div class="pdp-pillar-item">
+              <i class="fas fa-truck"></i>
+              <span>Free Delivery Above ₹1,999</span>
+            </div>
+            <div class="pdp-pillar-item">
+              <i class="fas fa-undo-alt"></i>
+              <span>7-Day Easy Exchange</span>
+            </div>
+          </div>
+
+          <!-- Interactive Accordions -->
+          <div class="pdp-accordion-group">
+            
+            <!-- Accordion 1: Specifications -->
+            <div class="pdp-accordion-item open">
+              <button class="pdp-accordion-header" onclick="toggleAccordion(this)">
+                <span><i class="fas fa-gem" style="color: var(--color-gold); margin-right: 8px;"></i> Specifications & Craft</span>
+                <i class="fas fa-chevron-down"></i>
+              </button>
+              <div class="pdp-accordion-content">
+                <p><strong>Base Metal:</strong> High-density jeweller's brass alloy</p>
+                <p><strong>Plating:</strong> 18K / 22K Micro Gold Plating with Anti-Tarnish protective seal</p>
+                <p><strong>Stone Setting:</strong> Hand-set premium faceted cubic zirconia & uncut polki stones</p>
+                <p><strong>Skin Friendly:</strong> 100% Nickel & Lead-Free, Hypoallergenic</p>
+                <p><strong>Origin:</strong> Handcrafted in Howrah, West Bengal, India</p>
+              </div>
+            </div>
+
+            <!-- Accordion 2: Shipping & Returns -->
+            <div class="pdp-accordion-item">
+              <button class="pdp-accordion-header" onclick="toggleAccordion(this)">
+                <span><i class="fas fa-shipping-fast" style="color: var(--color-gold); margin-right: 8px;"></i> Shipping & Delivery</span>
+                <i class="fas fa-chevron-down"></i>
+              </button>
+              <div class="pdp-accordion-content">
+                <p>• Orders dispatch within <strong>24 business hours</strong> from our Howrah atelier.</p>
+                <p>• Fast delivery across India in <strong>3 to 5 business days</strong> via BlueDart / Delhivery insured courier.</p>
+                <p>• Instant SMS & WhatsApp tracking updates provided upon dispatch.</p>
+                <p>• <strong>Free Shipping</strong> automatically applied on orders ₹1,999 and above.</p>
+              </div>
+            </div>
+
+            <!-- Accordion 3: Jewellery Care -->
+            <div class="pdp-accordion-item">
+              <button class="pdp-accordion-header" onclick="toggleAccordion(this)">
+                <span><i class="fas fa-sparkles" style="color: var(--color-gold); margin-right: 8px;"></i> Jewellery Care Guide</span>
+                <i class="fas fa-chevron-down"></i>
+              </button>
+              <div class="pdp-accordion-content">
+                <p>• Avoid spraying perfumes, hair sprays, or alcohol-based lotions directly onto your jewellery.</p>
+                <p>• Remove before swimming, intense workouts, or bathing.</p>
+                <p>• Gently wipe with a soft microfiber cloth after wear to remove dust and body oils.</p>
+                <p>• Store in the provided Shrivara luxury pouch or airtight zip-lock bag to preserve its royal lustre.</p>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Complete The Look (Related Pairings) -->
+  <section class="carousel-section" style="border-top: 1px solid var(--color-border); padding-top: 60px;">
+    <div class="container">
+      <div class="carousel-header">
+        <h2 class="carousel-title">Complete The Look & Matching Pairs</h2>
+        <a href="collection.html?category=all" class="view-all-btn">View all</a>
+      </div>
+
+      <div class="carousel-wrapper">
+        <button class="carousel-nav-btn carousel-prev" onclick="scrollCarousel('pdpRelatedGrid', -260)" aria-label="Scroll left">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <div class="products-carousel" id="pdpRelatedGrid"></div>
+        <button class="carousel-nav-btn carousel-next" onclick="scrollCarousel('pdpRelatedGrid', 260)" aria-label="Scroll right">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-col">
+          <h4>SHRIVARA</h4>
+          <p>
+            Shrivara is a premium fashion jewellery brand offering imitation, anti-tarnish, polki, kundan, and contemporary gold plated designs.
+          </p>
+          <div class="social-icons">
+            <a href="https://www.instagram.com/shri.vara?utm_source=ig_web_button_share_sheet&igsi=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener" class="social-icon-btn" title="Instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="social-icon-btn" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>SHOP</h4>
+          <ul class="footer-links">
+            <li><a href="collection.html?category=all">All Collections (214 Pieces)</a></li>
+            <li><a href="collection.html?category=Jewellery Sets">Jewellery Sets</a></li>
+            <li><a href="collection.html?category=Earrings">Earrings</a></li>
+            <li><a href="collection.html?category=Bracelets & Bangles">Bracelets & Bangles</a></li>
+            <li><a href="collection.html?category=Necklaces & Pendants">Necklaces</a></li>
+            <li><a href="collection.html?category=Rings">Rings</a></li>
+            <li><a href="collection.html?category=anti-tarnish">Anti-Tarnish Jewellery</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>QUICK LINKS</h4>
+          <ul class="footer-links">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Store Locator & Contact</a></li>
+            <li><a href="index.html#reviews">Customer Reviews</a></li>
+            <li><a href="#">Shipping Policy</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Store Address</h4>
+          <p>
+            21/1 Dobson Road<br>
+            Gulmohar Railway Quarters<br>
+            Mali Panchghara-Flat 4B<br>
+            Howrah, West Bengal - 711101<br>
+            India
+          </p>
+          <h4 style="margin-top: 18px;">Stay Connected! Join our email list now!</h4>
+          <form class="newsletter-form" id="newsletterForm">
+            <input type="email" class="newsletter-input" placeholder="Enter your email" required>
+            <button type="submit" class="newsletter-btn">Subscribe</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 Shrivara. All rights reserved.</span>
+        <span>Country/region: India (INR ₹)</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Slide-out Cart Drawer -->
+  <div class="cart-drawer-overlay" id="cartOverlay" onclick="closeCartDrawer()"></div>
+  <div class="cart-drawer" id="cartDrawer">
+    <div class="drawer-header">
+      <h3>Your Shopping Bag</h3>
+      <button class="close-drawer-btn" onclick="closeCartDrawer()">&times;</button>
+    </div>
+    
+    <div class="shipping-bar-box">
+      <div id="shippingText">Add more for <strong>FREE Shipping!</strong></div>
+      <div class="progress-track">
+        <div class="progress-fill" id="shippingProgress"></div>
+      </div>
+    </div>
+
+    <div class="drawer-body" id="cartItems"></div>
+
+    <div class="drawer-footer">
+      <div class="subtotal-row">
+        <span>Subtotal</span>
+        <span id="cartSubtotal">Rs. 0.00</span>
+      </div>
+      <button class="checkout-btn" onclick="showToast('Proceeding to Checkout...')">
+        Check out
+      </button>
+    </div>
+  </div>
+
+  <!-- Search Modal -->
+  <div class="search-modal" id="searchModal">
+    <div class="search-container">
+      <button class="close-search-btn" onclick="closeSearchModal()">&times;</button>
+      <div class="search-input-box">
+        <i class="fas fa-search" style="color: var(--color-primary); font-size: 18px;"></i>
+        <input type="text" class="search-input" id="searchInput" placeholder="Search 214 jewellery pieces..." oninput="handleLiveSearch(this.value)">
+      </div>
+      <div class="search-results-list" id="searchResults"></div>
+    </div>
+  </div>
+
+  <!-- Toast Notice -->
+  <div class="toast-notice" id="toastNotice"></div>
+
+  <!-- Dark / Light Mode Switcher (Rightmost Corner) -->
+  <button class="mode-toggle-widget" id="modeToggleWidget" onclick="toggleColorMode()" title="Toggle Dark / Light Mode" aria-label="Toggle Dark / Light Mode">
+    <span class="mode-icon-wrap">
+      <i class="fas fa-moon" id="modeIcon"></i>
+    </span>
+    <span id="modeText">Dark Mode</span>
+  </button>
+
+  <!-- Scripts -->
+  <script src="products.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -36,15 +36,15 @@ const server = http.createServer((req, res) => {
     return res.end('403 Forbidden');
   }
 
+  // Check if extensionless path matches an HTML file
+  if (!path.extname(pathname) && fs.existsSync(filePath + '.html')) {
+    filePath = filePath + '.html';
+  }
+
   fs.stat(filePath, (err, stats) => {
     if (err || !stats.isFile()) {
-      // Fallback to index.html for SPA-like navigation if not an asset
-      if (!path.extname(pathname)) {
-        filePath = path.join(PUBLIC_DIR, 'index.html');
-      } else {
-        res.writeHead(404, { 'Content-Type': 'text/plain' });
-        return res.end('404 Not Found');
-      }
+      res.writeHead(404, { 'Content-Type': 'text/plain' });
+      return res.end('404 Not Found');
     }
 
     const ext = path.extname(filePath).toLowerCase();

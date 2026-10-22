@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us & Store Visit – Shrivara</title>
+  
+  <meta name="description" content="Contact Shrivara Jewellery. Visit our flagship atelier in Howrah, West Bengal or book a bridal jewellery consultation via WhatsApp or phone.">
+  <link rel="icon" type="image/png" href="https://shrivara.co/cdn/shop/files/Shrivara_logo_page-0001.jpg?crop=center&height=32&v=1791877013&width=32">
+  
+  <!-- Font: Assistant -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- 1. Top Announcement Bar -->
+  <div class="announcement-bar">
+    <span>✨ Upto 50% Off | Free Insured Shipping Over ₹1,999 | Code: FIRST5</span>
+  </div>
+
+  <!-- 2. Header -->
+  <header class="site-header">
+    <div class="container">
+      <div class="header-top">
+        <div class="header-left">
+          <button class="mobile-menu-toggle" onclick="toggleMobileNav()" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+          </button>
+          <button class="icon-btn" onclick="openSearchModal()" title="Search">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+
+        <div class="brand-logo-wrap">
+          <a href="index.html" class="brand-logo">Shrivara</a>
+        </div>
+
+        <div class="header-right">
+          <button class="icon-btn" onclick="showToast('Wishlist: ' + wishlist.size + ' items')">
+            <i class="far fa-heart"></i>
+            <span class="badge-count" id="wishlistCount">0</span>
+          </button>
+          <button class="icon-btn" onclick="openCartDrawer()" title="Cart">
+            <i class="fas fa-shopping-bag"></i>
+            <span class="badge-count" id="cartCount">0</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="nav-bar">
+      <div class="container">
+        <ul class="nav-links">
+          <li><a href="index.html">HOME</a></li>
+          <li><a href="collection.html?category=all">SHOP ALL</a></li>
+          <li><a href="collection.html?category=Earrings">EARRINGS</a></li>
+          <li><a href="collection.html?category=Jewellery Sets">JEWELLERY SETS</a></li>
+          <li><a href="collection.html?category=Bracelets & Bangles">BANGLES & BRACELETS</a></li>
+          <li><a href="collection.html?category=anti-tarnish">ANTI-TARNISH</a></li>
+          <li><a href="collection.html?category=Pendant Set">PENDANT SETS</a></li>
+          <li><a href="collection.html?category=Rings">RINGS</a></li>
+          <li><a href="about.html">OUR STORY</a></li>
+          <li><a href="contact.html" class="active">CONTACT</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- 3. Hero Banner -->
+  <section class="page-hero-banner">
+    <div class="container">
+      <h1 class="page-hero-title">CONTACT US & STORE VISIT</h1>
+      <p class="page-hero-subtitle">Flagship Howrah Atelier • WhatsApp Stylist Support • Bridal Consultations</p>
+    </div>
+  </section>
+
+  <!-- 4. Breadcrumbs -->
+  <div class="container" style="margin-top: 15px;">
+    <div class="breadcrumbs">
+      <a href="index.html"><i class="fas fa-home"></i> Home</a>
+      <span class="sep"><i class="fas fa-chevron-right"></i></span>
+      <span class="current">Contact Us</span>
+    </div>
+  </div>
+
+  <!-- 5. Main Contact Section -->
+  <section class="contact-section">
+    <div class="container">
+      <div class="contact-grid">
+        
+        <!-- Left: Store & Support Info -->
+        <div class="contact-info-card">
+          <span style="font-size: 12px; font-weight: 700; color: var(--color-gold); letter-spacing: 1.5px; text-transform: uppercase;">Direct Assistance</span>
+          <h3 style="margin-top: 6px;">Howrah Flagship Atelier</h3>
+          <p style="font-size: 14px; color: var(--color-text-muted); margin-bottom: 24px; line-height: 1.6;">
+            We welcome you to visit our atelier to try on our jewellery pieces, inspect our anti-tarnish finish, and consult with our bridal styling team.
+          </p>
+
+          <ul class="contact-info-list">
+            <li class="contact-info-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <div>
+                <h5>Store Location</h5>
+                <p>
+                  21/1 Dobson Road, Gulmohar Railway Quarters<br>
+                  Mali Panchghara-Flat 4B<br>
+                  Howrah, West Bengal - 711101, India
+                </p>
+              </div>
+            </li>
+
+            <li class="contact-info-item">
+              <i class="fab fa-whatsapp"></i>
+              <div>
+                <h5>Instant WhatsApp Support</h5>
+                <p>Connect directly with our head stylist for product photos, videos, and custom pairing advice.</p>
+                <a href="https://wa.me/919830000000?text=Hi%20Shrivara,%20I%20would%20like%20to%20inquire%20about%20your%20jewellery%20collection." target="_blank" rel="noopener" style="display: inline-block; margin-top: 6px; color: #25D366; font-weight: 700; font-size: 13px;">
+                  <i class="fab fa-whatsapp"></i> Chat on WhatsApp &rarr;
+                </a>
+              </div>
+            </li>
+
+            <li class="contact-info-item">
+              <i class="far fa-clock"></i>
+              <div>
+                <h5>Operating Hours</h5>
+                <p>Monday to Saturday: 10:00 AM – 8:00 PM IST<br>Sunday: By Appointment</p>
+              </div>
+            </li>
+
+            <li class="contact-info-item">
+              <i class="far fa-envelope"></i>
+              <div>
+                <h5>Email Inquiries</h5>
+                <p>care@shrivara.co • support@shrivara.co</p>
+              </div>
+            </li>
+
+            <li class="contact-info-item">
+              <i class="fab fa-instagram"></i>
+              <div>
+                <h5>Follow Us</h5>
+                <a href="https://www.instagram.com/shri.vara?utm_source=ig_web_button_share_sheet&igsi=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener" style="color: var(--color-gold); font-weight: 600; font-size: 13px;">
+                  @shri.vara on Instagram
+                </a>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Right: Inquiry / Consultation Form -->
+        <div class="contact-form-box">
+          <span style="font-size: 12px; font-weight: 700; color: var(--color-gold); letter-spacing: 1.5px; text-transform: uppercase;">Personalized Service</span>
+          <h3 style="margin-top: 6px;">Send Us an Inquiry</h3>
+          <p>Whether you need bridal styling guidance, bulk gifting for weddings, or order status assistance, our team will reply promptly.</p>
+
+          <form id="contactInquiryForm">
+            <div class="form-group">
+              <label for="contactName">Your Full Name *</label>
+              <input type="text" id="contactName" class="form-input" placeholder="e.g. Diya Sharma" required>
+            </div>
+
+            <div class="form-group">
+              <label for="contactPhone">Phone / WhatsApp Number *</label>
+              <input type="tel" id="contactPhone" class="form-input" placeholder="+91 98765 43210" required>
+            </div>
+
+            <div class="form-group">
+              <label for="contactEmail">Email Address</label>
+              <input type="email" id="contactEmail" class="form-input" placeholder="diya@example.com">
+            </div>
+
+            <div class="form-group">
+              <label for="contactType">Inquiry Subject *</label>
+              <select id="contactType" class="form-select" required>
+                <option value="Bridal Consultation">Bridal Trousseau Styling Consultation</option>
+                <option value="Product Sizing & Matching">Product Sizing & Matching Pair Advice</option>
+                <option value="Bulk / Wedding Gifting">Bulk / Wedding Gifting Orders</option>
+                <option value="Existing Order Status">Existing Order Tracking Support</option>
+                <option value="General Inquiry">General Inquiry</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="contactMessage">Your Message / Requirements *</label>
+              <textarea id="contactMessage" class="form-textarea" rows="4" placeholder="Tell us about the occasion, outfit colors, or specific designs you are interested in..." required></textarea>
+            </div>
+
+            <button type="submit" class="form-submit-btn">
+              <i class="far fa-paper-plane" style="margin-right: 8px;"></i> Send Inquiry
+            </button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Trust Badges -->
+  <section class="badges-section" style="border-top: 1px solid var(--color-border);">
+    <div class="container">
+      <div class="badges-grid">
+        <div class="badge-box">
+          <div class="badge-icon"><i class="fas fa-check-circle"></i></div>
+          <h4 class="badge-title">Safe Checkout</h4>
+          <p class="badge-desc">Secure & hassle-free checkout guaranteed.</p>
+        </div>
+
+        <div class="badge-box">
+          <div class="badge-icon"><i class="fas fa-sync-alt"></i></div>
+          <h4 class="badge-title">Here To Help</h4>
+          <p class="badge-desc">Friendly assistance, just a call away.</p>
+        </div>
+
+        <div class="badge-box">
+          <div class="badge-icon"><i class="fas fa-award"></i></div>
+          <h4 class="badge-title">Deals You’ll Love</h4>
+          <p class="badge-desc">Enjoy exclusive offers and savings.</p>
+        </div>
+
+        <div class="badge-box">
+          <div class="badge-icon"><i class="fas fa-heart"></i></div>
+          <h4 class="badge-title">Exclusive. Distinct. You.</h4>
+          <p class="badge-desc">Jewellery that defines your individuality.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-col">
+          <h4>SHRIVARA</h4>
+          <p>
+            Shrivara is a premium fashion jewellery brand offering imitation, anti-tarnish, polki, kundan, and contemporary gold plated designs.
+          </p>
+          <div class="social-icons">
+            <a href="https://www.instagram.com/shri.vara?utm_source=ig_web_button_share_sheet&igsi=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener" class="social-icon-btn" title="Instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="social-icon-btn" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>SHOP</h4>
+          <ul class="footer-links">
+            <li><a href="collection.html?category=all">All Collections (214 Pieces)</a></li>
+            <li><a href="collection.html?category=Jewellery Sets">Jewellery Sets</a></li>
+            <li><a href="collection.html?category=Earrings">Earrings</a></li>
+            <li><a href="collection.html?category=Bracelets & Bangles">Bracelets & Bangles</a></li>
+            <li><a href="collection.html?category=Necklaces & Pendants">Necklaces</a></li>
+            <li><a href="collection.html?category=Rings">Rings</a></li>
+            <li><a href="collection.html?category=anti-tarnish">Anti-Tarnish Jewellery</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>QUICK LINKS</h4>
+          <ul class="footer-links">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Store Locator & Contact</a></li>
+            <li><a href="index.html#reviews">Customer Reviews</a></li>
+            <li><a href="#">Shipping Policy</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Store Address</h4>
+          <p>
+            21/1 Dobson Road<br>
+            Gulmohar Railway Quarters<br>
+            Mali Panchghara-Flat 4B<br>
+            Howrah, West Bengal - 711101<br>
+            India
+          </p>
+          <h4 style="margin-top: 18px;">Stay Connected! Join our email list now!</h4>
+          <form class="newsletter-form" id="newsletterForm">
+            <input type="email" class="newsletter-input" placeholder="Enter your email" required>
+            <button type="submit" class="newsletter-btn">Subscribe</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 Shrivara. All rights reserved.</span>
+        <span>Country/region: India (INR ₹)</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Slide-out Cart Drawer -->
+  <div class="cart-drawer-overlay" id="cartOverlay" onclick="closeCartDrawer()"></div>
+  <div class="cart-drawer" id="cartDrawer">
+    <div class="drawer-header">
+      <h3>Your Shopping Bag</h3>
+      <button class="close-drawer-btn" onclick="closeCartDrawer()">&times;</button>
+    </div>
+    
+    <div class="shipping-bar-box">
+      <div id="shippingText">Add more for <strong>FREE Shipping!</strong></div>
+      <div class="progress-track">
+        <div class="progress-fill" id="shippingProgress"></div>
+      </div>
+    </div>
+
+    <div class="drawer-body" id="cartItems"></div>
+
+    <div class="drawer-footer">
+      <div class="subtotal-row">
+        <span>Subtotal</span>
+        <span id="cartSubtotal">Rs. 0.00</span>
+      </div>
+      <button class="checkout-btn" onclick="showToast('Proceeding to Checkout...')">
+        Check out
+      </button>
+    </div>
+  </div>
+
+  <!-- Search Modal -->
+  <div class="search-modal" id="searchModal">
+    <div class="search-container">
+      <button class="close-search-btn" onclick="closeSearchModal()">&times;</button>
+      <div class="search-input-box">
+        <i class="fas fa-search" style="color: var(--color-primary); font-size: 18px;"></i>
+        <input type="text" class="search-input" id="searchInput" placeholder="Search 214 jewellery pieces..." oninput="handleLiveSearch(this.value)">
+      </div>
+      <div class="search-results-list" id="searchResults"></div>
+    </div>
+  </div>
+
+  <!-- Toast Notice -->
+  <div class="toast-notice" id="toastNotice"></div>
+
+  <!-- Dark / Light Mode Switcher (Rightmost Corner) -->
+  <button class="mode-toggle-widget" id="modeToggleWidget" onclick="toggleColorMode()" title="Toggle Dark / Light Mode" aria-label="Toggle Dark / Light Mode">
+    <span class="mode-icon-wrap">
+      <i class="fas fa-moon" id="modeIcon"></i>
+    </span>
+    <span id="modeText">Dark Mode</span>
+  </button>
+
+  <!-- Scripts -->
+  <script src="products.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

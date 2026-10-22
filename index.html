@@ -1,536 +1,924 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>shrivara.co – Shrivara</title>
-  
-  <meta name="description" content="Shop SHRIVARA for stylish imitation and anti-tarnish jewellery. Discover elegant earrings, necklaces, bracelets and more, made to elevate every look.">
+  <title>Shrivara | Anti-Tarnish & Gold-Plated Imitation Jewellery</title>
+
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="Shrivara | Anti-Tarnish & Gold-Plated Imitation Jewellery">
+  <meta name="description" content="Shop Shrivara for handcrafted Indian imitation and anti-tarnish jewellery. Discover elegant earrings, bridal sets, kundan necklaces, bangles, and rings.">
+  <link rel="canonical" href="https://shrivara.co/">
   <link rel="icon" type="image/png" href="https://shrivara.co/cdn/shop/files/Shrivara_logo_page-0001.jpg?crop=center&height=32&v=1791877013&width=32">
-  
-  <!-- Font: Assistant (Shopify Dawn default) -->
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://aryantiwari002.github.io/Shrivara/">
+  <meta property="og:title" content="Shrivara | Anti-Tarnish & Gold-Plated Imitation Jewellery">
+  <meta property="og:description" content="Handcrafted Indian heritage meets contemporary elegance. Premium anti-tarnish micro-layer plating, uncut polki, and royal kundan designs.">
+  <meta property="og:image" content="https://shrivara.co/cdn/shop/files/WhatsApp_Image_2026-07-26_at_17.57.31.jpg?v=1785068879&width=1200">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://aryantiwari002.github.io/Shrivara/">
+  <meta property="twitter:title" content="Shrivara | Anti-Tarnish & Gold-Plated Imitation Jewellery">
+  <meta property="twitter:description" content="Handcrafted Indian heritage meets contemporary elegance. Premium anti-tarnish micro-layer plating, uncut polki, and royal kundan designs.">
+  <meta property="twitter:image" content="https://shrivara.co/cdn/shop/files/WhatsApp_Image_2026-07-26_at_17.57.31.jpg?v=1785068879&width=1200">
+
+  <!-- Google Fonts: Cormorant Garamond (Serif Headings) & DM Sans (UI/Body) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  
-  <!-- FontAwesome Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  
-  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400..700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
-  <!-- 1. Top Announcement Bar -->
-  <div class="announcement-bar">
-    <span>Upto 50% Off | Get 5% Off on First Order</span>
-  </div>
+  <!-- ======================================================================
+       SVG Icon Sprite (Zero External CDNs, Lightweight & High Performance)
+       ====================================================================== -->
+  <svg style="display: none;" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <!-- Shopping Bag -->
+      <g id="icon-bag">
+        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <line x1="3" y1="6" x2="21" y2="6" stroke="currentColor" stroke-width="2"/>
+        <path d="M16 10a4 4 0 0 1-8 0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+      <!-- Heart Outline -->
+      <g id="icon-heart">
+        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+      <!-- Heart Filled -->
+      <g id="icon-heart-fill">
+        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="currentColor"/>
+      </g>
+      <!-- Search Magnifier -->
+      <g id="icon-search">
+        <circle cx="11" cy="11" r="8" fill="none" stroke="currentColor" stroke-width="2"/>
+        <line x1="21" y1="21" x2="16.65" y2="16.65" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </g>
+      <!-- Sun (Light Mode) -->
+      <g id="icon-sun">
+        <circle cx="12" cy="12" r="5" fill="none" stroke="currentColor" stroke-width="2"/>
+        <line x1="12" y1="1" x2="12" y2="3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <line x1="12" y1="21" x2="12" y2="23" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <line x1="1" y1="12" x2="3" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <line x1="21" y1="12" x2="23" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </g>
+      <!-- Moon (Dark Mode) -->
+      <g id="icon-moon">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+      <!-- Hamburger Menu -->
+      <g id="icon-menu">
+        <line x1="3" y1="12" x2="21" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <line x1="3" y1="6" x2="21" y2="6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <line x1="3" y1="18" x2="21" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </g>
+      <!-- Close / Cross -->
+      <g id="icon-close">
+        <line x1="18" y1="6" x2="6" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <line x1="6" y1="6" x2="18" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </g>
+      <!-- Chevrons -->
+      <g id="icon-chevron-left">
+        <polyline points="15 18 9 12 15 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+      <g id="icon-chevron-right">
+        <polyline points="9 18 15 12 9 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+      <g id="icon-chevron-down">
+        <polyline points="6 9 12 15 18 9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+      <!-- Star -->
+      <g id="icon-star">
+        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="currentColor"/>
+      </g>
+      <!-- Trash -->
+      <g id="icon-trash">
+        <polyline points="3 6 5 6 21 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </g>
+      <!-- Shield (Anti-Tarnish) -->
+      <g id="icon-shield">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+      <!-- Gem -->
+      <g id="icon-gem">
+        <polygon points="6 3 18 3 22 9 12 22 2 9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <line x1="12" y1="22" x2="12" y2="9" stroke="currentColor" stroke-width="2"/>
+        <line x1="2" y1="9" x2="22" y2="9" stroke="currentColor" stroke-width="2"/>
+        <line x1="6" y1="3" x2="12" y2="9" stroke="currentColor" stroke-width="2"/>
+        <line x1="18" y1="3" x2="12" y2="9" stroke="currentColor" stroke-width="2"/>
+      </g>
+      <!-- Check Mark -->
+      <g id="icon-check">
+        <polyline points="20 6 9 17 4 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+      <!-- Arrow Up -->
+      <g id="icon-arrow-up">
+        <line x1="12" y1="19" x2="12" y2="5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <polyline points="5 12 12 5 19 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </g>
+      <!-- WhatsApp -->
+      <g id="icon-whatsapp">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.884 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" fill="currentColor"/>
+      </g>
+      <!-- Instagram -->
+      <g id="icon-instagram">
+        <rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="2"/>
+        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" fill="none" stroke="currentColor" stroke-width="2"/>
+        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </g>
+      <!-- Facebook -->
+      <g id="icon-facebook">
+        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+    </defs>
+  </svg>
 
-  <!-- 2. Header -->
-  <header class="site-header">
-    <div class="container">
-      <div class="header-top">
-        <div class="header-left">
-          <button class="mobile-menu-toggle" onclick="toggleMobileNav()" aria-label="Toggle navigation">
-            <i class="fas fa-bars"></i>
-          </button>
-          <button class="icon-btn" onclick="openSearchModal()" title="Search">
-            <i class="fas fa-search"></i>
-          </button>
-        </div>
+  <!-- ======================================================================
+       1. Promo Announcement Bar
+       ====================================================================== -->
+  <aside class="promo-bar" id="promoBar" aria-label="Store Announcements">
+    <div class="promo-track" id="promoTrack">
+      <div class="promo-message">
+        <span>Up to 50% Off | Get 5% Off on First Order</span>
+        <span class="promo-highlight">• Code: FIRST5</span>
+      </div>
+      <div class="promo-message">
+        <span>Free Insured Express Shipping Across India</span>
+        <span class="promo-highlight">• On Orders Above ₹1,999</span>
+      </div>
+      <div class="promo-message">
+        <span>100% Anti-Tarnish Micro-Plating</span>
+        <span class="promo-highlight">• Handcrafted in Bengal</span>
+      </div>
+    </div>
+  </aside>
 
-        <div class="brand-logo-wrap">
-          <a href="#" class="brand-logo">Shrivara</a>
-        </div>
+  <!-- ======================================================================
+       2. Sticky Header & Navigation
+       ====================================================================== -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <!-- Left: Mobile Hamburger & Search -->
+      <div class="header-left">
+        <button class="mobile-menu-toggle icon-btn" id="mobileMenuToggle" aria-label="Open mobile navigation" aria-expanded="false" aria-controls="mobileNavBackdrop">
+          <svg class="icon" width="22" height="22" aria-hidden="true"><use href="#icon-menu"></use></svg>
+        </button>
 
-        <div class="header-right">
-          <button class="icon-btn" onclick="showToast('Wishlist: ' + wishlist.size + ' items')">
-            <i class="far fa-heart"></i>
-            <span class="badge-count" id="wishlistCount">0</span>
-          </button>
-          <button class="icon-btn" onclick="openCartDrawer()" title="Cart">
-            <i class="fas fa-shopping-bag"></i>
-            <span class="badge-count" id="cartCount">1</span>
-          </button>
-        </div>
+        <button class="icon-btn" id="searchModalOpenBtn" aria-label="Search jewellery designs" title="Search (Alt+S)">
+          <svg class="icon" width="20" height="20" aria-hidden="true"><use href="#icon-search"></use></svg>
+        </button>
+      </div>
+
+      <!-- Center: Brand Logo -->
+      <div class="brand-logo-wrap">
+        <a href="#" class="brand-logo">Shrivara</a>
+      </div>
+
+      <!-- Right: Dark Mode Toggle, Wishlist & Cart -->
+      <div class="header-right">
+        <!-- Theme Mode Toggle -->
+        <button class="icon-btn" id="themeToggleBtn" aria-label="Toggle dark mode" title="Dark / Light Mode">
+          <svg class="icon" id="iconThemeMoon" width="19" height="19" aria-hidden="true"><use href="#icon-moon"></use></svg>
+          <svg class="icon" id="iconThemeSun" width="19" height="19" aria-hidden="true" style="display: none;"><use href="#icon-sun"></use></svg>
+        </button>
+
+        <!-- Wishlist Counter Button -->
+        <button class="icon-btn" id="wishlistHeaderBtn" onclick="window.location.hash='#catalog'" aria-label="View saved wishlist items" title="Wishlist">
+          <svg class="icon" width="20" height="20" aria-hidden="true"><use href="#icon-heart"></use></svg>
+          <span class="badge-count" id="wishlistCountBadge">0</span>
+        </button>
+
+        <!-- Cart Drawer Button -->
+        <button class="icon-btn" id="cartDrawerOpenBtn" aria-label="Open shopping bag" title="Shopping Bag">
+          <svg class="icon" width="20" height="20" aria-hidden="true"><use href="#icon-bag"></use></svg>
+          <span class="badge-count" id="cartCountBadge">0</span>
+        </button>
       </div>
     </div>
 
-    <!-- Navigation Bar -->
-    <nav class="nav-bar">
-      <div class="container">
-        <ul class="nav-links">
-          <li><a href="#catalog" onclick="setCategory('all')">SHOP ALL</a></li>
-          <li><a href="#collections">COLLECTIONS</a></li>
-          <li><a href="#bestsellers">BESTSELLERS</a></li>
-          <li><a href="#new-arrivals">NEW ARRIVALS</a></li>
-          <li><a href="#catalog" onclick="setCategory('Earrings')">EARRINGS</a></li>
-          <li><a href="#catalog" onclick="setCategory('Jewellery Sets')">JEWELLERY SETS</a></li>
-          <li><a href="#catalog" onclick="setCategory('Bracelets & Bangles')">BRACELETS & BANGLES</a></li>
-          <li><a href="#catalog" onclick="setCategory('anti-tarnish')">ANTI-TARNISH</a></li>
-          <li><a href="#catalog" onclick="setCategory('Pendant Set')">PENDANT SET</a></li>
-          <li><a href="#catalog" onclick="setCategory('Rings')">RINGS</a></li>
-          <li><a href="#story">OUR STORY</a></li>
-          <li><a href="#reviews">REVIEWS</a></li>
-        </ul>
-      </div>
+    <!-- Desktop Navigation Bar -->
+    <nav class="desktop-nav" aria-label="Primary Navigation">
+      <ul class="nav-list">
+        <!-- Shop with Mega Menu -->
+        <li class="nav-item nav-item-shop">
+          <a href="#catalog" class="nav-link" aria-haspopup="true" aria-expanded="false">
+            Shop
+            <svg class="icon" width="12" height="12" aria-hidden="true"><use href="#icon-chevron-down"></use></svg>
+          </a>
+
+          <!-- Mega Menu Dropdown -->
+          <div class="mega-menu" role="menu">
+            <div class="mega-menu-grid" id="megaMenuGrid">
+              <!-- Populated dynamically with 7 categories, thumbnails and counts -->
+            </div>
+          </div>
+        </li>
+
+        <li class="nav-item"><a href="#collections" class="nav-link">Collections</a></li>
+        <li class="nav-item"><a href="#bestsellers" class="nav-link">Bestsellers</a></li>
+        <li class="nav-item"><a href="#new-arrivals" class="nav-link">New Arrivals</a></li>
+        <li class="nav-item"><a href="#story" class="nav-link">Our Story</a></li>
+        <li class="nav-item"><a href="#reviews" class="nav-link">Reviews</a></li>
+      </ul>
     </nav>
   </header>
 
-  <!-- 3. Hero Slideshow -->
-  <section class="hero-slider-section">
-    <div class="slider-container">
-      <!-- Slide 1 -->
-      <div class="slide active" style="background-image: url('https://shrivara.co/cdn/shop/files/WhatsApp_Image_2026-07-26_at_17.57.31.jpg?v=1785068879&width=2000');">
-        <div class="slide-overlay"></div>
-      </div>
-
-      <!-- Slide 2 -->
-      <div class="slide" style="background-image: url('https://shrivara.co/cdn/shop/files/ChatGPT_Image_Aug_4_2026_06_10_12_PM.png?v=1785847264&width=2000');">
-        <div class="slide-overlay"></div>
-      </div>
-    </div>
-
-    <!-- Controls -->
-    <button class="slider-arrow slider-prev" onclick="prevSlide()" aria-label="Previous">
-      <i class="fas fa-chevron-left"></i>
-    </button>
-    <button class="slider-arrow slider-next" onclick="nextSlide()" aria-label="Next">
-      <i class="fas fa-chevron-right"></i>
-    </button>
-    <div class="slider-dots">
-      <div class="slider-dot active" onclick="goToSlide(0)"></div>
-      <div class="slider-dot" onclick="goToSlide(1)"></div>
-    </div>
-  </section>
-
-  <!-- 4. Bestsellers Carousel -->
-  <section class="carousel-section" id="bestsellers">
-    <div class="container">
-      <div class="carousel-header">
-        <h2 class="carousel-title">Bestsellers</h2>
-        <a href="#catalog" onclick="setCategory('all')" class="view-all-btn">View all</a>
-      </div>
-
-      <div class="carousel-wrapper">
-        <button class="carousel-nav-btn carousel-prev" onclick="scrollCarousel('bestsellersGrid', -260)" aria-label="Scroll left">
-          <i class="fas fa-chevron-left"></i>
-        </button>
-        <div class="products-carousel" id="bestsellersGrid"></div>
-        <button class="carousel-nav-btn carousel-next" onclick="scrollCarousel('bestsellersGrid', 260)" aria-label="Scroll right">
-          <i class="fas fa-chevron-right"></i>
+  <!-- Mobile Slide-In Navigation Drawer -->
+  <div class="mobile-nav-backdrop" id="mobileNavBackdrop" role="dialog" aria-modal="true" aria-label="Mobile Menu">
+    <div class="mobile-nav-drawer" id="mobileNavDrawer">
+      <div class="mobile-nav-header">
+        <span class="brand-logo" style="font-size: 1.5rem;">Shrivara</span>
+        <button class="icon-btn" id="mobileNavClose" aria-label="Close mobile menu">
+          <svg class="icon" width="20" height="20" aria-hidden="true"><use href="#icon-close"></use></svg>
         </button>
       </div>
-    </div>
-  </section>
 
-  <!-- 5. FEATURED COLLECTION Section -->
-  <section class="featured-collection-section" id="collections">
-    <div class="container">
-      <h2 class="section-main-title">FEATURED COLLECTION</h2>
+      <div class="mobile-nav-body">
+        <ul style="margin-bottom: 24px;">
+          <li><a href="#catalog" class="mobile-nav-link" onclick="document.getElementById('mobileNavClose').click();">Shop All Pieces &rarr;</a></li>
+          <li><a href="#collections" class="mobile-nav-link" onclick="document.getElementById('mobileNavClose').click();">Collections</a></li>
+          <li><a href="#bestsellers" class="mobile-nav-link" onclick="document.getElementById('mobileNavClose').click();">Bestsellers</a></li>
+          <li><a href="#new-arrivals" class="mobile-nav-link" onclick="document.getElementById('mobileNavClose').click();">New Arrivals</a></li>
+          <li><a href="#story" class="mobile-nav-link" onclick="document.getElementById('mobileNavClose').click();">Our Story & Craft</a></li>
+          <li><a href="#reviews" class="mobile-nav-link" onclick="document.getElementById('mobileNavClose').click();">Customer Reviews</a></li>
+        </ul>
 
-      <div class="collections-grid-6">
-        <!-- 1. Pendant Set -->
-        <div class="collection-item-card" onclick="setCategory('Pendant Set')">
-          <div class="collection-item-media">
-            <img src="https://shrivara.co/cdn/shop/collections/WhatsApp_Image_2026-07-26_at_18.14.32.jpg?v=1785069982&width=1500" alt="Pendant Set">
-          </div>
-          <h3 class="collection-item-name">Pendant Set</h3>
-        </div>
-
-        <!-- 2. Earrings -->
-        <div class="collection-item-card" onclick="setCategory('Earrings')">
-          <div class="collection-item-media">
-            <img src="https://shrivara.co/cdn/shop/collections/WhatsApp_Image_2026-07-26_at_18.41.22.jpg?v=1785071683&width=1500" alt="Earrings">
-          </div>
-          <h3 class="collection-item-name">Earrings</h3>
-        </div>
-
-        <!-- 3. Bracelets & Bangles -->
-        <div class="collection-item-card" onclick="setCategory('Bracelets & Bangles')">
-          <div class="collection-item-media">
-            <img src="https://shrivara.co/cdn/shop/collections/WhatsApp_Image_2026-07-26_at_19.05.32.jpg?v=1785073014&width=1500" alt="Bracelets & Bangles">
-          </div>
-          <h3 class="collection-item-name">Bracelets & Bangles</h3>
-        </div>
-
-        <!-- 4. Jewellery Sets -->
-        <div class="collection-item-card" onclick="setCategory('Jewellery Sets')">
-          <div class="collection-item-media">
-            <img src="https://shrivara.co/cdn/shop/collections/WhatsApp_Image_2026-07-26_at_20.51.35.jpg?v=1785079938&width=1500" alt="Jewellery Sets">
-          </div>
-          <h3 class="collection-item-name">Jewellery Sets</h3>
-        </div>
-
-        <!-- 5. Rings -->
-        <div class="collection-item-card" onclick="setCategory('Rings')">
-          <div class="collection-item-media">
-            <img src="https://shrivara.co/cdn/shop/collections/ChatGPT_Image_Aug_18_2026_11_50_43_PM.png?v=1787077388&width=1500" alt="Rings">
-          </div>
-          <h3 class="collection-item-name">Rings</h3>
-        </div>
-
-        <!-- 6. Anti-Tarnish -->
-        <div class="collection-item-card" onclick="setCategory('anti-tarnish')">
-          <div class="collection-item-media">
-            <img src="https://shrivara.co/cdn/shop/collections/Gemini_Generated_Image_3gqx753gqx753gqx.png?v=1789385692&width=1500" alt="Anti-Tarnish">
-          </div>
-          <h3 class="collection-item-name">Anti-Tarnish</h3>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 6. Complete Catalog (All 214 Products with Filters & Search) -->
-  <section class="catalog-section" id="catalog">
-    <div class="container">
-      <h2 class="section-main-title">EXPLORE OUR JEWELLERY (214 PIECES)</h2>
-
-      <!-- Catalog Toolbar -->
-      <div class="catalog-toolbar">
-        <!-- Filter Pills -->
-        <div class="filter-pills">
-          <button class="filter-pill active" data-category="all" onclick="setCategory('all')">All (214)</button>
-          <button class="filter-pill" data-category="Jewellery Sets" onclick="setCategory('Jewellery Sets')">Jewellery Sets</button>
-          <button class="filter-pill" data-category="Earrings" onclick="setCategory('Earrings')">Earrings</button>
-          <button class="filter-pill" data-category="Bracelets & Bangles" onclick="setCategory('Bracelets & Bangles')">Bracelets & Bangles</button>
-          <button class="filter-pill" data-category="Necklaces & Pendants" onclick="setCategory('Necklaces & Pendants')">Necklaces</button>
-          <button class="filter-pill" data-category="Pendant Set" onclick="setCategory('Pendant Set')">Pendant Sets</button>
-          <button class="filter-pill" data-category="Rings" onclick="setCategory('Rings')">Rings</button>
-          <button class="filter-pill" data-category="anti-tarnish" onclick="setCategory('anti-tarnish')">Anti-Tarnish</button>
-        </div>
-
-        <!-- Actions: Search & Sort -->
-        <div class="catalog-actions">
-          <div class="catalog-search-box">
-            <i class="fas fa-search catalog-search-icon"></i>
-            <input type="text" id="catalogSearch" class="catalog-search-input" placeholder="Filter 214 items...">
-          </div>
-
-          <select class="sort-select" onchange="handleSortChange(this.value)">
-            <option value="featured">Sort by: Featured</option>
-            <option value="price-low">Price: Low to High</option>
-            <option value="price-high">Price: High to Low</option>
-            <option value="title-asc">Alphabetical: A-Z</option>
-          </select>
+        <div class="mobile-categories-header">Explore by Category</div>
+        <div id="mobileCategoriesList">
+          <a href="#catalog" class="mobile-category-link" onclick="window.filterByCategory('Jewellery Sets'); document.getElementById('mobileNavClose').click();">
+            <img src="https://shrivara.co/cdn/shop/collections/WhatsApp_Image_2026-07-26_at_20.51.35.jpg?v=1785079938&width=200" alt="Jewellery Sets">
+            <span>Jewellery Sets</span>
+          </a>
+          <a href="#catalog" class="mobile-category-link" onclick="window.filterByCategory('Earrings'); document.getElementById('mobileNavClose').click();">
+            <img src="https://shrivara.co/cdn/shop/collections/WhatsApp_Image_2026-07-26_at_18.41.22.jpg?v=1785071683&width=200" alt="Earrings">
+            <span>Earrings & Tops</span>
+          </a>
+          <a href="#catalog" class="mobile-category-link" onclick="window.filterByCategory('Bracelets & Bangles'); document.getElementById('mobileNavClose').click();">
+            <img src="https://shrivara.co/cdn/shop/collections/WhatsApp_Image_2026-07-26_at_19.05.32.jpg?v=1785073014&width=200" alt="Bracelets & Bangles">
+            <span>Bracelets & Bangles</span>
+          </a>
+          <a href="#catalog" class="mobile-category-link" onclick="window.filterByCategory('Necklaces'); document.getElementById('mobileNavClose').click();">
+            <img src="https://cdn.shopify.com/s/files/1/0725/1728/8098/files/WhatsApp_Image_2026-09-10_at_15.48.18.jpg?v=1789539990&width=200" alt="Necklaces">
+            <span>Necklaces & Chokers</span>
+          </a>
+          <a href="#catalog" class="mobile-category-link" onclick="window.filterByCategory('Pendant Sets'); document.getElementById('mobileNavClose').click();">
+            <img src="https://shrivara.co/cdn/shop/collections/WhatsApp_Image_2026-07-26_at_18.14.32.jpg?v=1785069982&width=200" alt="Pendant Sets">
+            <span>Pendant Sets</span>
+          </a>
+          <a href="#catalog" class="mobile-category-link" onclick="window.filterByCategory('Rings'); document.getElementById('mobileNavClose').click();">
+            <img src="https://shrivara.co/cdn/shop/collections/ChatGPT_Image_Aug_18_2026_11_50_43_PM.png?v=1787077388&width=200" alt="Rings">
+            <span>Rings</span>
+          </a>
+          <a href="#catalog" class="mobile-category-link" onclick="window.filterByCategory('Anti-Tarnish'); document.getElementById('mobileNavClose').click();">
+            <img src="https://shrivara.co/cdn/shop/collections/Gemini_Generated_Image_3gqx753gqx753gqx.png?v=1789385692&width=200" alt="Anti-Tarnish">
+            <span>✨ 100% Anti-Tarnish</span>
+          </a>
         </div>
       </div>
 
-      <!-- Count Row -->
-      <div class="catalog-count-row">
-        <span id="catalogProductCount">Loading products...</span>
-        <span>Instant Free Delivery on orders over Rs. 1,999</span>
+      <div class="mobile-nav-footer">
+        <span style="font-size: 0.75rem; color: var(--muted);">Flagship Atelier • Howrah</span>
+        <a href="https://wa.me/919830000000" target="_blank" rel="noopener" style="color: #25D366; font-size: 0.8125rem; font-weight: 700; display: inline-flex; align-items: center; gap: 4px;">
+          <svg class="icon" width="16" height="16" aria-hidden="true"><use href="#icon-whatsapp"></use></svg> Stylist Help
+        </a>
       </div>
-
-      <!-- Catalog Grid -->
-      <div class="catalog-grid" id="catalogGrid"></div>
-
-      <!-- Load More Button -->
-      <div class="load-more-wrapper">
-        <button id="loadMoreBtn" class="load-more-btn" onclick="loadMoreProducts()">Load More Pieces</button>
-      </div>
-    </div>
-  </section>
-
-  <!-- 7. New Arrivals Carousel -->
-  <section class="carousel-section" id="new-arrivals">
-    <div class="container">
-      <div class="carousel-header">
-        <h2 class="carousel-title">New Arrivals</h2>
-        <a href="#catalog" onclick="setCategory('all')" class="view-all-btn">View all</a>
-      </div>
-
-      <div class="carousel-wrapper">
-        <button class="carousel-nav-btn carousel-prev" onclick="scrollCarousel('newArrivalsGrid', -260)" aria-label="Scroll left">
-          <i class="fas fa-chevron-left"></i>
-        </button>
-        <div class="products-carousel" id="newArrivalsGrid"></div>
-        <button class="carousel-nav-btn carousel-next" onclick="scrollCarousel('newArrivalsGrid', 260)" aria-label="Scroll right">
-          <i class="fas fa-chevron-right"></i>
-        </button>
-      </div>
-    </div>
-  </section>
-
-  <!-- 8. Full-Width Image Banner -->
-  <section class="full-image-banner" style="background-image: url('https://shrivara.co/cdn/shop/files/WhatsApp_Image_2026-08-30_at_17.52.12.jpg?v=1788096106&width=3840');">
-    <div class="banner-action-box">
-      <a href="#catalog" onclick="setCategory('all')" class="banner-cta-btn">EXPLORE NOW</a>
-    </div>
-  </section>
-
-  <!-- 9. Our Story Section -->
-  <section class="story-section" id="story">
-    <div class="container">
-      <div class="story-grid">
-        <div class="story-media">
-          <img src="https://shrivara.co/cdn/shop/files/IMG_2288_copy.jpg?v=1788101059&width=1500" alt="Shrivara Jewellery Heritage">
-        </div>
-        <div class="story-content">
-          <h2>OUR STORY</h2>
-          <p>
-            Shrivara is a premium fashion jewellery brand creating statement pieces that blend timeless elegance with contemporary design.
-          </p>
-          <p>
-            Inspired by Indian heritage and modern luxury, every piece is thoughtfully crafted with exceptional attention to detail, premium finishes, and refined aesthetics -bringing the look and feel of fine jewellery at an accessible price.
-          </p>
-          <p>
-            At Shrivara, we believe jewellery is more than an accessory; it's an expression of confidence, individuality, and celebration. Whether it's everyday elegance or life's special moments, our collections are designed to make every occasion shine
-          </p>
-          <a href="#catalog" onclick="setCategory('all')" class="story-btn">Shop Our Heritage</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 10. Marquee Ticker Banner -->
-  <div class="marquee-bar">
-    <div class="marquee-inner">
-      <span class="marquee-text">ANTI - TARNISH | GOLD PLATED | HIGH CRAFTSMANSHIP | PREMIUM GRADE POLKIS & GEMSTONES | MADE IN INDIA</span>
-      <span class="marquee-text">•</span>
-      <span class="marquee-text">ANTI - TARNISH | GOLD PLATED | HIGH CRAFTSMANSHIP | PREMIUM GRADE POLKIS & GEMSTONES | MADE IN INDIA</span>
-      <span class="marquee-text">•</span>
-      <span class="marquee-text">ANTI - TARNISH | GOLD PLATED | HIGH CRAFTSMANSHIP | PREMIUM GRADE POLKIS & GEMSTONES | MADE IN INDIA</span>
     </div>
   </div>
 
-  <!-- 11. Customer Reviews -->
-  <section class="reviews-section" id="reviews">
-    <div class="container">
-      <h2 class="section-main-title">CUSTOMER REVIEWS</h2>
+  <main id="mainContent">
 
-      <div class="reviews-grid">
-        <div class="review-card">
-          <div class="review-stars">
-            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-          </div>
-          <h4 class="review-title">Absolutely love it!</h4>
-          <p class="review-text">This product exceeded my expectations. The quality is outstanding and it arrived quickly. Highly recommend!</p>
-          <div class="review-footer">
-            <span class="review-author">Diya Chatterjee</span>
-            <span class="review-verified"><i class="fas fa-check-circle"></i> Verified</span>
+    <!-- ======================================================================
+         3. Hero Editorial Section
+         ====================================================================== -->
+    <section class="hero-section" id="heroSection" aria-label="Featured Collection Showcase">
+      <div class="hero-slider">
+        <!-- Slide 1: Polki Bridal Edit -->
+        <div class="hero-slide is-active">
+          <img class="hero-slide-bg" 
+               src="https://shrivara.co/cdn/shop/files/WhatsApp_Image_2026-07-26_at_17.57.31.jpg?v=1785068879&width=1600" 
+               srcset="https://shrivara.co/cdn/shop/files/WhatsApp_Image_2026-07-26_at_17.57.31.jpg?v=1785068879&width=800 800w, https://shrivara.co/cdn/shop/files/WhatsApp_Image_2026-07-26_at_17.57.31.jpg?v=1785068879&width=1600 1600w"
+               alt="Royal Indian polki bridal necklace set handcrafted by Shrivara"
+               fetchpriority="high"
+               width="1600" 
+               height="900">
+          <div class="hero-overlay"></div>
+        </div>
+
+        <!-- Slide 2: Festive Statement -->
+        <div class="hero-slide">
+          <img class="hero-slide-bg" 
+               src="https://shrivara.co/cdn/shop/files/ChatGPT_Image_Aug_4_2026_06_10_12_PM.png?v=1785847264&width=1600" 
+               srcset="https://shrivara.co/cdn/shop/files/ChatGPT_Image_Aug_4_2026_06_10_12_PM.png?v=1785847264&width=800 800w, https://shrivara.co/cdn/shop/files/ChatGPT_Image_Aug_4_2026_06_10_12_PM.png?v=1785847264&width=1600 1600w"
+               alt="Elegant kundan jewellery and earrings"
+               loading="lazy"
+               decoding="async"
+               width="1600" 
+               height="900">
+          <div class="hero-overlay"></div>
+        </div>
+
+        <!-- Slide 3: Anti-Tarnish Heritage -->
+        <div class="hero-slide">
+          <img class="hero-slide-bg" 
+               src="https://shrivara.co/cdn/shop/files/WhatsApp_Image_2026-08-30_at_17.52.12.jpg?v=1788096106&width=1600" 
+               srcset="https://shrivara.co/cdn/shop/files/WhatsApp_Image_2026-08-30_at_17.52.12.jpg?v=1788096106&width=800 800w, https://shrivara.co/cdn/shop/files/WhatsApp_Image_2026-08-30_at_17.52.12.jpg?v=1788096106&width=1600 1600w"
+               alt="Anti-tarnish gold-plated jewellery handcrafted in Bengal"
+               loading="lazy"
+               decoding="async"
+               width="1600" 
+               height="900">
+          <div class="hero-overlay"></div>
+        </div>
+      </div>
+
+      <div class="container hero-content">
+        <span class="hero-eyebrow">
+          <svg class="icon" width="14" height="14" aria-hidden="true"><use href="#icon-shield"></use></svg>
+          Handcrafted in India • 100% Anti-Tarnish
+        </span>
+        <h1 class="hero-title">Jewellery that defines you</h1>
+        <p class="hero-subtext">
+          Royal Indian heritage meets modern luxury. Discover timeless polki, bridal sets, and anti-tarnish everyday adornments crafted to shine forever.
+        </p>
+        <div class="hero-actions">
+          <a href="#catalog" class="btn-primary">Shop the Collection</a>
+          <a href="#story" class="btn-secondary">Explore Our Heritage</a>
+        </div>
+      </div>
+
+      <!-- Slider Dots -->
+      <div class="hero-dots" id="heroDots" role="tablist" aria-label="Hero slider pagination"></div>
+    </section>
+
+    <!-- ======================================================================
+         4. Collections Section (Tall 4:5 Responsive Tiles)
+         ====================================================================== -->
+    <section class="section-collections" id="collections" aria-labelledby="collectionsTitle">
+      <div class="container">
+        <div class="section-header-center">
+          <span class="eyebrow">Curated Adornments</span>
+          <h2 class="section-title" id="collectionsTitle">Featured Collections</h2>
+          <p class="section-lead">Explore masterfully crafted pieces organized by occasion, silhouette, and finish</p>
+        </div>
+
+        <div class="collections-grid" id="collectionsGrid">
+          <!-- Populated dynamically with 7 category tiles -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         5. Filterable Catalogue Section (All 214 Pieces)
+         ====================================================================== -->
+    <section class="section-catalog" id="catalog" aria-labelledby="catalogHeading">
+      <div class="container">
+        <!-- Screen reader live announcement region -->
+        <div id="catalogAriaLive" class="sr-only" aria-live="polite"></div>
+
+        <!-- Catalogue Header Bar -->
+        <div class="catalog-header-bar">
+          <div>
+            <span class="eyebrow">Complete Showcase</span>
+            <h2 class="section-title" id="catalogHeading" style="margin-bottom: 2px;">Explore Our Jewellery</h2>
+            <div class="catalog-count-badge" id="catalogCountBadge">Loading pieces...</div>
           </div>
         </div>
 
-        <div class="review-card">
-          <div class="review-stars">
-            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-          </div>
-          <h4 class="review-title">Great value</h4>
-          <p class="review-text">Perfect for what I needed. The price point is excellent for the quality you get.</p>
-          <div class="review-footer">
-            <span class="review-author">Riya Banerjee</span>
-            <span class="review-verified"><i class="fas fa-check-circle"></i> Verified</span>
+        <!-- Category Filter Chips (Mobile Scroll-Snap) -->
+        <div class="category-chips-wrapper">
+          <div class="category-chips" id="categoryChips" role="tablist" aria-label="Jewellery Categories">
+            <!-- Populated dynamically via JS -->
           </div>
         </div>
 
-        <div class="review-card">
-          <div class="review-stars">
-            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+        <!-- Filter Toolbar (Search, Price Range, Sort) -->
+        <div class="catalog-toolbar">
+          <!-- Live Search Input -->
+          <div class="catalog-search-wrap">
+            <svg class="icon catalog-search-icon" width="16" height="16" aria-hidden="true"><use href="#icon-search"></use></svg>
+            <input type="text" 
+                   id="catalogSearch" 
+                   class="catalog-search-input" 
+                   placeholder="Search earrings, chokers, polki..." 
+                   aria-label="Search jewellery in collection">
           </div>
-          <h4 class="review-title">Very satisfied</h4>
-          <p class="review-text">Really happy with this purchase. Does exactly what it promises. Would buy again.</p>
-          <div class="review-footer">
-            <span class="review-author">Tania Bose</span>
-            <span class="review-verified"><i class="fas fa-check-circle"></i> Verified</span>
+
+          <!-- Price Range Filter -->
+          <div>
+            <label for="priceFilterSelect" class="sr-only">Filter by Price</label>
+            <select id="priceFilterSelect" class="filter-select">
+              <option value="all">Price: All Ranges</option>
+              <option value="under-1500">Under ₹1,500</option>
+              <option value="1500-2500">₹1,500 – ₹2,500</option>
+              <option value="2500-4000">₹2,500 – ₹4,000</option>
+              <option value="above-4000">Above ₹4,000</option>
+            </select>
+          </div>
+
+          <!-- Sort Select -->
+          <div>
+            <label for="sortSelect" class="sr-only">Sort Jewellery</label>
+            <select id="sortSelect" class="filter-select">
+              <option value="featured">Sort: Featured</option>
+              <option value="price-low">Price: Low to High</option>
+              <option value="price-high">Price: High to Low</option>
+              <option value="title-asc">Alphabetical: A-Z</option>
+            </select>
           </div>
         </div>
 
-        <div class="review-card">
-          <div class="review-stars">
-            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+        <!-- Active Filters Strip -->
+        <div class="active-filters-strip" id="activeFiltersStrip" style="display: none;"></div>
+
+        <!-- Product Cards Grid -->
+        <div class="product-grid" id="catalogGrid">
+          <!-- Populated dynamically via JS -->
+        </div>
+
+        <!-- Pagination / Load More -->
+        <div class="catalog-pagination-wrap">
+          <button class="btn-load-more" id="loadMoreBtn">Load More Pieces</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         6. Bestsellers Carousel Section
+         ====================================================================== -->
+    <section class="section-carousel" id="bestsellers" aria-labelledby="bestsellersTitle">
+      <div class="container">
+        <div class="carousel-header">
+          <div>
+            <span class="eyebrow">Customer Favorites</span>
+            <h2 class="section-title" id="bestsellersTitle">Bestsellers</h2>
           </div>
-          <h4 class="review-title">Perfect for Special Occasions</h4>
-          <p class="review-text">I wore this for a family function and received so many compliments. The design is gorgeous and the quality looks amazing. Will definitely shop from Shrivara again!</p>
-          <div class="review-footer">
-            <span class="review-author">Mitali Sen</span>
-            <span class="review-verified"><i class="fas fa-check-circle"></i> Verified</span>
+          <div class="carousel-nav-arrows">
+            <button class="carousel-arrow-btn" data-carousel-target="bestsellersTrack" data-carousel-dir="-1" aria-label="Previous bestsellers">
+              <svg class="icon" width="16" height="16" aria-hidden="true"><use href="#icon-chevron-left"></use></svg>
+            </button>
+            <button class="carousel-arrow-btn" data-carousel-target="bestsellersTrack" data-carousel-dir="1" aria-label="Next bestsellers">
+              <svg class="icon" width="16" height="16" aria-hidden="true"><use href="#icon-chevron-right"></use></svg>
+            </button>
           </div>
         </div>
 
-        <div class="review-card">
-          <div class="review-stars">
-            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+        <div class="carousel-scroll-track" id="bestsellersTrack">
+          <!-- Populated dynamically -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         7. New Arrivals Carousel Section
+         ====================================================================== -->
+    <section class="section-carousel" id="new-arrivals" aria-labelledby="newArrivalsTitle" style="padding-top: 0;">
+      <div class="container">
+        <div class="carousel-header">
+          <div>
+            <span class="eyebrow">Fresh from the Atelier</span>
+            <h2 class="section-title" id="newArrivalsTitle">New Arrivals</h2>
           </div>
-          <h4 class="review-title">Absolutely Beautiful !!</h4>
-          <p class="review-text">The jewellery is even more beautiful in person! The detailing and finish look so elegant and premium. Perfect for both festive occasions and everyday styling.</p>
-          <div class="review-footer">
-            <span class="review-author">Ananya Sharma</span>
-            <span class="review-verified"><i class="fas fa-check-circle"></i> Verified</span>
+          <div class="carousel-nav-arrows">
+            <button class="carousel-arrow-btn" data-carousel-target="newArrivalsTrack" data-carousel-dir="-1" aria-label="Previous new arrivals">
+              <svg class="icon" width="16" height="16" aria-hidden="true"><use href="#icon-chevron-left"></use></svg>
+            </button>
+            <button class="carousel-arrow-btn" data-carousel-target="newArrivalsTrack" data-carousel-dir="1" aria-label="Next new arrivals">
+              <svg class="icon" width="16" height="16" aria-hidden="true"><use href="#icon-chevron-right"></use></svg>
+            </button>
           </div>
         </div>
 
-        <div class="review-card">
-          <div class="review-stars">
-            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+        <div class="carousel-scroll-track" id="newArrivalsTrack">
+          <!-- Populated dynamically -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         8. Our Story Section (Asymmetric Editorial + Highlights)
+         ====================================================================== -->
+    <section class="section-story" id="story" aria-labelledby="storyHeading">
+      <div class="container">
+        <div class="story-grid">
+          <!-- Left: Craft Imagery -->
+          <div class="story-media">
+            <img class="story-media-img" 
+                 src="https://shrivara.co/cdn/shop/files/IMG_2288_copy.jpg?v=1788101059&width=800" 
+                 alt="Artisan hand-setting royal polki jewellery at the Shrivara atelier" 
+                 loading="lazy" 
+                 decoding="async"
+                 width="600" 
+                 height="750">
+            <div class="story-badge-floating">
+              <div class="story-badge-num">100%</div>
+              <div class="story-badge-label">Anti-Tarnish</div>
+            </div>
           </div>
-          <h4 class="review-title">Elegant & Stylish</h4>
-          <p class="review-text">Loved my Shrivara jewellery! It looks classy, feels lightweight, and adds such a beautiful touch to my outfit. The packaging was also lovely.</p>
-          <div class="review-footer">
-            <span class="review-author">Ishita Sen</span>
-            <span class="review-verified"><i class="fas fa-check-circle"></i> Verified</span>
+
+          <!-- Right: Editorial Narrative -->
+          <div class="story-content">
+            <span class="eyebrow">Our Heritage & Atelier</span>
+            <h2 class="section-title" id="storyHeading" style="margin-bottom: var(--space-3);">
+              The Art of Indian Royalty, Reimagined for Modern Life
+            </h2>
+            
+            <blockquote class="story-pullquote">
+              "Jewellery is not merely an ornament; it is an enduring expression of Indian heritage, personal grace, and celebratory spirit."
+            </blockquote>
+
+            <p class="story-text">
+              Shrivara was founded with a singular conviction: that the regal grandeur of Indian heritage jewellery should be accessible without exorbitant markups or fleeting durability. Situated in Howrah — world-renowned for master gold karigars — each piece is handcrafted in pure brass alloy and sealed with our signature electro-chemical vacuum micro-layer.
+            </p>
+            <p class="story-text">
+              Whether you are preparing for a wedding celebration or wearing everyday elegance, our collections are formulated to withstand humidity, sweat, and festive wear while preserving royal mirror lustre.
+            </p>
+
+            <!-- 4 Icon Highlights -->
+            <div class="story-highlights-grid">
+              <div class="story-highlight-card">
+                <div class="story-highlight-icon">
+                  <svg class="icon" width="20" height="20" aria-hidden="true"><use href="#icon-shield"></use></svg>
+                </div>
+                <h4 class="story-highlight-title">Anti-Tarnish</h4>
+                <p class="story-highlight-desc">Vacuum micro-layer seal against oxidation</p>
+              </div>
+
+              <div class="story-highlight-card">
+                <div class="story-highlight-icon">
+                  <svg class="icon" width="20" height="20" aria-hidden="true"><use href="#icon-gem"></use></svg>
+                </div>
+                <h4 class="story-highlight-title">Gold Plated</h4>
+                <p class="story-highlight-desc">18K / 22K micro gold plating</p>
+              </div>
+
+              <div class="story-highlight-card">
+                <div class="story-highlight-icon">
+                  <svg class="icon" width="20" height="20" aria-hidden="true"><use href="#icon-check"></use></svg>
+                </div>
+                <h4 class="story-highlight-title">Made in India</h4>
+                <p class="story-highlight-desc">Generational Howrah artisans</p>
+              </div>
+
+              <div class="story-highlight-card">
+                <div class="story-highlight-icon">
+                  <svg class="icon" width="20" height="20" aria-hidden="true"><use href="#icon-star"></use></svg>
+                </div>
+                <h4 class="story-highlight-title">Premium Polki</h4>
+                <p class="story-highlight-desc">AAA crystals & uncut polki stones</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- 12. Trust & Value Badges -->
-  <section class="badges-section">
-    <div class="container">
-      <div class="badges-grid">
-        <div class="badge-box">
-          <div class="badge-icon"><i class="fas fa-check-circle"></i></div>
-          <h4 class="badge-title">Safe Checkout</h4>
-          <p class="badge-desc">Secure & hassle-free checkout guaranteed.</p>
-        </div>
-
-        <div class="badge-box">
-          <div class="badge-icon"><i class="fas fa-sync-alt"></i></div>
-          <h4 class="badge-title">Here To Help</h4>
-          <p class="badge-desc">Friendly assistance, just a call away.</p>
-        </div>
-
-        <div class="badge-box">
-          <div class="badge-icon"><i class="fas fa-award"></i></div>
-          <h4 class="badge-title">Deals You’ll Love</h4>
-          <p class="badge-desc">Enjoy exclusive offers and savings.</p>
-        </div>
-
-        <div class="badge-box">
-          <div class="badge-icon"><i class="fas fa-heart"></i></div>
-          <h4 class="badge-title">Exclusive. Distinct. You.</h4>
-          <p class="badge-desc">Jewellery that defines your individuality.</p>
-        </div>
+    <!-- Marquee Ticker Banner (Pauses on Hover & Respects Reduced Motion) -->
+    <div class="marquee-bar" aria-hidden="true">
+      <div class="marquee-inner">
+        <span class="marquee-item">Anti-Tarnish • 18K/22K Gold Plated • Howrah Heritage Craft • Premium Polki & Gemstones • Made in India</span>
+        <span class="marquee-item">•</span>
+        <span class="marquee-item">Anti-Tarnish • 18K/22K Gold Plated • Howrah Heritage Craft • Premium Polki & Gemstones • Made in India</span>
+        <span class="marquee-item">•</span>
+        <span class="marquee-item">Anti-Tarnish • 18K/22K Gold Plated • Howrah Heritage Craft • Premium Polki & Gemstones • Made in India</span>
       </div>
     </div>
-  </section>
 
-  <!-- 13. Footer -->
-  <footer class="site-footer">
+    <!-- ======================================================================
+         9. Customer Reviews Carousel
+         ====================================================================== -->
+    <section class="section-reviews" id="reviews" aria-labelledby="reviewsTitle">
+      <div class="container">
+        <div class="section-header-center">
+          <span class="eyebrow">Customer Reflections</span>
+          <h2 class="section-title" id="reviewsTitle">Words of Love</h2>
+          <p class="section-lead">Real impressions from celebrations and weddings styled across India</p>
+          <span class="sample-notice-pill">Sample reviews for demo showcase</span>
+        </div>
+
+        <div class="reviews-carousel-track" id="reviewsTrack">
+          <!-- Review 1 -->
+          <article class="review-card">
+            <div class="review-stars" aria-label="5 out of 5 stars">
+              <svg class="icon" width="16" height="16"><use href="#icon-star"></use></svg>
+              <svg class="icon" width="16" height="16"><use href="#icon-star"></use></svg>
+              <svg class="icon" width="16" height="16"><use href="#icon-star"></use></svg>
+              <svg class="icon" width="16" height="16"><use href="#icon-star"></use></svg>
+              <svg class="icon" width="16" height="16"><use href="#icon-star"></use></svg>
+            </div>
+            <h3 class="review-title">"Centerpiece of my reception"</h3>
+            <p class="review-text">
+              The Hazoorilal Heritage Choker was the centerpiece of my reception look. The uncut polki stones caught every light and the finish felt weightless against my neck all evening.
+            </p>
+            <div class="review-footer">
+              <span class="review-author">Ananya Sharma</span>
+              <span class="review-meta">Kolkata, West Bengal</span>
+              <span class="review-tag">Piece: Hazoorilal Heritage Choker</span>
+            </div>
+          </article>
+
+          <!-- Review 2 -->
+          <article class="review-card">
+            <div class="review-stars" aria-label="5 out of 5 stars">
+              <svg class="icon" width="16" height="16"><use href="#icon-star"></use></svg>
+              <svg class="icon" width="16" height="16"><use href="#icon-star"></use></svg>
+              <svg class="icon" width="16" height="16"><use href="#icon-star"></use></svg>
+              <svg class="icon" width="16" height="16"><use href="#icon-star"></use></svg>
+              <svg class="icon" width="16" height="16"><use href="#icon-star"></use></svg>
+            </div>
+            <h3 class="review-title">"Zero tarnishing in coastal humidity"</h3>
+            <p class="review-text">
+              Living near the coast, imitation jewellery usually discolors in weeks. Shrivara's anti-tarnish finish has stayed as gleaming as day one despite three monsoon weddings!
+            </p>
+            <div class="review-footer">
+              <span class="review-author">Diya Chatterjee</span>
+              <span class="review-meta">Mumbai, Maharashtra</span>
+              <span class="review-tag">Piece: Anti-Tarnish Puffed Heart</span>
+            </div>
+          </article>
+
+          <!-- Review 3 -->
+          <article class="review-card">
+            <div class="review-stars" aria-label="5 out of 5 stars">
+              <svg class="icon" width="16" height="16"><use href="#icon-star"></use></svg>
+              <svg class="icon" width="16" height="16"><use href="#icon-star"></use></svg>
+              <svg class="icon" width="16" height="16"><use href="#icon-star"></use></svg>
+              <svg class="icon" width="16" height="16"><use href="#icon-star"></use></svg>
+              <svg class="icon" width="16" height="16"><use href="#icon-star"></use></svg>
+            </div>
+            <h3 class="review-title">"Indistinguishable from real gold"</h3>
+            <p class="review-text">
+              The kundan setting and the micro-gold dipping look identical to family heirloom gold. The packaging arrived safely cushioned in a royal velvet presentation box.
+            </p>
+            <div class="review-footer">
+              <span class="review-author">Riya Banerjee</span>
+              <span class="review-meta">New Delhi</span>
+              <span class="review-tag">Piece: Kundan Choker Set</span>
+            </div>
+          </article>
+
+          <!-- Review 4 -->
+          <article class="review-card">
+            <div class="review-stars" aria-label="5 out of 5 stars">
+              <svg class="icon" width="16" height="16"><use href="#icon-star"></use></svg>
+              <svg class="icon" width="16" height="16"><use href="#icon-star"></use></svg>
+              <svg class="icon" width="16" height="16"><use href="#icon-star"></use></svg>
+              <svg class="icon" width="16" height="16"><use href="#icon-star"></use></svg>
+              <svg class="icon" width="16" height="16"><use href="#icon-star"></use></svg>
+            </div>
+            <h3 class="review-title">"Countless compliments at Sangeet"</h3>
+            <p class="review-text">
+              I ordered the gold-plated pearl drop earrings for my best friend's sangeet. They are so lightweight yet look regal and grand. Loved the secure push-backs!
+            </p>
+            <div class="review-footer">
+              <span class="review-author">Mitali Sen</span>
+              <span class="review-meta">Bengaluru, Karnataka</span>
+              <span class="review-tag">Piece: Gold Plated Pearl Drop Earrings</span>
+            </div>
+          </article>
+
+          <!-- Review 5 -->
+          <article class="review-card">
+            <div class="review-stars" aria-label="5 out of 5 stars">
+              <svg class="icon" width="16" height="16"><use href="#icon-star"></use></svg>
+              <svg class="icon" width="16" height="16"><use href="#icon-star"></use></svg>
+              <svg class="icon" width="16" height="16"><use href="#icon-star"></use></svg>
+              <svg class="icon" width="16" height="16"><use href="#icon-star"></use></svg>
+              <svg class="icon" width="16" height="16"><use href="#icon-star"></use></svg>
+            </div>
+            <h3 class="review-title">"Prongs don't catch on silk sarees"</h3>
+            <p class="review-text">
+              Authentic Bengal karigari at an honest price. The openable kada pair has a sturdy clasp and smooth prongs that never snag on delicate banarasi silk sarees.
+            </p>
+            <div class="review-footer">
+              <span class="review-author">Ishita Sen</span>
+              <span class="review-meta">Jaipur, Rajasthan</span>
+              <span class="review-tag">Piece: Openable Polki Kada</span>
+            </div>
+          </article>
+
+          <!-- Review 6 -->
+          <article class="review-card">
+            <div class="review-stars" aria-label="5 out of 5 stars">
+              <svg class="icon" width="16" height="16"><use href="#icon-star"></use></svg>
+              <svg class="icon" width="16" height="16"><use href="#icon-star"></use></svg>
+              <svg class="icon" width="16" height="16"><use href="#icon-star"></use></svg>
+              <svg class="icon" width="16" height="16"><use href="#icon-star"></use></svg>
+              <svg class="icon" width="16" height="16"><use href="#icon-star"></use></svg>
+            </div>
+            <h3 class="review-title">"Prompt styling support on WhatsApp"</h3>
+            <p class="review-text">
+              Fast insured delivery to Hyderabad and exceptional styling assistance when I reached out on WhatsApp to match my lehenga colors. Truly a five-star experience!
+            </p>
+            <div class="review-footer">
+              <span class="review-author">Tania Bose</span>
+              <span class="review-meta">Hyderabad, Telangana</span>
+              <span class="review-tag">Piece: Navratna Bridal Choker</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ======================================================================
+       10. Footer (Jewel-Toned Deep Emerald / Dark Background)
+       ====================================================================== -->
+  <footer class="site-footer" role="contentinfo">
     <div class="container">
-      <div class="footer-top">
-        <div class="footer-col">
-          <h4>SHRIVARA</h4>
-          <p>
-            Shrivara is a premium fashion jewellery brand offering imitation, anti-tarnish, polki, kundan, and contemporary gold plated designs.
+      <div class="footer-grid">
+        <!-- Col 1: Brand & Craft -->
+        <div>
+          <h3 class="brand-logo" style="color: #FFFFFF; font-size: 1.85rem; margin-bottom: 12px;">Shrivara</h3>
+          <p class="footer-text">
+            Handcrafted Indian fashion jewellery blending timeless heritage with modern luxury. Anti-tarnish, gold plated, and adorned with high-grade polki and kundan stones. Handcrafted in Howrah, West Bengal.
           </p>
-          <div class="social-icons">
-            <a href="https://www.instagram.com/shri.vara?utm_source=ig_web_button_share_sheet&igsi=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener" class="social-icon-btn" title="Instagram">
-              <i class="fab fa-instagram"></i>
+          <div class="social-links">
+            <a href="https://www.instagram.com/shri.vara" target="_blank" rel="noopener" class="social-btn" aria-label="Follow Shrivara on Instagram">
+              <svg class="icon" width="18" height="18" aria-hidden="true"><use href="#icon-instagram"></use></svg>
             </a>
-            <a href="#" class="social-icon-btn" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://wa.me/919830000000" target="_blank" rel="noopener" class="social-btn" aria-label="Connect on WhatsApp">
+              <svg class="icon" width="18" height="18" aria-hidden="true"><use href="#icon-whatsapp"></use></svg>
+            </a>
+            <a href="#" class="social-btn" data-policy-key="faq" aria-label="Frequently Asked Questions">
+              <svg class="icon" width="18" height="18" aria-hidden="true"><use href="#icon-facebook"></use></svg>
+            </a>
           </div>
         </div>
 
-        <div class="footer-col">
-          <h4>SHOP</h4>
-          <ul class="footer-links">
-            <li><a href="#catalog" onclick="setCategory('all')">All Collections (214 Pieces)</a></li>
-            <li><a href="#catalog" onclick="setCategory('Jewellery Sets')">Jewellery Sets</a></li>
-            <li><a href="#catalog" onclick="setCategory('Earrings')">Earrings</a></li>
-            <li><a href="#catalog" onclick="setCategory('Bracelets & Bangles')">Bracelets & Bangles</a></li>
-            <li><a href="#catalog" onclick="setCategory('Necklaces & Pendants')">Necklaces</a></li>
-            <li><a href="#catalog" onclick="setCategory('Rings')">Rings</a></li>
-            <li><a href="#catalog" onclick="setCategory('anti-tarnish')">Anti-Tarnish Jewellery</a></li>
+        <!-- Col 2: Shop Collections -->
+        <div>
+          <h4 class="footer-col-title">Shop Collections</h4>
+          <ul class="footer-links-list">
+            <li><a href="#catalog" class="footer-link" onclick="window.filterByCategory('all');">All Jewellery (214 Pieces)</a></li>
+            <li><a href="#catalog" class="footer-link" onclick="window.filterByCategory('Jewellery Sets');">Jewellery Sets</a></li>
+            <li><a href="#catalog" class="footer-link" onclick="window.filterByCategory('Earrings');">Earrings & Tops</a></li>
+            <li><a href="#catalog" class="footer-link" onclick="window.filterByCategory('Bracelets & Bangles');">Bracelets & Bangles</a></li>
+            <li><a href="#catalog" class="footer-link" onclick="window.filterByCategory('Necklaces');">Necklaces</a></li>
+            <li><a href="#catalog" class="footer-link" onclick="window.filterByCategory('Pendant Sets');">Pendant Sets</a></li>
+            <li><a href="#catalog" class="footer-link" onclick="window.filterByCategory('Rings');">Rings</a></li>
+            <li><a href="#catalog" class="footer-link" onclick="window.filterByCategory('Anti-Tarnish');">Anti-Tarnish Pieces</a></li>
           </ul>
         </div>
 
-        <div class="footer-col">
-          <h4>QUICK LINKS</h4>
-          <ul class="footer-links">
-            <li><a href="#story">About Us</a></li>
-            <li><a href="#reviews">Customer Reviews</a></li>
-            <li><a href="#">Shipping Policy</a></li>
-            <li><a href="#">Privacy Policy</a></li>
-            <li><a href="#">Terms of Service</a></li>
+        <!-- Col 3: Customer Care & Policy Modals (No Dead '#' Links!) -->
+        <div>
+          <h4 class="footer-col-title">Customer Care</h4>
+          <ul class="footer-links-list">
+            <li><button class="footer-link" data-policy-key="shipping">Shipping & Delivery Policy</button></li>
+            <li><button class="footer-link" data-policy-key="privacy">Privacy & Data Security</button></li>
+            <li><button class="footer-link" data-policy-key="terms">Terms of Service & Authenticity</button></li>
+            <li><button class="footer-link" data-policy-key="faq">Frequently Asked Questions</button></li>
+            <li><a href="#story" class="footer-link">About Howrah Atelier</a></li>
+            <li><a href="#reviews" class="footer-link">Customer Reflections</a></li>
           </ul>
         </div>
 
-        <div class="footer-col">
-          <h4>Store Address</h4>
-          <p>
-            21/1 Dobson Road<br>
-            Gulmohar Railway Quarters<br>
+        <!-- Col 4: Flagship Atelier & Newsletter -->
+        <div>
+          <h4 class="footer-col-title">Flagship Atelier</h4>
+          <p class="footer-text" style="font-size: 0.8125rem;">
+            21/1 Dobson Road, Gulmohar Railway Quarters<br>
             Mali Panchghara-Flat 4B<br>
-            Howrah, West Bengal - 711101<br>
-            India
+            Howrah, West Bengal - 711101, India<br>
+            Email: care@shrivara.co • Mon-Sat 10 AM - 8 PM IST
           </p>
-          <h4 style="margin-top: 18px;">Stay Connected! Join our email list now!</h4>
-          <form class="newsletter-form" id="newsletterForm">
-            <input type="email" class="newsletter-input" placeholder="Enter your email" required>
-            <button type="submit" class="newsletter-btn">Subscribe</button>
+
+          <form class="footer-newsletter-form" id="newsletterForm" novalidate>
+            <label for="newsletterEmail" style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--gold-soft);">
+              Join the VIP Circle (5% Off Code: FIRST5)
+            </label>
+            <div class="newsletter-input-wrap">
+              <input type="email" id="newsletterEmail" class="newsletter-input" placeholder="Your email address" required>
+              <button type="submit" class="newsletter-btn">Join</button>
+            </div>
+            <div class="newsletter-feedback" id="newsletterFeedback" aria-live="polite"></div>
           </form>
         </div>
       </div>
 
       <div class="footer-bottom">
-        <span>© 2026 Shrivara. All rights reserved.</span>
-        <span>Country/region: India (INR ₹)</span>
+        <span>© 2026 Shrivara Jewellery. Handcrafted with devotion in India.</span>
+        <span>Showcase Portfolio Store • Official live store at <a href="https://shrivara.co" target="_blank" rel="noopener" style="color: var(--gold); text-decoration: underline;">shrivara.co</a></span>
       </div>
     </div>
   </footer>
 
-  <!-- Slide-out Cart Drawer -->
-  <div class="cart-drawer-overlay" id="cartOverlay" onclick="closeCartDrawer()"></div>
-  <div class="cart-drawer" id="cartDrawer">
-    <div class="drawer-header">
-      <h3>Your Shopping Bag</h3>
-      <button class="close-drawer-btn" onclick="closeCartDrawer()">&times;</button>
-    </div>
-    
-    <div class="shipping-bar-box">
-      <div id="shippingText">Add more for <strong>FREE Shipping!</strong></div>
-      <div class="progress-track">
-        <div class="progress-fill" id="shippingProgress"></div>
+  <!-- ======================================================================
+       11. Slide-out Cart Drawer
+       ====================================================================== -->
+  <div class="cart-backdrop" id="cartBackdrop" role="dialog" aria-modal="true" aria-labelledby="cartDrawerHeading">
+    <div class="cart-drawer" id="cartDrawer">
+      <div class="cart-drawer-header">
+        <h3 class="cart-drawer-title" id="cartDrawerHeading">Your Shopping Bag</h3>
+        <button class="icon-btn" id="cartDrawerCloseBtn" aria-label="Close shopping bag">
+          <svg class="icon" width="20" height="20" aria-hidden="true"><use href="#icon-close"></use></svg>
+        </button>
+      </div>
+
+      <!-- Free Shipping Progress Track -->
+      <div class="shipping-bar-box">
+        <div class="shipping-bar-text" id="shippingBarText">
+          Add <strong>₹1,999</strong> more for <strong>FREE Shipping!</strong>
+        </div>
+        <div class="shipping-progress-track">
+          <div class="shipping-progress-fill" id="shippingProgressFill" style="width: 0%;"></div>
+        </div>
+      </div>
+
+      <!-- Cart Items Container -->
+      <div class="cart-drawer-body" id="cartDrawerItems">
+        <!-- Rendered dynamically via JS -->
+      </div>
+
+      <!-- Cart Drawer Footer -->
+      <div class="cart-drawer-footer">
+        <div class="cart-subtotal-row">
+          <span>Subtotal</span>
+          <span id="cartSubtotalAmount">₹0</span>
+        </div>
+        <button class="cart-checkout-btn" onclick="showToast('Demo store showcase: Order via WhatsApp or visit shrivara.co');">
+          Proceed to Checkout
+        </button>
+        <p class="cart-demo-notice">
+          ✨ Showcase Store: For commercial transactions, orders are fulfilled directly via WhatsApp concierge or shrivara.co.
+        </p>
       </div>
     </div>
+  </div>
 
-    <div class="drawer-body" id="cartItems"></div>
-
-    <div class="drawer-footer">
-      <div class="subtotal-row">
-        <span>Subtotal</span>
-        <span id="cartSubtotal">Rs. 0.00</span>
-      </div>
-      <button class="checkout-btn" onclick="showToast('Proceeding to Checkout...')">
-        Check out
+  <!-- ======================================================================
+       12. Quick View Modal
+       ====================================================================== -->
+  <div class="modal-backdrop" id="quickViewBackdrop" role="dialog" aria-modal="true" aria-labelledby="quickViewTitle">
+    <div class="modal-dialog" id="quickViewDialog">
+      <button class="modal-close-btn" id="quickViewCloseBtn" aria-label="Close product preview">
+        <svg class="icon" width="18" height="18" aria-hidden="true"><use href="#icon-close"></use></svg>
       </button>
-    </div>
-  </div>
-
-  <!-- Search Modal -->
-  <div class="search-modal" id="searchModal">
-    <div class="search-container">
-      <button class="close-search-btn" onclick="closeSearchModal()">&times;</button>
-      <div class="search-input-box">
-        <i class="fas fa-search" style="color: var(--color-primary); font-size: 18px;"></i>
-        <input type="text" class="search-input" id="searchInput" placeholder="Search 214 jewellery pieces..." oninput="handleLiveSearch(this.value)">
+      <div id="quickViewContent">
+        <!-- Rendered dynamically via JS -->
       </div>
-      <div class="search-results-list" id="searchResults"></div>
     </div>
   </div>
 
-  <!-- Quick View Modal -->
-  <div class="quick-view-modal" id="quickViewModal" onclick="if(event.target===this) closeQuickView()">
-    <div class="quick-view-card">
-      <button class="close-quick-view-btn" onclick="closeQuickView()">&times;</button>
-      <div id="quickViewContent"></div>
+  <!-- ======================================================================
+       13. Policy & FAQ Modal (Zero Dead Links!)
+       ====================================================================== -->
+  <div class="modal-backdrop" id="policyModalBackdrop" role="dialog" aria-modal="true" aria-labelledby="policyModalTitle">
+    <div class="modal-dialog policy-modal-dialog">
+      <button class="modal-close-btn" id="policyModalCloseBtn" aria-label="Close policy modal">
+        <svg class="icon" width="18" height="18" aria-hidden="true"><use href="#icon-close"></use></svg>
+      </button>
+      <h2 class="policy-modal-title" id="policyModalTitle">Policy Details</h2>
+      <div class="policy-modal-content" id="policyModalBody">
+        <!-- Rendered dynamically via JS -->
+      </div>
     </div>
   </div>
 
-  <!-- Toast -->
-  <div class="toast-notice" id="toastNotice"></div>
+  <!-- ======================================================================
+       14. Search Modal Overlay
+       ====================================================================== -->
+  <div class="search-modal-backdrop" id="searchModalBackdrop" role="dialog" aria-modal="true" aria-label="Search Jewellery">
+    <div class="search-box-container">
+      <div class="search-input-row">
+        <svg class="icon" width="20" height="20" style="color: var(--gold);" aria-hidden="true"><use href="#icon-search"></use></svg>
+        <input type="text" id="searchModalInput" class="search-modal-input" placeholder="Type design name, stone, category..." aria-label="Search collection">
+        <button class="icon-btn" id="searchModalCloseBtn" aria-label="Close search">
+          <svg class="icon" width="18" height="18" aria-hidden="true"><use href="#icon-close"></use></svg>
+        </button>
+      </div>
+      <div class="search-live-results" id="searchLiveResults"></div>
+    </div>
+  </div>
 
-  <!-- Dark / Light Mode Switcher (Rightmost Corner) -->
-  <button class="mode-toggle-widget" id="modeToggleWidget" onclick="toggleColorMode()" title="Toggle Dark / Light Mode" aria-label="Toggle Dark / Light Mode">
-    <span class="mode-icon-wrap">
-      <i class="fas fa-moon" id="modeIcon"></i>
-    </span>
-    <span id="modeText">Dark Mode</span>
-  </button>
+  <!-- ======================================================================
+       15. Floating Utilities (WhatsApp Concierge & Back to Top)
+       ====================================================================== -->
+  <div class="floating-actions-wrap">
+    <button class="back-to-top-btn" id="backToTopBtn" aria-label="Scroll back to top" title="Back to top">
+      <svg class="icon" width="18" height="18" aria-hidden="true"><use href="#icon-arrow-up"></use></svg>
+    </button>
+    <a href="https://wa.me/919830000000" target="_blank" rel="noopener" class="whatsapp-float-btn" id="floatingWhatsAppBtn" aria-label="Chat with a Jewellery Stylist on WhatsApp" title="Chat on WhatsApp">
+      <svg class="icon" width="28" height="28" aria-hidden="true"><use href="#icon-whatsapp"></use></svg>
+    </a>
+  </div>
 
-  <!-- Scripts -->
+  <!-- Accessible Toast Notice -->
+  <div id="toastNotice" class="toast-notice" role="status" aria-live="polite"></div>
+
+  <!-- Product Database & Main Controller Modules -->
   <script src="products.js"></script>
-  <script src="app.js"></script>
+  <script type="module" src="js/main.js"></script>
 </body>
 </html>
