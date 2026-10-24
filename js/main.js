@@ -255,31 +255,45 @@ function applyTheme(theme, persist = false) {
 }
 
 // --------------------------------------------------------------------------
-// 7. Promo Bar Rotation
+// 7. Promo Bar Rotation (Clean, zero-overlap fade/slide transitions)
 // --------------------------------------------------------------------------
 function initPromoBar() {
   const track = document.getElementById("promoTrack");
   if (!track) return;
 
-  const messages = track.children;
+  const messages = Array.from(track.children);
   if (messages.length <= 1) return;
 
   let currentIndex = 0;
   let interval = null;
   const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  function showMessage(idx) {
+    messages.forEach((msg, i) => {
+      if (i === idx) {
+        msg.classList.add("is-active");
+      } else {
+        msg.classList.remove("is-active");
+      }
+    });
+  }
+
+  // Set initial state
+  showMessage(0);
+
   function nextMessage() {
     currentIndex = (currentIndex + 1) % messages.length;
-    track.style.transform = `translateY(-${currentIndex * 100}%)`;
+    showMessage(currentIndex);
   }
 
   function startRotation() {
     if (prefersReduced) return;
+    if (interval) clearInterval(interval);
     interval = setInterval(nextMessage, 4800);
   }
 
   function stopRotation() {
-    clearInterval(interval);
+    if (interval) clearInterval(interval);
   }
 
   startRotation();

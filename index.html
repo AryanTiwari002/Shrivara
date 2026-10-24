@@ -278,15 +278,7 @@
        ====================================================================== -->
   <aside class="promo-bar" id="promoBar" aria-label="Store Announcements">
     <div class="promo-track" id="promoTrack">
-      <div class="promo-message">
-        <span>Complimentary 1-on-1 Video Consultation</span>
-        <span class="promo-highlight"><button type="button" class="promo-consult-link" id="promoConsultBtn" style="background: none; border: none; color: inherit; font: inherit; text-decoration: underline; cursor: pointer; padding: 0;">• Book Free Virtual Session &rarr;</button></span>
-      </div>
-      <div class="promo-message">
-        <span>Direct WhatsApp Styling Assistance</span>
-        <span class="promo-highlight"><a href="https://wa.me/919830000000?text=Hi%20Shrivara,%20I'd%20like%20personal%20styling%20assistance..." target="_blank" rel="noopener" style="color: inherit; text-decoration: underline;">• Chat with Stylist &rarr;</a></span>
-      </div>
-      <div class="promo-message">
+      <div class="promo-message is-active">
         <span>Up to 50% Off | Get 5% Off on First Order</span>
         <span class="promo-highlight">• Code: FIRST5</span>
       </div>
@@ -297,6 +289,10 @@
       <div class="promo-message">
         <span>100% Anti-Tarnish Micro-Plating</span>
         <span class="promo-highlight">• Handcrafted in Bengal</span>
+      </div>
+      <div class="promo-message">
+        <span>Direct WhatsApp Styling Assistance</span>
+        <span class="promo-highlight"><a href="https://wa.me/919830000000?text=Hi%20Shrivara,%20I'd%20like%20personal%20styling%20assistance..." target="_blank" rel="noopener" style="color: inherit; text-decoration: underline;">• Chat with Stylist &rarr;</a></span>
       </div>
     </div>
   </aside>
@@ -329,15 +325,8 @@
         </a>
       </div>
 
-      <!-- Right: Video Consult, Dark Mode Toggle, Wishlist & Cart -->
+      <!-- Right: Dark Mode Toggle, Wishlist & Cart -->
       <div class="header-right">
-        <!-- Live Video Consultation Button -->
-        <button class="header-consult-btn" id="headerConsultBtn" aria-label="Book a complimentary 1-on-1 video consultation" title="Book 1-on-1 Live Video Consultation">
-          <svg class="icon" width="16" height="16" aria-hidden="true"><use href="#icon-video"></use></svg>
-          <span class="header-consult-text">Video Consult</span>
-          <span class="header-consult-live-dot" title="Stylist Available Online"></span>
-        </button>
-
         <!-- Theme Mode Toggle -->
         <button class="icon-btn" id="themeToggleBtn" aria-label="Toggle dark mode" title="Dark / Light Mode">
           <svg class="icon" id="iconThemeMoon" width="19" height="19" aria-hidden="true"><use href="#icon-moon"></use></svg>
@@ -375,14 +364,6 @@
         <li class="nav-item"><a href="#occasions" class="nav-link">Shop by Occasion</a></li>
         <li class="nav-item"><a href="#catalog" class="nav-link">All Pieces</a></li>
         <li class="nav-item"><a href="find-your-style.html" class="nav-link" style="color: var(--gold); font-weight: 700;">Find Your Style ✨</a></li>
-        <li class="nav-item">
-          <button type="button" class="nav-link nav-consult-link" id="navConsultBtn" aria-label="Book 1-on-1 Styling and Video Consultation">
-            <span class="nav-consult-pill">
-              <svg class="icon" width="13" height="13" aria-hidden="true"><use href="#icon-video"></use></svg>
-              <span>Video Consultation</span>
-            </span>
-          </button>
-        </li>
         <li class="nav-item"><a href="our-story.html" class="nav-link">Our Story</a></li>
         <li class="nav-item"><a href="#reviews" class="nav-link">Reviews</a></li>
       </ul>
@@ -499,93 +480,93 @@
     <section class="hero-section" id="heroSection" aria-label="Featured Collection Showcase">
       <h1 class="sr-only">Shrivara — Luxury Indian Fashion &amp; Everyday Anti-Tarnish Jewellery</h1>
 
-      <div class="hero-slider" id="heroSlider">
-        <!-- Slide 1: Polki Bridal Edit -->
-        <div class="hero-slide is-active">
-          <a href="#catalog" class="hero-slide-link" aria-label="Shop Royal Indian Polki Bridal Collection">
-            <img class="hero-slide-bg" 
-                 src="https://shrivara.co/cdn/shop/files/WhatsApp_Image_2026-07-26_at_17.57.31.jpg?v=1785068879&width=1600" 
-                 srcset="https://shrivara.co/cdn/shop/files/WhatsApp_Image_2026-07-26_at_17.57.31.jpg?v=1785068879&width=800 800w, https://shrivara.co/cdn/shop/files/WhatsApp_Image_2026-07-26_at_17.57.31.jpg?v=1785068879&width=1600 1600w"
-                 alt="Royal Indian polki bridal necklace set handcrafted by Shrivara"
-                 fetchpriority="high"
-                 width="1600" 
-                 height="900">
-            <div class="hero-overlay"></div>
-          </a>
+      <div class="hero-slider-wrap">
+        <div class="hero-slider" id="heroSlider">
+          <!-- Slide 1: Polki Bridal Edit -->
+          <div class="hero-slide is-active">
+            <a href="#catalog" class="hero-slide-link" aria-label="Shop Royal Indian Polki Bridal Collection">
+              <img class="hero-slide-bg" 
+                   src="https://shrivara.co/cdn/shop/files/WhatsApp_Image_2026-07-26_at_17.57.31.jpg?v=1785068879&width=1600" 
+                   srcset="https://shrivara.co/cdn/shop/files/WhatsApp_Image_2026-07-26_at_17.57.31.jpg?v=1785068879&width=800 800w, https://shrivara.co/cdn/shop/files/WhatsApp_Image_2026-07-26_at_17.57.31.jpg?v=1785068879&width=1600 1600w"
+                   alt="Royal Indian polki bridal necklace set handcrafted by Shrivara"
+                   fetchpriority="high"
+                   width="1600" 
+                   height="900">
+              <div class="hero-overlay"></div>
+            </a>
+          </div>
+
+          <!-- Slide 2: Festive Statement -->
+          <div class="hero-slide">
+            <a href="#catalog" class="hero-slide-link" aria-label="Explore Timeless Elegance and Festive Jewellery">
+              <img class="hero-slide-bg" 
+                   src="https://shrivara.co/cdn/shop/files/ChatGPT_Image_Aug_4_2026_06_10_12_PM.png?v=1785847264&width=1600" 
+                   srcset="https://shrivara.co/cdn/shop/files/ChatGPT_Image_Aug_4_2026_06_10_12_PM.png?v=1785847264&width=800 800w, https://shrivara.co/cdn/shop/files/ChatGPT_Image_Aug_4_2026_06_10_12_PM.png?v=1785847264&width=1600 1600w"
+                   alt="Elegant kundan jewellery and earrings"
+                   loading="lazy"
+                   decoding="async"
+                   width="1600" 
+                   height="900">
+              <div class="hero-overlay"></div>
+            </a>
+          </div>
+
+          <!-- Slide 3: Anti-Tarnish Heritage -->
+          <div class="hero-slide">
+            <a href="#catalog" class="hero-slide-link" aria-label="Discover Handcrafted Anti-Tarnish Jewellery">
+              <img class="hero-slide-bg" 
+                   src="https://shrivara.co/cdn/shop/files/WhatsApp_Image_2026-08-30_at_17.52.12.jpg?v=1788096106&width=1600" 
+                   srcset="https://shrivara.co/cdn/shop/files/WhatsApp_Image_2026-08-30_at_17.52.12.jpg?v=1788096106&width=800 800w, https://shrivara.co/cdn/shop/files/WhatsApp_Image_2026-08-30_at_17.52.12.jpg?v=1788096106&width=1600 1600w"
+                   alt="Anti-tarnish gold-plated jewellery handcrafted in Bengal"
+                   loading="lazy"
+                   decoding="async"
+                   width="1600" 
+                   height="900">
+              <div class="hero-overlay"></div>
+            </a>
+          </div>
         </div>
 
-        <!-- Slide 2: Festive Statement -->
-        <div class="hero-slide">
-          <a href="#catalog" class="hero-slide-link" aria-label="Explore Timeless Elegance and Festive Jewellery">
-            <img class="hero-slide-bg" 
-                 src="https://shrivara.co/cdn/shop/files/ChatGPT_Image_Aug_4_2026_06_10_12_PM.png?v=1785847264&width=1600" 
-                 srcset="https://shrivara.co/cdn/shop/files/ChatGPT_Image_Aug_4_2026_06_10_12_PM.png?v=1785847264&width=800 800w, https://shrivara.co/cdn/shop/files/ChatGPT_Image_Aug_4_2026_06_10_12_PM.png?v=1785847264&width=1600 1600w"
-                 alt="Elegant kundan jewellery and earrings"
-                 loading="lazy"
-                 decoding="async"
-                 width="1600" 
-                 height="900">
-            <div class="hero-overlay"></div>
-          </a>
-        </div>
+        <!-- Hero Slider Controls -->
+        <button class="hero-arrow hero-prev" id="heroPrev" aria-label="Previous slide">
+          <svg class="icon" width="20" height="20" aria-hidden="true"><use href="#icon-chevron-left"></use></svg>
+        </button>
+        <button class="hero-arrow hero-next" id="heroNext" aria-label="Next slide">
+          <svg class="icon" width="20" height="20" aria-hidden="true"><use href="#icon-chevron-right"></use></svg>
+        </button>
 
-        <!-- Slide 3: Anti-Tarnish Heritage -->
-        <div class="hero-slide">
-          <a href="#catalog" class="hero-slide-link" aria-label="Discover Handcrafted Anti-Tarnish Jewellery">
-            <img class="hero-slide-bg" 
-                 src="https://shrivara.co/cdn/shop/files/WhatsApp_Image_2026-08-30_at_17.52.12.jpg?v=1788096106&width=1600" 
-                 srcset="https://shrivara.co/cdn/shop/files/WhatsApp_Image_2026-08-30_at_17.52.12.jpg?v=1788096106&width=800 800w, https://shrivara.co/cdn/shop/files/WhatsApp_Image_2026-08-30_at_17.52.12.jpg?v=1788096106&width=1600 1600w"
-                 alt="Anti-tarnish gold-plated jewellery handcrafted in Bengal"
-                 loading="lazy"
-                 decoding="async"
-                 width="1600" 
-                 height="900">
-            <div class="hero-overlay"></div>
-          </a>
-        </div>
+        <!-- Slider Dots -->
+        <div class="hero-dots" id="heroDots" role="tablist" aria-label="Hero slider pagination"></div>
       </div>
 
-      <!-- Luxury Editorial Hero Content Overlay -->
-      <div class="hero-content-wrap">
-        <div class="container hero-content-inner">
-          <div class="hero-content-card">
-            <div class="hero-eyebrow-row">
-              <span class="hero-eyebrow">HAUTE IMITATION &amp; ANTI-TARNISH ATELIER</span>
-              <span class="hero-eyebrow-star" aria-hidden="true">✦</span>
-            </div>
-            <h2 class="hero-title">Jewellery That Becomes Part of Your Story.</h2>
-            <p class="hero-subtitle">
-              Discover thoughtfully chosen pieces for the moments, memories, and everyday rituals that make life beautiful. Handcrafted in pure brass with 100% anti-tarnish micro-layer plating.
-            </p>
-            <div class="hero-ctas">
-              <a href="#catalog" class="btn-primary hero-btn-primary">
-                <span>EXPLORE THE COLLECTION</span>
-                <span aria-hidden="true">&rarr;</span>
-              </a>
-              <button type="button" class="btn-secondary hero-btn-secondary" id="heroConsultBtn">
-                <svg class="icon" width="16" height="16" aria-hidden="true"><use href="#icon-video"></use></svg>
-                <span>Book Video Preview</span>
-              </button>
-            </div>
-            <div class="hero-trust-micro">
-              <span>✦ 100% Anti-Tarnish Micro-Plating</span>
-              <span>✦ Free Insured Shipping Over ₹1,999</span>
-              <span>✦ Handcrafted in Bengal</span>
-            </div>
+      <!-- Luxury Editorial Intro Band (Positioned cleanly below the 16:9 banner slider, with ZERO text overlap on banner graphics) -->
+      <div class="hero-editorial-band">
+        <div class="container hero-editorial-inner">
+          <div class="hero-eyebrow-row" style="justify-content: center;">
+            <span class="hero-eyebrow">HAUTE IMITATION &amp; ANTI-TARNISH ATELIER</span>
+            <span class="hero-eyebrow-star" aria-hidden="true">✦</span>
+          </div>
+          <h2 class="hero-title">Jewellery That Becomes Part of Your Story.</h2>
+          <p class="hero-subtitle">
+            Discover thoughtfully chosen pieces for the moments, memories, and everyday rituals that make life beautiful. Handcrafted in pure brass with 100% anti-tarnish micro-layer plating.
+          </p>
+          <div class="hero-ctas" style="justify-content: center;">
+            <a href="#catalog" class="btn-primary hero-btn-primary">
+              <span>EXPLORE THE COLLECTION</span>
+              <span aria-hidden="true">&rarr;</span>
+            </a>
+            <button type="button" class="btn-secondary hero-btn-secondary" id="heroConsultBtn">
+              <svg class="icon" width="16" height="16" aria-hidden="true"><use href="#icon-video"></use></svg>
+              <span>Book Video Preview</span>
+            </button>
+          </div>
+          <div class="hero-trust-micro" style="justify-content: center; margin-top: 18px;">
+            <span>✦ 100% Anti-Tarnish Micro-Plating</span>
+            <span>✦ Free Insured Shipping Over ₹1,999</span>
+            <span>✦ Handcrafted in Bengal</span>
           </div>
         </div>
       </div>
-
-      <!-- Hero Slider Controls -->
-      <button class="hero-arrow hero-prev" id="heroPrev" aria-label="Previous slide">
-        <svg class="icon" width="20" height="20" aria-hidden="true"><use href="#icon-chevron-left"></use></svg>
-      </button>
-      <button class="hero-arrow hero-next" id="heroNext" aria-label="Next slide">
-        <svg class="icon" width="20" height="20" aria-hidden="true"><use href="#icon-chevron-right"></use></svg>
-      </button>
-
-      <!-- Slider Dots -->
-      <div class="hero-dots" id="heroDots" role="tablist" aria-label="Hero slider pagination"></div>
     </section>
 
         <!-- ======================================================================
