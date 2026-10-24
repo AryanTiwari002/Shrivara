@@ -39,8 +39,8 @@
   --gold-hover: #9E732E;
   --gold-soft: #E8D5A8;
   --gold-subtle: rgba(184, 137, 59, 0.12);
-  --accent: #6B2335; /* Deep Emerald: Indian Heritage Luxury */
-  --accent-hover: #541928;
+  --accent: #0F4C3A; /* Deep Emerald: Indian Heritage Luxury */
+  --accent-hover: #093427;
   --accent-ink: #FFFFFF;
   --line: #E7DED3;
   --line-strong: rgba(31, 26, 23, 0.22);
@@ -1390,7 +1390,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .price-slider-reset:hover {
-  color: var(--accent);
+  color: var(--gold);
 }
 
 [data-theme="dark"] .price-slider-reset:hover {
@@ -1418,7 +1418,7 @@ h1, h2, h3, h4, h5, h6 {
 .dual-range-bar-fill {
   position: absolute;
   height: 5px;
-  background: linear-gradient(90deg, var(--gold) 0%, var(--accent) 100%);
+  background: var(--gold);
   border-radius: var(--radius-full);
   pointer-events: none;
   z-index: 1;
@@ -1458,8 +1458,8 @@ h1, h2, h3, h4, h5, h6 {
   height: 18px;
   border-radius: 50%;
   background-color: var(--surface);
-  border: 2.5px solid var(--accent);
-  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.28);
+  border: 2.5px solid var(--gold);
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.22);
   cursor: pointer;
   pointer-events: auto;
   margin-top: 1px;
@@ -1468,7 +1468,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .dual-range-input::-webkit-slider-thumb:hover {
   transform: scale(1.22);
-  border-color: var(--gold);
+  border-color: var(--gold-hover);
   box-shadow: 0 2px 8px rgba(184, 137, 59, 0.4);
 }
 
@@ -1487,8 +1487,8 @@ h1, h2, h3, h4, h5, h6 {
   height: 18px;
   border-radius: 50%;
   background-color: var(--surface);
-  border: 2.5px solid var(--accent);
-  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.28);
+  border: 2.5px solid var(--gold);
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.22);
   cursor: pointer;
   pointer-events: auto;
   transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
@@ -1496,7 +1496,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .dual-range-input::-moz-range-thumb:hover {
   transform: scale(1.22);
-  border-color: var(--gold);
+  border-color: var(--gold-hover);
   box-shadow: 0 2px 8px rgba(184, 137, 59, 0.4);
 }
 
@@ -3365,7 +3365,7 @@ h1, h2, h3, h4, h5, h6 {
 .shop-slider-img-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, transparent 40%, rgba(107, 35, 53, 0.85) 100%);
+  background: linear-gradient(180deg, transparent 40%, rgba(15, 76, 58, 0.85) 100%);
   display: flex;
   align-items: flex-end;
   justify-content: center;
@@ -3641,7 +3641,7 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--accent);
-  background-color: rgba(107, 35, 53, 0.1);
+  background-color: rgba(15, 76, 58, 0.1);
   padding: 3px 8px;
   border-radius: var(--radius-sm);
   margin-bottom: 4px;
