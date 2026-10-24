@@ -55,14 +55,14 @@ export const CONFIG = {
   whatsappMessage: "Hi Shrivara, I am browsing your jewellery showcase and would like styling assistance with an order.",
   pageSize: 16,
   categories: [
-    { key: "all", label: "All" },
-    { key: "Jewellery Sets", label: "Jewellery Sets", img: "https://shrivara.co/cdn/shop/collections/WhatsApp_Image_2026-07-26_at_20.51.35.jpg?v=1785079938&width=400" },
-    { key: "Earrings", label: "Earrings", img: "https://shrivara.co/cdn/shop/collections/WhatsApp_Image_2026-07-26_at_18.41.22.jpg?v=1785071683&width=400" },
-    { key: "Bracelets & Bangles", label: "Bracelets & Bangles", img: "https://shrivara.co/cdn/shop/collections/WhatsApp_Image_2026-07-26_at_19.05.32.jpg?v=1785073014&width=400" },
-    { key: "Necklaces", label: "Necklaces", img: "https://cdn.shopify.com/s/files/1/0725/1728/8098/files/WhatsApp_Image_2026-09-10_at_15.48.18.jpg?v=1789539990&width=400" },
-    { key: "Pendant Sets", label: "Pendant Sets", img: "https://shrivara.co/cdn/shop/collections/WhatsApp_Image_2026-07-26_at_18.14.32.jpg?v=1785069982&width=400" },
-    { key: "Rings", label: "Rings", img: "https://shrivara.co/cdn/shop/collections/ChatGPT_Image_Aug_18_2026_11_50_43_PM.png?v=1787077388&width=400" },
-    { key: "Anti-Tarnish", label: "Anti-Tarnish", img: "https://shrivara.co/cdn/shop/collections/Gemini_Generated_Image_3gqx753gqx753gqx.png?v=1789385692&width=400" }
+    { key: "all", label: "All", icon: "icon-cat-all" },
+    { key: "Jewellery Sets", label: "Jewellery Sets", icon: "icon-cat-sets", img: "https://shrivara.co/cdn/shop/collections/WhatsApp_Image_2026-07-26_at_20.51.35.jpg?v=1785079938&width=400" },
+    { key: "Earrings", label: "Earrings", icon: "icon-cat-earrings", img: "https://shrivara.co/cdn/shop/collections/WhatsApp_Image_2026-07-26_at_18.41.22.jpg?v=1785071683&width=400" },
+    { key: "Bracelets & Bangles", label: "Bracelets & Bangles", icon: "icon-cat-bangles", img: "https://shrivara.co/cdn/shop/collections/WhatsApp_Image_2026-07-26_at_19.05.32.jpg?v=1785073014&width=400" },
+    { key: "Necklaces", label: "Necklaces", icon: "icon-cat-necklaces", img: "https://cdn.shopify.com/s/files/1/0725/1728/8098/files/WhatsApp_Image_2026-09-10_at_15.48.18.jpg?v=1789539990&width=400" },
+    { key: "Pendant Sets", label: "Pendant Sets", icon: "icon-cat-pendants", img: "https://shrivara.co/cdn/shop/collections/WhatsApp_Image_2026-07-26_at_18.14.32.jpg?v=1785069982&width=400" },
+    { key: "Rings", label: "Rings", icon: "icon-cat-rings", img: "https://shrivara.co/cdn/shop/collections/ChatGPT_Image_Aug_18_2026_11_50_43_PM.png?v=1787077388&width=400" },
+    { key: "Anti-Tarnish", label: "Anti-Tarnish", icon: "icon-cat-shield", img: "https://shrivara.co/cdn/shop/collections/Gemini_Generated_Image_3gqx753gqx753gqx.png?v=1789385692&width=400" }
   ]
 };
 
@@ -575,10 +575,12 @@ function renderCategoryChips() {
     }
 
     const isActive = state.activeCategory.toLowerCase() === cat.key.toLowerCase();
+    const iconId = cat.icon || "icon-cat-all";
 
     return `
       <button class="chip-btn ${isActive ? 'is-active' : ''}" data-category="${cat.key}" role="tab" aria-selected="${isActive}">
-        <span>${cat.label}</span>
+        <svg class="chip-icon" width="16" height="16" aria-hidden="true"><use href="#${iconId}"></use></svg>
+        <span class="chip-label">${cat.label}</span>
         <span class="chip-count">(${count})</span>
       </button>
     `;
@@ -775,6 +777,23 @@ function initToolbarListeners() {
     updateUrlHash();
   });
 
+  // View Mode Toggles (Grid vs List Layout)
+  const viewGridBtn = document.getElementById("viewGridBtn");
+  const viewListBtn = document.getElementById("viewListBtn");
+  const catalogGrid = document.getElementById("catalogGrid");
+
+  viewGridBtn?.addEventListener("click", () => {
+    viewGridBtn.classList.add("is-active");
+    viewListBtn?.classList.remove("is-active");
+    catalogGrid?.classList.remove("view-list");
+  });
+
+  viewListBtn?.addEventListener("click", () => {
+    viewListBtn.classList.add("is-active");
+    viewGridBtn?.classList.remove("is-active");
+    catalogGrid?.classList.add("view-list");
+  });
+
   loadMoreBtn?.addEventListener("click", () => {
     state.visibleCount += CONFIG.pageSize;
     applyFiltersAndRender(false);
@@ -852,6 +871,10 @@ function applyFiltersAndRender(resetScroll = true) {
     list.sort((a, b) => a.price - b.price);
   } else if (state.activeSort === "price-high") {
     list.sort((a, b) => b.price - a.price);
+  } else if (state.activeSort === "newest") {
+    list.sort((a, b) => String(b.id || "").localeCompare(String(a.id || "")));
+  } else if (state.activeSort === "rating") {
+    list.sort((a, b) => (b.rating || 5) - (a.rating || 5));
   } else if (state.activeSort === "title-asc") {
     list.sort((a, b) => (a.title || "").localeCompare(b.title || ""));
   }
