@@ -52,7 +52,8 @@ export const CONFIG = {
   currencySymbol: "₹",
   freeShippingThreshold: 1999,
   whatsappNumber: "919830000000",
-  whatsappMessage: "Hi Shrivara, I am browsing your jewellery showcase and would like styling assistance with an order.",
+  whatsappMessage: "Hi Shrivara, I am browsing your jewellery showcase and would like personal styling assistance with an order.",
+  whatsappVideoMessage: "Hi Shrivara, I would like to schedule a Complimentary 1-on-1 Video Consultation to view pieces live on camera.",
   pageSize: 16,
   categories: [
     { key: "all", label: "All", icon: "icon-cat-all" },
@@ -140,6 +141,8 @@ document.addEventListener("DOMContentLoaded", async () => {
   initDemoCheckout();
   initSearchModal();
   initQuickViewModal();
+  initConsultationModal();
+  initAtelierConcierge();
   initPolicyModals();
   initFloatingUtilities();
   initNewsletter();
@@ -1580,10 +1583,16 @@ export function openQuickView(productId) {
           </button>
         </div>
 
-        <a href="${waUrl}" target="_blank" rel="noopener" class="btn-secondary" style="color: var(--ink); border-color: var(--line-strong); display: flex; align-items: center; justify-content: center; gap: 8px;">
-          <svg class="icon" width="16" height="16" style="color: #25D366;" aria-hidden="true"><use href="#icon-whatsapp"></use></svg>
-          Inquire via WhatsApp
-        </a>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px;">
+          <button type="button" class="btn-secondary" id="qvBookVideoBtn" style="color: var(--ink); border-color: var(--gold); display: flex; align-items: center; justify-content: center; gap: 6px; font-size: 0.78rem; padding: 10px 8px; cursor: pointer;">
+            <svg class="icon" width="15" height="15" style="color: var(--gold);" aria-hidden="true"><use href="#icon-video"></use></svg>
+            <span>Book Video Preview</span>
+          </button>
+          <a href="${waUrl}" target="_blank" rel="noopener" class="btn-secondary" style="color: var(--ink); border-color: var(--line-strong); display: flex; align-items: center; justify-content: center; gap: 6px; font-size: 0.78rem; padding: 10px 8px;">
+            <svg class="icon" width="15" height="15" style="color: #25D366;" aria-hidden="true"><use href="#icon-whatsapp"></use></svg>
+            <span>Inquire on WhatsApp</span>
+          </a>
+        </div>
       </div>
     </div>
   `;
@@ -1617,6 +1626,17 @@ export function openQuickView(productId) {
   document.getElementById("qvAddToCartBtn")?.addEventListener("click", () => {
     addToCart(p.id, quickViewCurrentQty);
     closeQuickView();
+  });
+
+  // Book Live Video Preview action
+  document.getElementById("qvBookVideoBtn")?.addEventListener("click", () => {
+    closeQuickView();
+    openConsultationModal({
+      mode: "video",
+      pieceTitle: p.title,
+      pieceId: p.id,
+      category: p.normalizedCategory
+    });
   });
 
   backdrop.classList.add("is-open");
@@ -2141,3 +2161,302 @@ function initDemoCheckout() {
     }, 600);
   };
 }
+
+// --------------------------------------------------------------------------
+// 21. Atelier Concierge & Live Video Consultation Handlers
+// --------------------------------------------------------------------------
+
+export function openConsultationModal(options = {}) {
+  const backdrop = document.getElementById("consultationModalBackdrop");
+  if (!backdrop) return;
+
+  const mode = options.mode || "video";
+  const videoRadio = document.querySelector('input[name="consultServiceType"][value="video"]');
+  const chatRadio = document.querySelector('input[name="consultServiceType"][value="chat"]');
+  const videoLabel = document.getElementById("consultOptVideoLabel");
+  const chatLabel = document.getElementById("consultOptChatLabel");
+  const dateField = document.getElementById("consultDateField");
+  const slotField = document.getElementById("consultSlotField");
+  const submitBtnText = document.getElementById("consultSubmitBtnText");
+  const pieceNoteInput = document.getElementById("consultPieceNote");
+  const modalTitle = document.getElementById("consultModalTitle");
+
+  // Reset modal display states
+  const modalBody = document.getElementById("consultModalBody");
+  const successState = document.getElementById("consultSuccessState");
+  if (modalBody) modalBody.style.display = "block";
+  if (successState) successState.style.display = "none";
+
+  // Pre-fill piece details if provided
+  if (options.pieceTitle) {
+    if (pieceNoteInput) {
+      pieceNoteInput.value = `Interested in: ${options.pieceTitle} (SKU #${options.pieceId || ""})`;
+    }
+  }
+
+  // Set mode
+  if (mode === "chat") {
+    if (chatRadio) chatRadio.checked = true;
+    chatLabel?.classList.add("is-active");
+    videoLabel?.classList.remove("is-active");
+    if (dateField) dateField.style.display = "none";
+    if (slotField) slotField.style.display = "none";
+    if (submitBtnText) submitBtnText.textContent = "Start WhatsApp Styling Chat →";
+    if (modalTitle) modalTitle.textContent = "WhatsApp Styling Concierge";
+  } else {
+    if (videoRadio) videoRadio.checked = true;
+    videoLabel?.classList.add("is-active");
+    chatLabel?.classList.remove("is-active");
+    if (dateField) dateField.style.display = "flex";
+    if (slotField) slotField.style.display = "flex";
+    if (submitBtnText) submitBtnText.textContent = "Confirm Video Appointment via WhatsApp →";
+    if (modalTitle) modalTitle.textContent = "Book a 1-on-1 Video Consultation";
+  }
+
+  // Pre-select category chips if provided
+  if (options.category) {
+    document.querySelectorAll('input[name="consultCategoryInterest"]').forEach(cb => {
+      const match = cb.value.toLowerCase().includes(options.category.toLowerCase()) ||
+                    options.category.toLowerCase().includes(cb.value.toLowerCase());
+      if (match) {
+        cb.checked = true;
+        cb.closest(".consult-chip")?.classList.add("is-checked");
+      }
+    });
+  }
+
+  // Set date bounds (defaults to tomorrow or today)
+  const dateInput = document.getElementById("consultDate");
+  if (dateInput && !dateInput.value) {
+    const today = new Date();
+    const yyyy = today.getFullYear();
+    const mm = String(today.getMonth() + 1).padStart(2, "0");
+    const dd = String(today.getDate()).padStart(2, "0");
+    dateInput.min = `${yyyy}-${mm}-${dd}`;
+    dateInput.value = `${yyyy}-${mm}-${dd}`;
+  }
+
+  backdrop.classList.add("is-visible");
+  backdrop.setAttribute("aria-hidden", "false");
+  document.body.style.overflow = "hidden";
+  document.getElementById("consultName")?.focus();
+}
+
+export function closeConsultationModal() {
+  const backdrop = document.getElementById("consultationModalBackdrop");
+  if (!backdrop) return;
+  backdrop.classList.remove("is-visible");
+  backdrop.setAttribute("aria-hidden", "true");
+  document.body.style.overflow = "";
+}
+
+function initConsultationModal() {
+  const backdrop = document.getElementById("consultationModalBackdrop");
+  const closeBtn = document.getElementById("consultModalCloseBtn");
+  const dismissBtn = document.getElementById("consultDismissBtn");
+  const form = document.getElementById("consultationBookingForm");
+
+  // Mode radio toggles
+  document.querySelectorAll('input[name="consultServiceType"]').forEach(radio => {
+    radio.addEventListener("change", e => {
+      const isVideo = e.target.value === "video";
+      const videoLabel = document.getElementById("consultOptVideoLabel");
+      const chatLabel = document.getElementById("consultOptChatLabel");
+      const dateField = document.getElementById("consultDateField");
+      const slotField = document.getElementById("consultSlotField");
+      const submitBtnText = document.getElementById("consultSubmitBtnText");
+      const modalTitle = document.getElementById("consultModalTitle");
+
+      if (isVideo) {
+        videoLabel?.classList.add("is-active");
+        chatLabel?.classList.remove("is-active");
+        if (dateField) dateField.style.display = "flex";
+        if (slotField) slotField.style.display = "flex";
+        if (submitBtnText) submitBtnText.textContent = "Confirm Video Appointment via WhatsApp →";
+        if (modalTitle) modalTitle.textContent = "Book a 1-on-1 Video Consultation";
+      } else {
+        chatLabel?.classList.add("is-active");
+        videoLabel?.classList.remove("is-active");
+        if (dateField) dateField.style.display = "none";
+        if (slotField) slotField.style.display = "none";
+        if (submitBtnText) submitBtnText.textContent = "Start WhatsApp Styling Chat →";
+        if (modalTitle) modalTitle.textContent = "WhatsApp Styling Concierge";
+      }
+    });
+  });
+
+  // Category chip styling sync
+  document.querySelectorAll('input[name="consultCategoryInterest"]').forEach(cb => {
+    cb.addEventListener("change", () => {
+      cb.closest(".consult-chip")?.classList.toggle("is-checked", cb.checked);
+    });
+  });
+
+  // Modal close handlers
+  closeBtn?.addEventListener("click", closeConsultationModal);
+  dismissBtn?.addEventListener("click", closeConsultationModal);
+
+  backdrop?.addEventListener("click", e => {
+    if (e.target === backdrop) closeConsultationModal();
+  });
+
+  window.addEventListener("keydown", e => {
+    if (e.key === "Escape" && backdrop?.classList.contains("is-visible")) {
+      closeConsultationModal();
+    }
+  });
+
+  // Form submit handler
+  form?.addEventListener("submit", e => {
+    e.preventDefault();
+    const serviceType = document.querySelector('input[name="consultServiceType"]:checked')?.value || "video";
+    const name = (document.getElementById("consultName")?.value || "").trim();
+    const phone = (document.getElementById("consultPhone")?.value || "").trim();
+    const dateVal = document.getElementById("consultDate")?.value || "";
+    const slotVal = document.getElementById("consultTimeSlot")?.value || "";
+    const pieceNote = (document.getElementById("consultPieceNote")?.value || "").trim();
+
+    const selectedCategories = Array.from(document.querySelectorAll('input[name="consultCategoryInterest"]:checked'))
+      .map(cb => cb.value);
+
+    if (!name || !phone) {
+      showToast("Please provide your name and WhatsApp number.");
+      return;
+    }
+
+    let waMessage = "";
+    if (serviceType === "video") {
+      waMessage = `✨ *Namaste Shrivara Atelier!*\n\nI would like to schedule a Complimentary 1-on-1 Video Consultation:\n\n👤 *Name:* ${name}\n📱 *WhatsApp:* ${phone}\n📅 *Preferred Date:* ${dateVal}\n⏰ *Time Slot:* ${slotVal}\n💎 *Jewellery of Interest:* ${selectedCategories.join(", ") || "Bridal & Polki Sets"}${pieceNote ? `\n📝 *Notes / Piece:* ${pieceNote}` : ""}\n\nPlease confirm our appointment slot. Looking forward to viewing the pieces!`;
+    } else {
+      waMessage = `✨ *Namaste Shrivara Atelier!*\n\nI would like personal styling assistance on WhatsApp:\n\n👤 *Name:* ${name}\n📱 *WhatsApp:* ${phone}\n💎 *Looking for:* ${selectedCategories.join(", ") || "Jewellery Recommendations"}${pieceNote ? `\n📝 *Styling Query:* ${pieceNote}` : ""}\n\nCould you please assist me with sizing and matching? Thank you!`;
+    }
+
+    const waUrl = `https://wa.me/${CONFIG.whatsappNumber}?text=${encodeURIComponent(waMessage)}`;
+
+    // Save appointment details in localStorage
+    try {
+      localStorage.setItem("shrivara_last_consultation", JSON.stringify({
+        name,
+        phone,
+        serviceType,
+        dateVal,
+        slotVal,
+        categories: selectedCategories,
+        note: pieceNote,
+        timestamp: Date.now()
+      }));
+    } catch (_) {}
+
+    // Show success view
+    const modalBody = document.getElementById("consultModalBody");
+    const successState = document.getElementById("consultSuccessState");
+    const successTitle = document.getElementById("consultSuccessTitle");
+    const successDesc = document.getElementById("consultSuccessDesc");
+    const directWaBtn = document.getElementById("consultDirectWaBtn");
+
+    if (modalBody) modalBody.style.display = "none";
+    if (successState) successState.style.display = "block";
+
+    if (successTitle) {
+      successTitle.textContent = serviceType === "video" ? "Video Appointment Prepared!" : "Styling Request Ready!";
+    }
+    if (successDesc) {
+      successDesc.textContent = serviceType === "video"
+        ? `Thank you, ${name}! Your 1-on-1 video showcase request for ${dateVal} (${slotVal}) has been pre-formatted for our styling desk on WhatsApp.`
+        : `Thank you, ${name}! Your styling inquiry has been pre-formatted for our master stylists on WhatsApp.`;
+    }
+    if (directWaBtn) {
+      directWaBtn.href = waUrl;
+    }
+
+    // Attempt to open WhatsApp in new tab
+    window.open(waUrl, "_blank", "noopener,noreferrer");
+    showToast(serviceType === "video" ? "Video appointment request generated!" : "Opening WhatsApp styling desk...");
+  });
+
+  // Attach global window hook for easy integration across pages
+  if (typeof window !== "undefined") {
+    window.openConsultationModal = openConsultationModal;
+    window.closeConsultationModal = closeConsultationModal;
+  }
+}
+
+function initAtelierConcierge() {
+  const triggerBtn = document.getElementById("conciergeTriggerBtn");
+  const popover = document.getElementById("conciergePopover");
+  const closeBtn = document.getElementById("conciergeCloseBtn");
+  const videoOpt = document.getElementById("conciergeVideoOpt");
+  const chatOpt = document.getElementById("conciergeChatOpt");
+
+  function togglePopover(force) {
+    if (!popover || !triggerBtn) return;
+    const shouldOpen = typeof force === "boolean" ? force : !popover.classList.contains("is-open");
+    popover.classList.toggle("is-open", shouldOpen);
+    popover.setAttribute("aria-hidden", shouldOpen ? "false" : "true");
+    triggerBtn.setAttribute("aria-expanded", shouldOpen ? "true" : "false");
+  }
+
+  triggerBtn?.addEventListener("click", e => {
+    e.stopPropagation();
+    togglePopover();
+  });
+
+  closeBtn?.addEventListener("click", e => {
+    e.stopPropagation();
+    togglePopover(false);
+  });
+
+  // Close when clicking outside
+  document.addEventListener("click", e => {
+    if (popover && popover.classList.contains("is-open")) {
+      if (!popover.contains(e.target) && !triggerBtn?.contains(e.target)) {
+        togglePopover(false);
+      }
+    }
+  });
+
+  // Esc key closes popover
+  window.addEventListener("keydown", e => {
+    if (e.key === "Escape" && popover?.classList.contains("is-open")) {
+      togglePopover(false);
+    }
+  });
+
+  // Option 1: Live Video Consultation -> opens booking modal
+  videoOpt?.addEventListener("click", () => {
+    togglePopover(false);
+    openConsultationModal({ mode: "video" });
+  });
+
+  // Option 2: WhatsApp Chat -> pre-fills URL
+  if (chatOpt) {
+    chatOpt.href = `https://wa.me/${CONFIG.whatsappNumber}?text=${encodeURIComponent(CONFIG.whatsappMessage)}`;
+  }
+
+  // Header & Nav Consultation triggers
+  document.getElementById("headerConsultBtn")?.addEventListener("click", () => {
+    openConsultationModal({ mode: "video" });
+  });
+
+  document.getElementById("navConsultBtn")?.addEventListener("click", () => {
+    openConsultationModal({ mode: "video" });
+  });
+
+  document.getElementById("mobileConsultBtn")?.addEventListener("click", () => {
+    document.getElementById("mobileNavClose")?.click();
+    openConsultationModal({ mode: "video" });
+  });
+
+  document.getElementById("promoConsultBtn")?.addEventListener("click", () => {
+    openConsultationModal({ mode: "video" });
+  });
+
+  document.getElementById("virtualAtelierBookBtn")?.addEventListener("click", () => {
+    openConsultationModal({ mode: "video" });
+  });
+
+  document.getElementById("reassuranceConciergeItem")?.addEventListener("click", () => {
+    openConsultationModal({ mode: "video" });
+  });
+}
+

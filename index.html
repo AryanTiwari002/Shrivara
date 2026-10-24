@@ -165,6 +165,31 @@
         <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
       </symbol>
 
+      <!-- Video Consultation Camera -->
+      <symbol id="icon-video" viewBox="0 0 24 24">
+        <path d="M15 10l5-3.5v11L15 14v4a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v4z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+
+      <!-- Calendar Appointment -->
+      <symbol id="icon-calendar" viewBox="0 0 24 24">
+        <rect x="3" y="4" width="18" height="18" rx="2" ry="2" fill="none" stroke="currentColor" stroke-width="2"/>
+        <line x1="16" y1="2" x2="16" y2="6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <line x1="8" y1="2" x2="8" y2="6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <line x1="3" y1="10" x2="21" y2="10" stroke="currentColor" stroke-width="2"/>
+      </symbol>
+
+      <!-- Clock Time Slot -->
+      <symbol id="icon-clock" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/>
+        <polyline points="12 6 12 12 16 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </symbol>
+
+      <!-- Sparkles / Bespoke Service -->
+      <symbol id="icon-sparkles" viewBox="0 0 24 24">
+        <path d="M12 2l2.4 5.6L20 10l-5.6 2.4L12 18l-2.4-5.6L4 10l5.6-2.4L12 2z" fill="currentColor"/>
+        <path d="M19 17l1.2 2.8L23 21l-2.8 1.2L19 25l-1.2-2.8L15 21l2.8-1.2L19 17z" fill="currentColor"/>
+      </symbol>
+
       <!-- Category Filter Icons -->
       <!-- All Categories (2x2 Grid) -->
       <symbol id="icon-cat-all" viewBox="0 0 24 24">
@@ -254,6 +279,14 @@
   <aside class="promo-bar" id="promoBar" aria-label="Store Announcements">
     <div class="promo-track" id="promoTrack">
       <div class="promo-message">
+        <span>Complimentary 1-on-1 Video Consultation</span>
+        <span class="promo-highlight"><button type="button" class="promo-consult-link" id="promoConsultBtn" style="background: none; border: none; color: inherit; font: inherit; text-decoration: underline; cursor: pointer; padding: 0;">• Book Free Virtual Session &rarr;</button></span>
+      </div>
+      <div class="promo-message">
+        <span>Direct WhatsApp Styling Assistance</span>
+        <span class="promo-highlight"><a href="https://wa.me/919830000000?text=Hi%20Shrivara,%20I'd%20like%20personal%20styling%20assistance..." target="_blank" rel="noopener" style="color: inherit; text-decoration: underline;">• Chat with Stylist &rarr;</a></span>
+      </div>
+      <div class="promo-message">
         <span>Up to 50% Off | Get 5% Off on First Order</span>
         <span class="promo-highlight">• Code: FIRST5</span>
       </div>
@@ -296,8 +329,15 @@
         </a>
       </div>
 
-      <!-- Right: Dark Mode Toggle, Wishlist & Cart -->
+      <!-- Right: Video Consult, Dark Mode Toggle, Wishlist & Cart -->
       <div class="header-right">
+        <!-- Live Video Consultation Button -->
+        <button class="header-consult-btn" id="headerConsultBtn" aria-label="Book a complimentary 1-on-1 video consultation" title="Book 1-on-1 Live Video Consultation">
+          <svg class="icon" width="16" height="16" aria-hidden="true"><use href="#icon-video"></use></svg>
+          <span class="header-consult-text">Video Consult</span>
+          <span class="header-consult-live-dot" title="Stylist Available Online"></span>
+        </button>
+
         <!-- Theme Mode Toggle -->
         <button class="icon-btn" id="themeToggleBtn" aria-label="Toggle dark mode" title="Dark / Light Mode">
           <svg class="icon" id="iconThemeMoon" width="19" height="19" aria-hidden="true"><use href="#icon-moon"></use></svg>
@@ -335,6 +375,14 @@
         <li class="nav-item"><a href="#occasions" class="nav-link">Shop by Occasion</a></li>
         <li class="nav-item"><a href="#catalog" class="nav-link">All Pieces</a></li>
         <li class="nav-item"><a href="find-your-style.html" class="nav-link" style="color: var(--gold); font-weight: 700;">Find Your Style ✨</a></li>
+        <li class="nav-item">
+          <button type="button" class="nav-link nav-consult-link" id="navConsultBtn" aria-label="Book 1-on-1 Styling and Video Consultation">
+            <span class="nav-consult-pill">
+              <svg class="icon" width="13" height="13" aria-hidden="true"><use href="#icon-video"></use></svg>
+              <span>Video Consultation</span>
+            </span>
+          </button>
+        </li>
         <li class="nav-item"><a href="our-story.html" class="nav-link">Our Story</a></li>
         <li class="nav-item"><a href="#reviews" class="nav-link">Reviews</a></li>
       </ul>
@@ -404,6 +452,23 @@
           <li><a href="our-story.html" class="mobile-nav-link" onclick="document.getElementById('mobileNavClose').click();">Our Story &amp; Craft</a></li>
           <li><a href="#reviews" class="mobile-nav-link" onclick="document.getElementById('mobileNavClose').click();">Customer Reviews</a></li>
         </ul>
+
+        <!-- Mobile Concierge Service Card -->
+        <div class="mobile-concierge-card">
+          <span class="mobile-concierge-badge">Bespoke Atelier Service</span>
+          <h4 class="mobile-concierge-title">1-on-1 Styling &amp; Video Call</h4>
+          <p class="mobile-concierge-desc">See the shine, drape, and scale on camera with our stylists before ordering.</p>
+          <div class="mobile-concierge-actions">
+            <button type="button" class="btn-primary mobile-consult-btn" id="mobileConsultBtn">
+              <svg class="icon" width="15" height="15" aria-hidden="true"><use href="#icon-video"></use></svg>
+              <span>Book Video Showcase</span>
+            </button>
+            <a href="https://wa.me/919830000000?text=Hi%20Shrivara,%20I'd%20like%20personal%20styling%20assistance..." target="_blank" rel="noopener" class="btn-secondary mobile-wa-btn">
+              <svg class="icon" width="15" height="15" style="color: #25D366;" aria-hidden="true"><use href="#icon-whatsapp"></use></svg>
+              <span>Chat on WhatsApp</span>
+            </a>
+          </div>
+        </div>
 
         <div class="mobile-categories-header">Explore by Category (Swipe)</div>
         <div class="mobile-slider-wrap">
@@ -528,13 +593,16 @@
             </div>
           </div>
 
-          <div class="reassurance-item">
-            <div class="reassurance-icon">
+          <div class="reassurance-item reassurance-clickable" id="reassuranceConciergeItem" role="button" tabindex="0" aria-label="Book styling assistance or video consultation" title="Click to Book Video Call or Chat" style="cursor: pointer;">
+            <div class="reassurance-icon" style="color: #25D366;">
               <svg class="icon" width="22" height="22" aria-hidden="true"><use href="#icon-whatsapp"></use></svg>
             </div>
             <div>
-              <div class="reassurance-title">Dedicated Concierge</div>
-              <p class="reassurance-desc">Direct styling assistance & bridal queries via WhatsApp</p>
+              <div class="reassurance-title" style="display: flex; align-items: center; gap: 6px;">
+                <span>Dedicated Concierge</span>
+                <span class="reassurance-tag" style="font-size: 0.65rem; background: rgba(198, 161, 91, 0.18); color: var(--gold); padding: 2px 6px; border-radius: 4px; font-weight: 700;">Live Call &amp; Chat</span>
+              </div>
+              <p class="reassurance-desc">1-on-1 video showcase &amp; styling advice via WhatsApp</p>
             </div>
           </div>
         </div>
@@ -723,6 +791,86 @@
           </div>
           <div class="style-quiz-banner-visual">
             <img src="https://shrivara.co/cdn/shop/collections/WhatsApp_Image_2026-07-26_at_18.14.32.jpg?v=1785069982&width=600" alt="Curated Jewellery Suites" class="style-quiz-banner-img" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         4.8 The Virtual Atelier Experience: 1-on-1 Video Consultation & WhatsApp Styling
+         ====================================================================== -->
+    <section class="section-virtual-atelier" id="virtual-atelier" aria-labelledby="virtualAtelierTitle">
+      <div class="container">
+        <div class="virtual-atelier-wrapper">
+          <div class="virtual-atelier-content">
+            <div class="virtual-atelier-badge">
+              <svg class="icon" width="15" height="15" aria-hidden="true"><use href="#icon-video"></use></svg>
+              <span>COMPLIMENTARY ATELIER SERVICE</span>
+            </div>
+            <h2 class="virtual-atelier-title" id="virtualAtelierTitle">
+              Experience the Atelier from Anywhere in the World
+            </h2>
+            <p class="virtual-atelier-desc">
+              Jewellery is an emotional choice. Can't visit our Kolkata atelier in person? We bring our handcrafted polki, bridal suites, and everyday anti-tarnish pieces directly to your screen via a private 1-on-1 WhatsApp video appointment.
+            </p>
+
+            <div class="virtual-atelier-perks">
+              <div class="virtual-perk-item">
+                <div class="virtual-perk-icon">
+                  <svg class="icon" width="18" height="18" aria-hidden="true"><use href="#icon-video"></use></svg>
+                </div>
+                <div>
+                  <h4 class="virtual-perk-title">Live 4K Close-Up Inspection</h4>
+                  <p class="virtual-perk-desc">See the authentic sparkle of uncut polki, stone clarity, clasp mechanics, and meenakari reverse under natural daylight.</p>
+                </div>
+              </div>
+
+              <div class="virtual-perk-item">
+                <div class="virtual-perk-icon">
+                  <svg class="icon" width="18" height="18" aria-hidden="true"><use href="#icon-sparkles"></use></svg>
+                </div>
+                <div>
+                  <h4 class="virtual-perk-title">Outfit &amp; Neckline Coordination</h4>
+                  <p class="virtual-perk-desc">Show our master stylists your wedding lehenga or saree fabric; we drape matching necklace lengths and earrings on a mannequin.</p>
+                </div>
+              </div>
+
+              <div class="virtual-perk-item">
+                <div class="virtual-perk-icon">
+                  <svg class="icon" width="18" height="18" aria-hidden="true"><use href="#icon-whatsapp"></use></svg>
+                </div>
+                <div>
+                  <h4 class="virtual-perk-title">Instant WhatsApp Support</h4>
+                  <p class="virtual-perk-desc">Need fast advice on bangle wrist sizes or micro-layer anti-tarnish care? Connect with our dedicated styling desk in seconds.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="virtual-atelier-ctas">
+              <button type="button" class="btn-primary virtual-book-btn" id="virtualAtelierBookBtn">
+                <svg class="icon" width="18" height="18" aria-hidden="true"><use href="#icon-video"></use></svg>
+                <span>Book Free Video Appointment</span>
+              </button>
+              <a href="https://wa.me/919830000000?text=Hi%20Shrivara,%20I'd%20like%20to%20chat%20with%20a%20stylist%20about%20your%20jewellery..." target="_blank" rel="noopener" class="btn-secondary virtual-wa-btn">
+                <svg class="icon" width="18" height="18" style="color: #25D366;" aria-hidden="true"><use href="#icon-whatsapp"></use></svg>
+                <span>Chat on WhatsApp Now</span>
+              </a>
+            </div>
+            <span class="virtual-atelier-guarantee">✨ Complimentary 15-minute private appointment • No purchase required</span>
+          </div>
+
+          <div class="virtual-atelier-visual">
+            <div class="virtual-visual-card">
+              <img src="https://shrivara.co/cdn/shop/files/WhatsApp_Image_2026-07-26_at_17.57.31.jpg?v=1785068879&width=800" alt="Shrivara Stylist holding a royal polki bridal necklace live on camera" class="virtual-visual-img" loading="lazy">
+              <div class="virtual-visual-floating-badge top-badge">
+                <span class="live-dot-pulse"></span>
+                <span>Live Video Showcase</span>
+              </div>
+              <div class="virtual-visual-floating-badge bottom-badge">
+                <svg class="icon" width="16" height="16" style="color: var(--gold);" aria-hidden="true"><use href="#icon-shield"></use></svg>
+                <span>100% Anti-Tarnish Verified</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -1281,6 +1429,145 @@
   </div>
 
   <!-- ======================================================================
+       11.5 Complimentary 1-on-1 Styling & Video Consultation Modal
+       ====================================================================== -->
+  <div class="consult-modal-backdrop" id="consultationModalBackdrop" role="dialog" aria-modal="true" aria-labelledby="consultModalTitle" aria-hidden="true">
+    <div class="consult-modal-container">
+      <button class="modal-close-btn" id="consultModalCloseBtn" aria-label="Close consultation modal">
+        <svg class="icon" width="18" height="18" aria-hidden="true"><use href="#icon-close"></use></svg>
+      </button>
+
+      <div class="consult-modal-header">
+        <div class="consult-modal-badge">
+          <svg class="icon" width="14" height="14" aria-hidden="true"><use href="#icon-sparkles"></use></svg>
+          <span>Complimentary Private Concierge</span>
+        </div>
+        <h3 class="consult-modal-title" id="consultModalTitle">Book a 1-on-1 Video Consultation</h3>
+        <p class="consult-modal-subtitle">
+          See the authentic shine, movement, and scale live on camera with our master jewellery stylists before choosing your piece.
+        </p>
+      </div>
+
+      <div class="consult-modal-body" id="consultModalBody">
+        <!-- Service Type Selector Tabs -->
+        <div class="consult-type-selector">
+          <label class="consult-type-option is-active" id="consultOptVideoLabel">
+            <input type="radio" name="consultServiceType" value="video" checked>
+            <div class="consult-type-icon">
+              <svg class="icon" width="20" height="20" aria-hidden="true"><use href="#icon-video"></use></svg>
+            </div>
+            <div>
+              <div class="consult-type-name">Live Video Showcase</div>
+              <div class="consult-type-sub">15-min virtual session on WhatsApp Video</div>
+            </div>
+          </label>
+          <label class="consult-type-option" id="consultOptChatLabel">
+            <input type="radio" name="consultServiceType" value="chat">
+            <div class="consult-type-icon" style="color: #25D366;">
+              <svg class="icon" width="20" height="20" aria-hidden="true"><use href="#icon-whatsapp"></use></svg>
+            </div>
+            <div>
+              <div class="consult-type-name">WhatsApp Styling Chat</div>
+              <div class="consult-type-sub">Immediate sizing &amp; lehenga coordination</div>
+            </div>
+          </label>
+        </div>
+
+        <form id="consultationBookingForm" novalidate>
+          <div class="consult-form-grid">
+            <div class="consult-form-group">
+              <label for="consultName" class="consult-label">Your Name <span class="required">*</span></label>
+              <input type="text" id="consultName" class="consult-input" placeholder="e.g. Radhika Sharma" required>
+            </div>
+
+            <div class="consult-form-group">
+              <label for="consultPhone" class="consult-label">WhatsApp Number <span class="required">*</span></label>
+              <input type="tel" id="consultPhone" class="consult-input" placeholder="+91 98765 43210" required>
+            </div>
+
+            <!-- Fields for Video Consultation -->
+            <div class="consult-form-group consult-video-slot" id="consultDateField">
+              <label for="consultDate" class="consult-label">Preferred Date <span class="required">*</span></label>
+              <input type="date" id="consultDate" class="consult-input" required>
+            </div>
+
+            <div class="consult-form-group consult-video-slot" id="consultSlotField">
+              <label for="consultTimeSlot" class="consult-label">Preferred Time Slot <span class="required">*</span></label>
+              <select id="consultTimeSlot" class="consult-select">
+                <option value="11:00 AM - 01:00 PM (Morning Edit)">11:00 AM – 01:00 PM (Morning Edit)</option>
+                <option value="02:00 PM - 05:00 PM (Afternoon Matinee)" selected>02:00 PM – 05:00 PM (Afternoon Matinee)</option>
+                <option value="06:00 PM - 08:30 PM (Evening Atelier)">06:00 PM – 08:30 PM (Evening Atelier)</option>
+              </select>
+            </div>
+
+            <!-- Categories of Interest -->
+            <div class="consult-form-group full-width">
+              <label class="consult-label">Jewellery of Interest</label>
+              <div class="consult-chips-wrap" id="consultChipsWrap">
+                <label class="consult-chip is-checked">
+                  <input type="checkbox" name="consultCategoryInterest" value="Bridal & Polki Sets" checked>
+                  <span>Bridal &amp; Polki Sets</span>
+                </label>
+                <label class="consult-chip is-checked">
+                  <input type="checkbox" name="consultCategoryInterest" value="Kundan Necklaces" checked>
+                  <span>Kundan Necklaces</span>
+                </label>
+                <label class="consult-chip">
+                  <input type="checkbox" name="consultCategoryInterest" value="Jhumkas & Earrings">
+                  <span>Jhumkas &amp; Earrings</span>
+                </label>
+                <label class="consult-chip">
+                  <input type="checkbox" name="consultCategoryInterest" value="Bangles & Kada">
+                  <span>Bangles &amp; Kada</span>
+                </label>
+                <label class="consult-chip">
+                  <input type="checkbox" name="consultCategoryInterest" value="Anti-Tarnish Daily Wear">
+                  <span>Anti-Tarnish Daily Wear</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Pre-populated Product Note if opened from quick-view or product card -->
+            <div class="consult-form-group full-width">
+              <label for="consultPieceNote" class="consult-label">Specific Piece or Styling Notes (Optional)</label>
+              <input type="text" id="consultPieceNote" class="consult-input" placeholder="e.g. Matching maroon velvet lehenga, or Polki Necklace #142">
+            </div>
+          </div>
+
+          <div class="consult-badges-strip">
+            <span>✓ 100% Free Consultation</span>
+            <span>✓ No Purchase Obligation</span>
+            <span>✓ Direct from Atelier</span>
+          </div>
+
+          <button type="submit" class="btn-primary consult-submit-btn" id="consultSubmitBtn">
+            <svg class="icon" width="18" height="18" aria-hidden="true"><use href="#icon-whatsapp"></use></svg>
+            <span id="consultSubmitBtnText">Confirm Appointment on WhatsApp &rarr;</span>
+          </button>
+        </form>
+      </div>
+
+      <!-- Success Confirmation State (Hidden initially) -->
+      <div class="consult-success-state" id="consultSuccessState" style="display: none;">
+        <div class="consult-success-icon">
+          <svg class="icon" width="32" height="32" aria-hidden="true"><use href="#icon-check"></use></svg>
+        </div>
+        <h4 class="consult-success-title" id="consultSuccessTitle">Appointment Request Prepared!</h4>
+        <p class="consult-success-desc" id="consultSuccessDesc">
+          We have generated your personalized consultation booking message for our styling desk on WhatsApp. Click below if your chat window did not open automatically.
+        </p>
+        <div class="consult-success-actions">
+          <a href="#" id="consultDirectWaBtn" target="_blank" rel="noopener" class="btn-primary" style="background: #25D366; border-color: #25D366; color: #FFFFFF;">
+            <svg class="icon" width="18" height="18" aria-hidden="true"><use href="#icon-whatsapp"></use></svg>
+            <span>Open WhatsApp Chat Now</span>
+          </a>
+          <button type="button" class="btn-secondary" id="consultDismissBtn">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================================================================
        12. Quick View Modal
        ====================================================================== -->
   <div class="modal-backdrop" id="quickViewBackdrop" role="dialog" aria-modal="true" aria-labelledby="quickViewTitle">
@@ -1328,13 +1615,74 @@
   <!-- ======================================================================
        15. Floating Utilities (WhatsApp Concierge & Back to Top)
        ====================================================================== -->
-  <div class="floating-actions-wrap">
+  <div class="floating-actions-wrap" id="floatingActionsWrap">
     <button class="back-to-top-btn" id="backToTopBtn" aria-label="Scroll back to top" title="Back to top">
       <svg class="icon" width="18" height="18" aria-hidden="true"><use href="#icon-arrow-up"></use></svg>
     </button>
-    <a href="https://wa.me/919830000000" target="_blank" rel="noopener" class="whatsapp-float-btn" id="floatingWhatsAppBtn" aria-label="Chat with a Jewellery Stylist on WhatsApp" title="Chat on WhatsApp">
-      <svg class="icon" width="28" height="28" aria-hidden="true"><use href="#icon-whatsapp"></use></svg>
-    </a>
+
+    <!-- Upgraded Atelier Concierge Trigger & Menu -->
+    <div class="atelier-concierge-widget" id="atelierConciergeWidget">
+      <!-- Concierge Popover Menu -->
+      <div class="concierge-popover" id="conciergePopover" role="dialog" aria-modal="false" aria-label="Styling Concierge Menu" aria-hidden="true">
+        <div class="concierge-popover-header">
+          <div class="concierge-badge">
+            <span class="concierge-live-pulse"></span>
+            <span>Master Stylists Online</span>
+          </div>
+          <button type="button" class="concierge-popover-close" id="conciergeCloseBtn" aria-label="Close concierge menu">
+            <svg class="icon" width="14" height="14" aria-hidden="true"><use href="#icon-close"></use></svg>
+          </button>
+        </div>
+
+        <div class="concierge-popover-body">
+          <h4 class="concierge-popover-title">Shrivara Atelier Concierge</h4>
+          <p class="concierge-popover-lead">How can our jewellery artisans assist your celebration today?</p>
+
+          <div class="concierge-options-grid">
+            <!-- Option 1: Live Video Consultation -->
+            <button type="button" class="concierge-option-card" id="conciergeVideoOpt">
+              <div class="concierge-option-icon video-icon">
+                <svg class="icon" width="20" height="20" aria-hidden="true"><use href="#icon-video"></use></svg>
+              </div>
+              <div class="concierge-option-info">
+                <strong>1-on-1 Live Video Call</strong>
+                <span>Inspect necklaces, shine &amp; drape live on camera</span>
+                <span class="concierge-action-tag">Book Free Session &rarr;</span>
+              </div>
+            </button>
+
+            <!-- Option 2: WhatsApp Styling Assistance -->
+            <a href="https://wa.me/919830000000?text=Hi%20Shrivara,%20I'd%20like%20personal%20styling%20assistance..." target="_blank" rel="noopener" class="concierge-option-card" id="conciergeChatOpt">
+              <div class="concierge-option-icon wa-icon">
+                <svg class="icon" width="20" height="20" aria-hidden="true"><use href="#icon-whatsapp"></use></svg>
+              </div>
+              <div class="concierge-option-info">
+                <strong>WhatsApp Styling Chat</strong>
+                <span>Instant help with lehenga matching &amp; sizing</span>
+                <span class="concierge-action-tag wa-tag">Chat with Stylist &rarr;</span>
+              </div>
+            </a>
+          </div>
+
+          <div class="concierge-hours-footer">
+            <svg class="icon" width="13" height="13" aria-hidden="true"><use href="#icon-clock"></use></svg>
+            <span>Atelier Hours: Mon–Sun, 10 AM – 9 PM IST</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Floating Trigger Button -->
+      <button type="button" class="concierge-trigger-btn" id="conciergeTriggerBtn" aria-expanded="false" aria-controls="conciergePopover" aria-label="Open jewellery styling and video consultation concierge">
+        <span class="concierge-trigger-icon wa-trigger-icon">
+          <svg class="icon" width="22" height="22" aria-hidden="true"><use href="#icon-whatsapp"></use></svg>
+        </span>
+        <span class="concierge-trigger-icon video-trigger-icon">
+          <svg class="icon" width="18" height="18" aria-hidden="true"><use href="#icon-video"></use></svg>
+        </span>
+        <span class="concierge-trigger-label">Styling &amp; Video Call</span>
+        <span class="concierge-trigger-dot" title="Stylist Online"></span>
+      </button>
+    </div>
   </div>
 
   <!-- Accessible Toast Notice -->

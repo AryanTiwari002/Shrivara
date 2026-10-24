@@ -121,6 +121,31 @@
       <symbol id="icon-whatsapp" viewBox="0 0 24 24">
         <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.884 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" fill="currentColor"/>
       </symbol>
+
+      <!-- Video Consultation Camera -->
+      <symbol id="icon-video" viewBox="0 0 24 24">
+        <path d="M15 10l5-3.5v11L15 14v4a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v4z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+
+      <!-- Calendar Appointment -->
+      <symbol id="icon-calendar" viewBox="0 0 24 24">
+        <rect x="3" y="4" width="18" height="18" rx="2" ry="2" fill="none" stroke="currentColor" stroke-width="2"/>
+        <line x1="16" y1="2" x2="16" y2="6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <line x1="8" y1="2" x2="8" y2="6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <line x1="3" y1="10" x2="21" y2="10" stroke="currentColor" stroke-width="2"/>
+      </symbol>
+
+      <!-- Clock Time Slot -->
+      <symbol id="icon-clock" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/>
+        <polyline points="12 6 12 12 16 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </symbol>
+
+      <!-- Sparkles / Bespoke Service -->
+      <symbol id="icon-sparkles" viewBox="0 0 24 24">
+        <path d="M12 2l2.4 5.6L20 10l-5.6 2.4L12 18l-2.4-5.6L4 10l5.6-2.4L12 2z" fill="currentColor"/>
+        <path d="M19 17l1.2 2.8L23 21l-2.8 1.2L19 25l-1.2-2.8L15 21l2.8-1.2L19 17z" fill="currentColor"/>
+      </symbol>
     </defs>
   </svg>
 
@@ -129,6 +154,14 @@
        ====================================================================== -->
   <aside class="promo-bar" id="promoBar" aria-label="Store Announcements">
     <div class="promo-track" id="promoTrack">
+      <div class="promo-message">
+        <span>Complimentary 1-on-1 Video Consultation</span>
+        <span class="promo-highlight"><button type="button" class="promo-consult-link" id="promoConsultBtn" style="background: none; border: none; color: inherit; font: inherit; text-decoration: underline; cursor: pointer; padding: 0;">• Book Free Virtual Session &rarr;</button></span>
+      </div>
+      <div class="promo-message">
+        <span>Direct WhatsApp Styling Assistance</span>
+        <span class="promo-highlight"><a href="https://wa.me/919830000000?text=Hi%20Shrivara,%20I'd%20like%20personal%20styling%20assistance..." target="_blank" rel="noopener" style="color: inherit; text-decoration: underline;">• Chat with Stylist &rarr;</a></span>
+      </div>
       <div class="promo-message">
         <span>Curated Discovery Experience</span>
         <span class="promo-highlight">• Find Your Perfect Jewellery Suite</span>
@@ -169,6 +202,13 @@
 
       <!-- Right: Mode Toggle, Wishlist & Cart -->
       <div class="header-right">
+        <!-- Live Video Consultation Button -->
+        <button class="header-consult-btn" id="headerConsultBtn" aria-label="Book a complimentary 1-on-1 video consultation" title="Book 1-on-1 Live Video Consultation">
+          <svg class="icon" width="16" height="16" aria-hidden="true"><use href="#icon-video"></use></svg>
+          <span class="header-consult-text">Video Consult</span>
+          <span class="header-consult-live-dot" title="Stylists Online"></span>
+        </button>
+
         <!-- Theme Toggle -->
         <button class="icon-btn" id="themeToggleBtn" aria-label="Toggle dark mode" title="Dark / Light Mode">
           <svg class="icon" id="iconThemeMoon" width="19" height="19" aria-hidden="true"><use href="#icon-moon"></use></svg>
@@ -821,6 +861,30 @@
             </button>
           </div>
 
+          <!-- Video Consultation & WhatsApp Concierge Banner -->
+          <div class="quiz-consult-card" id="quizConsultCard">
+            <div class="quiz-consult-body">
+              <div class="quiz-consult-badge">
+                <svg class="icon" width="14" height="14" aria-hidden="true"><use href="#icon-video"></use></svg>
+                <span>COMPLIMENTARY VIRTUAL APPOINTMENT</span>
+              </div>
+              <h4 class="quiz-consult-heading">Want to see your curated suite live on camera?</h4>
+              <p class="quiz-consult-text">
+                Book a 1-on-1 WhatsApp video appointment with our master stylists to view the drape, shine, and proportions of your recommended jewellery before making a decision.
+              </p>
+            </div>
+            <div class="quiz-consult-actions">
+              <button type="button" class="btn-primary" id="quizBookVideoBtn">
+                <svg class="icon" width="16" height="16" aria-hidden="true"><use href="#icon-video"></use></svg>
+                <span>Book Free Video Preview</span>
+              </button>
+              <a href="#" id="quizShareWaBtn" target="_blank" rel="noopener" class="btn-secondary" style="color: var(--ink); border-color: var(--line-strong);">
+                <svg class="icon" width="16" height="16" style="color: #25D366;" aria-hidden="true"><use href="#icon-whatsapp"></use></svg>
+                <span>Share Results with Stylist</span>
+              </a>
+            </div>
+          </div>
+
           <!-- Collection 1: Perfect for You -->
           <section class="quiz-collection-section">
             <div class="quiz-collection-header">
@@ -922,6 +986,218 @@
         <svg class="icon" width="18" height="18" aria-hidden="true"><use href="#icon-close"></use></svg>
       </button>
       <div id="quickViewContent"></div>
+    </div>
+  </div>
+
+  <!-- ======================================================================
+       Floating Utilities (Concierge & Back to Top)
+       ====================================================================== -->
+  <div class="floating-actions-wrap" id="floatingActionsWrap">
+    <button class="back-to-top-btn" id="backToTopBtn" aria-label="Scroll back to top" title="Back to top">
+      <svg class="icon" width="18" height="18" aria-hidden="true"><use href="#icon-arrow-up"></use></svg>
+    </button>
+
+    <!-- Upgraded Atelier Concierge Trigger & Menu -->
+    <div class="atelier-concierge-widget" id="atelierConciergeWidget">
+      <!-- Concierge Popover Menu -->
+      <div class="concierge-popover" id="conciergePopover" role="dialog" aria-modal="false" aria-label="Styling Concierge Menu" aria-hidden="true">
+        <div class="concierge-popover-header">
+          <div class="concierge-badge">
+            <span class="concierge-live-pulse"></span>
+            <span>Master Stylists Online</span>
+          </div>
+          <button type="button" class="concierge-popover-close" id="conciergeCloseBtn" aria-label="Close concierge menu">
+            <svg class="icon" width="14" height="14" aria-hidden="true"><use href="#icon-close"></use></svg>
+          </button>
+        </div>
+
+        <div class="concierge-popover-body">
+          <h4 class="concierge-popover-title">Shrivara Atelier Concierge</h4>
+          <p class="concierge-popover-lead">How can our jewellery artisans assist your celebration today?</p>
+
+          <div class="concierge-options-grid">
+            <!-- Option 1: Live Video Consultation -->
+            <button type="button" class="concierge-option-card" id="conciergeVideoOpt">
+              <div class="concierge-option-icon video-icon">
+                <svg class="icon" width="20" height="20" aria-hidden="true"><use href="#icon-video"></use></svg>
+              </div>
+              <div class="concierge-option-info">
+                <strong>1-on-1 Live Video Call</strong>
+                <span>Inspect necklaces, shine &amp; drape live on camera</span>
+                <span class="concierge-action-tag">Book Free Session &rarr;</span>
+              </div>
+            </button>
+
+            <!-- Option 2: WhatsApp Styling Assistance -->
+            <a href="https://wa.me/919830000000?text=Hi%20Shrivara,%20I%20am%20taking%20your%20Style%20Quiz%20and%20would%20like%20styling%20advice..." target="_blank" rel="noopener" class="concierge-option-card" id="conciergeChatOpt">
+              <div class="concierge-option-icon wa-icon">
+                <svg class="icon" width="20" height="20" aria-hidden="true"><use href="#icon-whatsapp"></use></svg>
+              </div>
+              <div class="concierge-option-info">
+                <strong>WhatsApp Styling Chat</strong>
+                <span>Instant help with lehenga matching &amp; sizing</span>
+                <span class="concierge-action-tag wa-tag">Chat with Stylist &rarr;</span>
+              </div>
+            </a>
+          </div>
+
+          <div class="concierge-hours-footer">
+            <svg class="icon" width="13" height="13" aria-hidden="true"><use href="#icon-clock"></use></svg>
+            <span>Atelier Hours: Mon–Sun, 10 AM – 9 PM IST</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Floating Trigger Button -->
+      <button type="button" class="concierge-trigger-btn" id="conciergeTriggerBtn" aria-expanded="false" aria-controls="conciergePopover" aria-label="Open jewellery styling and video consultation concierge">
+        <span class="concierge-trigger-icon wa-trigger-icon">
+          <svg class="icon" width="22" height="22" aria-hidden="true"><use href="#icon-whatsapp"></use></svg>
+        </span>
+        <span class="concierge-trigger-icon video-trigger-icon">
+          <svg class="icon" width="18" height="18" aria-hidden="true"><use href="#icon-video"></use></svg>
+        </span>
+        <span class="concierge-trigger-label">Styling &amp; Video Call</span>
+        <span class="concierge-trigger-dot" title="Stylist Online"></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- ======================================================================
+       Complimentary 1-on-1 Styling & Video Consultation Modal
+       ====================================================================== -->
+  <div class="consult-modal-backdrop" id="consultationModalBackdrop" role="dialog" aria-modal="true" aria-labelledby="consultModalTitle" aria-hidden="true">
+    <div class="consult-modal-container">
+      <button class="modal-close-btn" id="consultModalCloseBtn" aria-label="Close consultation modal">
+        <svg class="icon" width="18" height="18" aria-hidden="true"><use href="#icon-close"></use></svg>
+      </button>
+
+      <div class="consult-modal-header">
+        <div class="consult-modal-badge">
+          <svg class="icon" width="14" height="14" aria-hidden="true"><use href="#icon-sparkles"></use></svg>
+          <span>Complimentary Private Concierge</span>
+        </div>
+        <h3 class="consult-modal-title" id="consultModalTitle">Book a 1-on-1 Video Consultation</h3>
+        <p class="consult-modal-subtitle">
+          See the authentic shine, movement, and scale live on camera with our master jewellery stylists before choosing your piece.
+        </p>
+      </div>
+
+      <div class="consult-modal-body" id="consultModalBody">
+        <!-- Service Type Selector Tabs -->
+        <div class="consult-type-selector">
+          <label class="consult-type-option is-active" id="consultOptVideoLabel">
+            <input type="radio" name="consultServiceType" value="video" checked>
+            <div class="consult-type-icon">
+              <svg class="icon" width="20" height="20" aria-hidden="true"><use href="#icon-video"></use></svg>
+            </div>
+            <div>
+              <div class="consult-type-name">Live Video Showcase</div>
+              <div class="consult-type-sub">15-min virtual session on WhatsApp Video</div>
+            </div>
+          </label>
+          <label class="consult-type-option" id="consultOptChatLabel">
+            <input type="radio" name="consultServiceType" value="chat">
+            <div class="consult-type-icon" style="color: #25D366;">
+              <svg class="icon" width="20" height="20" aria-hidden="true"><use href="#icon-whatsapp"></use></svg>
+            </div>
+            <div>
+              <div class="consult-type-name">WhatsApp Styling Chat</div>
+              <div class="consult-type-sub">Immediate sizing &amp; lehenga coordination</div>
+            </div>
+          </label>
+        </div>
+
+        <form id="consultationBookingForm" novalidate>
+          <div class="consult-form-grid">
+            <div class="consult-form-group">
+              <label for="consultName" class="consult-label">Your Name <span class="required">*</span></label>
+              <input type="text" id="consultName" class="consult-input" placeholder="e.g. Radhika Sharma" required>
+            </div>
+
+            <div class="consult-form-group">
+              <label for="consultPhone" class="consult-label">WhatsApp Number <span class="required">*</span></label>
+              <input type="tel" id="consultPhone" class="consult-input" placeholder="+91 98765 43210" required>
+            </div>
+
+            <!-- Fields for Video Consultation -->
+            <div class="consult-form-group consult-video-slot" id="consultDateField">
+              <label for="consultDate" class="consult-label">Preferred Date <span class="required">*</span></label>
+              <input type="date" id="consultDate" class="consult-input" required>
+            </div>
+
+            <div class="consult-form-group consult-video-slot" id="consultSlotField">
+              <label for="consultTimeSlot" class="consult-label">Preferred Time Slot <span class="required">*</span></label>
+              <select id="consultTimeSlot" class="consult-select">
+                <option value="11:00 AM - 01:00 PM (Morning Edit)">11:00 AM – 01:00 PM (Morning Edit)</option>
+                <option value="02:00 PM - 05:00 PM (Afternoon Matinee)" selected>02:00 PM – 05:00 PM (Afternoon Matinee)</option>
+                <option value="06:00 PM - 08:30 PM (Evening Atelier)">06:00 PM – 08:30 PM (Evening Atelier)</option>
+              </select>
+            </div>
+
+            <!-- Categories of Interest -->
+            <div class="consult-form-group full-width">
+              <label class="consult-label">Jewellery of Interest</label>
+              <div class="consult-chips-wrap" id="consultChipsWrap">
+                <label class="consult-chip is-checked">
+                  <input type="checkbox" name="consultCategoryInterest" value="Bridal & Polki Sets" checked>
+                  <span>Bridal &amp; Polki Sets</span>
+                </label>
+                <label class="consult-chip is-checked">
+                  <input type="checkbox" name="consultCategoryInterest" value="Kundan Necklaces" checked>
+                  <span>Kundan Necklaces</span>
+                </label>
+                <label class="consult-chip">
+                  <input type="checkbox" name="consultCategoryInterest" value="Jhumkas & Earrings">
+                  <span>Jhumkas &amp; Earrings</span>
+                </label>
+                <label class="consult-chip">
+                  <input type="checkbox" name="consultCategoryInterest" value="Bangles & Kada">
+                  <span>Bangles &amp; Kada</span>
+                </label>
+                <label class="consult-chip">
+                  <input type="checkbox" name="consultCategoryInterest" value="Anti-Tarnish Daily Wear">
+                  <span>Anti-Tarnish Daily Wear</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Pre-populated Product Note -->
+            <div class="consult-form-group full-width">
+              <label for="consultPieceNote" class="consult-label">Specific Piece or Styling Notes (Optional)</label>
+              <input type="text" id="consultPieceNote" class="consult-input" placeholder="e.g. My Style Quiz suite recommendations">
+            </div>
+          </div>
+
+          <div class="consult-badges-strip">
+            <span>✓ 100% Free Consultation</span>
+            <span>✓ No Purchase Obligation</span>
+            <span>✓ Direct from Atelier</span>
+          </div>
+
+          <button type="submit" class="btn-primary consult-submit-btn" id="consultSubmitBtn">
+            <svg class="icon" width="18" height="18" aria-hidden="true"><use href="#icon-whatsapp"></use></svg>
+            <span id="consultSubmitBtnText">Confirm Appointment on WhatsApp &rarr;</span>
+          </button>
+        </form>
+      </div>
+
+      <!-- Success Confirmation State (Hidden initially) -->
+      <div class="consult-success-state" id="consultSuccessState" style="display: none;">
+        <div class="consult-success-icon">
+          <svg class="icon" width="32" height="32" aria-hidden="true"><use href="#icon-check"></use></svg>
+        </div>
+        <h4 class="consult-success-title" id="consultSuccessTitle">Appointment Request Prepared!</h4>
+        <p class="consult-success-desc" id="consultSuccessDesc">
+          We have generated your personalized consultation booking message for our styling desk on WhatsApp. Click below if your chat window did not open automatically.
+        </p>
+        <div class="consult-success-actions">
+          <a href="#" id="consultDirectWaBtn" target="_blank" rel="noopener" class="btn-primary" style="background: #25D366; border-color: #25D366; color: #FFFFFF;">
+            <svg class="icon" width="18" height="18" aria-hidden="true"><use href="#icon-whatsapp"></use></svg>
+            <span>Open WhatsApp Chat Now</span>
+          </a>
+          <button type="button" class="btn-secondary" id="consultDismissBtn">Close</button>
+        </div>
+      </div>
     </div>
   </div>
 

@@ -16,7 +16,9 @@ import {
   toggleWishlist,
   addToCart,
   openQuickView,
-  showToast
+  showToast,
+  openConsultationModal,
+  closeConsultationModal
 } from "./main.js";
 
 // --------------------------------------------------------------------------
@@ -728,4 +730,22 @@ function renderResultsScreen() {
     quizState.step = 0;
     renderCurrentStep();
   });
+
+  // Video Consultation & WhatsApp Concierge
+  const bookVideoBtn = document.getElementById("quizBookVideoBtn");
+  const shareWaBtn = document.getElementById("quizShareWaBtn");
+
+  bookVideoBtn?.addEventListener("click", () => {
+    openConsultationModal({
+      mode: "video",
+      pieceTitle: `Curated Suite: ${rec.personaTitle}`,
+      category: ans.categories[0] || "Bridal & Polki Sets"
+    });
+  });
+
+  if (shareWaBtn) {
+    const topRecs = (rec.perfectForYou || []).slice(0, 3).map((p, i) => `${i + 1}. ${p.title} (${formatPrice(p.price)})`).join("\n");
+    const waText = `✨ *Namaste Shrivara Atelier!*\n\nI just took your *Find Your Style Discovery Quiz* and my jewellery style persona is:\n👑 *${rec.personaTitle}*\n\n• *Occasion:* ${ans.occasion || 'Everyday Elegance'}\n• *Style Aesthetic:* ${ans.styles.join(', ') || 'Timeless'}\n• *Categories:* ${ans.categories.join(', ') || 'All'}\n• *Metal Tone:* ${ans.metal || 'Any'}\n• *Budget:* ₹${ans.budgetMin.toLocaleString('en-IN')} – ₹${ans.budgetMax.toLocaleString('en-IN')}\n\n*Top Curated Recommendations:*\n${topRecs || 'Curated Suites'}\n\nCould I please get styling advice on matching these pieces with my celebration outfit? Thank you!`;
+    shareWaBtn.href = `https://wa.me/${CONFIG.whatsappNumber}?text=${encodeURIComponent(waText)}`;
+  }
 }
