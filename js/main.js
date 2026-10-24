@@ -1184,7 +1184,7 @@ export function createProductCardHTML(p) {
   `;
 }
 
-function attachCardEvents(container) {
+export function attachCardEvents(container) {
   // Wishlist toggle
   container.querySelectorAll("[data-wishlist-id]").forEach(btn => {
     btn.addEventListener("click", e => {

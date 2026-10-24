@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Find Your Style | Personalised Jewellery Discovery Quiz — Shrivara</title>
+
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="Find Your Style | Personalised Jewellery Discovery Quiz — Shrivara">
+  <meta name="description" content="Discover your signature jewellery aesthetic with Shrivara's bespoke Find Your Style quiz. Answer 5 simple questions to reveal tailored royal Indian handcrafted jewellery collections.">
+  <link rel="canonical" href="https://aryantiwari002.github.io/Shrivara/find-your-style.html">
+  <link rel="icon" type="image/png" href="https://shrivara.co/cdn/shop/files/Shrivara_logo_page-0001.jpg?crop=center&height=32&v=1791877013&width=32">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://aryantiwari002.github.io/Shrivara/find-your-style.html">
+  <meta property="og:title" content="Find Your Style | Bespoke Jewellery Discovery Quiz — Shrivara">
+  <meta property="og:description" content="A little about you. A lot about what you'll love. Discover jewellery tailored to your occasion, aesthetic, and budget.">
+  <meta property="og:image" content="https://shrivara.co/cdn/shop/files/WhatsApp_Image_2026-07-26_at_17.57.31.jpg?v=1785068879&width=1200">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400..700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/quiz.css">
+</head>
+<body>
+
+  <!-- ======================================================================
+       SVG Icon Sprite (Standard 24x24 ViewBox Symbols)
+       ====================================================================== -->
+  <svg style="display: none;" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <!-- Shopping Bag -->
+      <symbol id="icon-bag" viewBox="0 0 24 24">
+        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <line x1="3" y1="6" x2="21" y2="6" stroke="currentColor" stroke-width="2"/>
+        <path d="M16 10a4 4 0 0 1-8 0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+
+      <!-- Heart Outline -->
+      <symbol id="icon-heart" viewBox="0 0 24 24">
+        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+
+      <!-- Heart Filled -->
+      <symbol id="icon-heart-fill" viewBox="0 0 24 24">
+        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="currentColor"/>
+      </symbol>
+
+      <!-- Search Magnifier -->
+      <symbol id="icon-search" viewBox="0 0 24 24">
+        <circle cx="11" cy="11" r="8" fill="none" stroke="currentColor" stroke-width="2"/>
+        <line x1="21" y1="21" x2="16.65" y2="16.65" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </symbol>
+
+      <!-- Sun (Light Mode) -->
+      <symbol id="icon-sun" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="5" fill="none" stroke="currentColor" stroke-width="2"/>
+        <line x1="12" y1="1" x2="12" y2="3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <line x1="12" y1="21" x2="12" y2="23" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <line x1="1" y1="12" x2="3" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <line x1="21" y1="12" x2="23" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </symbol>
+
+      <!-- Moon (Dark Mode) -->
+      <symbol id="icon-moon" viewBox="0 0 24 24">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+
+      <!-- Hamburger Menu -->
+      <symbol id="icon-menu" viewBox="0 0 24 24">
+        <line x1="3" y1="6" x2="21" y2="6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <line x1="3" y1="12" x2="21" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <line x1="3" y1="18" x2="21" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </symbol>
+
+      <!-- Close / Cross -->
+      <symbol id="icon-close" viewBox="0 0 24 24">
+        <line x1="18" y1="6" x2="6" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <line x1="6" y1="6" x2="18" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </symbol>
+
+      <!-- Chevrons -->
+      <symbol id="icon-chevron-left" viewBox="0 0 24 24">
+        <polyline points="15 18 9 12 15 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+
+      <symbol id="icon-chevron-right" viewBox="0 0 24 24">
+        <polyline points="9 18 15 12 9 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+
+      <symbol id="icon-chevron-down" viewBox="0 0 24 24">
+        <polyline points="6 9 12 15 18 9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+
+      <!-- 16-point Rosette Star (Official Brand Motif) -->
+      <symbol id="icon-rosette-star" viewBox="0 0 32 32">
+        <path d="M 16 0.69 L 18.97 4.91 L 23.65 2.74 L 24.12 7.88 L 29.26 8.34 L 27.09 13.03 L 31.31 16 L 27.09 18.97 L 29.26 23.65 L 24.12 24.12 L 23.65 29.26 L 18.97 27.09 L 16 31.31 L 13.03 27.09 L 8.35 29.26 L 7.88 24.12 L 2.74 23.65 L 4.91 18.97 L 0.69 16 L 4.91 13.03 L 2.74 8.34 L 7.88 7.88 L 8.35 2.74 L 13.03 4.91 Z" fill="currentColor"/>
+      </symbol>
+
+      <!-- Check Mark -->
+      <symbol id="icon-check" viewBox="0 0 24 24">
+        <polyline points="20 6 9 17 4 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+
+      <!-- Arrow Up -->
+      <symbol id="icon-arrow-up" viewBox="0 0 24 24">
+        <line x1="12" y1="19" x2="12" y2="5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <polyline points="5 12 12 5 19 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </symbol>
+
+      <!-- WhatsApp -->
+      <symbol id="icon-whatsapp" viewBox="0 0 24 24">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.884 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" fill="currentColor"/>
+      </symbol>
+    </defs>
+  </svg>
+
+  <!-- ======================================================================
+       1. Promo Announcement Bar
+       ====================================================================== -->
+  <aside class="promo-bar" id="promoBar" aria-label="Store Announcements">
+    <div class="promo-track" id="promoTrack">
+      <div class="promo-message">
+        <span>Curated Discovery Experience</span>
+        <span class="promo-highlight">• Find Your Perfect Jewellery Suite</span>
+      </div>
+      <div class="promo-message">
+        <span>Free Insured Express Shipping Across India</span>
+        <span class="promo-highlight">• On Orders Above ₹1,999</span>
+      </div>
+      <div class="promo-message">
+        <span>100% Anti-Tarnish Micro-Plating</span>
+        <span class="promo-highlight">• Handcrafted in Bengal</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ======================================================================
+       2. Site Header & Brand Navigation
+       ====================================================================== -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <div class="header-left">
+        <a href="index.html" class="icon-btn" aria-label="Return to homepage" title="Home">
+          <svg class="icon" width="20" height="20" aria-hidden="true"><use href="#icon-chevron-left"></use></svg>
+        </a>
+      </div>
+
+      <!-- Center: Brand Logo -->
+      <div class="brand-logo-wrap">
+        <a href="index.html" class="brand-logo-lockup" aria-label="Shrivara - Quiet Luxury Homepage">
+          <span class="brand-wordmark">Shrivara</span>
+          <span class="brand-submark">
+            <svg class="brand-substar" viewBox="0 0 32 32" aria-hidden="true"><use href="#icon-rosette-star"></use></svg>
+            <span class="brand-subtext">QUIET LUXURY</span>
+            <svg class="brand-substar" viewBox="0 0 32 32" aria-hidden="true"><use href="#icon-rosette-star"></use></svg>
+          </span>
+        </a>
+      </div>
+
+      <!-- Right: Mode Toggle, Wishlist & Cart -->
+      <div class="header-right">
+        <!-- Theme Toggle -->
+        <button class="icon-btn" id="themeToggleBtn" aria-label="Toggle dark mode" title="Dark / Light Mode">
+          <svg class="icon" id="iconThemeMoon" width="19" height="19" aria-hidden="true"><use href="#icon-moon"></use></svg>
+          <svg class="icon" id="iconThemeSun" width="19" height="19" aria-hidden="true" style="display: none;"><use href="#icon-sun"></use></svg>
+        </button>
+
+        <!-- Wishlist -->
+        <a href="index.html#catalog" class="icon-btn" id="wishlistHeaderBtn" aria-label="View saved wishlist items" title="Wishlist">
+          <svg class="icon" width="20" height="20" aria-hidden="true"><use href="#icon-heart"></use></svg>
+          <span class="badge-count" id="wishlistCountBadge">0</span>
+        </a>
+
+        <!-- Cart -->
+        <button class="icon-btn" id="cartDrawerOpenBtn" aria-label="Open shopping bag" title="Shopping Bag">
+          <svg class="icon" width="20" height="20" aria-hidden="true"><use href="#icon-bag"></use></svg>
+          <span class="badge-count" id="cartCountBadge">0</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Desktop Navigation Bar -->
+    <nav class="desktop-nav" aria-label="Primary Navigation">
+      <ul class="nav-list">
+        <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+        <li class="nav-item"><a href="index.html#new-arrivals" class="nav-link">New Arrivals</a></li>
+        <li class="nav-item"><a href="index.html#bestsellers" class="nav-link">Bestsellers</a></li>
+        <li class="nav-item"><a href="index.html#collections" class="nav-link">Signature Collections</a></li>
+        <li class="nav-item"><a href="index.html#occasions" class="nav-link">Shop by Occasion</a></li>
+        <li class="nav-item"><a href="index.html#catalog" class="nav-link">All Pieces</a></li>
+        <li class="nav-item"><a href="find-your-style.html" class="nav-link active" style="color: var(--gold); font-weight: 700;">Find Your Style ✨</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ======================================================================
+       3. Quiz Application Root Container
+       ====================================================================== -->
+  <main class="quiz-page-wrap" id="quizApp">
+    <div class="quiz-container">
+
+      <!-- Stepper / Progress Bar (Visible on Questions 1 to 5) -->
+      <div class="quiz-stepper-bar" id="quizStepperBar" style="display: none;">
+        <div class="quiz-stepper-left">
+          <button type="button" class="quiz-back-btn" id="quizBackBtn" aria-label="Go back to previous question">
+            <svg class="icon" width="14" height="14" aria-hidden="true"><use href="#icon-chevron-left"></use></svg>
+            <span>Back</span>
+          </button>
+          <span class="quiz-step-indicator" id="quizStepIndicator">Question 1 of 5</span>
+        </div>
+
+        <div class="quiz-progress-track">
+          <div class="quiz-progress-fill" id="quizProgressFill" style="width: 20%;"></div>
+        </div>
+
+        <div class="quiz-stepper-right">
+          <span id="quizStepCategory">Occasion</span>
+        </div>
+      </div>
+
+      <!-- ==================================================================
+           STEP 0: Welcome Screen
+           ================================================================== -->
+      <div class="quiz-step-pane is-active" data-step="0" id="quizStep0">
+        <div class="quiz-card-frame">
+          <div class="quiz-welcome-wrap">
+            <div class="quiz-welcome-emblem">
+              <svg class="icon" width="32" height="32" aria-hidden="true"><use href="#icon-rosette-star"></use></svg>
+            </div>
+            <span class="quiz-welcome-eyebrow">Personalised Curation</span>
+            <h1 class="quiz-welcome-title">Find Your Style</h1>
+            <p class="quiz-welcome-subtitle">A little about you. A lot about what you'll love.</p>
+            <p class="quiz-welcome-text">
+              Answer a few simple questions, and we'll curate jewellery that feels uniquely you. Discover bespoke royal suites, contemporary silhouettes, and timeless anti-tarnish masterpieces.
+            </p>
+            <div>
+              <button type="button" class="quiz-welcome-cta-btn" id="quizStartBtn">
+                <span>DISCOVER MY STYLE</span>
+                <span aria-hidden="true">&rarr;</span>
+              </button>
+            </div>
+            <div class="quiz-welcome-supporting">
+              6 questions · Personalised recommendations
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ==================================================================
+           STEP 1: Question 1 — Occasion (Single Select)
+           ================================================================== -->
+      <div class="quiz-step-pane" data-step="1" id="quizStep1">
+        <div class="quiz-card-frame">
+          <div class="quiz-question-header">
+            <span class="quiz-question-num">Step 1 of 5</span>
+            <h2 class="quiz-question-title">What is the occasion?</h2>
+            <p class="quiz-question-subtitle">Select the primary setting where you envision wearing your new pieces.</p>
+          </div>
+
+          <div class="quiz-options-grid quiz-grid-3x2">
+            <!-- Option 1 -->
+            <div class="quiz-option-card" data-question="occasion" data-value="Everyday Elegance" tabindex="0" role="radio" aria-checked="false">
+              <div class="quiz-card-check">
+                <svg class="icon" width="14" height="14" aria-hidden="true"><use href="#icon-check"></use></svg>
+              </div>
+              <div class="quiz-card-img-wrap">
+                <img src="https://shrivara.co/cdn/shop/collections/ChatGPT_Image_Aug_18_2026_11_50_43_PM.png?v=1787077388&width=600" alt="Everyday Elegance Jewellery" loading="lazy">
+              </div>
+              <div class="quiz-card-info">
+                <h3 class="quiz-card-title">Everyday Elegance</h3>
+                <p class="quiz-card-desc">Effortless daily charm, lightweight rings & versatile anti-tarnish studs.</p>
+              </div>
+            </div>
+
+            <!-- Option 2 -->
+            <div class="quiz-option-card" data-question="occasion" data-value="Office & Work" tabindex="0" role="radio" aria-checked="false">
+              <div class="quiz-card-check">
+                <svg class="icon" width="14" height="14" aria-hidden="true"><use href="#icon-check"></use></svg>
+              </div>
+              <div class="quiz-card-img-wrap">
+                <img src="https://cdn.shopify.com/s/files/1/0725/1728/8098/files/gold-pearl-drop-earings-women.jpg?v=1791893580" alt="Office & Work Jewellery" loading="lazy">
+              </div>
+              <div class="quiz-card-info">
+                <h3 class="quiz-card-title">Office & Work</h3>
+                <p class="quiz-card-desc">Polished professional grace, clean geometric silhouettes & pearl drops.</p>
+              </div>
+            </div>
+
+            <!-- Option 3 -->
+            <div class="quiz-option-card" data-question="occasion" data-value="Date Night" tabindex="0" role="radio" aria-checked="false">
+              <div class="quiz-card-check">
+                <svg class="icon" width="14" height="14" aria-hidden="true"><use href="#icon-check"></use></svg>
+              </div>
+              <div class="quiz-card-img-wrap">
+                <img src="https://shrivara.co/cdn/shop/collections/WhatsApp_Image_2026-07-26_at_18.14.32.jpg?v=1785069982&width=600" alt="Date Night Jewellery" loading="lazy">
+              </div>
+              <div class="quiz-card-info">
+                <h3 class="quiz-card-title">Date Night</h3>
+                <p class="quiz-card-desc">Intimate candlelight sparkle, romantic pendants & sparkling accents.</p>
+              </div>
+            </div>
+
+            <!-- Option 4 -->
+            <div class="quiz-option-card" data-question="occasion" data-value="Wedding & Festivities" tabindex="0" role="radio" aria-checked="false">
+              <div class="quiz-card-check">
+                <svg class="icon" width="14" height="14" aria-hidden="true"><use href="#icon-check"></use></svg>
+              </div>
+              <div class="quiz-card-img-wrap">
+                <img src="https://cdn.shopify.com/s/files/1/0725/1728/8098/files/WhatsAppImage2026-10-02at18.44.10_1.jpg?v=1791103456" alt="Wedding & Festivities Jewellery" loading="lazy">
+              </div>
+              <div class="quiz-card-info">
+                <h3 class="quiz-card-title">Wedding & Festivities</h3>
+                <p class="quiz-card-desc">Grand royal karigari, uncut polki suites, kundan chokers & bridal sets.</p>
+              </div>
+            </div>
+
+            <!-- Option 5 -->
+            <div class="quiz-option-card" data-question="occasion" data-value="Party & Celebrations" tabindex="0" role="radio" aria-checked="false">
+              <div class="quiz-card-check">
+                <svg class="icon" width="14" height="14" aria-hidden="true"><use href="#icon-check"></use></svg>
+              </div>
+              <div class="quiz-card-img-wrap">
+                <img src="https://cdn.shopify.com/s/files/1/0725/1728/8098/files/WhatsApp_Image_2026-09-10_at_15.48.18.jpg?v=1789539990&width=600" alt="Party & Celebrations Jewellery" loading="lazy">
+              </div>
+              <div class="quiz-card-info">
+                <h3 class="quiz-card-title">Party & Celebrations</h3>
+                <p class="quiz-card-desc">Dramatic head-turners, American Diamond brilliance & statement pieces.</p>
+              </div>
+            </div>
+
+            <!-- Option 6 -->
+            <div class="quiz-option-card" data-question="occasion" data-value="Gifting Someone Special" tabindex="0" role="radio" aria-checked="false">
+              <div class="quiz-card-check">
+                <svg class="icon" width="14" height="14" aria-hidden="true"><use href="#icon-check"></use></svg>
+              </div>
+              <div class="quiz-card-img-wrap">
+                <img src="https://shrivara.co/cdn/shop/collections/Gemini_Generated_Image_3gqx753gqx753gqx.png?v=1789385692&width=600" alt="Gifting Someone Special" loading="lazy">
+              </div>
+              <div class="quiz-card-info">
+                <h3 class="quiz-card-title">Gifting Someone Special</h3>
+                <p class="quiz-card-desc">Meaningful keepsakes, anti-tarnish jewellery gifts & heirloom sets.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="quiz-controls-bar">
+            <span class="quiz-controls-hint" id="quizHintStep1">Select 1 occasion to continue</span>
+            <button type="button" class="quiz-continue-btn" id="quizContinueBtnStep1" disabled>
+              <span>Continue</span>
+              <span aria-hidden="true">&rarr;</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ==================================================================
+           STEP 2: Question 2 — Personal Style (Up to 2 Selections)
+           ================================================================== -->
+      <div class="quiz-step-pane" data-step="2" id="quizStep2">
+        <div class="quiz-card-frame">
+          <div class="quiz-question-header">
+            <span class="quiz-question-num">Step 2 of 5</span>
+            <h2 class="quiz-question-title">What is your personal style?</h2>
+            <p class="quiz-question-subtitle">Select up to 2 aesthetics that best define your unique jewellery signature.</p>
+          </div>
+
+          <div class="quiz-options-grid quiz-grid-3x2">
+            <!-- Style 1 -->
+            <div class="quiz-option-card" data-question="style" data-value="Minimal & Timeless" tabindex="0" role="checkbox" aria-checked="false">
+              <div class="quiz-card-check">
+                <svg class="icon" width="14" height="14" aria-hidden="true"><use href="#icon-check"></use></svg>
+              </div>
+              <div class="quiz-card-img-wrap">
+                <img src="https://cdn.shopify.com/s/files/1/0725/1728/8098/files/WhatsAppImage2026-10-11at13.44.11.jpg?v=1791706599" alt="Minimal & Timeless Jewellery" loading="lazy">
+              </div>
+              <div class="quiz-card-info">
+                <h3 class="quiz-card-title">Minimal & Timeless</h3>
+                <p class="quiz-card-desc">Clean lines, understated solitaires & quiet luxury essentials.</p>
+              </div>
+            </div>
+
+            <!-- Style 2 -->
+            <div class="quiz-option-card" data-question="style" data-value="Classic & Elegant" tabindex="0" role="checkbox" aria-checked="false">
+              <div class="quiz-card-check">
+                <svg class="icon" width="14" height="14" aria-hidden="true"><use href="#icon-check"></use></svg>
+              </div>
+              <div class="quiz-card-img-wrap">
+                <img src="https://shrivara.co/cdn/shop/collections/WhatsApp_Image_2026-07-26_at_18.41.22.jpg?v=1785071683&width=600" alt="Classic & Elegant Jewellery" loading="lazy">
+              </div>
+              <div class="quiz-card-info">
+                <h3 class="quiz-card-title">Classic & Elegant</h3>
+                <p class="quiz-card-desc">Graceful pearls, emerald green stones & vintage royal poise.</p>
+              </div>
+            </div>
+
+            <!-- Style 3 -->
+            <div class="quiz-option-card" data-question="style" data-value="Traditional & Ethnic" tabindex="0" role="checkbox" aria-checked="false">
+              <div class="quiz-card-check">
+                <svg class="icon" width="14" height="14" aria-hidden="true"><use href="#icon-check"></use></svg>
+              </div>
+              <div class="quiz-card-img-wrap">
+                <img src="https://shrivara.co/cdn/shop/collections/WhatsApp_Image_2026-07-26_at_20.51.35.jpg?v=1785079938&width=600" alt="Traditional & Ethnic Jewellery" loading="lazy">
+              </div>
+              <div class="quiz-card-info">
+                <h3 class="quiz-card-title">Traditional & Ethnic</h3>
+                <p class="quiz-card-desc">Intricate uncut polki, temple gold, meenakari & bridal karigari.</p>
+              </div>
+            </div>
+
+            <!-- Style 4 -->
+            <div class="quiz-option-card" data-question="style" data-value="Modern & Bold" tabindex="0" role="checkbox" aria-checked="false">
+              <div class="quiz-card-check">
+                <svg class="icon" width="14" height="14" aria-hidden="true"><use href="#icon-check"></use></svg>
+              </div>
+              <div class="quiz-card-img-wrap">
+                <img src="https://shrivara.co/cdn/shop/collections/WhatsApp_Image_2026-07-26_at_19.05.32.jpg?v=1785073014&width=600" alt="Modern & Bold Jewellery" loading="lazy">
+              </div>
+              <div class="quiz-card-info">
+                <h3 class="quiz-card-title">Modern & Bold</h3>
+                <p class="quiz-card-desc">Sculptural cuffs, chunky chains, architectural chokers & sharp glamour.</p>
+              </div>
+            </div>
+
+            <!-- Style 5 -->
+            <div class="quiz-option-card" data-question="style" data-value="Romantic & Delicate" tabindex="0" role="checkbox" aria-checked="false">
+              <div class="quiz-card-check">
+                <svg class="icon" width="14" height="14" aria-hidden="true"><use href="#icon-check"></use></svg>
+              </div>
+              <div class="quiz-card-img-wrap">
+                <img src="https://shrivara.co/cdn/shop/collections/WhatsApp_Image_2026-07-26_at_18.14.32.jpg?v=1785069982&width=600" alt="Romantic & Delicate Jewellery" loading="lazy">
+              </div>
+              <div class="quiz-card-info">
+                <h3 class="quiz-card-title">Romantic & Delicate</h3>
+                <p class="quiz-card-desc">Whimsical florals, delicate ribbons, crystal bows & blush tones.</p>
+              </div>
+            </div>
+
+            <!-- Style 6 -->
+            <div class="quiz-option-card" data-question="style" data-value="Trendy & Experimental" tabindex="0" role="checkbox" aria-checked="false">
+              <div class="quiz-card-check">
+                <svg class="icon" width="14" height="14" aria-hidden="true"><use href="#icon-check"></use></svg>
+              </div>
+              <div class="quiz-card-img-wrap">
+                <img src="https://cdn.shopify.com/s/files/1/0725/1728/8098/files/WhatsApp_Image_2026-09-10_at_15.48.18.jpg?v=1789539990&width=600" alt="Trendy & Experimental Jewellery" loading="lazy">
+              </div>
+              <div class="quiz-card-info">
+                <h3 class="quiz-card-title">Trendy & Experimental</h3>
+                <p class="quiz-card-desc">Cabochon multi-stones, coin motifs, raw gems & eclectic fusion.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="quiz-controls-bar">
+            <span class="quiz-controls-hint" id="quizHintStep2">Select up to 2 personal styles</span>
+            <button type="button" class="quiz-continue-btn" id="quizContinueBtnStep2" disabled>
+              <span>Continue</span>
+              <span aria-hidden="true">&rarr;</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ==================================================================
+           STEP 3: Question 3 — Jewellery Categories (Multi-select)
+           ================================================================== -->
+      <div class="quiz-step-pane" data-step="3" id="quizStep3">
+        <div class="quiz-card-frame">
+          <div class="quiz-question-header">
+            <span class="quiz-question-num">Step 3 of 5</span>
+            <h2 class="quiz-question-title">Which categories excite you?</h2>
+            <p class="quiz-question-subtitle">Select all the jewellery types you would love in your curation.</p>
+          </div>
+
+          <div class="quiz-options-grid quiz-grid-3x2-sm">
+            <!-- Category 1 -->
+            <div class="quiz-option-card" data-question="category" data-value="Earrings" tabindex="0" role="checkbox" aria-checked="false">
+              <div class="quiz-card-check">
+                <svg class="icon" width="14" height="14" aria-hidden="true"><use href="#icon-check"></use></svg>
+              </div>
+              <div class="quiz-card-img-wrap">
+                <img src="https://shrivara.co/cdn/shop/collections/WhatsApp_Image_2026-07-26_at_18.41.22.jpg?v=1785071683&width=600" alt="Earrings" loading="lazy">
+              </div>
+              <div class="quiz-card-info">
+                <h3 class="quiz-card-title">Earrings</h3>
+                <p class="quiz-card-desc">Tops, chandeliers, drops, jhumkas & solitaire studs.</p>
+              </div>
+            </div>
+
+            <!-- Category 2 -->
+            <div class="quiz-option-card" data-question="category" data-value="Necklaces" tabindex="0" role="checkbox" aria-checked="false">
+              <div class="quiz-card-check">
+                <svg class="icon" width="14" height="14" aria-hidden="true"><use href="#icon-check"></use></svg>
+              </div>
+              <div class="quiz-card-img-wrap">
+                <img src="https://cdn.shopify.com/s/files/1/0725/1728/8098/files/WhatsApp_Image_2026-09-10_at_15.48.18.jpg?v=1789539990&width=600" alt="Necklaces" loading="lazy">
+              </div>
+              <div class="quiz-card-info">
+                <h3 class="quiz-card-title">Necklaces</h3>
+                <p class="quiz-card-desc">Layered chains, statement collars, chokers & polki haars.</p>
+              </div>
+            </div>
+
+            <!-- Category 3 -->
+            <div class="quiz-option-card" data-question="category" data-value="Jewellery Sets" tabindex="0" role="checkbox" aria-checked="false">
+              <div class="quiz-card-check">
+                <svg class="icon" width="14" height="14" aria-hidden="true"><use href="#icon-check"></use></svg>
+              </div>
+              <div class="quiz-card-img-wrap">
+                <img src="https://shrivara.co/cdn/shop/collections/WhatsApp_Image_2026-07-26_at_20.51.35.jpg?v=1785079938&width=600" alt="Jewellery Sets" loading="lazy">
+              </div>
+              <div class="quiz-card-info">
+                <h3 class="quiz-card-title">Jewellery Sets</h3>
+                <p class="quiz-card-desc">Coordinated necklace, earring, and maang tikka suites.</p>
+              </div>
+            </div>
+
+            <!-- Category 4 -->
+            <div class="quiz-option-card" data-question="category" data-value="Bracelets & Bangles" tabindex="0" role="checkbox" aria-checked="false">
+              <div class="quiz-card-check">
+                <svg class="icon" width="14" height="14" aria-hidden="true"><use href="#icon-check"></use></svg>
+              </div>
+              <div class="quiz-card-img-wrap">
+                <img src="https://shrivara.co/cdn/shop/collections/WhatsApp_Image_2026-07-26_at_19.05.32.jpg?v=1785073014&width=600" alt="Bracelets & Bangles" loading="lazy">
+              </div>
+              <div class="quiz-card-info">
+                <h3 class="quiz-card-title">Bracelets & Bangles</h3>
+                <p class="quiz-card-desc">Openable kadas, tennis bracelets, cuffs & stacked bangles.</p>
+              </div>
+            </div>
+
+            <!-- Category 5 -->
+            <div class="quiz-option-card" data-question="category" data-value="Pendant Sets" tabindex="0" role="checkbox" aria-checked="false">
+              <div class="quiz-card-check">
+                <svg class="icon" width="14" height="14" aria-hidden="true"><use href="#icon-check"></use></svg>
+              </div>
+              <div class="quiz-card-img-wrap">
+                <img src="https://shrivara.co/cdn/shop/collections/WhatsApp_Image_2026-07-26_at_18.14.32.jpg?v=1785069982&width=600" alt="Pendant Sets" loading="lazy">
+              </div>
+              <div class="quiz-card-info">
+                <h3 class="quiz-card-title">Pendant Sets</h3>
+                <p class="quiz-card-desc">Delicate solitaire and drop pendants paired with matching studs.</p>
+              </div>
+            </div>
+
+            <!-- Category 6 -->
+            <div class="quiz-option-card" data-question="category" data-value="Rings" tabindex="0" role="checkbox" aria-checked="false">
+              <div class="quiz-card-check">
+                <svg class="icon" width="14" height="14" aria-hidden="true"><use href="#icon-check"></use></svg>
+              </div>
+              <div class="quiz-card-img-wrap">
+                <img src="https://shrivara.co/cdn/shop/collections/ChatGPT_Image_Aug_18_2026_11_50_43_PM.png?v=1787077388&width=600" alt="Rings" loading="lazy">
+              </div>
+              <div class="quiz-card-info">
+                <h3 class="quiz-card-title">Rings</h3>
+                <p class="quiz-card-desc">Cocktail statement rings, solitaires & adjustable polki bands.</p>
+              </div>
+            </div>
+
+            <!-- Category 7: Surprise Me -->
+            <div class="quiz-option-card" data-question="category" data-value="Surprise Me" tabindex="0" role="checkbox" aria-checked="false" style="grid-column: 1 / -1; background: var(--surface-alt);">
+              <div class="quiz-card-check">
+                <svg class="icon" width="14" height="14" aria-hidden="true"><use href="#icon-check"></use></svg>
+              </div>
+              <div style="display: flex; align-items: center; gap: 16px;">
+                <div style="width: 44px; height: 44px; border-radius: 50%; background: var(--gold); display: flex; align-items: center; justify-content: center; color: #FFF; font-size: 1.2rem;">
+                  ✨
+                </div>
+                <div class="quiz-card-info">
+                  <h3 class="quiz-card-title">Surprise Me</h3>
+                  <p class="quiz-card-desc">Open to everything! Curate a versatile cross-category jewellery suite for me.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="quiz-controls-bar">
+            <span class="quiz-controls-hint" id="quizHintStep3">Select one or more categories</span>
+            <button type="button" class="quiz-continue-btn" id="quizContinueBtnStep3" disabled>
+              <span>Continue</span>
+              <span aria-hidden="true">&rarr;</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ==================================================================
+           STEP 4: Question 4 — Metal Colour (Single Select)
+           ================================================================== -->
+      <div class="quiz-step-pane" data-step="4" id="quizStep4">
+        <div class="quiz-card-frame">
+          <div class="quiz-question-header">
+            <span class="quiz-question-num">Step 4 of 5</span>
+            <h2 class="quiz-question-title">Choose your preferred metal tone</h2>
+            <p class="quiz-question-subtitle">Select the metallic finish that compliments your skin and personal style.</p>
+          </div>
+
+          <div class="quiz-options-grid quiz-metal-grid">
+            <!-- Metal 1: Gold -->
+            <div class="quiz-option-card quiz-metal-card" data-question="metal" data-value="Gold" tabindex="0" role="radio" aria-checked="false">
+              <div class="quiz-card-check">
+                <svg class="icon" width="14" height="14" aria-hidden="true"><use href="#icon-check"></use></svg>
+              </div>
+              <div class="quiz-metal-swatch swatch-gold"></div>
+              <div class="quiz-card-info">
+                <h3 class="quiz-card-title">Gold</h3>
+                <p class="quiz-card-desc">Warm 22k/18k yellow gold finish</p>
+              </div>
+            </div>
+
+            <!-- Metal 2: Silver -->
+            <div class="quiz-option-card quiz-metal-card" data-question="metal" data-value="Silver" tabindex="0" role="radio" aria-checked="false">
+              <div class="quiz-card-check">
+                <svg class="icon" width="14" height="14" aria-hidden="true"><use href="#icon-check"></use></svg>
+              </div>
+              <div class="quiz-metal-swatch swatch-silver"></div>
+              <div class="quiz-card-info">
+                <h3 class="quiz-card-title">Silver</h3>
+                <p class="quiz-card-desc">Luminous rhodium & sterling sheen</p>
+              </div>
+            </div>
+
+            <!-- Metal 3: Rose Gold -->
+            <div class="quiz-option-card quiz-metal-card" data-question="metal" data-value="Rose Gold" tabindex="0" role="radio" aria-checked="false">
+              <div class="quiz-card-check">
+                <svg class="icon" width="14" height="14" aria-hidden="true"><use href="#icon-check"></use></svg>
+              </div>
+              <div class="quiz-metal-swatch swatch-rosegold"></div>
+              <div class="quiz-card-info">
+                <h3 class="quiz-card-title">Rose Gold</h3>
+                <p class="quiz-card-desc">Blush pink romantic undertones</p>
+              </div>
+            </div>
+
+            <!-- Metal 4: Mixed Metals -->
+            <div class="quiz-option-card quiz-metal-card" data-question="metal" data-value="Mixed Metals" tabindex="0" role="radio" aria-checked="false">
+              <div class="quiz-card-check">
+                <svg class="icon" width="14" height="14" aria-hidden="true"><use href="#icon-check"></use></svg>
+              </div>
+              <div class="quiz-metal-swatch swatch-mixed"></div>
+              <div class="quiz-card-info">
+                <h3 class="quiz-card-title">Mixed Metals</h3>
+                <p class="quiz-card-desc">Modern two-tone dual metallic finish</p>
+              </div>
+            </div>
+
+            <!-- Metal 5: No Preference -->
+            <div class="quiz-option-card quiz-metal-card" data-question="metal" data-value="No Preference" tabindex="0" role="radio" aria-checked="false">
+              <div class="quiz-card-check">
+                <svg class="icon" width="14" height="14" aria-hidden="true"><use href="#icon-check"></use></svg>
+              </div>
+              <div class="quiz-metal-swatch swatch-all">
+                <svg class="icon" width="22" height="22" aria-hidden="true"><use href="#icon-rosette-star"></use></svg>
+              </div>
+              <div class="quiz-card-info">
+                <h3 class="quiz-card-title">No Preference</h3>
+                <p class="quiz-card-desc">Open to all exquisite metal tones</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="quiz-controls-bar">
+            <span class="quiz-controls-hint" id="quizHintStep4">Select 1 metal finish</span>
+            <button type="button" class="quiz-continue-btn" id="quizContinueBtnStep4" disabled>
+              <span>Continue</span>
+              <span aria-hidden="true">&rarr;</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ==================================================================
+           STEP 5: Question 5 — Budget (Range Slider & Manual Inputs)
+           ================================================================== -->
+      <div class="quiz-step-pane" data-step="5" id="quizStep5">
+        <div class="quiz-card-frame">
+          <div class="quiz-question-header">
+            <span class="quiz-question-num">Step 5 of 5</span>
+            <h2 class="quiz-question-title">What is your price budget?</h2>
+            <p class="quiz-question-subtitle">Select a quick range or use the dual slider to fine-tune your exact price window.</p>
+          </div>
+
+          <div class="quiz-budget-box">
+            <!-- Quick Select Range Chips -->
+            <span class="quiz-quick-chips-title">Quick-Select Price Brackets</span>
+            <div class="quiz-quick-chips-wrap">
+              <button type="button" class="quiz-quick-chip" data-min="0" data-max="500">₹0 – ₹500</button>
+              <button type="button" class="quiz-quick-chip" data-min="500" data-max="1500">₹500 – ₹1,500</button>
+              <button type="button" class="quiz-quick-chip" data-min="1500" data-max="3000">₹1,500 – ₹3,000</button>
+              <button type="button" class="quiz-quick-chip" data-min="3000" data-max="5000">₹3,000 – ₹5,000</button>
+              <button type="button" class="quiz-quick-chip" data-min="5000" data-max="10000">₹5,000 – ₹10,000</button>
+              <button type="button" class="quiz-quick-chip" data-min="10000" data-max="30000">₹10,000 – ₹30,000</button>
+            </div>
+
+            <!-- Dual Range Slider Controls -->
+            <div class="quiz-slider-area">
+              <div class="quiz-slider-header">
+                <span class="quiz-slider-label">Selected Price Range</span>
+                <span class="quiz-slider-display" id="quizSliderDisplay" aria-live="polite">₹0 – ₹30,000</span>
+                <button type="button" class="quiz-slider-reset-btn" id="quizSliderReset" aria-label="Reset budget range">Reset Range</button>
+              </div>
+
+              <!-- Track and Thumbs -->
+              <div class="quiz-range-track-wrap">
+                <div class="quiz-range-bar-bg"></div>
+                <div class="quiz-range-bar-fill" id="quizRangeFill" style="left: 0%; width: 100%;"></div>
+                
+                <input type="range" 
+                       id="quizSliderMin" 
+                       class="quiz-range-input" 
+                       min="0" 
+                       max="30000" 
+                       step="500" 
+                       value="0" 
+                       aria-label="Minimum price in Rupees" 
+                       aria-valuemin="0" 
+                       aria-valuemax="30000" 
+                       aria-valuenow="0">
+
+                <input type="range" 
+                       id="quizSliderMax" 
+                       class="quiz-range-input" 
+                       min="0" 
+                       max="30000" 
+                       step="500" 
+                       value="30000" 
+                       aria-label="Maximum price in Rupees" 
+                       aria-valuemin="0" 
+                       aria-valuemax="30000" 
+                       aria-valuenow="30000">
+              </div>
+
+              <!-- Manual Inputs -->
+              <div class="quiz-manual-inputs-row">
+                <div class="quiz-manual-input-box">
+                  <span class="quiz-manual-currency">₹</span>
+                  <input type="number" 
+                         id="quizInputMin" 
+                         class="quiz-manual-input" 
+                         min="0" 
+                         max="30000" 
+                         step="500" 
+                         value="0" 
+                         placeholder="Min Price" 
+                         aria-label="Minimum exact price">
+                </div>
+
+                <span class="quiz-manual-separator">–</span>
+
+                <div class="quiz-manual-input-box">
+                  <span class="quiz-manual-currency">₹</span>
+                  <input type="number" 
+                         id="quizInputMax" 
+                         class="quiz-manual-input" 
+                         min="0" 
+                         max="30000" 
+                         step="500" 
+                         value="30000" 
+                         placeholder="Max Price" 
+                         aria-label="Maximum exact price">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="quiz-controls-bar">
+            <span class="quiz-controls-hint" id="quizHintStep5">₹0 – ₹30,000 (Entire Catalogue Range)</span>
+            <button type="button" class="quiz-continue-btn" id="quizContinueBtnStep5">
+              <span>See My Curated Style</span>
+              <span aria-hidden="true">&rarr;</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ==================================================================
+           STEP 6: Results Screen
+           ================================================================== -->
+      <div class="quiz-step-pane" data-step="6" id="quizStep6">
+        <div class="quiz-results-wrap">
+
+          <!-- Persona Hero -->
+          <div class="quiz-persona-hero">
+            <span class="quiz-persona-badge">
+              <svg class="icon" width="14" height="14" aria-hidden="true"><use href="#icon-rosette-star"></use></svg>
+              <span>Your Curated Signature Persona</span>
+            </span>
+            <h2 class="quiz-persona-title" id="quizPersonaTitle">The Timeless Royal</h2>
+            <p class="quiz-persona-desc" id="quizPersonaDesc">
+              An enduring harmony of traditional Indian karigari and contemporary elegance, curated to elevate your presence with effortless poise.
+            </p>
+
+            <!-- Preferences Summary -->
+            <div class="quiz-summary-chips" id="quizSummaryChips"></div>
+          </div>
+
+          <!-- Relaxed Filter Warning (Shown only if budget was gently expanded) -->
+          <div class="quiz-filter-relaxed-notice" id="quizRelaxedNotice" style="display: none;"></div>
+
+          <!-- Actions Bar -->
+          <div class="quiz-results-actions-bar">
+            <a href="index.html#catalog" class="quiz-action-btn-primary" id="quizExploreCollectionBtn">
+              <span>Explore My Collection in Catalogue</span>
+              <span aria-hidden="true">&rarr;</span>
+            </a>
+            <button type="button" class="quiz-action-btn-secondary" id="quizRefineBtn">
+              <span>Refine Preferences</span>
+            </button>
+            <button type="button" class="quiz-action-btn-secondary" id="quizRetakeBtn">
+              <span>Retake the Quiz</span>
+            </button>
+          </div>
+
+          <!-- Collection 1: Perfect for You -->
+          <section class="quiz-collection-section">
+            <div class="quiz-collection-header">
+              <div>
+                <span class="quiz-collection-eyebrow">Top Recommendations</span>
+                <h3 class="quiz-collection-title">Perfect for You</h3>
+                <p class="quiz-collection-desc">Ranked highest by your occasion, aesthetic affinity, and preferred metal tone.</p>
+              </div>
+              <span class="quiz-collection-count">Curated Selection</span>
+            </div>
+            <div class="quiz-product-grid" id="quizGridPerfect"></div>
+          </section>
+
+          <!-- Collection 2: Complete the Look -->
+          <section class="quiz-collection-section">
+            <div class="quiz-collection-header">
+              <div>
+                <span class="quiz-collection-eyebrow">Harmonious Pairings</span>
+                <h3 class="quiz-collection-title">Complete the Look</h3>
+                <p class="quiz-collection-desc">Complementary pieces across other categories to assemble a cohesive luxury ensemble.</p>
+              </div>
+              <span class="quiz-collection-count">Complementary Suite</span>
+            </div>
+            <div class="quiz-product-grid" id="quizGridComplete"></div>
+          </section>
+
+          <!-- Collection 3: A Little Something Different -->
+          <section class="quiz-collection-section">
+            <div class="quiz-collection-header">
+              <div>
+                <span class="quiz-collection-eyebrow">Artisanal Discovery</span>
+                <h3 class="quiz-collection-title">A Little Something Different</h3>
+                <p class="quiz-collection-desc">Handcrafted statement pieces and anti-tarnish favourites to broaden your collection.</p>
+              </div>
+              <span class="quiz-collection-count">Discovery Edit</span>
+            </div>
+            <div class="quiz-product-grid" id="quizGridDifferent"></div>
+          </section>
+
+          <!-- Bottom Actions -->
+          <div class="quiz-results-actions-bar" style="margin-top: 48px; border-top: 1px solid var(--line); padding-top: 36px;">
+            <a href="index.html#catalog" class="quiz-action-btn-primary">
+              <span>View Full 214-Piece Vault</span>
+              <span aria-hidden="true">&rarr;</span>
+            </a>
+            <button type="button" class="quiz-action-btn-secondary" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">
+              <span>Back to Top &uarr;</span>
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ======================================================================
+       Slide-out Cart Drawer
+       ====================================================================== -->
+  <div class="cart-backdrop" id="cartBackdrop" role="dialog" aria-modal="true" aria-labelledby="cartDrawerHeading">
+    <div class="cart-drawer" id="cartDrawer">
+      <div class="cart-drawer-header">
+        <h3 class="cart-drawer-title" id="cartDrawerHeading">Your Shopping Bag</h3>
+        <button class="icon-btn" id="cartDrawerCloseBtn" aria-label="Close shopping bag">
+          <svg class="icon" width="20" height="20" aria-hidden="true"><use href="#icon-close"></use></svg>
+        </button>
+      </div>
+
+      <!-- Free Shipping Progress Track -->
+      <div class="shipping-bar-box">
+        <div class="shipping-bar-text" id="shippingBarText">
+          Add <strong>₹1,999</strong> more for <strong>FREE Shipping!</strong>
+        </div>
+        <div class="shipping-progress-track">
+          <div class="shipping-progress-fill" id="shippingProgressFill" style="width: 0%;"></div>
+        </div>
+      </div>
+
+      <!-- Cart Items Container -->
+      <div class="cart-drawer-body" id="cartDrawerItems"></div>
+
+      <!-- Cart Drawer Footer -->
+      <div class="cart-drawer-footer">
+        <div class="cart-subtotal-row">
+          <span>Subtotal</span>
+          <span id="cartSubtotalAmount">₹0</span>
+        </div>
+        <a href="index.html#catalog" class="cart-checkout-btn" style="text-align: center; text-decoration: none;">Proceed to Catalogue Checkout &rarr;</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================================================================
+       Quick View Modal
+       ====================================================================== -->
+  <div class="modal-backdrop" id="quickViewBackdrop" role="dialog" aria-modal="true">
+    <div class="modal-dialog" id="quickViewDialog">
+      <button class="modal-close-btn" id="quickViewCloseBtn" aria-label="Close product preview">
+        <svg class="icon" width="18" height="18" aria-hidden="true"><use href="#icon-close"></use></svg>
+      </button>
+      <div id="quickViewContent"></div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toastNotice" class="toast-notice" role="status" aria-live="polite"></div>
+
+  <!-- Product Database & Modules -->
+  <script src="products.js"></script>
+  <script type="module" src="js/quiz.js"></script>
+
+</body>
+</html>
