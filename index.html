@@ -329,10 +329,11 @@
           </button>
         </li>
 
-        <li class="nav-item"><a href="#collections" class="nav-link">Collections</a></li>
-        <li class="nav-item"><a href="#occasions" class="nav-link">Occasions</a></li>
-        <li class="nav-item"><a href="#bestsellers" class="nav-link">Bestsellers</a></li>
         <li class="nav-item"><a href="#new-arrivals" class="nav-link">New Arrivals</a></li>
+        <li class="nav-item"><a href="#bestsellers" class="nav-link">Bestsellers</a></li>
+        <li class="nav-item"><a href="#collections" class="nav-link">Signature Collections</a></li>
+        <li class="nav-item"><a href="#occasions" class="nav-link">Shop by Occasion</a></li>
+        <li class="nav-item"><a href="#catalog" class="nav-link">All Pieces</a></li>
         <li class="nav-item"><a href="#story" class="nav-link">Our Story</a></li>
         <li class="nav-item"><a href="#reviews" class="nav-link">Reviews</a></li>
       </ul>
@@ -393,11 +394,12 @@
 
       <div class="mobile-nav-body">
         <ul style="margin-bottom: 24px;">
-          <li><a href="#catalog" class="mobile-nav-link" onclick="document.getElementById('mobileNavClose').click();">Shop All Pieces &rarr;</a></li>
-          <li><a href="#collections" class="mobile-nav-link" onclick="document.getElementById('mobileNavClose').click();">Collections</a></li>
-          <li><a href="#bestsellers" class="mobile-nav-link" onclick="document.getElementById('mobileNavClose').click();">Bestsellers</a></li>
           <li><a href="#new-arrivals" class="mobile-nav-link" onclick="document.getElementById('mobileNavClose').click();">New Arrivals</a></li>
-          <li><a href="#story" class="mobile-nav-link" onclick="document.getElementById('mobileNavClose').click();">Our Story & Craft</a></li>
+          <li><a href="#bestsellers" class="mobile-nav-link" onclick="document.getElementById('mobileNavClose').click();">Bestsellers</a></li>
+          <li><a href="#collections" class="mobile-nav-link" onclick="document.getElementById('mobileNavClose').click();">Signature Collections</a></li>
+          <li><a href="#occasions" class="mobile-nav-link" onclick="document.getElementById('mobileNavClose').click();">Shop by Occasion</a></li>
+          <li><a href="#catalog" class="mobile-nav-link" onclick="document.getElementById('mobileNavClose').click();">All Pieces (214) &rarr;</a></li>
+          <li><a href="#story" class="mobile-nav-link" onclick="document.getElementById('mobileNavClose').click();">Our Story &amp; Craft</a></li>
           <li><a href="#reviews" class="mobile-nav-link" onclick="document.getElementById('mobileNavClose').click();">Customer Reviews</a></li>
         </ul>
 
@@ -538,69 +540,161 @@
     </section>
 
     <!-- ======================================================================
-         3.8 Shop By Occasion Section (Section 5H)
+         3.5 New Arrivals Carousel Section
          ====================================================================== -->
-    <section class="section-occasions" id="occasions" aria-labelledby="occasionsHeading">
+    <section class="section-carousel section-new-arrivals" id="new-arrivals" aria-labelledby="newArrivalsTitle">
       <div class="container">
-        <div class="section-header-center">
-          <span class="eyebrow">Curated Moments</span>
-          <h2 class="section-title" id="occasionsHeading">Shop by Occasion</h2>
-          <p class="section-lead">Find the perfect jewel tailored to every festive celebration, daily moment, and bridal milestone</p>
+        <div class="carousel-header">
+          <div class="carousel-header-info">
+            <div class="section-eyebrow-row">
+              <span class="eyebrow">FRESH FROM THE ATELIER</span>
+              <span class="eyebrow-line" aria-hidden="true"></span>
+              <span class="eyebrow-star" aria-hidden="true">✦</span>
+            </div>
+            <h2 class="section-title" id="newArrivalsTitle">New Arrivals</h2>
+            <p class="section-subtitle">Discover our newest handcrafted releases, designed for luminous festive celebrations and effortless everyday elegance.</p>
+          </div>
+          <div class="carousel-header-actions">
+            <a href="#catalog" class="carousel-view-all" onclick="window.filterByCategory('all');">Explore All New In &rarr;</a>
+            <div class="carousel-nav-arrows">
+              <button class="carousel-arrow-btn" data-carousel-target="newArrivalsTrack" data-carousel-dir="-1" aria-label="Previous new arrivals">
+                <svg class="icon" width="16" height="16" aria-hidden="true"><use href="#icon-chevron-left"></use></svg>
+              </button>
+              <button class="carousel-arrow-btn" data-carousel-target="newArrivalsTrack" data-carousel-dir="1" aria-label="Next new arrivals">
+                <svg class="icon" width="16" height="16" aria-hidden="true"><use href="#icon-chevron-right"></use></svg>
+              </button>
+            </div>
+          </div>
         </div>
 
-        <div class="occasions-grid">
-          <a href="#catalog" class="occasion-card" onclick="window.filterByCategory('Anti-Tarnish');">
-            <img src="https://shrivara.co/cdn/shop/collections/Gemini_Generated_Image_3gqx753gqx753gqx.png?v=1789385692&width=500" alt="Everyday Elegance" class="occasion-card-img" loading="lazy">
-            <div class="occasion-card-content">
-              <span class="occasion-card-tag">Daily Wear</span>
-              <h3 class="occasion-card-title">Everyday Elegance</h3>
-              <span class="occasion-card-link">Explore Collection &rarr;</span>
-            </div>
-          </a>
-
-          <a href="#catalog" class="occasion-card" onclick="window.filterByCategory('Earrings');">
-            <img src="https://shrivara.co/cdn/shop/collections/WhatsApp_Image_2026-07-26_at_18.41.22.jpg?v=1785071683&width=500" alt="Festive Moments" class="occasion-card-img" loading="lazy">
-            <div class="occasion-card-content">
-              <span class="occasion-card-tag">Celebrations</span>
-              <h3 class="occasion-card-title">Festive Moments</h3>
-              <span class="occasion-card-link">Explore Collection &rarr;</span>
-            </div>
-          </a>
-
-          <a href="#catalog" class="occasion-card" onclick="window.filterByCategory('Jewellery Sets');">
-            <img src="https://shrivara.co/cdn/shop/collections/WhatsApp_Image_2026-07-26_at_20.51.35.jpg?v=1785079938&width=500" alt="Wedding Celebrations" class="occasion-card-img" loading="lazy">
-            <div class="occasion-card-content">
-              <span class="occasion-card-tag">Bridal & Grand</span>
-              <h3 class="occasion-card-title">Wedding Celebrations</h3>
-              <span class="occasion-card-link">Explore Collection &rarr;</span>
-            </div>
-          </a>
-
-          <a href="#catalog" class="occasion-card" onclick="window.filterByCategory('Pendant Sets');">
-            <img src="https://shrivara.co/cdn/shop/collections/WhatsApp_Image_2026-07-26_at_18.14.32.jpg?v=1785069982&width=500" alt="Thoughtful Gifting" class="occasion-card-img" loading="lazy">
-            <div class="occasion-card-content">
-              <span class="occasion-card-tag">Sentiments</span>
-              <h3 class="occasion-card-title">Thoughtful Gifting</h3>
-              <span class="occasion-card-link">Explore Collection &rarr;</span>
-            </div>
-          </a>
+        <div class="carousel-scroll-track" id="newArrivalsTrack">
+          <!-- Populated dynamically via JS -->
         </div>
       </div>
     </section>
 
     <!-- ======================================================================
-         4. Collections Section (Tall 4:5 Responsive Tiles)
+         3.7 Bestsellers Carousel Section
+         ====================================================================== -->
+    <section class="section-carousel section-bestsellers" id="bestsellers" aria-labelledby="bestsellersTitle">
+      <div class="container">
+        <div class="carousel-header">
+          <div class="carousel-header-info">
+            <div class="section-eyebrow-row">
+              <span class="eyebrow">MOST COVETED ADORNMENTS</span>
+              <span class="eyebrow-line" aria-hidden="true"></span>
+              <span class="eyebrow-star" aria-hidden="true">✦</span>
+            </div>
+            <h2 class="section-title" id="bestsellersTitle">Bestsellers</h2>
+            <p class="section-subtitle">Our most cherished bridal, festive, and everyday designs celebrated for royal brilliance and heirloom durability.</p>
+          </div>
+          <div class="carousel-header-actions">
+            <a href="#catalog" class="carousel-view-all" onclick="window.filterByCategory('all');">Shop All Bestsellers &rarr;</a>
+            <div class="carousel-nav-arrows">
+              <button class="carousel-arrow-btn" data-carousel-target="bestsellersTrack" data-carousel-dir="-1" aria-label="Previous bestsellers">
+                <svg class="icon" width="16" height="16" aria-hidden="true"><use href="#icon-chevron-left"></use></svg>
+              </button>
+              <button class="carousel-arrow-btn" data-carousel-target="bestsellersTrack" data-carousel-dir="1" aria-label="Next bestsellers">
+                <svg class="icon" width="16" height="16" aria-hidden="true"><use href="#icon-chevron-right"></use></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="carousel-scroll-track" id="bestsellersTrack">
+          <!-- Populated dynamically via JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         4. Signature Collections Section (Curated Adornments)
          ====================================================================== -->
     <section class="section-collections" id="collections" aria-labelledby="collectionsTitle">
       <div class="container">
         <div class="section-header-center">
-          <span class="eyebrow">Curated Adornments</span>
-          <h2 class="section-title" id="collectionsTitle">Featured Collections</h2>
-          <p class="section-lead">Explore masterfully crafted pieces organized by occasion, silhouette, and finish</p>
+          <div class="section-eyebrow-row justify-center">
+            <span class="eyebrow">CURATED EDITIONS</span>
+            <span class="eyebrow-line" aria-hidden="true"></span>
+            <span class="eyebrow-star" aria-hidden="true">✦</span>
+          </div>
+          <h2 class="section-title" id="collectionsTitle">Signature Collections</h2>
+          <p class="section-lead">Explore masterfully crafted edits organized by royal silhouette, occasion, and enduring waterproof finish.</p>
         </div>
 
         <div class="collections-grid" id="collectionsGrid">
           <!-- Populated dynamically with 7 category tiles -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         4.5 Shop by Occasion Section (Curated Moments)
+         ====================================================================== -->
+    <section class="section-occasions" id="occasions" aria-labelledby="occasionsHeading">
+      <div class="container">
+        <div class="section-header-center">
+          <div class="section-eyebrow-row justify-center">
+            <span class="eyebrow">CURATED MOMENTS</span>
+            <span class="eyebrow-line" aria-hidden="true"></span>
+            <span class="eyebrow-star" aria-hidden="true">✦</span>
+          </div>
+          <h2 class="section-title" id="occasionsHeading">Shop by Occasion</h2>
+          <p class="section-lead">Find the quintessential jewel tailored to every festive celebration, daily moment, and bridal milestone.</p>
+        </div>
+
+        <div class="occasions-grid">
+          <a href="#catalog" class="occasion-card" onclick="window.filterByOccasion('Jewellery Sets');">
+            <div class="occasion-card-img-wrap">
+              <img src="https://shrivara.co/cdn/shop/collections/WhatsApp_Image_2026-07-26_at_20.51.35.jpg?v=1785079938&width=600" alt="Wedding Celebrations Jewellery" class="occasion-card-img" loading="lazy">
+              <div class="occasion-card-gradient"></div>
+            </div>
+            <div class="occasion-card-content">
+              <span class="occasion-card-tag">Bridal &amp; Grand</span>
+              <h3 class="occasion-card-title">Wedding Celebrations</h3>
+              <p class="occasion-card-desc">Royal Polki &amp; Kundan sets handcrafted for life's grandest vows.</p>
+              <span class="occasion-card-link">Explore Collection &rarr;</span>
+            </div>
+          </a>
+
+          <a href="#catalog" class="occasion-card" onclick="window.filterByOccasion('Earrings');">
+            <div class="occasion-card-img-wrap">
+              <img src="https://shrivara.co/cdn/shop/collections/WhatsApp_Image_2026-07-26_at_18.41.22.jpg?v=1785071683&width=600" alt="Festive Moments Jewellery" class="occasion-card-img" loading="lazy">
+              <div class="occasion-card-gradient"></div>
+            </div>
+            <div class="occasion-card-content">
+              <span class="occasion-card-tag">Celebrations</span>
+              <h3 class="occasion-card-title">Festive Moments</h3>
+              <p class="occasion-card-desc">Statement Jhumkas, Chandbalis &amp; Chokers for Diwali, weddings &amp; pujas.</p>
+              <span class="occasion-card-link">Explore Collection &rarr;</span>
+            </div>
+          </a>
+
+          <a href="#catalog" class="occasion-card" onclick="window.filterByOccasion('Anti-Tarnish');">
+            <div class="occasion-card-img-wrap">
+              <img src="https://shrivara.co/cdn/shop/collections/Gemini_Generated_Image_3gqx753gqx753gqx.png?v=1789385692&width=600" alt="Everyday Elegance Anti-Tarnish Jewellery" class="occasion-card-img" loading="lazy">
+              <div class="occasion-card-gradient"></div>
+            </div>
+            <div class="occasion-card-content">
+              <span class="occasion-card-tag">Daily Wear</span>
+              <h3 class="occasion-card-title">Everyday Elegance</h3>
+              <p class="occasion-card-desc">Waterproof, sweat-proof 18K micro-plated staples designed for daily grace.</p>
+              <span class="occasion-card-link">Explore Collection &rarr;</span>
+            </div>
+          </a>
+
+          <a href="#catalog" class="occasion-card" onclick="window.filterByOccasion('Pendant Sets');">
+            <div class="occasion-card-img-wrap">
+              <img src="https://shrivara.co/cdn/shop/collections/WhatsApp_Image_2026-07-26_at_18.14.32.jpg?v=1785069982&width=600" alt="Thoughtful Gifting Jewellery" class="occasion-card-img" loading="lazy">
+              <div class="occasion-card-gradient"></div>
+            </div>
+            <div class="occasion-card-content">
+              <span class="occasion-card-tag">Sentiments</span>
+              <h3 class="occasion-card-title">Thoughtful Gifting</h3>
+              <p class="occasion-card-desc">Delicate solitaire pendants, rings &amp; bracelets presented in bespoke keepsake boxes.</p>
+              <span class="occasion-card-link">Explore Collection &rarr;</span>
+            </div>
+          </a>
         </div>
       </div>
     </section>
@@ -786,58 +880,6 @@
         <!-- Pagination / Load More -->
         <div class="catalog-pagination-wrap">
           <button class="btn-load-more" id="loadMoreBtn">Load More Pieces</button>
-        </div>
-      </div>
-    </section>
-
-    <!-- ======================================================================
-         6. Bestsellers Carousel Section
-         ====================================================================== -->
-    <section class="section-carousel" id="bestsellers" aria-labelledby="bestsellersTitle">
-      <div class="container">
-        <div class="carousel-header">
-          <div>
-            <span class="eyebrow">Customer Favorites</span>
-            <h2 class="section-title" id="bestsellersTitle">Bestsellers</h2>
-          </div>
-          <div class="carousel-nav-arrows">
-            <button class="carousel-arrow-btn" data-carousel-target="bestsellersTrack" data-carousel-dir="-1" aria-label="Previous bestsellers">
-              <svg class="icon" width="16" height="16" aria-hidden="true"><use href="#icon-chevron-left"></use></svg>
-            </button>
-            <button class="carousel-arrow-btn" data-carousel-target="bestsellersTrack" data-carousel-dir="1" aria-label="Next bestsellers">
-              <svg class="icon" width="16" height="16" aria-hidden="true"><use href="#icon-chevron-right"></use></svg>
-            </button>
-          </div>
-        </div>
-
-        <div class="carousel-scroll-track" id="bestsellersTrack">
-          <!-- Populated dynamically -->
-        </div>
-      </div>
-    </section>
-
-    <!-- ======================================================================
-         7. New Arrivals Carousel Section
-         ====================================================================== -->
-    <section class="section-carousel" id="new-arrivals" aria-labelledby="newArrivalsTitle" style="padding-top: 0;">
-      <div class="container">
-        <div class="carousel-header">
-          <div>
-            <span class="eyebrow">Fresh from the Atelier</span>
-            <h2 class="section-title" id="newArrivalsTitle">New Arrivals</h2>
-          </div>
-          <div class="carousel-nav-arrows">
-            <button class="carousel-arrow-btn" data-carousel-target="newArrivalsTrack" data-carousel-dir="-1" aria-label="Previous new arrivals">
-              <svg class="icon" width="16" height="16" aria-hidden="true"><use href="#icon-chevron-left"></use></svg>
-            </button>
-            <button class="carousel-arrow-btn" data-carousel-target="newArrivalsTrack" data-carousel-dir="1" aria-label="Next new arrivals">
-              <svg class="icon" width="16" height="16" aria-hidden="true"><use href="#icon-chevron-right"></use></svg>
-            </button>
-          </div>
-        </div>
-
-        <div class="carousel-scroll-track" id="newArrivalsTrack">
-          <!-- Populated dynamically -->
         </div>
       </div>
     </section>

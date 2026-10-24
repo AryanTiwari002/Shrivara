@@ -547,9 +547,17 @@ function initCollectionsTiles() {
     card.addEventListener("click", e => {
       e.preventDefault();
       filterByCategory(card.dataset.category);
+      const catalogEl = document.getElementById("catalog");
+      if (catalogEl) catalogEl.scrollIntoView({ behavior: "smooth" });
     });
   });
 }
+
+window.filterByOccasion = function(catKey) {
+  filterByCategory(catKey);
+  const catalogEl = document.getElementById("catalog");
+  if (catalogEl) catalogEl.scrollIntoView({ behavior: "smooth" });
+};
 
 // --------------------------------------------------------------------------
 // 11. Catalogue Controller (Chips, Toolbar, Grid, Pagination)
@@ -1104,6 +1112,8 @@ export function createProductCardHTML(p) {
     badgeHTML = `<span class="product-badge badge-discount">${p.discount}</span>`;
   } else if (p.title.includes("Hazoorilal") || p.title.includes("Premium") || p.title.includes("Navratna")) {
     badgeHTML = `<span class="product-badge badge-bestseller">Bestseller</span>`;
+  } else if (p.title.includes("Empress") || p.title.includes("Regalia") || p.title.includes("Vintage Heritage") || p.title.includes("Pearl Drop")) {
+    badgeHTML = `<span class="product-badge badge-new">New In</span>`;
   }
 
   // Price formatting
@@ -1417,24 +1427,45 @@ function initCarousels() {
   const bestsellersTrack = document.getElementById("bestsellersTrack");
   const newArrivalsTrack = document.getElementById("newArrivalsTrack");
 
-  const bestsellers = state.products.filter(p => 
+  // Curated Bestsellers (Bridal heritage, Hazoorilal, Kundan, and royal sets)
+  let bestsellers = state.products.filter(p => 
     p.price > 0 && (
-      p.title.includes("Hazoorilal") || 
-      p.title.includes("Premium") || 
-      p.title.includes("Navratna") ||
-      p.title.includes("bridal set")
+      (p.title && (
+        p.title.includes("Hazoorilal") || 
+        p.title.includes("Premium") || 
+        p.title.includes("Navratna") ||
+        p.title.includes("bridal set") ||
+        p.title.includes("Bridal") ||
+        p.title.includes("Choker")
+      ))
     )
   ).slice(0, 8);
 
-  const newArrivals = state.products.filter(p => 
-    p.price > 0 && (
-      p.title.includes("Empress") || 
-      p.title.includes("Regalia") || 
-      p.title.includes("Vintage Heritage") ||
-      p.title.includes("Pearl Drop") ||
-      p.isEffectiveAntiTarnish
+  if (bestsellers.length < 8) {
+    const extra = state.products.filter(p => p.price > 0 && !bestsellers.some(b => b.id === p.id)).slice(0, 8 - bestsellers.length);
+    bestsellers = bestsellers.concat(extra);
+  }
+
+  // Curated New Arrivals (Fresh designs, Empress, Regalia, Pearl Drops, Anti-tarnish waterproof)
+  const bestsellerIds = new Set(bestsellers.map(b => b.id));
+  let newArrivals = state.products.filter(p => 
+    p.price > 0 && !bestsellerIds.has(p.id) && (
+      p.isEffectiveAntiTarnish ||
+      (p.title && (
+        p.title.includes("Empress") || 
+        p.title.includes("Regalia") || 
+        p.title.includes("Vintage Heritage") ||
+        p.title.includes("Pearl Drop") ||
+        p.title.includes("Earrings") ||
+        p.title.includes("Bow Design")
+      ))
     )
   ).slice(0, 8);
+
+  if (newArrivals.length < 8) {
+    const extra = state.products.filter(p => p.price > 0 && !bestsellerIds.has(p.id) && !newArrivals.some(n => n.id === p.id)).slice(0, 8 - newArrivals.length);
+    newArrivals = newArrivals.concat(extra);
+  }
 
   if (bestsellersTrack) {
     bestsellersTrack.innerHTML = bestsellers.map(p => createProductCardHTML(p)).join("");
@@ -1453,7 +1484,7 @@ function initCarousels() {
       const dir = Number(btn.dataset.carouselDir || 1);
       const track = document.getElementById(targetId);
       if (track) {
-        track.scrollBy({ left: dir * 300, behavior: "smooth" });
+        track.scrollBy({ left: dir * 320, behavior: "smooth" });
       }
     });
   });
