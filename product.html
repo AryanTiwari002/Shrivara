@@ -358,6 +358,240 @@
 
   <!-- Scripts -->
   <script src="products.js"></script>
-  <script src="app.js"></script>
+
+  <!-- PDP Controller Script -->
+  <script>
+    (function() {
+      let currentProduct = null;
+      let currentQty = 1;
+      let cart = [];
+      let wishlist = new Set();
+
+      try {
+        const savedCart = localStorage.getItem('shrivara_cart');
+        if (savedCart) cart = JSON.parse(savedCart);
+        const savedWish = localStorage.getItem('shrivara_wishlist');
+        if (savedWish) wishlist = new Set(JSON.parse(savedWish));
+      } catch (e) {}
+
+      function formatPrice(val) {
+        if (!val || val <= 0) return "Sold Out";
+        return "₹" + Number(val).toLocaleString("en-IN");
+      }
+
+      function updateCounts() {
+        const cartCountEl = document.getElementById('cartCount');
+        if (cartCountEl) {
+          const totalQty = cart.reduce((sum, item) => sum + (item.qty || item.quantity || 1), 0);
+          cartCountEl.textContent = totalQty;
+        }
+        const wishCountEl = document.getElementById('wishlistCount');
+        if (wishCountEl) wishCountEl.textContent = wishlist.size;
+      }
+
+      function initPDP() {
+        if (!window.ALL_PRODUCTS || !window.ALL_PRODUCTS.length) {
+          setTimeout(initPDP, 100);
+          return;
+        }
+
+        const params = new URLSearchParams(window.location.search);
+        const idParam = params.get('id');
+        if (idParam) {
+          currentProduct = window.ALL_PRODUCTS.find(p => String(p.id) === String(idParam));
+        }
+        if (!currentProduct) {
+          currentProduct = window.ALL_PRODUCTS.find(p => p.price > 0 && !p.isSoldOut) || window.ALL_PRODUCTS[0];
+        }
+
+        if (!currentProduct) return;
+
+        // Title and Category
+        document.title = currentProduct.title + " — Shrivara Quiet Luxury";
+        const titleEl = document.getElementById('pdpTitle');
+        if (titleEl) titleEl.textContent = currentProduct.title;
+        const breadcrumbTitle = document.getElementById('pdpBreadcrumbTitle');
+        if (breadcrumbTitle) breadcrumbTitle.textContent = currentProduct.title;
+        const catEl = document.getElementById('pdpCategory');
+        if (catEl) catEl.textContent = currentProduct.category || "Jewellery";
+        const breadcrumbCat = document.getElementById('pdpBreadcrumbCategory');
+        if (breadcrumbCat) {
+          breadcrumbCat.textContent = currentProduct.category || "Jewellery";
+          breadcrumbCat.href = "collection.html?category=" + encodeURIComponent(currentProduct.category || "all");
+        }
+
+        // Pricing & Badges
+        const priceEl = document.getElementById('pdpPrice');
+        const compareEl = document.getElementById('pdpComparePrice');
+        const saveBadge = document.getElementById('pdpSaveBadge');
+        const isSoldOut = currentProduct.isSoldOut || currentProduct.price <= 0;
+
+        if (priceEl) priceEl.textContent = formatPrice(currentProduct.price);
+        if (compareEl) {
+          if (currentProduct.comparePrice > currentProduct.price && currentProduct.price > 0) {
+            compareEl.textContent = formatPrice(currentProduct.comparePrice);
+            compareEl.style.display = 'inline';
+          } else {
+            compareEl.style.display = 'none';
+          }
+        }
+        if (saveBadge) {
+          if (currentProduct.discount && currentProduct.price > 0 && !isSoldOut) {
+            saveBadge.textContent = currentProduct.discount;
+            saveBadge.style.display = 'inline-block';
+          } else {
+            saveBadge.style.display = 'none';
+          }
+        }
+
+        // Stock Banner
+        const stockBanner = document.getElementById('pdpStockBanner');
+        if (stockBanner) {
+          if (isSoldOut) {
+            stockBanner.innerHTML = '<span class="pdp-stock-dot" style="background: #999;"></span><span style="color: #888;">Currently Sold Out — Join Waitlist or Contact Atelier</span>';
+          } else {
+            stockBanner.innerHTML = '<span class="pdp-stock-dot"></span><span>In Stock — Dispatched within 24 hours from Howrah Atelier</span>';
+          }
+        }
+
+        // Purchase button
+        const addBtn = document.getElementById('pdpAddToCartBtn');
+        if (addBtn) {
+          if (isSoldOut) {
+            addBtn.disabled = true;
+            addBtn.textContent = "Sold Out";
+            addBtn.style.opacity = "0.5";
+            addBtn.style.cursor = "not-allowed";
+          } else {
+            addBtn.disabled = false;
+            addBtn.innerHTML = '<i class="fas fa-shopping-bag" style="margin-right: 8px;"></i> Add to Shopping Bag';
+          }
+        }
+
+        // WhatsApp button
+        const waBtn = document.getElementById('pdpWhatsAppBtn');
+        if (waBtn) {
+          const msg = `Hi Shrivara, I am interested in purchasing "${currentProduct.title}" (ID: #${currentProduct.id}) listed at ${formatPrice(currentProduct.price)}. Could you please assist me?`;
+          waBtn.href = `https://wa.me/919830000000?text=${encodeURIComponent(msg)}`;
+        }
+
+        // Gallery
+        const mainImg = document.getElementById('pdpMainImg');
+        const thumbStrip = document.getElementById('pdpThumbStrip');
+        const images = (currentProduct.images && currentProduct.images.length > 0) ? currentProduct.images : [currentProduct.image];
+
+        if (mainImg) {
+          mainImg.src = images[0];
+          mainImg.alt = currentProduct.title;
+        }
+
+        if (thumbStrip) {
+          if (images.length > 1) {
+            thumbStrip.innerHTML = images.map((img, i) => `
+              <div class="pdp-thumb-item ${i === 0 ? 'active' : ''}" onclick="window.selectPdpImage('${img}', this)">
+                <img src="${img}" alt="${currentProduct.title} thumbnail ${i+1}">
+              </div>
+            `).join('');
+            thumbStrip.style.display = 'flex';
+          } else {
+            thumbStrip.innerHTML = '';
+            thumbStrip.style.display = 'none';
+          }
+        }
+
+        // Related Products
+        const relatedGrid = document.getElementById('pdpRelatedGrid');
+        if (relatedGrid) {
+          const related = window.ALL_PRODUCTS.filter(p => p.id !== currentProduct.id && p.price > 0 && !p.isSoldOut && p.category === currentProduct.category).slice(0, 4);
+          const fallback = related.length < 4 ? window.ALL_PRODUCTS.filter(p => p.id !== currentProduct.id && p.price > 0 && !p.isSoldOut).slice(0, 4) : related;
+
+          relatedGrid.innerHTML = fallback.map(p => `
+            <div class="product-card" onclick="window.location.href='product.html?id=${p.id}'" style="cursor: pointer;">
+              <div class="product-image-box" style="aspect-ratio: 4/5; overflow: hidden; position: relative;">
+                <img src="${p.image}" alt="${p.title}" style="width: 100%; height: 100%; object-fit: cover;">
+                ${p.isSoldOut || p.price <= 0 ? '<span class="badge badge-sold-out">Sold Out</span>' : ''}
+              </div>
+              <div class="product-info" style="padding: 12px 0;">
+                <h3 class="product-title" style="font-size: 0.9rem; margin-bottom: 6px;">${p.title}</h3>
+                <div class="product-price" style="font-weight: 700;">${formatPrice(p.price)}</div>
+              </div>
+            </div>
+          `).join('');
+        }
+
+        updateCounts();
+      }
+
+      window.selectPdpImage = function(src, thumbEl) {
+        const mainImg = document.getElementById('pdpMainImg');
+        if (mainImg) mainImg.src = src;
+        document.querySelectorAll('.pdp-thumb-item').forEach(t => t.classList.remove('active'));
+        if (thumbEl) thumbEl.classList.add('active');
+      };
+
+      window.adjustPdpQty = function(delta) {
+        currentQty = Math.max(1, currentQty + delta);
+        const qtyVal = document.getElementById('pdpQtyVal');
+        if (qtyVal) qtyVal.textContent = currentQty;
+      };
+
+      window.handlePdpAddToCart = function() {
+        if (!currentProduct || currentProduct.isSoldOut || currentProduct.price <= 0) {
+          alert('This item is currently sold out.');
+          return;
+        }
+
+        const existing = cart.find(item => item.id === currentProduct.id);
+        if (existing) {
+          existing.qty = (existing.qty || 1) + currentQty;
+        } else {
+          cart.push({
+            id: currentProduct.id,
+            title: currentProduct.title,
+            price: currentProduct.price,
+            image: currentProduct.image,
+            qty: currentQty
+          });
+        }
+
+        try {
+          localStorage.setItem('shrivara_cart', JSON.stringify(cart));
+        } catch(e) {}
+
+        updateCounts();
+        if (typeof window.showToast === 'function') {
+          window.showToast(`Added ${currentQty} item(s) to bag`);
+        } else {
+          alert(`Added ${currentQty} item(s) to shopping bag`);
+        }
+      };
+
+      window.toggleAccordion = function(btn) {
+        const item = btn.closest('.pdp-accordion-item');
+        if (item) item.classList.toggle('open');
+      };
+
+      window.scrollCarousel = function(id, offset) {
+        const el = document.getElementById(id);
+        if (el) el.scrollBy({ left: offset, behavior: 'smooth' });
+      };
+
+      window.toggleMobileNav = function() {
+        const nav = document.querySelector('.nav-bar');
+        if (nav) nav.classList.toggle('open');
+      };
+
+      window.showToast = function(msg) {
+        const toast = document.getElementById('toastNotice');
+        if (toast) {
+          toast.textContent = msg;
+          toast.classList.add('show');
+          setTimeout(() => toast.classList.remove('show'), 3000);
+        }
+      };
+
+      document.addEventListener('DOMContentLoaded', initPDP);
+    })();
+  </script>
 </body>
 </html>

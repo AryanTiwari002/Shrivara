@@ -545,6 +545,37 @@
         </div>
       </div>
 
+      <!-- Luxury Editorial Hero Content Overlay -->
+      <div class="hero-content-wrap">
+        <div class="container hero-content-inner">
+          <div class="hero-content-card">
+            <div class="hero-eyebrow-row">
+              <span class="hero-eyebrow">HAUTE IMITATION &amp; ANTI-TARNISH ATELIER</span>
+              <span class="hero-eyebrow-star" aria-hidden="true">✦</span>
+            </div>
+            <h2 class="hero-title">Jewellery That Becomes Part of Your Story.</h2>
+            <p class="hero-subtitle">
+              Discover thoughtfully chosen pieces for the moments, memories, and everyday rituals that make life beautiful. Handcrafted in pure brass with 100% anti-tarnish micro-layer plating.
+            </p>
+            <div class="hero-ctas">
+              <a href="#catalog" class="btn-primary hero-btn-primary">
+                <span>EXPLORE THE COLLECTION</span>
+                <span aria-hidden="true">&rarr;</span>
+              </a>
+              <button type="button" class="btn-secondary hero-btn-secondary" id="heroConsultBtn">
+                <svg class="icon" width="16" height="16" aria-hidden="true"><use href="#icon-video"></use></svg>
+                <span>Book Video Preview</span>
+              </button>
+            </div>
+            <div class="hero-trust-micro">
+              <span>✦ 100% Anti-Tarnish Micro-Plating</span>
+              <span>✦ Free Insured Shipping Over ₹1,999</span>
+              <span>✦ Handcrafted in Bengal</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <!-- Hero Slider Controls -->
       <button class="hero-arrow hero-prev" id="heroPrev" aria-label="Previous slide">
         <svg class="icon" width="20" height="20" aria-hidden="true"><use href="#icon-chevron-left"></use></svg>
@@ -610,75 +641,7 @@
     </section>
 
     <!-- ======================================================================
-         3.5 New Arrivals Carousel Section
-         ====================================================================== -->
-    <section class="section-carousel section-new-arrivals" id="new-arrivals" aria-labelledby="newArrivalsTitle">
-      <div class="container">
-        <div class="carousel-header">
-          <div class="carousel-header-info">
-            <div class="section-eyebrow-row">
-              <span class="eyebrow">FRESH FROM THE ATELIER</span>
-              <span class="eyebrow-line" aria-hidden="true"></span>
-              <span class="eyebrow-star" aria-hidden="true">✦</span>
-            </div>
-            <h2 class="section-title" id="newArrivalsTitle">New Arrivals</h2>
-            <p class="section-subtitle">Discover our newest handcrafted releases, designed for luminous festive celebrations and effortless everyday elegance.</p>
-          </div>
-          <div class="carousel-header-actions">
-            <a href="#catalog" class="carousel-view-all" onclick="window.filterByCategory('all');">Explore All New In &rarr;</a>
-            <div class="carousel-nav-arrows">
-              <button class="carousel-arrow-btn" data-carousel-target="newArrivalsTrack" data-carousel-dir="-1" aria-label="Previous new arrivals">
-                <svg class="icon" width="16" height="16" aria-hidden="true"><use href="#icon-chevron-left"></use></svg>
-              </button>
-              <button class="carousel-arrow-btn" data-carousel-target="newArrivalsTrack" data-carousel-dir="1" aria-label="Next new arrivals">
-                <svg class="icon" width="16" height="16" aria-hidden="true"><use href="#icon-chevron-right"></use></svg>
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <div class="carousel-scroll-track" id="newArrivalsTrack">
-          <!-- Populated dynamically via JS -->
-        </div>
-      </div>
-    </section>
-
-    <!-- ======================================================================
-         3.7 Bestsellers Carousel Section
-         ====================================================================== -->
-    <section class="section-carousel section-bestsellers" id="bestsellers" aria-labelledby="bestsellersTitle">
-      <div class="container">
-        <div class="carousel-header">
-          <div class="carousel-header-info">
-            <div class="section-eyebrow-row">
-              <span class="eyebrow">MOST COVETED ADORNMENTS</span>
-              <span class="eyebrow-line" aria-hidden="true"></span>
-              <span class="eyebrow-star" aria-hidden="true">✦</span>
-            </div>
-            <h2 class="section-title" id="bestsellersTitle">Bestsellers</h2>
-            <p class="section-subtitle">Our most cherished bridal, festive, and everyday designs celebrated for royal brilliance and heirloom durability.</p>
-          </div>
-          <div class="carousel-header-actions">
-            <a href="#catalog" class="carousel-view-all" onclick="window.filterByCategory('all');">Shop All Bestsellers &rarr;</a>
-            <div class="carousel-nav-arrows">
-              <button class="carousel-arrow-btn" data-carousel-target="bestsellersTrack" data-carousel-dir="-1" aria-label="Previous bestsellers">
-                <svg class="icon" width="16" height="16" aria-hidden="true"><use href="#icon-chevron-left"></use></svg>
-              </button>
-              <button class="carousel-arrow-btn" data-carousel-target="bestsellersTrack" data-carousel-dir="1" aria-label="Next bestsellers">
-                <svg class="icon" width="16" height="16" aria-hidden="true"><use href="#icon-chevron-right"></use></svg>
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <div class="carousel-scroll-track" id="bestsellersTrack">
-          <!-- Populated dynamically via JS -->
-        </div>
-      </div>
-    </section>
-
-    <!-- ======================================================================
-         4. Signature Collections Section (Curated Adornments)
+         3. Curated Featured Categories (Signature Collections)
          ====================================================================== -->
     <section class="section-collections" id="collections" aria-labelledby="collectionsTitle">
       <div class="container">
@@ -699,7 +662,7 @@
     </section>
 
     <!-- ======================================================================
-         4.5 Shop by Occasion Section (Curated Moments)
+         3.5 Shop by Occasion Section (Curated Moments)
          ====================================================================== -->
     <section class="section-occasions" id="occasions" aria-labelledby="occasionsHeading">
       <div class="container">
@@ -768,6 +731,154 @@
         </div>
       </div>
     </section>
+
+    <!-- ======================================================================
+         4. Curated Showcase: Bestsellers & New Arrivals (Tabbed)
+         ====================================================================== -->
+    <section class="section-carousel section-showcase" id="curated-showcase" aria-labelledby="showcaseTitle">
+      <span id="new-arrivals" style="position: absolute; top: -80px;"></span>
+      <span id="bestsellers" style="position: absolute; top: -80px;"></span>
+      <div class="container">
+        <div class="carousel-header">
+          <div class="carousel-header-info">
+            <div class="section-eyebrow-row">
+              <span class="eyebrow">CURATED ADORNMENTS</span>
+              <span class="eyebrow-line" aria-hidden="true"></span>
+              <span class="eyebrow-star" aria-hidden="true">✦</span>
+            </div>
+            <h2 class="section-title" id="showcaseTitle">The Curated Showcase</h2>
+            <p class="section-subtitle">Cherished heirloom designs and fresh atelier releases, handcrafted in Bengal with enduring anti-tarnish micro-plating.</p>
+            
+            <!-- Showcase Switcher Tabs -->
+            <div class="showcase-tabs" role="tablist" aria-label="Curated showcase selection">
+              <button type="button" class="showcase-tab is-active" id="tabBestsellers" role="tab" aria-selected="true" aria-controls="bestsellersTrack">
+                <span>✦ Most Coveted Bestsellers</span>
+              </button>
+              <button type="button" class="showcase-tab" id="tabNewArrivals" role="tab" aria-selected="false" aria-controls="newArrivalsTrack">
+                <span>✦ New Arrivals</span>
+              </button>
+            </div>
+          </div>
+          <div class="carousel-header-actions">
+            <a href="#catalog" class="carousel-view-all" onclick="window.filterByCategory('all');">Explore All Pieces &rarr;</a>
+            <div class="carousel-nav-arrows">
+              <button class="carousel-arrow-btn" id="showcasePrevBtn" aria-label="Previous pieces">
+                <svg class="icon" width="16" height="16" aria-hidden="true"><use href="#icon-chevron-left"></use></svg>
+              </button>
+              <button class="carousel-arrow-btn" id="showcaseNextBtn" aria-label="Next pieces">
+                <svg class="icon" width="16" height="16" aria-hidden="true"><use href="#icon-chevron-right"></use></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bestsellers Track (Active by default) -->
+        <div class="carousel-scroll-track" id="bestsellersTrack" role="tabpanel" aria-labelledby="tabBestsellers">
+          <!-- Populated dynamically via JS -->
+        </div>
+
+        <!-- New Arrivals Track (Hidden by default, shown when tab clicked) -->
+        <div class="carousel-scroll-track" id="newArrivalsTrack" role="tabpanel" aria-labelledby="tabNewArrivals" style="display: none;">
+          <!-- Populated dynamically via JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         5. Our Story Section (Asymmetric Editorial + Highlights)
+         ====================================================================== -->
+    <section class="section-story" id="story" aria-labelledby="storyHeading">
+      <div class="container">
+        <div class="story-grid">
+          <!-- Left: Craft Imagery -->
+          <div class="story-media">
+            <img class="story-media-img" 
+                 src="https://shrivara.co/cdn/shop/files/IMG_2288_copy.jpg?v=1788101059&width=800" 
+                 alt="Artisan hand-setting royal polki jewellery at the Shrivara atelier" 
+                 loading="lazy" 
+                 decoding="async"
+                 width="600" 
+                 height="750">
+            <div class="story-badge-floating">
+              <div class="story-badge-num">100%</div>
+              <div class="story-badge-label">Anti-Tarnish</div>
+            </div>
+          </div>
+
+          <!-- Right: Editorial Narrative -->
+          <div class="story-content">
+            <span class="eyebrow">Our Heritage &amp; Atelier</span>
+            <h2 class="section-title" id="storyHeading" style="margin-bottom: var(--space-3);">
+              The Art of Indian Royalty, Reimagined for Modern Life
+            </h2>
+            
+            <blockquote class="story-pullquote">
+              "Jewellery is not merely an ornament; it is an enduring expression of Indian heritage, personal grace, and celebratory spirit."
+            </blockquote>
+
+            <p class="story-text">
+              Shrivara was founded with a singular conviction: that the regal grandeur of Indian heritage jewellery should be accessible without exorbitant markups or fleeting durability. Situated in Howrah — world-renowned for master gold karigars — each piece is handcrafted in pure brass alloy and sealed with our signature electro-chemical vacuum micro-layer.
+            </p>
+            <p class="story-text">
+              Whether you are preparing for a wedding celebration or wearing everyday elegance, our collections are formulated to withstand humidity, sweat, and festive wear while preserving royal mirror lustre.
+            </p>
+
+            <!-- 4 Icon Highlights -->
+            <div class="story-highlights-grid">
+              <div class="story-highlight-card">
+                <div class="story-highlight-icon">
+                  <svg class="icon" width="20" height="20" aria-hidden="true"><use href="#icon-shield"></use></svg>
+                </div>
+                <h4 class="story-highlight-title">Anti-Tarnish</h4>
+                <p class="story-highlight-desc">Vacuum micro-layer seal against oxidation</p>
+              </div>
+
+              <div class="story-highlight-card">
+                <div class="story-highlight-icon">
+                  <svg class="icon" width="20" height="20" aria-hidden="true"><use href="#icon-gem"></use></svg>
+                </div>
+                <h4 class="story-highlight-title">Gold Plated</h4>
+                <p class="story-highlight-desc">18K / 22K micro gold plating</p>
+              </div>
+
+              <div class="story-highlight-card">
+                <div class="story-highlight-icon">
+                  <svg class="icon" width="20" height="20" aria-hidden="true"><use href="#icon-check"></use></svg>
+                </div>
+                <h4 class="story-highlight-title">Made in India</h4>
+                <p class="story-highlight-desc">Generational Howrah artisans</p>
+              </div>
+
+              <div class="story-highlight-card">
+                <div class="story-highlight-icon">
+                  <svg class="icon" width="20" height="20" aria-hidden="true"><use href="#icon-star"></use></svg>
+                </div>
+                <h4 class="story-highlight-title">Premium Polki</h4>
+                <p class="story-highlight-desc">AAA crystals &amp; uncut polki stones</p>
+              </div>
+            </div>
+
+            <div style="margin-top: 28px;">
+              <a href="our-story.html" class="btn-primary" style="display: inline-flex; align-items: center; gap: 8px;">
+                <span>Discover Our Complete Journey &amp; People</span>
+                <span aria-hidden="true">&rarr;</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Marquee Ticker Banner -->
+    <div class="marquee-bar" aria-hidden="true">
+      <div class="marquee-inner">
+        <span class="marquee-item">Anti-Tarnish • 18K/22K Gold Plated • Howrah Heritage Craft • Premium Polki &amp; Gemstones • Made in India</span>
+        <span class="marquee-item">•</span>
+        <span class="marquee-item">Anti-Tarnish • 18K/22K Gold Plated • Howrah Heritage Craft • Premium Polki &amp; Gemstones • Made in India</span>
+        <span class="marquee-item">•</span>
+        <span class="marquee-item">Anti-Tarnish • 18K/22K Gold Plated • Howrah Heritage Craft • Premium Polki &amp; Gemstones • Made in India</span>
+      </div>
+    </div>
 
     <!-- ======================================================================
          4.6 "Find Your Style" Bespoke Discovery Banner
@@ -877,7 +988,147 @@
     </section>
 
     <!-- ======================================================================
-         5. Filterable Catalogue Section (All 214 Pieces)
+         7. Customer Reviews Carousel ("Words of Love")
+         ====================================================================== -->
+    <section class="section-reviews" id="reviews" aria-labelledby="reviewsTitle">
+      <div class="container">
+        <div class="section-header-center">
+          <div class="section-eyebrow-row justify-center">
+            <span class="eyebrow">CUSTOMER REFLECTIONS</span>
+            <span class="eyebrow-line" aria-hidden="true"></span>
+            <span class="eyebrow-star" aria-hidden="true">✦</span>
+          </div>
+          <h2 class="section-title" id="reviewsTitle">Words of Love</h2>
+          <p class="section-lead">Real impressions from celebrations and weddings styled across India</p>
+          <span class="sample-notice-pill">Verified Customer Reflections</span>
+        </div>
+
+        <div class="reviews-carousel-track" id="reviewsTrack">
+          <!-- Review 1 -->
+          <article class="review-card">
+            <div class="review-stars" aria-label="5 out of 5 stars">
+              <svg class="icon" width="16" height="16"><use href="#icon-star"></use></svg>
+              <svg class="icon" width="16" height="16"><use href="#icon-star"></use></svg>
+              <svg class="icon" width="16" height="16"><use href="#icon-star"></use></svg>
+              <svg class="icon" width="16" height="16"><use href="#icon-star"></use></svg>
+              <svg class="icon" width="16" height="16"><use href="#icon-star"></use></svg>
+            </div>
+            <h3 class="review-title">"Centerpiece of my reception"</h3>
+            <p class="review-text">
+              The Hazoorilal Heritage Choker was the centerpiece of my reception look. The uncut polki stones caught every light and the finish felt weightless against my neck all evening.
+            </p>
+            <div class="review-footer">
+              <span class="review-author">Ananya Sharma</span>
+              <span class="review-meta">Kolkata, West Bengal</span>
+              <span class="review-tag">Piece: Hazoorilal Heritage Choker</span>
+            </div>
+          </article>
+
+          <!-- Review 2 -->
+          <article class="review-card">
+            <div class="review-stars" aria-label="5 out of 5 stars">
+              <svg class="icon" width="16" height="16"><use href="#icon-star"></use></svg>
+              <svg class="icon" width="16" height="16"><use href="#icon-star"></use></svg>
+              <svg class="icon" width="16" height="16"><use href="#icon-star"></use></svg>
+              <svg class="icon" width="16" height="16"><use href="#icon-star"></use></svg>
+              <svg class="icon" width="16" height="16"><use href="#icon-star"></use></svg>
+            </div>
+            <h3 class="review-title">"Zero tarnishing in coastal humidity"</h3>
+            <p class="review-text">
+              Living near the coast, imitation jewellery usually discolors in weeks. Shrivara's anti-tarnish finish has stayed as gleaming as day one despite three monsoon weddings!
+            </p>
+            <div class="review-footer">
+              <span class="review-author">Diya Chatterjee</span>
+              <span class="review-meta">Mumbai, Maharashtra</span>
+              <span class="review-tag">Piece: Anti-Tarnish Puffed Heart</span>
+            </div>
+          </article>
+
+          <!-- Review 3 -->
+          <article class="review-card">
+            <div class="review-stars" aria-label="5 out of 5 stars">
+              <svg class="icon" width="16" height="16"><use href="#icon-star"></use></svg>
+              <svg class="icon" width="16" height="16"><use href="#icon-star"></use></svg>
+              <svg class="icon" width="16" height="16"><use href="#icon-star"></use></svg>
+              <svg class="icon" width="16" height="16"><use href="#icon-star"></use></svg>
+              <svg class="icon" width="16" height="16"><use href="#icon-star"></use></svg>
+            </div>
+            <h3 class="review-title">"Indistinguishable from real gold"</h3>
+            <p class="review-text">
+              The kundan setting and the micro-gold dipping look identical to family heirloom gold. The packaging arrived safely cushioned in a royal velvet presentation box.
+            </p>
+            <div class="review-footer">
+              <span class="review-author">Riya Banerjee</span>
+              <span class="review-meta">New Delhi</span>
+              <span class="review-tag">Piece: Kundan Choker Set</span>
+            </div>
+          </article>
+
+          <!-- Review 4 -->
+          <article class="review-card">
+            <div class="review-stars" aria-label="5 out of 5 stars">
+              <svg class="icon" width="16" height="16"><use href="#icon-star"></use></svg>
+              <svg class="icon" width="16" height="16"><use href="#icon-star"></use></svg>
+              <svg class="icon" width="16" height="16"><use href="#icon-star"></use></svg>
+              <svg class="icon" width="16" height="16"><use href="#icon-star"></use></svg>
+              <svg class="icon" width="16" height="16"><use href="#icon-star"></use></svg>
+            </div>
+            <h3 class="review-title">"Countless compliments at Sangeet"</h3>
+            <p class="review-text">
+              I ordered the gold-plated pearl drop earrings for my best friend's sangeet. They are so lightweight yet look regal and grand. Loved the secure push-backs!
+            </p>
+            <div class="review-footer">
+              <span class="review-author">Mitali Sen</span>
+              <span class="review-meta">Bengaluru, Karnataka</span>
+              <span class="review-tag">Piece: Gold Plated Pearl Drop Earrings</span>
+            </div>
+          </article>
+
+          <!-- Review 5 -->
+          <article class="review-card">
+            <div class="review-stars" aria-label="5 out of 5 stars">
+              <svg class="icon" width="16" height="16"><use href="#icon-star"></use></svg>
+              <svg class="icon" width="16" height="16"><use href="#icon-star"></use></svg>
+              <svg class="icon" width="16" height="16"><use href="#icon-star"></use></svg>
+              <svg class="icon" width="16" height="16"><use href="#icon-star"></use></svg>
+              <svg class="icon" width="16" height="16"><use href="#icon-star"></use></svg>
+            </div>
+            <h3 class="review-title">"Prongs don't catch on silk sarees"</h3>
+            <p class="review-text">
+              Authentic Bengal karigari at an honest price. The openable kada pair has a sturdy clasp and smooth prongs that never snag on delicate banarasi silk sarees.
+            </p>
+            <div class="review-footer">
+              <span class="review-author">Ishita Sen</span>
+              <span class="review-meta">Jaipur, Rajasthan</span>
+              <span class="review-tag">Piece: Openable Polki Kada</span>
+            </div>
+          </article>
+
+          <!-- Review 6 -->
+          <article class="review-card">
+            <div class="review-stars" aria-label="5 out of 5 stars">
+              <svg class="icon" width="16" height="16"><use href="#icon-star"></use></svg>
+              <svg class="icon" width="16" height="16"><use href="#icon-star"></use></svg>
+              <svg class="icon" width="16" height="16"><use href="#icon-star"></use></svg>
+              <svg class="icon" width="16" height="16"><use href="#icon-star"></use></svg>
+              <svg class="icon" width="16" height="16"><use href="#icon-star"></use></svg>
+            </div>
+            <h3 class="review-title">"Prompt styling support on WhatsApp"</h3>
+            <p class="review-text">
+              Fast insured delivery to Hyderabad and exceptional styling assistance when I reached out on WhatsApp to match my lehenga colors. Truly a five-star experience!
+            </p>
+            <div class="review-footer">
+              <span class="review-author">Tania Bose</span>
+              <span class="review-meta">Hyderabad, Telangana</span>
+              <span class="review-tag">Piece: Navratna Bridal Choker</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         8. Filterable Catalogue Section (All 214 Pieces)
          ====================================================================== -->
     <section class="section-catalog" id="catalog" aria-labelledby="catalogHeading">
       <div class="container">
@@ -1061,328 +1312,115 @@
       </div>
     </section>
 
-    <!-- ======================================================================
-         8. Our Story Section (Asymmetric Editorial + Highlights)
-         ====================================================================== -->
-    <section class="section-story" id="story" aria-labelledby="storyHeading">
-      <div class="container">
-        <div class="story-grid">
-          <!-- Left: Craft Imagery -->
-          <div class="story-media">
-            <img class="story-media-img" 
-                 src="https://shrivara.co/cdn/shop/files/IMG_2288_copy.jpg?v=1788101059&width=800" 
-                 alt="Artisan hand-setting royal polki jewellery at the Shrivara atelier" 
-                 loading="lazy" 
-                 decoding="async"
-                 width="600" 
-                 height="750">
-            <div class="story-badge-floating">
-              <div class="story-badge-num">100%</div>
-              <div class="story-badge-label">Anti-Tarnish</div>
-            </div>
-          </div>
-
-          <!-- Right: Editorial Narrative -->
-          <div class="story-content">
-            <span class="eyebrow">Our Heritage & Atelier</span>
-            <h2 class="section-title" id="storyHeading" style="margin-bottom: var(--space-3);">
-              The Art of Indian Royalty, Reimagined for Modern Life
-            </h2>
-            
-            <blockquote class="story-pullquote">
-              "Jewellery is not merely an ornament; it is an enduring expression of Indian heritage, personal grace, and celebratory spirit."
-            </blockquote>
-
-            <p class="story-text">
-              Shrivara was founded with a singular conviction: that the regal grandeur of Indian heritage jewellery should be accessible without exorbitant markups or fleeting durability. Situated in Howrah — world-renowned for master gold karigars — each piece is handcrafted in pure brass alloy and sealed with our signature electro-chemical vacuum micro-layer.
-            </p>
-            <p class="story-text">
-              Whether you are preparing for a wedding celebration or wearing everyday elegance, our collections are formulated to withstand humidity, sweat, and festive wear while preserving royal mirror lustre.
-            </p>
-
-            <!-- 4 Icon Highlights -->
-            <div class="story-highlights-grid">
-              <div class="story-highlight-card">
-                <div class="story-highlight-icon">
-                  <svg class="icon" width="20" height="20" aria-hidden="true"><use href="#icon-shield"></use></svg>
-                </div>
-                <h4 class="story-highlight-title">Anti-Tarnish</h4>
-                <p class="story-highlight-desc">Vacuum micro-layer seal against oxidation</p>
-              </div>
-
-              <div class="story-highlight-card">
-                <div class="story-highlight-icon">
-                  <svg class="icon" width="20" height="20" aria-hidden="true"><use href="#icon-gem"></use></svg>
-                </div>
-                <h4 class="story-highlight-title">Gold Plated</h4>
-                <p class="story-highlight-desc">18K / 22K micro gold plating</p>
-              </div>
-
-              <div class="story-highlight-card">
-                <div class="story-highlight-icon">
-                  <svg class="icon" width="20" height="20" aria-hidden="true"><use href="#icon-check"></use></svg>
-                </div>
-                <h4 class="story-highlight-title">Made in India</h4>
-                <p class="story-highlight-desc">Generational Howrah artisans</p>
-              </div>
-
-              <div class="story-highlight-card">
-                <div class="story-highlight-icon">
-                  <svg class="icon" width="20" height="20" aria-hidden="true"><use href="#icon-star"></use></svg>
-                </div>
-                <h4 class="story-highlight-title">Premium Polki</h4>
-                <p class="story-highlight-desc">AAA crystals & uncut polki stones</p>
-              </div>
-            </div>
-
-            <div style="margin-top: 28px;">
-              <a href="our-story.html" class="btn-primary" style="display: inline-flex; align-items: center; gap: 8px;">
-                <span>Discover Our Complete Journey &amp; People</span>
-                <span aria-hidden="true">&rarr;</span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Marquee Ticker Banner (Pauses on Hover & Respects Reduced Motion) -->
-    <div class="marquee-bar" aria-hidden="true">
-      <div class="marquee-inner">
-        <span class="marquee-item">Anti-Tarnish • 18K/22K Gold Plated • Howrah Heritage Craft • Premium Polki & Gemstones • Made in India</span>
-        <span class="marquee-item">•</span>
-        <span class="marquee-item">Anti-Tarnish • 18K/22K Gold Plated • Howrah Heritage Craft • Premium Polki & Gemstones • Made in India</span>
-        <span class="marquee-item">•</span>
-        <span class="marquee-item">Anti-Tarnish • 18K/22K Gold Plated • Howrah Heritage Craft • Premium Polki & Gemstones • Made in India</span>
-      </div>
-    </div>
-
-    <!-- ======================================================================
-         9. Customer Reviews Carousel
-         ====================================================================== -->
-    <section class="section-reviews" id="reviews" aria-labelledby="reviewsTitle">
-      <div class="container">
-        <div class="section-header-center">
-          <span class="eyebrow">Customer Reflections</span>
-          <h2 class="section-title" id="reviewsTitle">Words of Love</h2>
-          <p class="section-lead">Real impressions from celebrations and weddings styled across India</p>
-          <span class="sample-notice-pill">Sample reviews for demo showcase</span>
-        </div>
-
-        <div class="reviews-carousel-track" id="reviewsTrack">
-          <!-- Review 1 -->
-          <article class="review-card">
-            <div class="review-stars" aria-label="5 out of 5 stars">
-              <svg class="icon" width="16" height="16"><use href="#icon-star"></use></svg>
-              <svg class="icon" width="16" height="16"><use href="#icon-star"></use></svg>
-              <svg class="icon" width="16" height="16"><use href="#icon-star"></use></svg>
-              <svg class="icon" width="16" height="16"><use href="#icon-star"></use></svg>
-              <svg class="icon" width="16" height="16"><use href="#icon-star"></use></svg>
-            </div>
-            <h3 class="review-title">"Centerpiece of my reception"</h3>
-            <p class="review-text">
-              The Hazoorilal Heritage Choker was the centerpiece of my reception look. The uncut polki stones caught every light and the finish felt weightless against my neck all evening.
-            </p>
-            <div class="review-footer">
-              <span class="review-author">Ananya Sharma</span>
-              <span class="review-meta">Kolkata, West Bengal</span>
-              <span class="review-tag">Piece: Hazoorilal Heritage Choker</span>
-            </div>
-          </article>
-
-          <!-- Review 2 -->
-          <article class="review-card">
-            <div class="review-stars" aria-label="5 out of 5 stars">
-              <svg class="icon" width="16" height="16"><use href="#icon-star"></use></svg>
-              <svg class="icon" width="16" height="16"><use href="#icon-star"></use></svg>
-              <svg class="icon" width="16" height="16"><use href="#icon-star"></use></svg>
-              <svg class="icon" width="16" height="16"><use href="#icon-star"></use></svg>
-              <svg class="icon" width="16" height="16"><use href="#icon-star"></use></svg>
-            </div>
-            <h3 class="review-title">"Zero tarnishing in coastal humidity"</h3>
-            <p class="review-text">
-              Living near the coast, imitation jewellery usually discolors in weeks. Shrivara's anti-tarnish finish has stayed as gleaming as day one despite three monsoon weddings!
-            </p>
-            <div class="review-footer">
-              <span class="review-author">Diya Chatterjee</span>
-              <span class="review-meta">Mumbai, Maharashtra</span>
-              <span class="review-tag">Piece: Anti-Tarnish Puffed Heart</span>
-            </div>
-          </article>
-
-          <!-- Review 3 -->
-          <article class="review-card">
-            <div class="review-stars" aria-label="5 out of 5 stars">
-              <svg class="icon" width="16" height="16"><use href="#icon-star"></use></svg>
-              <svg class="icon" width="16" height="16"><use href="#icon-star"></use></svg>
-              <svg class="icon" width="16" height="16"><use href="#icon-star"></use></svg>
-              <svg class="icon" width="16" height="16"><use href="#icon-star"></use></svg>
-              <svg class="icon" width="16" height="16"><use href="#icon-star"></use></svg>
-            </div>
-            <h3 class="review-title">"Indistinguishable from real gold"</h3>
-            <p class="review-text">
-              The kundan setting and the micro-gold dipping look identical to family heirloom gold. The packaging arrived safely cushioned in a royal velvet presentation box.
-            </p>
-            <div class="review-footer">
-              <span class="review-author">Riya Banerjee</span>
-              <span class="review-meta">New Delhi</span>
-              <span class="review-tag">Piece: Kundan Choker Set</span>
-            </div>
-          </article>
-
-          <!-- Review 4 -->
-          <article class="review-card">
-            <div class="review-stars" aria-label="5 out of 5 stars">
-              <svg class="icon" width="16" height="16"><use href="#icon-star"></use></svg>
-              <svg class="icon" width="16" height="16"><use href="#icon-star"></use></svg>
-              <svg class="icon" width="16" height="16"><use href="#icon-star"></use></svg>
-              <svg class="icon" width="16" height="16"><use href="#icon-star"></use></svg>
-              <svg class="icon" width="16" height="16"><use href="#icon-star"></use></svg>
-            </div>
-            <h3 class="review-title">"Countless compliments at Sangeet"</h3>
-            <p class="review-text">
-              I ordered the gold-plated pearl drop earrings for my best friend's sangeet. They are so lightweight yet look regal and grand. Loved the secure push-backs!
-            </p>
-            <div class="review-footer">
-              <span class="review-author">Mitali Sen</span>
-              <span class="review-meta">Bengaluru, Karnataka</span>
-              <span class="review-tag">Piece: Gold Plated Pearl Drop Earrings</span>
-            </div>
-          </article>
-
-          <!-- Review 5 -->
-          <article class="review-card">
-            <div class="review-stars" aria-label="5 out of 5 stars">
-              <svg class="icon" width="16" height="16"><use href="#icon-star"></use></svg>
-              <svg class="icon" width="16" height="16"><use href="#icon-star"></use></svg>
-              <svg class="icon" width="16" height="16"><use href="#icon-star"></use></svg>
-              <svg class="icon" width="16" height="16"><use href="#icon-star"></use></svg>
-              <svg class="icon" width="16" height="16"><use href="#icon-star"></use></svg>
-            </div>
-            <h3 class="review-title">"Prongs don't catch on silk sarees"</h3>
-            <p class="review-text">
-              Authentic Bengal karigari at an honest price. The openable kada pair has a sturdy clasp and smooth prongs that never snag on delicate banarasi silk sarees.
-            </p>
-            <div class="review-footer">
-              <span class="review-author">Ishita Sen</span>
-              <span class="review-meta">Jaipur, Rajasthan</span>
-              <span class="review-tag">Piece: Openable Polki Kada</span>
-            </div>
-          </article>
-
-          <!-- Review 6 -->
-          <article class="review-card">
-            <div class="review-stars" aria-label="5 out of 5 stars">
-              <svg class="icon" width="16" height="16"><use href="#icon-star"></use></svg>
-              <svg class="icon" width="16" height="16"><use href="#icon-star"></use></svg>
-              <svg class="icon" width="16" height="16"><use href="#icon-star"></use></svg>
-              <svg class="icon" width="16" height="16"><use href="#icon-star"></use></svg>
-              <svg class="icon" width="16" height="16"><use href="#icon-star"></use></svg>
-            </div>
-            <h3 class="review-title">"Prompt styling support on WhatsApp"</h3>
-            <p class="review-text">
-              Fast insured delivery to Hyderabad and exceptional styling assistance when I reached out on WhatsApp to match my lehenga colors. Truly a five-star experience!
-            </p>
-            <div class="review-footer">
-              <span class="review-author">Tania Bose</span>
-              <span class="review-meta">Hyderabad, Telangana</span>
-              <span class="review-tag">Piece: Navratna Bridal Choker</span>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
   </main>
 
   <!-- ======================================================================
-       10. Footer (Jewel-Toned Deep Emerald / Dark Background)
+       10. Footer (4-Column Luxury Architecture)
        ====================================================================== -->
   <footer class="site-footer" role="contentinfo">
     <div class="container">
-      <div class="footer-grid">
-        <!-- Col 1: Brand & Craft -->
-        <div>
-          <div style="margin-bottom: 16px;">
-            <a href="#" class="brand-logo-lockup" aria-label="Shrivara Homepage" style="align-items: flex-start; padding: 0;">
-              <span class="brand-wordmark" style="color: #FFFFFF; font-size: 2.1rem;">Shrivara</span>
-              <span class="brand-submark" style="justify-content: flex-start;">
-                <svg class="brand-substar" viewBox="0 0 32 32" aria-hidden="true"><use href="#icon-rosette-star"></use></svg>
-                <span class="brand-subtext" style="color: var(--gold-soft);">QUIET LUXURY</span>
-                <svg class="brand-substar" viewBox="0 0 32 32" aria-hidden="true"><use href="#icon-rosette-star"></use></svg>
-              </span>
-            </a>
-          </div>
-          <p class="footer-text">
-            Handcrafted Indian fashion jewellery blending timeless heritage with modern luxury. Anti-tarnish, gold plated, and adorned with high-grade polki and kundan stones. Handcrafted in Howrah, West Bengal.
-          </p>
-          <div class="social-links">
-            <a href="https://www.instagram.com/shri.vara" target="_blank" rel="noopener" class="social-btn" aria-label="Follow Shrivara on Instagram">
-              <svg class="icon" width="18" height="18" aria-hidden="true"><use href="#icon-instagram"></use></svg>
-            </a>
-            <a href="https://wa.me/919830000000" target="_blank" rel="noopener" class="social-btn" aria-label="Connect on WhatsApp">
-              <svg class="icon" width="18" height="18" aria-hidden="true"><use href="#icon-whatsapp"></use></svg>
-            </a>
-            <a href="#" class="social-btn" data-policy-key="faq" aria-label="Frequently Asked Questions">
-              <svg class="icon" width="18" height="18" aria-hidden="true"><use href="#icon-facebook"></use></svg>
-            </a>
-          </div>
+      <!-- Newsletter Top Banner -->
+      <div class="footer-newsletter-banner">
+        <div class="footer-newsletter-copy">
+          <span class="eyebrow" style="color: var(--gold); letter-spacing: 0.16em;">THE ATELIER CIRCLE</span>
+          <h3 class="footer-newsletter-heading">A Little More Beautiful, Delivered to Your Inbox.</h3>
+          <p class="footer-newsletter-sub">Discover new collections, thoughtful styling inspiration, and stories from Shrivara.</p>
         </div>
+        <form class="footer-newsletter-form" id="newsletterForm" novalidate>
+          <div class="newsletter-input-wrap">
+            <input type="email" id="newsletterEmail" class="newsletter-input" placeholder="Your email address..." required aria-label="Email address for newsletter">
+            <button type="submit" class="newsletter-btn">Subscribe</button>
+          </div>
+          <div class="newsletter-feedback" id="newsletterFeedback" aria-live="polite"></div>
+          <span class="newsletter-perk-note">✦ VIP 5% Off First Order with code FIRST5</span>
+        </form>
+      </div>
 
-        <!-- Col 2: Shop Collections -->
+      <div class="footer-grid">
+        <!-- Col 1: Shop -->
         <div>
           <h4 class="footer-col-title">Shop Collections</h4>
           <ul class="footer-links-list">
             <li><a href="#catalog" class="footer-link" onclick="window.filterByCategory('all');">All Jewellery (214 Pieces)</a></li>
-            <li><a href="#catalog" class="footer-link" onclick="window.filterByCategory('Jewellery Sets');">Jewellery Sets</a></li>
-            <li><a href="#catalog" class="footer-link" onclick="window.filterByCategory('Earrings');">Earrings & Tops</a></li>
-            <li><a href="#catalog" class="footer-link" onclick="window.filterByCategory('Bracelets & Bangles');">Bracelets & Bangles</a></li>
-            <li><a href="#catalog" class="footer-link" onclick="window.filterByCategory('Necklaces');">Necklaces</a></li>
-            <li><a href="#catalog" class="footer-link" onclick="window.filterByCategory('Pendant Sets');">Pendant Sets</a></li>
-            <li><a href="#catalog" class="footer-link" onclick="window.filterByCategory('Rings');">Rings</a></li>
-            <li><a href="#catalog" class="footer-link" onclick="window.filterByCategory('Anti-Tarnish');">Anti-Tarnish Pieces</a></li>
+            <li><a href="#catalog" class="footer-link" onclick="window.filterByCategory('Earrings');">Earrings &amp; Studs</a></li>
+            <li><a href="#catalog" class="footer-link" onclick="window.filterByCategory('Necklaces');">Necklaces &amp; Chokers</a></li>
+            <li><a href="#catalog" class="footer-link" onclick="window.filterByCategory('Jewellery Sets');">Royal Jewellery Sets</a></li>
+            <li><a href="#catalog" class="footer-link" onclick="window.filterByCategory('Bracelets & Bangles');">Bracelets &amp; Bangles</a></li>
+            <li><a href="#catalog" class="footer-link" onclick="window.filterByCategory('Rings');">Solitaire &amp; Polki Rings</a></li>
+            <li><a href="#catalog" class="footer-link" onclick="window.filterByCategory('Anti-Tarnish');">Anti-Tarnish Waterproof</a></li>
           </ul>
         </div>
 
-        <!-- Col 3: Customer Care & Policy Modals (No Dead '#' Links!) -->
+        <!-- Col 2: About Us -->
         <div>
-          <h4 class="footer-col-title">Customer Care</h4>
+          <h4 class="footer-col-title">About Shrivara</h4>
           <ul class="footer-links-list">
-            <li><button class="footer-link" data-policy-key="shipping">Shipping & Delivery Policy</button></li>
-            <li><button class="footer-link" data-policy-key="privacy">Privacy & Data Security</button></li>
-            <li><button class="footer-link" data-policy-key="terms">Terms of Service & Authenticity</button></li>
-            <li><button class="footer-link" data-policy-key="faq">Frequently Asked Questions</button></li>
-            <li><a href="#story" class="footer-link">About Howrah Atelier</a></li>
+            <li><a href="our-story.html" class="footer-link">Our Story &amp; Brand Film</a></li>
+            <li><a href="our-story.html#craft" class="footer-link">Bengal Craftsmanship &amp; Karigari</a></li>
+            <li><a href="find-your-style.html" class="footer-link" style="color: var(--gold-soft); font-weight: 600;">Find Your Style Discovery Quiz ✨</a></li>
+            <li><a href="contact.html" class="footer-link">Contact Flagship Atelier</a></li>
             <li><a href="#reviews" class="footer-link">Customer Reflections</a></li>
           </ul>
         </div>
 
-        <!-- Col 4: Flagship Atelier & Newsletter -->
+        <!-- Col 3: Customer Support -->
         <div>
-          <h4 class="footer-col-title">Flagship Atelier</h4>
-          <p class="footer-text" style="font-size: 0.8125rem;">
-            21/1 Dobson Road, Gulmohar Railway Quarters<br>
-            Mali Panchghara-Flat 4B<br>
-            Howrah, West Bengal - 711101, India<br>
-            Email: care@shrivara.co • Mon-Sat 10 AM - 8 PM IST
-          </p>
+          <h4 class="footer-col-title">Customer Care</h4>
+          <ul class="footer-links-list">
+            <li><button class="footer-link" onclick="window.openConsultationModal({ mode: 'video' });">Book 1-on-1 Video Consultation</button></li>
+            <li><a href="https://wa.me/919830000000?text=Hi%20Shrivara,%20I'd%20like%20styling%20assistance..." target="_blank" rel="noopener" class="footer-link" style="color: #25D366; font-weight: 600;">WhatsApp Styling Desk &rarr;</a></li>
+            <li><button class="footer-link" data-policy-key="faq">Frequently Asked Questions</button></li>
+            <li><button class="footer-link" data-policy-key="shipping">Shipping &amp; Delivery Information</button></li>
+            <li><button class="footer-link" data-policy-key="terms">Care Guide &amp; Authenticity</button></li>
+          </ul>
+        </div>
 
-          <form class="footer-newsletter-form" id="newsletterForm" novalidate>
-            <label for="newsletterEmail" style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--gold-soft);">
-              Join the VIP Circle (5% Off Code: FIRST5)
-            </label>
-            <div class="newsletter-input-wrap">
-              <input type="email" id="newsletterEmail" class="newsletter-input" placeholder="Your email address" required>
-              <button type="submit" class="newsletter-btn">Join</button>
-            </div>
-            <div class="newsletter-feedback" id="newsletterFeedback" aria-live="polite"></div>
-          </form>
+        <!-- Col 4: Policies & Atelier -->
+        <div>
+          <h4 class="footer-col-title">Policies &amp; Atelier</h4>
+          <ul class="footer-links-list" style="margin-bottom: 16px;">
+            <li><button class="footer-link" data-policy-key="privacy">Privacy &amp; Data Security</button></li>
+            <li><button class="footer-link" data-policy-key="terms">Terms of Service</button></li>
+            <li><button class="footer-link" data-policy-key="shipping">Shipping Policy</button></li>
+            <li><button class="footer-link" data-policy-key="returns">Returns &amp; Exchanges Policy</button></li>
+          </ul>
+          
+          <div class="footer-atelier-contact">
+            <span class="footer-atelier-tag">FLAGSHIP ATELIER</span>
+            <p class="footer-atelier-addr">
+              21/1 Dobson Road, Gulmohar Railway Quarters<br>
+              Mali Panchghara-Flat 4B, Howrah - 711101, WB<br>
+              Email: care@shrivara.co • Mon-Sat 10 AM - 8 PM IST
+            </p>
+          </div>
         </div>
       </div>
 
+      <!-- Footer Bottom Bar -->
       <div class="footer-bottom">
-        <span>© 2026 Shrivara Jewellery. Handcrafted with devotion in India.</span>
-        <span>Showcase Portfolio Store • Official live store at <a href="https://shrivara.co" target="_blank" rel="noopener" style="color: var(--gold); text-decoration: underline;">shrivara.co</a></span>
+        <div class="footer-brand-wrap">
+          <a href="#" class="brand-logo-lockup" aria-label="Shrivara Homepage">
+            <span class="brand-wordmark" style="color: #FFFFFF; font-size: 1.8rem;">Shrivara</span>
+            <span class="brand-submark">
+              <svg class="brand-substar" viewBox="0 0 32 32" aria-hidden="true"><use href="#icon-rosette-star"></use></svg>
+              <span class="brand-subtext" style="color: var(--gold-soft);">QUIET LUXURY</span>
+              <svg class="brand-substar" viewBox="0 0 32 32" aria-hidden="true"><use href="#icon-rosette-star"></use></svg>
+            </span>
+          </a>
+          <span class="footer-copy-text">© 2026 Shrivara Jewellery. Handcrafted with devotion in India.</span>
+        </div>
+
+        <div class="social-links">
+          <a href="https://www.instagram.com/shri.vara" target="_blank" rel="noopener" class="social-btn" aria-label="Follow Shrivara on Instagram" title="Instagram @shri.vara">
+            <svg class="icon" width="18" height="18" aria-hidden="true"><use href="#icon-instagram"></use></svg>
+          </a>
+          <a href="https://wa.me/919830000000" target="_blank" rel="noopener" class="social-btn" aria-label="Connect with Stylist on WhatsApp" title="WhatsApp Concierge">
+            <svg class="icon" width="18" height="18" aria-hidden="true"><use href="#icon-whatsapp"></use></svg>
+          </a>
+          <a href="https://shrivara.co" target="_blank" rel="noopener" class="social-btn" aria-label="Official Store Website" title="Official Store">
+            <svg class="icon" width="18" height="18" aria-hidden="true"><use href="#icon-gem"></use></svg>
+          </a>
+        </div>
       </div>
     </div>
   </footer>

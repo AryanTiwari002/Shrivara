@@ -1065,7 +1065,13 @@ function updateUrlHash() {
 function initHashRouting() {
   function readHash() {
     const hash = window.location.hash;
-    if (hash && hash.includes("?")) {
+    if (hash === "#new-arrivals") {
+      if (typeof window.switchShowcaseTab === "function") window.switchShowcaseTab("new-arrivals");
+      document.getElementById("curated-showcase")?.scrollIntoView({ behavior: "smooth" });
+    } else if (hash === "#bestsellers") {
+      if (typeof window.switchShowcaseTab === "function") window.switchShowcaseTab("bestsellers");
+      document.getElementById("curated-showcase")?.scrollIntoView({ behavior: "smooth" });
+    } else if (hash && hash.includes("?")) {
       const q = hash.split("?")[1];
       const params = new URLSearchParams(q);
       const cat = params.get("cat");
@@ -1089,6 +1095,19 @@ function initHashRouting() {
       applyFiltersAndRender();
     }
   }
+
+  // Intercept nav links directly for instant responsiveness
+  document.querySelectorAll('a[href="#new-arrivals"]').forEach(a => {
+    a.addEventListener("click", () => {
+      if (typeof window.switchShowcaseTab === "function") window.switchShowcaseTab("new-arrivals");
+    });
+  });
+
+  document.querySelectorAll('a[href="#bestsellers"]').forEach(a => {
+    a.addEventListener("click", () => {
+      if (typeof window.switchShowcaseTab === "function") window.switchShowcaseTab("bestsellers");
+    });
+  });
 
   window.addEventListener("hashchange", readHash);
   readHash();
@@ -1480,7 +1499,45 @@ function initCarousels() {
     attachCardEvents(newArrivalsTrack);
   }
 
-  // Arrow button navigation
+  // Showcase Tabs Toggle
+  const tabBestsellers = document.getElementById("tabBestsellers");
+  const tabNewArrivals = document.getElementById("tabNewArrivals");
+  const showcasePrevBtn = document.getElementById("showcasePrevBtn");
+  const showcaseNextBtn = document.getElementById("showcaseNextBtn");
+
+  function switchShowcaseTab(tab) {
+    if (tab === "new-arrivals") {
+      tabNewArrivals?.classList.add("is-active");
+      tabNewArrivals?.setAttribute("aria-selected", "true");
+      tabBestsellers?.classList.remove("is-active");
+      tabBestsellers?.setAttribute("aria-selected", "false");
+      if (newArrivalsTrack) newArrivalsTrack.style.display = "flex";
+      if (bestsellersTrack) bestsellersTrack.style.display = "none";
+    } else {
+      tabBestsellers?.classList.add("is-active");
+      tabBestsellers?.setAttribute("aria-selected", "true");
+      tabNewArrivals?.classList.remove("is-active");
+      tabNewArrivals?.setAttribute("aria-selected", "false");
+      if (bestsellersTrack) bestsellersTrack.style.display = "flex";
+      if (newArrivalsTrack) newArrivalsTrack.style.display = "none";
+    }
+  }
+  window.switchShowcaseTab = switchShowcaseTab;
+
+  tabBestsellers?.addEventListener("click", () => switchShowcaseTab("bestsellers"));
+  tabNewArrivals?.addEventListener("click", () => switchShowcaseTab("new-arrivals"));
+
+  showcasePrevBtn?.addEventListener("click", () => {
+    const activeTrack = (newArrivalsTrack && newArrivalsTrack.style.display !== "none") ? newArrivalsTrack : bestsellersTrack;
+    activeTrack?.scrollBy({ left: -320, behavior: "smooth" });
+  });
+
+  showcaseNextBtn?.addEventListener("click", () => {
+    const activeTrack = (newArrivalsTrack && newArrivalsTrack.style.display !== "none") ? newArrivalsTrack : bestsellersTrack;
+    activeTrack?.scrollBy({ left: 320, behavior: "smooth" });
+  });
+
+  // Arrow button navigation for other tracks
   document.querySelectorAll("[data-carousel-target]").forEach(btn => {
     btn.addEventListener("click", () => {
       const targetId = btn.dataset.carouselTarget;
@@ -2070,25 +2127,32 @@ function initDemoCheckout() {
 
     closeCartDrawer();
 
+    // Sanitize cart: remove any unpriced or invalid items
+    state.cart = state.cart.filter(item => item && typeof item.price === "number" && item.price > 0);
+    saveCart();
+
     // Render items in checkout modal
-    const subtotal = state.cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+    const subtotal = state.cart.reduce((sum, item) => sum + (item.price * (item.qty || item.quantity || 1)), 0);
     const isFreeShipping = subtotal >= CONFIG.freeShippingThreshold;
     const shippingFee = isFreeShipping ? 0 : 150;
     const orderTotal = subtotal + shippingFee;
 
     if (itemsContainer) {
-      itemsContainer.innerHTML = state.cart.map(item => `
+      itemsContainer.innerHTML = state.cart.map(item => {
+        const itemQty = item.qty || item.quantity || 1;
+        return `
         <div style="display: flex; align-items: center; justify-content: space-between; padding: 6px 0; border-bottom: 1px dashed var(--line); font-size: 0.8125rem;">
           <div style="display: flex; align-items: center; gap: 8px;">
             <img src="${getShopifyImageUrl(item.image, 80)}" alt="${item.title}" style="width: 32px; height: 40px; object-fit: cover; border-radius: var(--radius-sm);">
             <div>
               <div style="font-weight: 600; color: var(--ink); max-width: 220px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${item.title}</div>
-              <div style="font-size: 0.72rem; color: var(--muted);">Qty: ${item.quantity} &times; ${formatPrice(item.price)}</div>
+              <div style="font-size: 0.72rem; color: var(--muted);">Qty: ${itemQty} &times; ${formatPrice(item.price)}</div>
             </div>
           </div>
-          <div style="font-weight: 700; color: var(--ink);">${formatPrice(item.price * item.quantity)}</div>
+          <div style="font-weight: 700; color: var(--ink);">${formatPrice(item.price * itemQty)}</div>
         </div>
-      `).join("");
+      `;
+      }).join("");
     }
 
     if (subtotalText) subtotalText.textContent = formatPrice(subtotal);
@@ -2456,6 +2520,10 @@ function initAtelierConcierge() {
   });
 
   document.getElementById("reassuranceConciergeItem")?.addEventListener("click", () => {
+    openConsultationModal({ mode: "video" });
+  });
+
+  document.getElementById("heroConsultBtn")?.addEventListener("click", () => {
     openConsultationModal({ mode: "video" });
   });
 }
